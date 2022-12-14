@@ -1,10 +1,10 @@
-# 👋 `All Things Digital` - A Tailwind Landing Page
+# 👋 `All Things Digital` - A Tailwind Theme
 
 
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
 
-## 🚀 Descriptions
+## 🎊 Descriptions
 
 Introducing our newest CSS theme: `All Things Digital` is a simple, minimalistic and responsive single page layout, built on top of the latest Tailwind (3.2.4) technology. `All Things Digital` shipped with Dark Mode and Mobile First Focus! This theme is designed to provide a sleek and modern look for your website, with a focus on accessibility and easy customization.
 
@@ -12,11 +12,11 @@ The dark mode feature allows users to switch to a darker color scheme for a more
 
 Tailwind CSS is a utility-first CSS framework, which means that it provides a set of low-level utility classes that make it easy to style your website without writing complex CSS code. This allows you to quickly and easily customize the look and feel of your website to match your brand and aesthetic.
 
-Whether you're a seasoned web developer or a beginner, this theme is sure to provide a professional and modern look for your website. Try it out today!
+In addition to the sleek dark mode and mobile first focus, our Tailwind CSS theme also includes powerful plugins for typography and forms. The typography plugin allows you to easily add beautiful and highly customizable headings, paragraphs, and other text elements to your website. And the forms plugin makes it easy to create clean and user-friendly forms for gathering information from your visitors.
 
-```bash
-npm run watch
-```
+Together, these plugins provide a complete solution for styling your website's content and gathering information from your users. They're built to work seamlessly with the rest of the theme, so you can easily create a professional and cohesive look for your website.
+
+Whether you're a seasoned web developer or a beginner, this theme is sure to provide a professional and modern look for your website. Try it out today!
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
@@ -66,7 +66,7 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 ## 🔗 Credits
 
 - [Tailwind Framework](https://tailwindcss.com/docs/installation/)
-- [Figma Design](https://www.figma.com/community/file/1012878506205031695)
+- [Figma Design](https://www.figma.com/file/wkTWjEUv3gCeDBAiuPo2hS/dgpond.com?node-id=6%3A2&t=Pqe7whkUF9DBGnqw-1)
 - [Hero Icons](https://heroicons.com/)
 - [VS Code Editor](https://code.visualstudio.com/)
 
