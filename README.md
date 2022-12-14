@@ -1,16 +1,16 @@
-# 👋 `Back2School` - A Tailwind Landing Page
+# 👋 `All Things Digital` - A Tailwind Landing Page
 
 https://user-images.githubusercontent.com/8904/203683489-83fcbda1-8eac-498b-a84e-a958d3ff59e2.mp4
 
-`Back2School` is a simple, minimalistic and responsive single page layout, built on top of the latest Tailwind 3.*.* technology. Make sure you have the Node JS running properly on your system to install the dependecies for the final build to function properly. 
+`All Things Digital` is a simple, minimalistic and responsive single page layout, built on top of the latest Tailwind 3.*.* technology. Make sure you have the Node JS running properly on your system to install the dependecies for the final build to function properly. 
 
 ```bash
 npm run watch
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/back2school?file=README.md)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/back2school/)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleonism%2Fback2school&project-name=back2school&repository-name=back2school)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleonism%2Fall-things-digital)
 
 ![Alt text](/back2school.png?raw=true)
 
@@ -19,6 +19,8 @@ npm run watch
 - ✅ **Responsive mobile-friendly design**
 - ✅ **Using the latest Tailwind 3.2.4**
 - ✅ **Tested on various devices with different viewports**
+- ✅ **Dark Mode**
+- ✅ **Contact Form**
 
 ## 😏 Todos
 
@@ -70,9 +72,9 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 ## License
 Distributed under the MIT License - Nov - 2022
 
-"scripts": {
+`"scripts": {
     "dev": "tailwindcss -i ./src/main.css -o ./dist/style.css",
     "build": "tailwindcss -i ./src/main.css -o ./dist/style.css",
     "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
     "compress": "npx tailwindcss -o ./dist/style.css --minify"
-  }
+  }`
