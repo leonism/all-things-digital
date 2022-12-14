@@ -63,11 +63,11 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 
 ## 🧬 Versions
 
-- [back2school @ github](https://github.com/leonism/all-things-digital)
-- [back2school @ vercel](https://all-things-digital.vercel.app/)
-- [back2school @ netlify](https://all-things-digital.netlify.app/)
-- [back2school @ cloudflare](https://all-things-digital.pages.dev)
-- [back2school @ render](https://all-things-digital.onrender.com)
+- [all-things-digital @ github](https://github.com/leonism/all-things-digital)
+- [all-things-digital @ vercel](https://all-things-digital.vercel.app/)
+- [all-things-digital @ netlify](https://all-things-digital.netlify.app/)
+- [all-things-digital @ cloudflare](https://all-things-digital.pages.dev)
+- [all-things-digital @ render](https://all-things-digital.onrender.com)
 
 ## License
 Distributed under the MIT License - Nov - 2022
