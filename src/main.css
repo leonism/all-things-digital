@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.display-none {
+  @apply hidden;
+}
+
+:root {
+  /* Colors */
+  --bkg: 222 47.4% 11.2%;
+  --bkg-alt: 226 58.3% 18.8%;
+  --text: 226 100% 93.9%;
+  --text-alt: 226 22.1% 73.3%;
+  --muted: 230 39% 67.8%;
+  --white: 255 100% 100%;
+  --accent1: 241 76.8% 62.7%;
+  --accent2: 330 85.2% 60.4%;
+  --accent3: 0 90.6% 70.8%;
+    /* --gradient: linear-gradient(
+    94.55deg,
+    hsl(var(--accent2)) -4.6%,
+    hsl(var(--accent3)) 99.9%    
+  ); */
+}
+
+.blurGrad {
+  /* position: relative; */
+}
+
+.blurGrad::after,
+.blurGrad::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  filter: blur(35px);
+  border-radius: 10% 10% 10%;
+}
+
+.blurGrad::after {
+  background-color: hsl(var(--accent1) / .2);
+  transform: rotate(-20deg);
+}
+
+.blurGrad::before {
+  background-color: hsl(var(--accent2) / .2);
+  transform: rotate(20deg);
+}
+
+@media screen (max-width: 480px) {
+  .blurGrad::after,
+  .blurGrad::before {
+    filter: blur(20px);
+  }
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: hsl(279, 48%, 54%);
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
