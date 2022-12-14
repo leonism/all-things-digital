@@ -1,12 +1,13 @@
 # 👋 `All Things Digital` - A Tailwind Theme
 
 
+## 🎊 Visuals
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
 
 ## 🎊 Descriptions
 
-Introducing our newest CSS theme: `All Things Digital` is a simple, minimalistic and responsive single page layout, built on top of the latest Tailwind (3.2.4) technology. `All Things Digital` shipped with Dark Mode and Mobile First Focus! This theme is designed to provide a sleek and modern look for your website, with a focus on accessibility and easy customization.
+Introducing our newest CSS theme: `All Things Digital` is a simple, minimalistic and responsive multiple-page layout, built on top of the latest Tailwind (3.2.4) technology. `All Things Digital` shipped with Dark Mode and Mobile First Focus! This theme is designed to provide a sleek and modern look for your website, with a focus on accessibility and easy customization.
 
 The dark mode feature allows users to switch to a darker color scheme for a more comfortable viewing experience, particularly at night or in low light environments. And with a mobile first focus, this theme is optimized for mobile devices, ensuring that your website looks great on any screen size.
 
@@ -69,6 +70,7 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 - [Figma Design](https://www.figma.com/file/wkTWjEUv3gCeDBAiuPo2hS/dgpond.com?node-id=6%3A2&t=Pqe7whkUF9DBGnqw-1)
 - [Hero Icons](https://heroicons.com/)
 - [VS Code Editor](https://code.visualstudio.com/)
+- [Jeff Sum](https://jeffsum.com/)
 
 ## 🧬 Versions
 
