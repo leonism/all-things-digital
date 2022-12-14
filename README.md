@@ -34,6 +34,7 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 - ✅ **Tested on various devices with different viewports**
 - ✅ **Dark Mode**
 - ✅ **Contact Form**
+- ✅ **Utilize Tailwind Plugins (Typography & Form)**
 
 ## 😏 Todos
 
