@@ -1,7 +1,7 @@
-# 👋 `All Things Digital` - A Tailwind Theme
+# 👋 All Things Digital - A Tailwind Theme
 
 
-## 🎊 Visuals
+## 🎊 Video
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
 
@@ -23,7 +23,9 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleonism%2Fall-things-digital)
 
-![Alt text](/back2school.png?raw=true)
+## 🎊 Mock-up & Visualization
+
+![Alt text](/all-things-digital.png?raw=true)
 
 ## 🚀 Features
 
