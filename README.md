@@ -84,7 +84,7 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 - [all-things-digital @ render](https://all-things-digital.onrender.com)
 
 ## License
-Distributed under the MIT License - Nov - 2022
+Distributed under the MIT License - December  - 2022
 
 `"scripts": {
     "dev": "tailwindcss -i ./src/main.css -o ./dist/style.css",
