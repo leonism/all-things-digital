@@ -4,9 +4,15 @@
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
 
+## 🚀 Descriptions
 
+Introducing our newest CSS theme: `All Things Digital` is a simple, minimalistic and responsive single page layout, built on top of the latest Tailwind (3.2.4) technology. `All Things Digital` shipped with Dark Mode and Mobile First Focus! This theme is designed to provide a sleek and modern look for your website, with a focus on accessibility and easy customization.
 
-`All Things Digital` is a simple, minimalistic and responsive single page layout, built on top of the latest Tailwind 3.*.* technology. Make sure you have the Node JS running properly on your system to install the dependecies for the final build to function properly. 
+The dark mode feature allows users to switch to a darker color scheme for a more comfortable viewing experience, particularly at night or in low light environments. And with a mobile first focus, this theme is optimized for mobile devices, ensuring that your website looks great on any screen size.
+
+Tailwind CSS is a utility-first CSS framework, which means that it provides a set of low-level utility classes that make it easy to style your website without writing complex CSS code. This allows you to quickly and easily customize the look and feel of your website to match your brand and aesthetic.
+
+Whether you're a seasoned web developer or a beginner, this theme is sure to provide a professional and modern look for your website. Try it out today!
 
 ```bash
 npm run watch
@@ -30,7 +36,6 @@ npm run watch
 
 - ❎ **More Pages Design**
 - ❎ **Multi-language i18n**
-- ❎ **Dark mode**
 
 ## 🤓 How To
 
@@ -42,8 +47,8 @@ npm install
 
 Run the Tailwind CLI to compile the **input.css** during development. The output file is **dist/output.css**
 
-- `input.css`  located at `./src/input.css`
-- `output.css` located at `./dist/output.css`
+- `main.css`  located at `./src/main.css`
+- `style.css` located at `./dist/style.css`
 
 
 ```
