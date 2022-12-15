@@ -1,13 +1,13 @@
 # 👋 All Things Digital - A Tailwind Theme
 
 
-## 🎊 Video
+## 🎥 Video
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
 
 ## 🎊 Descriptions
 
-Introducing our newest CSS theme: `All Things Digital` is a simple, minimalistic and responsive multiple-page layout, built on top of the latest Tailwind (3.2.4) technology. `All Things Digital` shipped with Dark Mode and Mobile First Focus! This theme is designed to provide a sleek and modern look for your website, with a focus on accessibility and easy customization.
+Introducing our newest CSS theme: `All Things Digital`, a simple, minimalistic and responsive multiple-page layout, built on top of the latest Tailwind (3.2.4) technology. `All Things Digital` shipped with Dark Mode and Mobile First Focus! This theme is designed to provide a sleek and modern look for your website or blogs, with a focus on accessibility and easy customization.
 
 The dark mode feature allows users to switch to a darker color scheme for a more comfortable viewing experience, particularly at night or in low light environments. And with a mobile first focus, this theme is optimized for mobile devices, ensuring that your website looks great on any screen size.
 
@@ -23,7 +23,7 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleonism%2Fall-things-digital)
 
-## 🎊 Mock-up & Visualization
+## 📷 Mock-up & Visualization
 
 ![Alt text](/all-things-digital.png?raw=true)
 
@@ -74,6 +74,7 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 - [Hero Icons](https://heroicons.com/)
 - [VS Code Editor](https://code.visualstudio.com/)
 - [Jeff Sum](https://jeffsum.com/)
+- [ChatGPT](https://jeffsum.com/)
 
 ## 🧬 Versions
 
@@ -83,12 +84,10 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 - [all-things-digital @ cloudflare](https://all-things-digital.pages.dev)
 - [all-things-digital @ render](https://all-things-digital.onrender.com)
 
-## License
+## 💻 Splash Screen
+
+![Alt text](/all-things-digital-splash.png?raw=true)
+
+## 🖊️ License
 Distributed under the MIT License - December  - 2022
 
-`"scripts": {
-    "dev": "tailwindcss -i ./src/main.css -o ./dist/style.css",
-    "build": "tailwindcss -i ./src/main.css -o ./dist/style.css",
-    "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
-    "compress": "npx tailwindcss -o ./dist/style.css --minify"
-  }`
