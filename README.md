@@ -78,7 +78,7 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 
 ## 🧬 Versions
 
-- [all-things-digital @ github](https://github.com/leonism/all-things-digital)
+- [all-things-digital @ github pages](https://leonism.github.io/all-things-digital/dist/index.html)
 - [all-things-digital @ vercel](https://all-things-digital.vercel.app/)
 - [all-things-digital @ netlify](https://all-things-digital.netlify.app/)
 - [all-things-digital @ cloudflare](https://all-things-digital.pages.dev)
@@ -89,5 +89,5 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 ![Alt text](/all-things-digital-splash.png?raw=true)
 
 ## 🖊️ License
-Distributed under the MIT License - December  - 2022
+Distributed under the MIT License - December 2022
 
