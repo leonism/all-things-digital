@@ -70,11 +70,11 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 ## 🔗 Credits
 
 - [Tailwind Framework](https://tailwindcss.com/docs/installation/)
-- [Figma Design](https://www.figma.com/file/wkTWjEUv3gCeDBAiuPo2hS/dgpond.com?node-id=6%3A2&t=Pqe7whkUF9DBGnqw-1)
+- [Figma Design](https://www.figma.com/community/file/1185498137271900053)
 - [Hero Icons](https://heroicons.com/)
 - [VS Code Editor](https://code.visualstudio.com/)
 - [Jeff Sum](https://jeffsum.com/)
-- [ChatGPT](https://jeffsum.com/)
+- [ChatGPT](https://chat.openai.com/chat)
 
 ## 🧬 Versions
 
