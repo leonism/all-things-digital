@@ -1,10 +1,11 @@
 # 👋 All Things Digital - A Tailwind Theme
 
-<<<<<<< HEAD
-=======
+# <<<<<<< HEAD
+
 [![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/leonism/all-things-digital/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/leonism/all-things-digital/actions/workflows/jekyll-gh-pages.yml)
 
->>>>>>> e78bc05c661eb49d15f6f00e128f59cd7f1aecb0
+> > > > > > > e78bc05c661eb49d15f6f00e128f59cd7f1aecb0
+
 ## 🎥 Video
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
