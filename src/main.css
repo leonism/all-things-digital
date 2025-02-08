@@ -1,27 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap') layer(base);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-@import 'tailwindcss';
-
-@config '../tailwind.config.js';
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .display-none {
   @apply hidden;
@@ -38,7 +19,7 @@
   --accent1: 241 76.8% 62.7%;
   --accent2: 330 85.2% 60.4%;
   --accent3: 0 90.6% 70.8%;
-  /* --gradient: linear-gradient(
+    /* --gradient: linear-gradient(
     94.55deg,
     hsl(var(--accent2)) -4.6%,
     hsl(var(--accent3)) 99.9%    
@@ -70,7 +51,6 @@
 }
 
 @media screen (max-width: 480px) {
-
   .blurGrad::after,
   .blurGrad::before {
     filter: blur(20px);
@@ -78,7 +58,7 @@
 }
 
 
-/* Start the Hamburger Menu for the Mobile Web */
+/* Hamburger Menu */
 .hamburger {
   cursor: pointer;
   width: 24px;
@@ -124,3 +104,4 @@
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
+

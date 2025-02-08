@@ -1,6 +1,5 @@
 # 👋 All Things Digital - A Tailwind Theme
 
-[![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/leonism/all-things-digital/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/leonism/all-things-digital/actions/workflows/jekyll-gh-pages.yml)
 
 ## 🎥 Video
 
@@ -52,8 +51,9 @@ npm install
 
 Run the Tailwind CLI to compile the **input.css** during development. The output file is **dist/output.css**
 
-- `main.css` located at `./src/main.css`
+- `main.css`  located at `./src/main.css`
 - `style.css` located at `./dist/style.css`
+
 
 ```
 npm run watch
@@ -63,12 +63,6 @@ To build once run.
 
 ```
 npm run build
-```
-
-To run on local development server.
-
-```
-npm run watch & npm start
 ```
 
 You can edit the scripts in package.json and the `tailwind.config.js` file to change `input/output` locations and the script commands.
@@ -95,5 +89,5 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 ![Alt text](/all-things-digital-splash.png?raw=true)
 
 ## 🖊️ License
-
 Distributed under the MIT License - December 2022
+
