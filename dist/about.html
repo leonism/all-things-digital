@@ -84,9 +84,9 @@
                 <div id="contactButton">
                     <a href="contact.html">
                         <button type="button" class="
-                                                hidden md:align-center ml-3 px-5 pt-2.5 pb-2 text-white font-medium text-xs leading-normal uppercase rounded-lg transition duration-200 ease-in-out bg-gradient-to-br from-indigo-400 to-pink-500 md:flex
+                                                hidden md:align-center ml-3 px-5 pt-2.5 pb-2 text-white font-medium text-xs leading-normal uppercase rounded-lg transition duration-200 ease-in-out bg-linear-to-br from-indigo-400 to-pink-500 md:flex
                                                 hover:text-whiteHover hover:shadow-lg hover:bg-opacity-40 hover:outline-1 dark:hover:shadow-cyan-500/60 hover:transition-colors hover:duration-200
-                                                focus:text-white focus:shadow-lg focus:outline-none focus:ring-1 
+                                                focus:text-white focus:shadow-lg focus:outline-hidden focus:ring-1 
                                                 active:text-white active:shadow-lg">
                             Contact Me
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -128,7 +128,7 @@
     <section id="subMainHeading" class="max-w-3xl p-3 mx-auto mt-10">
         <div id="mainHeading" class="text-center">
             <h1
-                class="py-3 text-5xl subpixel-antialiased font-extrabold tracking-tight text-transparent md:text-6xl drop-shadow-lg font-navigation bg-gradient-to-br from-indigo-400 to-pink-600 bg-clip-text">
+                class="py-3 text-5xl subpixel-antialiased font-extrabold tracking-tight text-transparent md:text-6xl drop-shadow-lg font-navigation bg-linear-to-br from-indigo-400 to-pink-600 bg-clip-text">
                 Let Me Introduce Myself
             </h1>
         </div>
@@ -163,11 +163,11 @@
     </section>    
     <!-- start the footer section -->
     <section class="flex flex-col items-center max-w-3xl mx-auto my-10 border-t dark:border-slate-800/60">
-        <div class="flex max-w-xs pt-5 mx-auto -mt-10 overflow-hidden drop-shadow-sm grayscale opacity-80">
+        <div class="flex max-w-xs pt-5 mx-auto -mt-10 overflow-hidden drop-shadow-xs grayscale opacity-80">
             <img src="./img/icons/logo-footer.png" width="35" height="35" alt="bottom-logo" class="">
         </div>
         <div class="mt-5">
-            <ul class="flex flex-wrap justify-between max-w-screen-md mx-auto text-sm font-navigation text-slate-400">
+            <ul class="flex flex-wrap justify-between max-w-(--breakpoint-md) mx-auto text-sm font-navigation text-slate-400">
                 <li class="mx-2">
                     <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
                         href="#">
