@@ -19,7 +19,7 @@
   --accent1: 241 76.8% 62.7%;
   --accent2: 330 85.2% 60.4%;
   --accent3: 0 90.6% 70.8%;
-    /* --gradient: linear-gradient(
+  /* --gradient: linear-gradient(
     94.55deg,
     hsl(var(--accent2)) -4.6%,
     hsl(var(--accent3)) 99.9%    
@@ -51,6 +51,7 @@
 }
 
 @media screen (max-width: 480px) {
+
   .blurGrad::after,
   .blurGrad::before {
     filter: blur(20px);
@@ -58,7 +59,7 @@
 }
 
 
-/* Hamburger Menu */
+/* Start the Hamburger Menu for the Mobile Web */
 .hamburger {
   cursor: pointer;
   width: 24px;
@@ -104,4 +105,3 @@
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
-

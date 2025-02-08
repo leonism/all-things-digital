@@ -1445,6 +1445,10 @@ select{
   width: 2rem;
 }
 
+.w-1{
+  width: 0.25rem;
+}
+
 .min-w-\[64px\]{
   min-width: 64px;
 }
@@ -2191,7 +2195,7 @@ select{
   }
 }
 
-/* Hamburger Menu */
+/* Start the Hamburger Menu for the Mobile Web */
 
 .hamburger {
   cursor: pointer;
@@ -2632,8 +2636,64 @@ select{
 }
 
 @media (min-width: 480px){
+  .sm\:ml-8{
+    margin-left: 2rem;
+  }
+
+  .sm\:ml-2{
+    margin-left: 0.5rem;
+  }
+
+  .sm\:ml-4{
+    margin-left: 1rem;
+  }
+
+  .sm\:h-12{
+    height: 3rem;
+  }
+
+  .sm\:h-3{
+    height: 0.75rem;
+  }
+
+  .sm\:min-h-\[50px\]{
+    min-height: 50px;
+  }
+
+  .sm\:min-h-\[40px\]{
+    min-height: 40px;
+  }
+
+  .sm\:min-h-\[25px\]{
+    min-height: 25px;
+  }
+
   .sm\:w-auto{
     width: auto;
+  }
+
+  .sm\:w-12{
+    width: 3rem;
+  }
+
+  .sm\:w-3{
+    width: 0.75rem;
+  }
+
+  .sm\:min-w-\[50px\]{
+    min-width: 50px;
+  }
+
+  .sm\:min-w-\[40px\]{
+    min-width: 40px;
+  }
+
+  .sm\:min-w-\[25px\]{
+    min-width: 25px;
+  }
+
+  .sm\:basis-1\/4{
+    flex-basis: 25%;
   }
 
   .sm\:grid-cols-3{
@@ -2652,13 +2712,38 @@ select{
     padding-left: 0.75rem;
   }
 
+  .sm\:pl-4{
+    padding-left: 1rem;
+  }
+
   .sm\:text-lg{
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
+  .sm\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:text-\[10px\]{
+    font-size: 10px;
+  }
+
+  .sm\:text-xs{
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
   .sm\:leading-snug{
     line-height: 1.375;
+  }
+
+  .sm\:line-clamp-3{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 
@@ -2687,8 +2772,28 @@ select{
     display: none;
   }
 
+  .md\:min-h-\[80px\]{
+    min-height: 80px;
+  }
+
+  .md\:min-h-\[64px\]{
+    min-height: 64px;
+  }
+
   .md\:w-auto{
     width: auto;
+  }
+
+  .md\:min-w-\[80px\]{
+    min-width: 80px;
+  }
+
+  .md\:min-w-\[64px\]{
+    min-width: 64px;
+  }
+
+  .md\:basis-1\/5{
+    flex-basis: 20%;
   }
 
   .md\:flex-row{
@@ -2731,6 +2836,10 @@ select{
 }
 
 @media (min-width: 976px){
+  .lg\:basis-1\/6{
+    flex-basis: 16.666667%;
+  }
+
   .lg\:prose-lg{
     font-size: 1.125rem;
     line-height: 1.7777778;
@@ -2955,3 +3064,8 @@ select{
   }
 }
 
+@media (min-width: 1440px){
+  .xl\:p-0{
+    padding: 0px;
+  }
+}

@@ -48,9 +48,6 @@ moonIcon.addEventListener("click", () => {
 // invoke theme check on initial load
 themeCheck();
 
-
 // borrow from the internet
 // https://www.youtube.com/watch?v=hGHk5eS5MkA
 // https://www.youtube.com/watch?v=oMOe_32M6ss
-
-
