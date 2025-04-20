@@ -1,5 +1,31 @@
 # 👋 All Things Digital - A Tailwind Theme
 
+[![Deploy to GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?logo=github)](https://docs.github.com/en/pages/getting-started-with-github-pages)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/leonism/All-things-digital)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leonism/All-things-digital)
+[![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-orange?logo=cloudflare)](https://developers.cloudflare.com/pages/get-started/)
+
+
+## 🚀 Deploy Now
+
+Deploy this project on your preferred platform:
+
+<p align="left">
+  <a href="https://docs.github.com/en/pages/getting-started-with-github-pages">
+    <img src="https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?logo=github" alt="Deploy to GitHub Pages" />
+  </a>
+  <a href="https://app.netlify.com/start/deploy?repository=https://github.com/leonism/All-things-digital">
+    <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
+  </a>
+  <a href="https://vercel.com/import/project?template=https://github.com/leonism/All-things-digital">
+    <img src="https://vercel.com/button" alt="Deploy to Vercel" />
+  </a>
+  <a href="https://developers.cloudflare.com/pages/get-started/">
+    <img src="https://img.shields.io/badge/Deploy-Cloudflare%20Pages-orange?logo=cloudflare" alt="Deploy to Cloudflare Pages" />
+  </a>
+</p>
+
+
 ## 🎥 Video
 
 https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
