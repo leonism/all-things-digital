@@ -10,9 +10,8 @@
 ## ✅ Build Status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/747bd292-bddb-48a9-a63e-08c1ff154ffc/deploy-status)](https://app.netlify.com/sites/all-things-digital/deploys)
-[![Vercel Status](https://vercel.com/api/badges/prj_c2ihNqrBz3pXd7jPDCZpRJ2pi1Js/status)](https://vercel.com/leonism/All-things-digital)
-[![GitHub Pages Status](https://github.com/leonism/All-things-digital/actions/workflows/pages-build-deployment.yml/badge.svg)](https://github.com/leonism/All-things-digital/actions)
 [![Cloudflare Pages Status](https://img.shields.io/badge/Cloudflare%20Pages-Deployed-orange?logo=cloudflare)](https://developers.cloudflare.com/pages)
+
 
 ## 🎥 Video
 
@@ -34,7 +33,6 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleonism%2Fall-things-digital)
 
 ## 📷 Mock-up & Visualization
 
