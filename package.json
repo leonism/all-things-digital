@@ -10,7 +10,7 @@
 		"dev": "tailwindcss -i ./src/main.css -o ./dist/style.css",
 		"build": "tailwindcss -i ./src/main.css -o ./dist/style.css",
 		"watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
-		"compress": "npx tailwindcss -o ./dist/style.css --minify",
+		"compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
 		"start": "live-server ./dist"
 	}
 }
