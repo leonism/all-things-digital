@@ -12,7 +12,9 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.17",
     "vite": "^6.3.2",
-    "vite-plugin-imagemin": "^0.4.0"
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-html-minifier": "^1.0.5",
+    "vite-plugin-imagemin": "^0.6.1"
   },
   "scripts": {
     "dev": "vite",
@@ -21,8 +23,5 @@
     "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
     "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
     "start": "live-server ./dist"
-  },
-  "dependencies": {
-    "vite-plugin-html-minifier": "^1.0.5"
   }
 }

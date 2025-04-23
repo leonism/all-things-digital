@@ -12,6 +12,7 @@ import html from 'vite-plugin-html-minifier'
  * - Project root directory
  * - Build output settings
  * - PostCSS plugins (Tailwind CSS and Autoprefixer)
+ * - Images, HTML, CSS and Javascript compressions using Vite plugins
  */
 export default defineConfig({
   // Set the project root directory to './src'
@@ -42,6 +43,7 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
+  // images processing configuration
   plugins: [
     imagemin({
       pngquant: {
@@ -49,6 +51,7 @@ export default defineConfig({
         speed: 4,
       },
     }),
+    // html processing configuration
     html({
       minify: true,
       collapseWhitespace: true,
@@ -60,4 +63,9 @@ export default defineConfig({
       useShortDoctype: true,
     }),
   ],
+  server: {
+    watch: {
+      usePolling: true,
+    },
+  },
 })
