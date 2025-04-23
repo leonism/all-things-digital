@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import imagemin from 'vite-plugin-imagemin'
 
 /**
  * Vite configuration for the project.
@@ -40,4 +41,12 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
+  plugins: [
+    imagemin({
+      pngquant: {
+        quality: [0.7, 0.9],
+        speed: 4,
+      },
+    }),
+  ],
 })
