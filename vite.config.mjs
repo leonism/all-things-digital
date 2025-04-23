@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import imagemin from 'vite-plugin-imagemin'
+import html from 'vite-plugin-html-minifier'
 
 /**
  * Vite configuration for the project.
@@ -47,6 +48,16 @@ export default defineConfig({
         quality: [0.7, 0.9],
         speed: 4,
       },
+    }),
+    html({
+      minify: true,
+      collapseWhitespace: true,
+      keepClosingSlash: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true,
     }),
   ],
 })
