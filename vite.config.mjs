@@ -3,7 +3,9 @@ import { defineConfig } from 'vite'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import imagemin from 'vite-plugin-imagemin'
-import html from 'vite-plugin-html-minifier'
+import htmlMinifier from 'vite-plugin-html-minifier'
+import { ViteEjsPlugin } from 'vite-plugin-ejs'
+import { resolve } from 'path'
 
 /**
  * Vite configuration for the project.
@@ -12,7 +14,8 @@ import html from 'vite-plugin-html-minifier'
  * - Project root directory
  * - Build output settings
  * - PostCSS plugins (Tailwind CSS and Autoprefixer)
- * - Images, HTML, CSS and Javascript compressions using Vite plugins
+ * - Images, HTML, CSS, and JavaScript compressions using Vite plugins
+ * - EJS templating for HTML modularity
  */
 export default defineConfig({
   // Set the project root directory to './src'
@@ -24,14 +27,13 @@ export default defineConfig({
     outDir: '../dist',
     // Clear the output directory before each build
     emptyOutDir: true,
-    //
     rollupOptions: {
       input: {
-        main: './src/index.html',
-        about: './src/about.html',
-        contact: './src/contact.html',
-        blog: './src/blog.html',
-        category: './src/category.html',
+        main: resolve(__dirname, 'src/index.html'),
+        about: resolve(__dirname, 'src/about.html'),
+        contact: resolve(__dirname, 'src/contact.html'),
+        blog: resolve(__dirname, 'src/blog.html'),
+        category: resolve(__dirname, 'src/category.html'),
       },
     },
   },
@@ -43,16 +45,18 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
-  // images processing configuration
+
+  // Plugins configuration
   plugins: [
+    // Image minification
     imagemin({
       pngquant: {
         quality: [0.7, 0.9],
         speed: 4,
       },
     }),
-    // html processing configuration
-    html({
+    // HTML minification
+    htmlMinifier({
       minify: true,
       collapseWhitespace: true,
       keepClosingSlash: true,
@@ -62,7 +66,10 @@ export default defineConfig({
       removeStyleLinkTypeAttributes: true,
       useShortDoctype: true,
     }),
+    // EJS templating for HTML
+    ViteEjsPlugin(),
   ],
+
   server: {
     watch: {
       usePolling: true,

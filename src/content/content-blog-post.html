@@ -1,0 +1,102 @@
+<!-- Main content with semantic structure -->
+
+<main class="max-w-4xl p-3 mx-auto">
+  <!-- Header section for the main title -->
+
+  <header id="mainHeading" class="text-center">
+    <h1
+      class="py-3 text-4xl subpixel-antialiased font-extrabold tracking-tight text-transparent md:text-6xl drop-shadow-lg font-navigation bg-gradient-to-br from-indigo-400 to-pink-600 bg-clip-text">
+      FIFA's Data Mining & Unsupervised Clustering Tech with Dataiku
+    </h1>
+  </header>
+
+  <!-- Subheading section -->
+  <section id="subHeading" class="p-1">
+    <h2
+      class="p-3 text-xl font-bold leading-tight text-center md:mt-0 md:font-extrabold md:text-3xl drop-shadow-lg text-slate-700/60 dark:text-white">
+      Source Code Included
+    </h2>
+  </section>
+
+  <!-- Publication metadata (time, tags) -->
+  <div class="mx-auto text-center">
+    <p class="inline-flex text-xs text-center text-mutedWhite">
+      <time datetime="2022-11-21">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-3.5 h-3.5 mr-1">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+        21 November 2022
+      </time>
+      <span class="inline-flex">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-3.5 h-3.5 mx-1">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+        <span class="sr-only">Tags:</span>
+        <a href="#" rel="tag">CSS</a>,
+        <a href="#" rel="tag">Machine Learning</a>,
+        <a href="#" rel="tag">Python</a>
+      </span>
+    </p>
+  </div>
+</main>
+
+<!-- Article content (semantic <article> for standalone content) -->
+<article
+  class="max-w-3xl p-5 mx-auto prose md:prose-md lg:prose-lg prose-p:font-navigation prose-p:text-justify prose-headings:font-navigation prose-a:text-pinkHeading dark:prose-invert">
+  <!-- Featured image with <figure> -->
+  <figure>
+    <img src="./img/blog-image.png" alt="FIFA data clustering visualization" class="w-full">
+    <figcaption class="text-center text-sm mt-2">Visualization of FIFA player clustering by skills and wages
+    </figcaption>
+  </figure>
+
+  <h2 id="1-introduction">1. Introduction</h2>
+  <p>If there's one thing similar about an interesting dataset and a good rerun football's match on TV, is that they're
+    both doing pretty excellent job at keeping everyone's safe at home during this time of the pandemic. And in all
+    honesty, I'm not a data-scientist, nor a dev guru. I just recently got myself exposed to <strong>Machine Learning,
+      Data Mining</strong> and <strong>Artificial Intelligent</strong> in general, while doing them in both
+    <strong>Dataiku</strong> and <strong>Python (Pandas, NumPy and SciKit</strong> libraries<strong>)</strong>,
+    somewhere a little over then 3 months period of time. And without any further ado, here's my take to the FIFA
+    conundrum's challenge.</p>
+
+  <h2 id="2-dataflow">2. Dataflow</h2>
+  <p>And since the challenge is not to <strong>'predict'</strong> any variables, rather to '<strong>group'</strong> or
+    '<strong>cluster'</strong> the existing dataset from the player's skillsets, in reflect to their <strong>wages
+      rate</strong>. Here's what my current flow would look like, and don't bother much on the 2 additional datasets, as
+    they're merely exported from the existing model, so that I may explore them further later on. And to follow along,
+    here's the link to download the dataset in my <a
+      href="https://github.com/leonism/dataiku-FIFA/blob/master/uploads/Conundrum_13_Data/Conundrum_13_Data.csv">Github
+      repository</a>.</p>
+
+  <!-- More sections continue with proper heading hierarchy -->
+  <h2 id="3-prepare-recipes">3. Prepare Recipes</h2>
+  <p>And here's how I go about on the prepare recipes, nothing out of the ordinary. Just converting
+    <strong><em>categorical</em></strong> to <strong><em>numerical</em></strong> values, through the <strong><em>one-hot
+        encoding</em></strong> and filling up the '<strong><em>NaN</em></strong>' with median values, while grouping
+    them to have better clarity, if ever the need occur for me to go back and revise anything again for future
+    reference.</p>
+
+  <!-- Code snippet with semantic <pre> and <code> -->
+  <pre><code>"Creating a flow that outputs a value proposition in term of the wages"</code></pre>
+
+  <!-- List with proper semantics -->
+  <section aria-labelledby="correlation-matrix-heading">
+    <h3 id="correlation-matrix-heading">Correlation Matrix Values</h3>
+    <ul>
+      <li><strong>1.0</strong> means a perfect correlation</li>
+      <li><strong>0.0</strong> means no correlation</li>
+      <li><strong>-1.0</strong> means a perfect "inverse" correlation</li>
+    </ul>
+  </section>
+
+  <!-- Footer for the article -->
+
+  <footer>
+    <p>Been enjoying exploring this dataset for sure, and certainly it was fun doing it, stays safe everyone and leave a
+      thumbs-up if you like the article and found this useful. 😊</p>
+  </footer>
+</article>
