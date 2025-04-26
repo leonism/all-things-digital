@@ -1,159 +1,20 @@
 <!-- Main heading section (semantic <header> instead of <main>) -->
 
-<header id="subMainHeading" class="max-w-3xl p-3 mx-auto mt-10">
-  <div id="mainHeading" class="text-center">
-    <h1
-      class="py-3 text-5xl subpixel-antialiased font-extrabold tracking-tight text-transparent md:text-6xl drop-shadow-lg font-navigation bg-gradient-to-br from-indigo-400 to-pink-600 bg-clip-text">
-      Blog Topics!
-    </h1>
-  </div>
-  <div id="subHeading" class="p-1">
-    <h2
-      class="text-xl font-bold leading-tight text-center md:font-extrabold md:text-3xl drop-shadow-lg text-slate-700/60 dark:text-white">
-      All Things, Sort By Category
-    </h2>
-  </div>
-</header>
+<main class="mx-auto mt-5 max-w-4xl p-3">
 
-<!-- Blog posts section (semantic <section>) -->
-<section class="max-w-3xl mx-auto">
-  <!-- Blog post 1 (semantic <article>) -->
-  <article id="wrapperMain01" class="flex flex-col items-center py-8 md:flex-row">
-    <!-- Thumbnail (semantic <figure>) -->
-    <figure id="leftWrapper" class="p-3 mb-3 basis-1/3 sm:pl-3 sm:p-3 md:p-2 lg:p-0">
-      <img src="./img/thumbnail-1.png" alt="AI concept illustration">
-    </figure>
-
-    <!-- Post content (semantic <div> for grouping) -->
-    <div id="rightWrapper" class="flex flex-col ml-2 basis-2/3">
-
-      <header id="rightWrapperContent" class="flex flex-row mx-auto my-2">
-        <!-- Author avatar (semantic <figure>) -->
-        <figure id="avatar"
-          class="basis-2/7 p-1 flex bg-cover items-stretch rounded-full bg-gradient-to-br from-indigo-400 to-pink-600 min-w-[64px] min-h-[64px]">
-          <img src="./img/avatar.png" alt="Author avatar" class="w-15 h-15 md:self-center aspect-auto">
-        </figure>
-
-        <!-- Title and date (semantic <header>) -->
-        <div id="title" class="mx-2 basis-5/7">
-          <h3 class="text-base text-left font-navigation text-slate-700 dark:text-white line-clamp-2">
-            <a href="blog-1.html">The Most Common Mistakes People Make With Artificial Intelligent</a>
-          </h3>
-          <time datetime="2022-11-17" class="flex text-xs text-center text-mutedWhite">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-3.5 h-3.5 mr-1">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-            </svg>17 November 2022
-          </time>
-        </div>
-      </header>
-
-      <!-- Excerpt (semantic <p>) -->
-      <p
-        class="mx-2 my-2 text-sm tracking-wide line-clamp-4 text-heading text-slate-90 font-navigation text-slate-700 dark:text-white">
-        You really think you can fly that thing? You know what? It is beets. I've crashed into a beet truck. We gotta
-        burn the rain forest, dump toxic waste, pollute the air, and rip up the OZONE! 'Cause maybe if we screw up this
-        planet enough, they won't want it anymore!
-      </p>
-
-      <!-- Tags (semantic <footer> for metadata) -->
-
-      <footer class="flex pt-1 text-xs text-center text-gray-500">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="w-3.5 h-3.5 ml-2 mr-2">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-        </svg>
-        CSS, Python, Machine-Learning
-      </footer>
+  <header id="subMainHeading" class="max-w-3xl p-3 mx-auto mt-10">
+    <div id="mainHeading" class="text-center">
+      <h1
+        class="py-3 text-5xl subpixel-antialiased font-extrabold tracking-tight text-transparent md:text-6xl drop-shadow-lg font-navigation bg-gradient-to-br from-indigo-400 to-pink-600 bg-clip-text">
+        Blog Topics!
+      </h1>
     </div>
-  </article>
-
-  <!-- Blog post 2 (same semantic structure) -->
-  <article id="wrapperMain02" class="flex flex-col items-center py-8 md:flex-row">
-    <figure id="leftWrapper" class="p-3 mb-3 basis-1/3 sm:pl-3 sm:p-3 md:p-2 lg:p-0">
-      <img src="./img/thumbnail-2.png" alt="AI technology illustration">
-    </figure>
-    <div id="rightWrapper" class="flex flex-col ml-2 basis-2/3">
-
-      <header id="rightWrapperContent" class="flex flex-row mx-auto my-2">
-        <figure id="avatar"
-          class="basis-2/7 p-1 flex bg-cover items-stretch rounded-full bg-gradient-to-br from-indigo-400 to-pink-600 drop-shadow-lg min-w-[64px] min-h-[64px]">
-          <img src="./img/avatar.png" alt="Author avatar" class="md:self-center w-15 h-15">
-        </figure>
-        <div id="title" class="mx-2 basis-5/7">
-          <h3 class="text-base text-left font-navigation text-slate-700 dark:text-white line-clamp-2">
-            <a href="blog-1.html">15 Things Your Boss Wishes You Knew About Artificial Intelligent</a>
-          </h3>
-          <time datetime="2022-11-17" class="flex text-xs text-center text-mutedWhite">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-3.5 h-3.5 mr-1">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-            </svg>17 November 2022
-          </time>
-        </div>
-      </header>
-      <p
-        class="mx-2 my-2 text-sm tracking-wide line-clamp-4 text-heading text-slate-90 font-navigation text-slate-700 dark:text-white">
-        Life finds a way. Yes, Yes, without the oops! Yeah, but John, if The Pirates of the Caribbean breaks down, the
-        pirates don’t eat the tourists. I was part of something special.
-      </p>
-
-      <footer class="flex pt-1 text-xs text-center text-gray-500">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="w-3.5 h-3.5 ml-2 mr-2">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-        </svg>
-        CSS, Python, Machine-Learning
-      </footer>
+    <div id="subHeading" class="p-1">
+      <h2
+        class="text-xl font-bold leading-tight text-center md:font-extrabold md:text-3xl drop-shadow-lg text-slate-700/60 dark:text-white">
+        All Things, Sort By Category
+      </h2>
     </div>
-  </article>
-
-  <!-- Blog post 3 (same semantic structure) -->
-  <article id="wrapperMain03" class="flex flex-col items-center py-8 md:flex-row">
-    <figure id="leftWrapper" class="p-3 mb-3 basis-1/3 sm:pl-3 sm:p-3 md:p-2 lg:p-0">
-      <img src="./img/thumbnail-3.png" alt="AI learning illustration">
-    </figure>
-    <div id="rightWrapper" class="flex flex-col ml-2 basis-2/3">
-
-      <header id="rightWrapperContent" class="flex flex-row mx-auto my-2">
-        <figure id="avatar"
-          class="basis-2/7 p-1 flex bg-cover items-stretch rounded-full bg-gradient-to-br from-indigo-400 to-pink-600 drop-shadow-lg min-w-[64px] min-h-[64px]">
-          <img src="./img/avatar.png" alt="Author avatar" class="md:self-center w-15 h-15">
-        </figure>
-        <div id="title" class="mx-2 basis-5/7">
-          <h3 class="text-base text-left font-navigation text-slate-700 dark:text-white line-clamp-2">
-            <a href="blog-1.html">Become an Expert on Artificial Intelligent by Watching These 5 Videos</a>
-          </h3>
-          <time datetime="2022-11-17" class="flex text-xs text-center text-mutedWhite">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-3.5 h-3.5 mr-1">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-            </svg>17 November 2022
-          </time>
-        </div>
-      </header>
-      <p
-        class="mx-2 my-2 text-sm tracking-wide line-clamp-4 text-heading text-slate-90 font-navigation text-slate-700 dark:text-white">
-        Just my luck, no ice. They're using our own satellites against us. And the clock is ticking. God help us, we're
-        in the hands of engineers. Eventually, you do plan to have dinosaurs on your dinosaur tour, right?
-      </p>
-
-      <footer class="flex pt-1 text-xs text-center text-gray-500">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="w-3.5 h-3.5 ml-2 mr-2">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-        </svg>
-        CSS, Python, Machine-Learning
-      </footer>
-    </div>
-  </article>
-</section>
+  </header>
+  <%- include('content/content-blog-grid.html') %>
+</main>
