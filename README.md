@@ -3,7 +3,6 @@
 ## Table of Contents
 
 - [Build Status](#-build-status)
-- [Deploy to Cloud](#-deploy-to-cloud)
 - [Video](#-video)
 - [Descriptions](#-descriptions)
 - [Mock-up & Visualization](#-mock-up--visualization)
@@ -15,20 +14,11 @@
 - [Splash Screen](#-splash-screen)
 - [License](#-license)
 
-## 🎥 Video
-
-https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
-
 ## ✅ Build Status
 
 [![Deploy to GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?logo=github)](https://docs.github.com/en/pages/getting-started-with-github-pages)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/747bd292-bddb-48a9-a63e-08c1ff154ffc/deploy-status)](https://app.netlify.com/sites/all-things-digital/deploys)
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-orange?logo=cloudflare)](https://developers.cloudflare.com/pages/get-started/)
-
-## ✅ Deploy to Cloud
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/leonism/All-things-digital)
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leonism/All-things-digital)
 
 ## 🎥 Video
 
@@ -50,6 +40,8 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/leonism/All-things-digital)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leonism/All-things-digital)
 
 ## 📷 Mock-up & Visualization
 
