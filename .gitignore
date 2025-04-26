@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+dist/
 
 # logs
 npm-debug.log*
@@ -15,6 +16,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# git / github 
+# git / github
 .github
 /etc
