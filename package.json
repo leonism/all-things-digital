@@ -1,16 +1,27 @@
 {
-	"devDependencies": {
-		"@tailwindcss/forms": "^0.5.3",
-		"@tailwindcss/line-clamp": "^0.4.2",
-		"@tailwindcss/typography": "^0.5.8",
-		"live-server": "^1.2.0",
-		"tailwindcss": "^3.2.4"
-	},
-	"scripts": {
-		"dev": "tailwindcss -i ./src/main.css -o ./dist/style.css",
-		"build": "tailwindcss -i ./src/main.css -o ./dist/style.css",
-		"watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
-		"compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
-		"start": "live-server ./dist"
-	}
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@tailwindcss/typography": "^0.5.8",
+    "autoprefixer": "^10.4.21",
+    "live-server": "^1.2.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.3.2",
+    "vite-plugin-ejs": "^1.7.0",
+    "vite-plugin-html-minifier": "^1.0.5",
+    "vite-plugin-imagemin": "^0.6.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
+    "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
+    "start": "live-server ./dist"
+  }
 }
