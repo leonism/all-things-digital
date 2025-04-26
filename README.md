@@ -1,5 +1,24 @@
 # 👋 All Things Digital - A Tailwind Theme
 
+## Table of Contents
+
+- [Build Status](#-build-status)
+- [Deploy to Cloud](#-deploy-to-cloud)
+- [Video](#-video)
+- [Descriptions](#-descriptions)
+- [Mock-up & Visualization](#-mock-up--visualization)
+- [Features](#-features)
+- [Todos](#-todos)
+- [How To](#-how-to)
+- [Credits](#-credits)
+- [Versions](#-versions)
+- [Splash Screen](#-splash-screen)
+- [License](#-license)
+
+## 🎥 Video
+
+https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
+
 ## ✅ Build Status
 
 [![Deploy to GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?logo=github)](https://docs.github.com/en/pages/getting-started-with-github-pages)
@@ -52,34 +71,251 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 
 ## 🤓 How To
 
-Install dependencies (Tailwind)
+### 1. Install dependencies
 
-```
+Install all required packages for development:
+
+```bash
 npm install
 ```
 
-Run the Tailwind CLI to compile the **input.css** during development. The output file is **dist/output.css**
+### 2. Start the development server
 
-- `main.css` located at `./src/main.css`
-- `style.css` located at `./dist/style.css`
+This project uses Vite for fast development and hot module replacement. To start the Vite dev server, run:
 
+```bash
+npm run dev
 ```
+
+This will serve your project locally and watch for changes in your source files.
+
+### 3. Watch and build Tailwind CSS
+
+To continuously compile your Tailwind CSS as you work, open a separate terminal and run:
+
+```bash
 npm run watch
 ```
 
-To build once run.
+This command uses Tailwind CLI to watch ./src/main.css and output the compiled CSS to ./dist/style.css whenever you make changes.
 
-```
+### 4. Build for production
+
+When you're ready to build your site for production, run:
+
+```bash
 npm run build
 ```
 
-To run development server
+This will generate an optimized build of your site using Vite.
 
+### 5. Preview the production build
+
+To locally preview your production build (after running npm run build):
+
+### ## Trae
+
+26 context(s) used
+
+Here's an updated version of your README.md reflecting your requests:
+
+- Added a Table of Contents (TOC) before the "## 🎥 Video" heading.
+- Improved the "How To" section for clarity and accuracy, including Vite-specific and Tailwind workflow notes.
+
+````markdown
+// ... existing code ...
+
+# 👋 All Things Digital - A Tailwind Theme
+
+## Table of Contents
+
+- [Build Status](#-build-status)
+- [Deploy to Cloud](#-deploy-to-cloud)
+- [Video](#-video)
+- [Descriptions](#-descriptions)
+- [Mock-up & Visualization](#-mock-up--visualization)
+- [Features](#-features)
+- [Todos](#-todos)
+- [How To](#-how-to)
+- [Credits](#-credits)
+- [Versions](#-versions)
+- [Splash Screen](#-splash-screen)
+- [License](#-license)
+
+## 🎥 Video
+
+https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561-7d85b1c9aaf9.mp4
+
+// ... existing code ...
+
+## 🤓 How To
+
+### 1. Install dependencies
+
+```bash
+npm install
 ```
+````
+
+````
+
+### 2. Development
+- Run the Tailwind CLI to compile the input.css during development. The output file is dist/output.css .
+- main.css is located at ./src/main.css
+- style.css is located at ./dist/style.css
+Start the Tailwind watcher and the Vite dev server:
+
+```bash
+npm run watch
+````
+
+In a separate terminal, start the Vite development server:
+
+```bash
+npm start
+```
+
+Or, you can run both together (if your environment supports it):
+
+```bash
 npm run watch & npm start
 ```
 
-You can edit the scripts in package.json and the `tailwind.config.js` file to change `input/output` locations and the script commands.
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Configuration
+
+You can edit the scripts in package.json and the tailwind.config.js file to change input/output locations and script commands.
+
+Note:
+
+- This project uses Vite for development and build.
+- Tailwind CSS is used for styling.
+- Make sure to keep both the Tailwind watcher and Vite dev server running during development for live updates.
+
+// ... existing code ...
+
+```plaintext
+
+**Summary of changes:**
+- Added a TOC for easier navigation.
+- Clarified the development workflow in the "How To" section, including running both Tailwind and Vite.
+- Provided clear step-by-step instructions for install, development, and build.
+
+Let me know if you want further adjustments!
+```
+
+````
+
+## Gerry Leo Nugroho
+Copy
+
+Delete
+
+Update readme.md, the ## 🤓 How To section using the latest update from the `package.json` file accordingly, and please be descriptive.
+
+Workspace
+
+## Trae
+26 context(s) used
+
+Workspace
+
+README.md 72-72
+
+package.json 1-29
+
+README.md 23-29
+
+README.md 2-18
+
+README.md 29-34
+
+... More ( 20 +)
+
+Here's an updated and descriptive "How To" section for your README.md, reflecting the latest scripts from your package.json and clarifying the development workflow with Vite and Tailwind CSS:
+
+```markdown
+// ... existing code ...
+## 🤓 How To
+
+### 1. Install dependencies
+
+Install all required packages for development:
+
+```bash
+npm install
+````
+
+````
+
+### 2. Start the development server
+This project uses Vite for fast development and hot module replacement. To start the Vite dev server, run:
+
+```bash
+npm run dev
+````
+
+This will serve your project locally and watch for changes in your source files.
+
+### 3. Watch and build Tailwind CSS
+
+To continuously compile your Tailwind CSS as you work, open a separate terminal and run:
+
+```bash
+npm run watch
+```
+
+This command uses Tailwind CLI to watch ./src/main.css and output the compiled CSS to ./dist/style.css whenever you make changes.
+
+### 4. Build for production
+
+When you're ready to build your site for production, run:
+
+```bash
+npm run build
+```
+
+This will generate an optimized build of your site using Vite.
+
+### 5. Preview the production build
+
+To locally preview your production build (after running npm run build ):
+
+```bash
+npm run preview
+```
+
+### 6. Serve the built site with Live Server
+
+If you want to serve the static dist folder using Live Server (helpful for static hosting or testing):
+
+```bash
+npm start
+```
+
+### 7. Compress CSS for production
+
+To generate a minified CSS file for production, run:
+
+```bash
+npm run compress
+```
+
+**Customization**: You can edit the scripts in `package.json` and the `tailwind.config.js` file to change input/output locations or tweak build commands as needed for your workflow.
+
+Summary of scripts:
+
+- `dev` : Start Vite development server.
+- `build` : Build the site for production.
+- `preview` : Preview the production build locally.
+- `watch` : Watch and compile Tailwind CSS during development.
+- `compress` : Minify Tailwind CSS for production.
+- `start` : Serve the dist folder with Live Server.
 
 ## 🔗 Credits
 
@@ -88,7 +324,6 @@ You can edit the scripts in package.json and the `tailwind.config.js` file to ch
 - [Hero Icons](https://heroicons.com/)
 - [VS Code Editor](https://code.visualstudio.com/)
 - [Jeff Sum](https://jeffsum.com/)
-- [ChatGPT](https://chat.openai.com/chat)
 
 ## 🧬 Versions
 
