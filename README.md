@@ -111,7 +111,7 @@ npm run preview
 
 ### 6. Serve the built site with Live Server
 
-If you want to serve the static dist folder using Live Server (helpful for static hosting or testing):
+If you want to serve the static `dist/` folder using Live Server (helpful for static hosting or testing):
 
 ```bash
 npm start
