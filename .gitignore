@@ -1,5 +1,9 @@
 # dependencies
 node_modules/
+<<<<<<< HEAD
+=======
+dist/
+>>>>>>> parent of ded2f14 (chore: add duplicate dist entry to .gitignore)
 
 # logs
 npm-debug.log*
