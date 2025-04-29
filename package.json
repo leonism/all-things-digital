@@ -12,5 +12,8 @@
 		"watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
 		"compress": "npx tailwindcss -o ./dist/style.css --minify",
 		"start": "live-server ./dist"
+	},
+	"dependencies": {
+		"caniuse-lite": "^1.0.30001713"
 	}
 }
