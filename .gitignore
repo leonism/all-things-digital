@@ -1,9 +1,8 @@
+# build output
+dist/
+
 # dependencies
 node_modules/
-<<<<<<< HEAD
-=======
-dist/
->>>>>>> parent of ded2f14 (chore: add duplicate dist entry to .gitignore)
 
 # logs
 npm-debug.log*
@@ -19,6 +18,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# git / github 
+# git / github
 .github
 /etc

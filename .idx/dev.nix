@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # To learn more about how to use Nix to configure your environment
 # see: https://firebase.google.com/docs/studio/customize-workspace
 { pkgs, ... }: {
@@ -54,32 +53,3 @@
     };
   };
 }
-=======
-{pkgs}: {
-  channel = "stable-24.05";
-  packages = [
-    pkgs.nodejs_20
-  ];
-  idx.extensions = [
-    "svelte.svelte-vscode"
-    "vue.volar"
-  ];
-  idx.previews = {
-    previews = {
-      web = {
-        command = [
-          "npm"
-          "run"
-          "dev"
-          "--"
-          "--port"
-          "$PORT"
-          "--host"
-          "0.0.0.0"
-        ];
-        manager = "web";
-      };
-    };
-  };
-}
->>>>>>> revert-to-ded2f14
