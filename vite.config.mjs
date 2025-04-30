@@ -1,11 +1,11 @@
 // Import required modules for Vite configuration
-import { defineConfig } from 'vite'
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
-import imagemin from 'vite-plugin-imagemin'
-import htmlMinifier from 'vite-plugin-html-minifier'
-import { ViteEjsPlugin } from 'vite-plugin-ejs'
-import { resolve } from 'path'
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+import autoprefixer from "autoprefixer";
+import imagemin from "vite-plugin-imagemin";
+import htmlMinifier from "vite-plugin-html-minifier";
+import { ViteEjsPlugin } from "vite-plugin-ejs";
+import { resolve } from "path";
 
 /**
  * Vite configuration for the project.
@@ -19,21 +19,21 @@ import { resolve } from 'path'
  */
 export default defineConfig({
   // Set the project root directory to './src'
-  root: './src',
+  root: "./src",
 
   // Build configuration
   build: {
     // Output directory for built files (relative to project root)
-    outDir: '../dist',
+    outDir: "../dist",
     // Clear the output directory before each build
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'src/index.html'),
-        about: resolve(__dirname, 'src/about.html'),
-        contact: resolve(__dirname, 'src/contact.html'),
-        blog: resolve(__dirname, 'src/blog.html'),
-        category: resolve(__dirname, 'src/category.html'),
+        main: resolve(__dirname, "src/index.html"),
+        about: resolve(__dirname, "src/about.html"),
+        contact: resolve(__dirname, "src/contact.html"),
+        blog: resolve(__dirname, "src/blog.html"),
+        category: resolve(__dirname, "src/category.html"),
       },
     },
   },
@@ -68,6 +68,8 @@ export default defineConfig({
     }),
     // EJS templating for HTML
     ViteEjsPlugin(),
+    // Latest Tailwind 4.1 for Vite needs this line
+    tailwindcss(),
   ],
 
   server: {
@@ -75,4 +77,4 @@ export default defineConfig({
       usePolling: true,
     },
   },
-})
+});

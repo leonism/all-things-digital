@@ -5,12 +5,11 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/typography": "^0.5.8",
-    "autoprefixer": "^10.4.21",
     "live-server": "^1.2.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.1.4",
     "vite": "^6.3.2",
     "vite-plugin-ejs": "^1.7.0",
     "vite-plugin-html-minifier": "^1.0.5",
@@ -23,5 +22,9 @@
     "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
     "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
     "start": "live-server ./dist"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "autoprefixer": "^10.4.21"
   }
 }
