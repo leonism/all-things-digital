@@ -1,9 +1,15 @@
+/* start the google fonts import class */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
 layer(base);
 
+/* start the tailwind import class */
 @import "tailwindcss";
+
+/* start the tailwind plugin */
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
+
+/* start the tailwind dark-mode targeting */
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -30,6 +36,7 @@ layer(base);
   --color-black-sub-heading: hsl(221, 39%, 11%);
   --color-deep-blue-sub-heading: hsl(229, 38%, 40%);
 
+  /* start the custom color fuchsia collection */
   --color-fuchsia-50: #fdf4ff;
   --color-fuchsia-100: #fae8ff;
   --color-fuchsia-200: #f5d0fe;
@@ -42,8 +49,10 @@ layer(base);
   --color-fuchsia-900: #701a75;
   --color-fuchsia-950: #4a044e;
 
+  /* start the background-color, so may call them with `bg-main` in your html */
   --background-color-main: hsl(215, 45%, 14%);
 
+  /* start the tailwind animation */
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
@@ -93,11 +102,11 @@ layer(base);
   --accent1: 241 76.8% 62.7%;
   --accent2: 330 85.2% 60.4%;
   --accent3: 0 90.6% 70.8%;
-  /* --gradient: linear-gradient(
+  --gradient: linear-gradient(
     94.55deg,
     hsl(var(--accent2)) -4.6%,
     hsl(var(--accent3)) 99.9%
-  ); */
+  );
 }
 
 /*
