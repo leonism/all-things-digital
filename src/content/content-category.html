@@ -1,20 +1,4 @@
-<!-- Main heading section (semantic <header> instead of <main>) -->
-
-<main class="mx-auto mt-5 max-w-4xl p-3">
-
-  <header id="subMainHeading" class="max-w-3xl p-3 mx-auto mt-10">
-    <div id="mainHeading" class="text-center">
-      <h1
-        class="py-3 text-5xl subpixel-antialiased font-extrabold tracking-tight text-transparent md:text-6xl drop-shadow-lg font-navigation bg-linear-to-br from-indigo-400 to-pink-600 bg-clip-text">
-        Blog Topics!
-      </h1>
-    </div>
-    <div id="subHeading" class="p-1">
-      <h2
-        class="text-xl font-bold leading-tight text-center md:font-extrabold md:text-3xl drop-shadow-lg text-slate-700/60 dark:text-white">
-        All Things, Sort By Category
-      </h2>
-    </div>
-  </header>
+<main class="max-w-4xl mx-auto">
+  <%- include('content/content-category-header.html') %>
   <%- include('content/content-blog-grid.html') %>
 </main>
