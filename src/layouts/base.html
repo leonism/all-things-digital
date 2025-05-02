@@ -3,7 +3,9 @@
   <%- include('components/Meta.html') %>
   <body class="antialiased scroll-smooth overflow-x-hidden bg-white dark:bg-main">
     <%- include('components/Navigation.html') %>
-    <%- include(typeof content !== 'undefined' ? content : 'content/content-home.html') %>
-    <%- include('components/Footer.html') %>
+    <div class="mx-5">
+      <%- include(typeof content !== 'undefined' ? content : 'content/content-home.html') %>
+      <%- include('components/Footer.html') %>
+    </div>
   </body>
 </html>
