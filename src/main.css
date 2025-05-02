@@ -1,8 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* start the google fonts import class */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* start the tailwind import class */
+@import "tailwindcss";
+
+/* start the tailwind plugin */
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+/* start the tailwind dark-mode targeting */
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* start the viewport breakpoints */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+  --breakpoint-xl: 1440px;
+
+  /* start the fonts collection */
+  --font-*: initial;
+  --font-navigation: Poppins, sans-serif;
+
+  /* start the animation collection */
+  --animate-blob: blob 7s infinite;
+
+  /* start the custom color collection */
+  --color-savory-white: hsl(0, 36%, 95%);
+  --color-muted-white: hsl(224, 16%, 54%);
+  --color-white-hover: hsl(0, 36%, 95%);
+  --color-pink-heading: hsl(279, 48%, 54%);
+  --color-pink-sub-heading: hsl(293, 43%, 55%);
+  --color-black-sub-heading: hsl(221, 39%, 11%);
+  --color-deep-blue-sub-heading: hsl(229, 38%, 40%);
+
+  /* start the custom color fuchsia collection */
+  --color-fuchsia-50: #fdf4ff;
+  --color-fuchsia-100: #fae8ff;
+  --color-fuchsia-200: #f5d0fe;
+  --color-fuchsia-300: #f0abfc;
+  --color-fuchsia-400: #e879f9;
+  --color-fuchsia-500: #d946ef;
+  --color-fuchsia-600: #c026d3;
+  --color-fuchsia-700: #a21caf;
+  --color-fuchsia-800: #86198f;
+  --color-fuchsia-900: #701a75;
+  --color-fuchsia-950: #4a044e;
+
+  /* start the background-color, so may call them with `bg-main` in your html */
+  --background-color-main: hsl(215, 45%, 14%);
+
+  /* start the tailwind animation */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: tranlate(0px, 0px) scale(1);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 .display-none {
   @apply hidden;
@@ -19,12 +102,16 @@
   --accent1: 241 76.8% 62.7%;
   --accent2: 330 85.2% 60.4%;
   --accent3: 0 90.6% 70.8%;
-  /* --gradient: linear-gradient(
+  --gradient: linear-gradient(
     94.55deg,
     hsl(var(--accent2)) -4.6%,
     hsl(var(--accent3)) 99.9%
-  ); */
+  );
 }
+
+/*
+Custom Styles
+ */
 
 /*
 .blurGrad {
@@ -34,7 +121,7 @@
 
 .blurGrad::after,
 .blurGrad::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -10;
