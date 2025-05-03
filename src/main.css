@@ -109,43 +109,6 @@ layer(base);
   );
 }
 
-/*
-Custom Styles
- */
-
-/*
-.blurGrad {
-  position: relative;
-}
-*/
-
-.blurGrad::after,
-.blurGrad::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -10;
-  filter: blur(35px);
-  border-radius: 10% 10% 10%;
-}
-
-.blurGrad::after {
-  background-color: hsl(var(--accent1) / 0.2);
-  transform: rotate(-20deg);
-}
-
-.blurGrad::before {
-  background-color: hsl(var(--accent2) / 0.2);
-  transform: rotate(20deg);
-}
-
-@media screen (max-width: 480px) {
-  .blurGrad::after,
-  .blurGrad::before {
-    filter: blur(20px);
-  }
-}
-
 /* Hamburger Menu */
 .hamburger {
   cursor: pointer;
@@ -185,4 +148,39 @@ Custom Styles
 }
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+/*
+Custom Styles
+ */
+
+.blurGrad {
+  position: relative;
+}
+
+.blurGrad::after,
+.blurGrad::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  filter: blur(35px);
+  border-radius: 10% 10% 10%;
+}
+
+.blurGrad::after {
+  background-color: hsl(var(--accent1) / 0.2);
+  transform: rotate(-20deg);
+}
+
+.blurGrad::before {
+  background-color: hsl(var(--accent2) / 0.2);
+  transform: rotate(20deg);
+}
+
+@media screen (max-width: 480px) {
+  .blurGrad::after,
+  .blurGrad::before {
+    filter: blur(20px);
+  }
 }

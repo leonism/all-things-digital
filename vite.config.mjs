@@ -33,6 +33,7 @@ export default defineConfig({
         about: resolve(__dirname, "src/about.html"),
         contact: resolve(__dirname, "src/contact.html"),
         blog: resolve(__dirname, "src/blog.html"),
+        blogpost: resolve(__dirname, "src/blog-post.html"),
         category: resolve(__dirname, "src/category.html"),
         credits: resolve(__dirname, "src/credits.html"),
       },
