@@ -82,7 +82,7 @@
       href="/manifest.json" />
     <link
       rel="shortcut icon"
-      href="/favicon.ico"
+      href="/assets/favicon.ico"
       type="image/x-icon" />
     <link
       rel="stylesheet"

@@ -1,35 +1,46 @@
 <!-- src/layouts/BaseLayout.vue -->
 <script setup>
 // Import the new Vue components
-import Meta from "/components/Meta.vue"; // Keep using Meta.vue
-import NavigationBar from "/components/NavigationBar.vue"; // Use the new Vue component
-import Footer from "/components/Footer.vue"; // Keep using Footer.vue
+// Using relative paths is generally safer unless aliases are configured
+import Meta from "../components/Meta.vue"; // Relative path
+import Navigation from "../components/Navigation.vue"; // Relative path & Correct Name
+import Footer from "../components/Footer.vue"; // Relative path
 </script>
 
 <template>
-  <!-- The <Meta> component handles the <head> content -->
+  <!-- The <Meta> component won't render visibly here.
+       Head management needs a different approach (e.g., Teleport or @vueuse/head) -->
   <Meta>
-    <slot name="title"></slot> <!-- Keep dynamic title slot -->
+    <slot name="title"></slot>
   </Meta>
-  <!-- The body tag is handled by index.html, structure the visible content here -->
+
   <div class="bg-white-pale dark:bg-main min-h-screen flex flex-col">
-    <NavigationBar /> {/* Use the Vue navigation component */}
-    <div id="mainWrapper" class="mx-5 flex-grow">
-      <slot></slot> {/* Main content passed from App.vue */}
+
+    <Navigation />
+    
+    <div
+      id="mainWrapper"
+      class="mx-5 flex-grow">
+      <slot></slot>
+      <!-- Main content passed from App.vue -->
     </div>
-    <Footer /> {/* Use the Vue footer component */}
+    <Footer />
+    <!-- This was already correct -->
   </div>
 </template>
 
 <style>
 /* Global styles might be needed, or keep them in main.css */
 /* Ensure html, body take full height if needed */
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   margin: 0;
   padding: 0;
 }
-body > div { /* Target the root div rendered by BaseLayout */
-   min-height: 100vh;
+body > div {
+  /* Target the root div rendered by BaseLayout */
+  min-height: 100vh;
 }
 </style>
