@@ -50,7 +50,10 @@ layer(base);
   --color-fuchsia-950: #4a044e;
 
   /* start the background-color, so may call them with `bg-main` in your html */
-  --background-color-main: hsl(215, 45%, 14%);
+  --background-color-postcard: hsl(215, 45%, 14%);
+
+  /* start the postcard-background-color, so may call them with `bg-postcard` in your html */
+  --background-color-main: hsl(212, 48%, 11%);
 
   /* start the tailwind animation */
   @keyframes blob {
