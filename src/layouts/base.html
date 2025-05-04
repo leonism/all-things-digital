@@ -4,8 +4,10 @@
   <body class="bg-white dark:bg-main">
     <%- include('components/Navigation.html') %>
     <div id="mainWrapper" class="mx-5">
+      <div id="app"></div>
       <%- include(typeof content !== 'undefined' ? content : 'content/content-home.html') %>
       <%- include('components/Footer.html') %>
     </div>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

@@ -1,11 +1,12 @@
 // Import required modules for Vite configuration
 import { defineConfig } from "vite";
+import { ViteEjsPlugin } from "vite-plugin-ejs";
+import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 import autoprefixer from "autoprefixer";
 import imagemin from "vite-plugin-imagemin";
 import htmlMinifier from "vite-plugin-html-minifier";
-import { ViteEjsPlugin } from "vite-plugin-ejs";
-import { resolve } from "path";
+import vue from "@vitejs/plugin-vue";
 
 /**
  * Vite configuration for the project.
@@ -50,6 +51,8 @@ export default defineConfig({
 
   // Plugins configuration
   plugins: [
+    // Plugin Vue for Vite
+    vue(),
     // Image minification
     imagemin({
       pngquant: {
@@ -68,7 +71,7 @@ export default defineConfig({
       removeStyleLinkTypeAttributes: true,
       useShortDoctype: true,
     }),
-    // EJS templating for HTML
+    // Plugin EJS templating for HTML
     ViteEjsPlugin(),
     // Latest Tailwind 4.1 for Vite needs this line
     tailwindcss(),
