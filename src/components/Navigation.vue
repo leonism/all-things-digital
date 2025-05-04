@@ -1,0 +1,30 @@
+<!-- src/components/NavigationBar.vue -->
+<script setup>
+// No additional logic needed for now, but this is where you'd add interactivity later.
+</script>
+
+<template>
+  <header
+    class="sticky top-0 z-10 bg-white/100 px-4 py-[25px] md:px-[25px] drop-shadow-xl backdrop-blur-lg dark:bg-main dark:drop-shadow-2xl dark:border-b dark:border-slate-900/20">
+    <div class="flex justify-between max-w-4xl mx-auto my-auto blurGrad">
+      <div
+        id="logo"
+        class="z-40 drop-shadow-sm overflow-x-hidden">
+        <a href="/">
+          <img
+            src="/assets/img/icons/icon-dgpondcom.png"
+            alt="Logo"
+            id="DGPond"
+            class="w-auto h-auto max-w-full" />
+        </a>
+      </div>
+      <!-- Include desktop and mobile navigation components -->
+      <DesktopNavigation />
+      <MobileNavigation />
+    </div>
+  </header>
+</template>
+
+<style scoped>
+/* Scoped styles for this component */
+</style>
