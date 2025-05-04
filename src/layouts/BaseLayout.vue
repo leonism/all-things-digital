@@ -8,16 +8,14 @@ import Footer from "../components/Footer.vue"; // Relative path
 </script>
 
 <template>
-  <!-- The <Meta> component won't render visibly here.
-       Head management needs a different approach (e.g., Teleport or @vueuse/head) -->
+  <!-- The <Meta> component won't render visibly here. Head management needs a different approach (e.g., Teleport or @vueuse/head) -->
   <Meta>
     <slot name="title"></slot>
   </Meta>
 
   <div class="bg-white-pale dark:bg-main min-h-screen flex flex-col">
-
     <Navigation />
-    
+
     <div
       id="mainWrapper"
       class="mx-5 flex-grow">
