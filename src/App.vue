@@ -1,15 +1,17 @@
-<!-- src/App.vue -->
 <script setup>
-import BaseLayout from "./layouts/BaseLayout.vue"; // Use relative path
-// Remove the direct import of HomeContent
-// import HomeContent from "/content/HomeContent.vue";
-import { RouterView } from "vue-router"; // Import RouterView
+// Import the main layout
+import BaseLayout from "./layouts/BaseLayout.vue";
+// Meta management should ideally happen within BaseLayout or using a dedicated library
 </script>
 
 <template>
   <BaseLayout>
-    <template #title>DGPond.COM</template>
-    <!-- Use router-view to display the component for the current route -->
+    <!-- The router-view will render the content for the current route inside the <slot> of BaseLayout.vue -->
     <router-view />
   </BaseLayout>
 </template>
+
+<style>
+/* Keep global styles if any, or ensure they are in main.css */
+/* Styles from BaseLayout.vue will also apply */
+</style>

@@ -3,7 +3,7 @@
 // Import the new Vue components
 // Using relative paths is generally safer unless aliases are configured
 import Meta from "../components/Meta.vue"; // Relative path
-import Navigation from "../components/Navigation.vue"; // Relative path & Correct Name
+import NavigationBar from "../components/Navigation.vue"; // Relative path & Correct Name
 import Footer from "../components/Footer.vue"; // Relative path
 </script>
 
@@ -14,8 +14,9 @@ import Footer from "../components/Footer.vue"; // Relative path
   </Meta>
 
   <div class="bg-white-pale dark:bg-main min-h-screen flex flex-col">
-    <Navigation />
-
+    <!-- Use the correct component name -->
+    <NavigationBar />
+    <!-- Corrected from <Navigation /> -->
     <div
       id="mainWrapper"
       class="mx-5 flex-grow">

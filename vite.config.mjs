@@ -6,6 +6,7 @@ import autoprefixer from "autoprefixer";
 import imagemin from "vite-plugin-imagemin";
 import htmlMinifier from "vite-plugin-html-minifier";
 import vue from "@vitejs/plugin-vue";
+import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
   // Set the project root directory to './src'
@@ -24,6 +25,13 @@ export default defineConfig({
     // PostCSS configuration
     postcss: {
       plugins: [tailwindcss, autoprefixer],
+    },
+  },
+
+  // Add resolve alias configuration
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)), // Define '@' to point to the 'src' directory
     },
   },
 
