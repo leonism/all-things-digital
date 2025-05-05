@@ -29,6 +29,7 @@ layer(base);
 
   /* start the custom color collection */
   --color-savory-white: hsl(0, 36%, 95%);
+  --color-broken-white: hsl(210, 20%, 98%);
   --color-muted-white: hsl(224, 16%, 54%);
   --color-white-hover: hsl(0, 36%, 95%);
   --color-pink-heading: hsl(279, 48%, 54%);
