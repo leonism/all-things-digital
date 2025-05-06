@@ -3,9 +3,7 @@
   <%- include('components/Meta.html') %>
   <body class="bg-broken-white dark:bg-main">
     <%- include('components/Navigation.html') %>
-    <div id="mainWrapper" class="mx-5">
-      <%- include(typeof content !== 'undefined' ? content : 'content/content-home.html') %>
-      <%- include('components/Footer.html') %>
-    </div>
+    <%- include(typeof content !== 'undefined' ? content : 'content/content-home.html') %>
+    <%- include('components/Footer.html') %>
   </body>
 </html>
