@@ -1,49 +1,9 @@
-<footer class="flex flex-col items-center max-w-4xl mx-auto my-10 border-t dark:border-slate-800/60">
-  <div class="flex max-w-xs pt-5 mx-auto -mt-9 overflow-hidden drop-shadow-xs grayscale opacity-80">
+<footer class="flex flex-col items-center max-w-4xl mx-auto my-10 md:my-10 border-t dark:border-slate-800/60">
+  <div class="flex max-w-xs pt-5 mb-5 mx-auto -mt-9 overflow-hidden drop-shadow-xs grayscale opacity-80">
     <img src="./img/icons/logo-footer.png" width="35" height="35" alt="bottom-logo" class="">
   </div>
-  <nav class="mt-10 mb-5">
-    <ul
-      class="flex flex-wrap gap-2 items-center justify-between max-w-(--breakpoint-md) mx-auto text-sm font-navigation text-slate-400">
-      <li class="mx-2">
-        <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          href="/">
-          Home
-        </a>
-      </li>
-      <li class="mx-2">
-        <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          href="/about.html">
-          About
-        </a>
-      </li>
-      <li class="mx-2">
-        <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          href="blog.html">
-          Blog
-        </a>
-      </li>
-      <li class="mx-2">
-        <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          href="credits.html">
-          Credits
-        </a>
-      </li>
-      <li class="mx-2">
-        <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          href="#">
-          Cookies
-        </a>
-      </li>
-      <li class="mx-2">
-        <a class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          href="#">
-          Privacy Policy
-        </a>
-      </li>
-    </ul>
-  </nav>
   <%- include('components/footer-social-button.html') %>
+  <%- include('components/footer-nav-links.html') %>
 </footer>
 <script type="module" src="./js/app.js"></script>
 <script type="module" src="./js/script.js"></script>
