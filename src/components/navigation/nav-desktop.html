@@ -1,0 +1,26 @@
+<!-- start the desktop nav // items-center justify-center -->
+<nav id="desktopNav" class="z-50 flex flex-row items-center self-center justify-between">
+  <ul
+    class="hidden text-base font-semibold font-navigation text-pink-heading leading-tight md:flex md:justify-between dark:text-white">
+    <li>
+      <a href="index.html"
+        class="block px-3 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-slate-100 hover:text-slate-900">Home</a>
+    </li>
+    <li>
+      <a href="blog.html"
+        class="block px-3 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-slate-100 hover:text-slate-900">Blog</a>
+    </li>
+    <li>
+      <a href="category.html"
+        class="block px-3 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-slate-100 hover:text-slate-900">Category</a>
+    </li>
+    <li>
+      <a href="about.html"
+        class="block px-3 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-slate-100 hover:text-slate-900">About</a>
+    </li>
+  </ul>
+</nav>
+<div id="rightBar" class="flex items-center z-60 transition transform hover:-rotate-12">
+  <%- include('components/navigation/nav-darkmode-button.html') %>
+  <%- include('components/navigation/nav-contact-button.html') %>
+</div>
