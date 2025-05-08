@@ -1,12 +1,9 @@
 <header id="wrapperNavBar"
   class="sticky top-0 z-10 bg-white/85 px-4 py-[25px] md:px-[25px] backdrop-blur-4xl drop-shadow-xl dark:bg-main/80 dark:backdrop-blur-4xl dark:drop-shadow-2xl dark:border-b dark:border-slate-900/20">
   <div id="NavBar" class="flex justify-between max-w-4xl mx-auto my-auto blurGrad">
-    <div id="logo" class="z-40 drop-shadow-sm overflow-x-hidden">
-      <a href="/">
-        <img src="./img/icons/icon-dgpondcom.png" alt="Logo" id="DGPond" class="w-auto h-auto max-w-full">
-      </a>
-    </div>
-    <%- include('components/nav-desktop.html') %>
-    <%- include('components/nav-mobile.html') %>
+    <%- include('components/navigation/nav-logo.html') %>
+    <%- include('components/navigation/nav-desktop.html') %>
+    <%- include('components/navigation/nav-contact-button.html') %>
+    <%- include('components/navigation/nav-mobile.html') %>
   </div>
 </header>
