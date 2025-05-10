@@ -12,18 +12,15 @@ import htmlMinifier from "vite-plugin-html-minifier";
 // Import the Vite plugin for EJS templating, allowing dynamic data in HTML.
 import { ViteEjsPlugin } from "vite-plugin-ejs";
 // Import the 'resolve' function from the 'path' module for resolving file paths.
-import { resolve } from "path";
-// __dirname is not available in ES modules by default.
-// If you need it, you can define it using import.meta.url:
-// import { fileURLToPath } from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = resolve(fileURLToPath(import.meta.url), '..');
-// Or, for Vite, `process.cwd()` can often be used for the project root,
-// and `resolve` can be used with relative paths from the config file location.
+// Added dirname
+import { resolve, dirname } from "path";
+// Added fileURLToPath
+import { fileURLToPath } from "url";
+// Add this line to import the Vue plugin
+import vue from "@vitejs/plugin-vue";
 
-// For Vue support (example, currently commented out):
-// import vue from "@vitejs/plugin-vue"; // Import the Vue plugin for Vite.
-// import { fileURLToPath, URL } from 'node:url'; // Utilities for working with file URLs.
+const __filename = fileURLToPath(import.meta.url); // Define __filename
+const __dirname = dirname(__filename); // Define __dirname
 
 /**
  * Vite configuration for the project.
@@ -33,20 +30,17 @@ import { resolve } from "path";
  */
 export default defineConfig({
   // Set the project root directory. All paths will be resolved relative to this.
-  // Here, it's set to './src', meaning Vite will look for source files in the 'src' folder.
   root: "./src",
 
   // Configuration for the build process.
   build: {
     // Specifies the output directory for built files, relative to the project root.
-    // Here, built files will be placed in '../dist' (i.e., a 'dist' folder at the same level as 'src').
-    outDir: "../dist",
+    outDir: "../dist", // Corrected: relative to project root, not src/
     // If true, Vite will clear the output directory before each build.
     emptyOutDir: true,
     // Advanced Rollup options for customizing the build.
     rollupOptions: {
       // Defines multiple entry points for the application.
-      // Each key-value pair represents an HTML file that will be processed as an entry point.
       input: {
         main: resolve(__dirname, "src/index.html"), // Main entry point (homepage).
         about: resolve(__dirname, "src/about.html"), // About page entry point.
@@ -71,20 +65,12 @@ export default defineConfig({
     },
   },
 
-  // Resolve alias configuration (example, currently commented out).
-  // Allows creating short aliases for frequently used import paths.
-  // resolve: {
-  //   alias: {
-  //     '@': fileURLToPath(new URL('./src', import.meta.url)) // Example: '@' alias for the 'src' directory.
-  //   }
-  // },
-
   // Configuration for Vite plugins.
   plugins: [
-    // vue(), // Example: Enable Vue plugin if using Vue.js.
+    vue(), // Add this line to enable the Vue plugin
 
     // Image minification plugin configuration.
-    (viteImagemin.default || viteImagemin)({ // Attempt to use .default if viteImagemin itself is not the function
+    (viteImagemin.default || viteImagemin)({
       // Configuration for GIF optimization using gifsicle.
       gifsicle: {
         interlaced: true, // Creates interlaced GIFs.
@@ -101,8 +87,10 @@ export default defineConfig({
       // Configuration for SVG optimization using SVGO.
       svgo: {
         plugins: [
-          { name: "removeViewBox" }, // Removes the viewBox attribute (can be problematic, use with caution).
-          { name: "removeEmptyAttrs", active: false }, // Example: disable removing empty attributes.
+          // Removes the viewBox attribute (can be problematic, use with caution).
+          { name: "removeViewBox" },
+          // Example: disable removing empty attributes.
+          { name: "removeEmptyAttrs", active: false },
         ],
       },
       // Configuration for WebP image format conversion and optimization.
@@ -111,31 +99,34 @@ export default defineConfig({
       },
       // Optionally, add AVIF configuration if you installed imagemin-avif (currently commented out).
       avif: {
-        quality: 50, // Adjust AVIF quality as needed.
+        // Adjust AVIF quality as needed.
+        quality: 50,
       },
     }),
 
     // HTML minification plugin configuration.
     htmlMinifier({
-      minify: true, // Enables minification.
-      collapseWhitespace: true, // Removes whitespace in HTML.
-      keepClosingSlash: true, // Keeps closing slashes on void elements (e.g., <img />).
-      removeComments: true, // Removes HTML comments.
-      removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
-      removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
-      removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
-      useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
+      // Enables minification.
+      minify: true,
+      // Removes whitespace in HTML.
+      collapseWhitespace: true,
+      // Keeps closing slashes on void elements (e.g., <img />).
+      keepClosingSlash: true,
+      // Removes HTML comments.
+      removeComments: true,
+      // Removes redundant attributes (e.g., type="text" on input).
+      removeRedundantAttributes: true,
+      // Removes type="text/javascript" from script tags.
+      removeScriptTypeAttributes: true,
+      // Removes type="text/css" from link and style tags.
+      removeStyleLinkTypeAttributes: true,
+      // Uses the short HTML5 doctype (<!DOCTYPE html>).
+      useShortDoctype: true,
     }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
-    // Pass data to EJS templates if needed, e.g., ViteEjsPlugin({ globalData: 'value' }).
     ViteEjsPlugin(),
 
-    // Tailwind CSS plugin for Vite (already listed under css.postcss.plugins,
-    // but some newer versions of @tailwindcss/vite might recommend direct plugin usage as well.
-    // If it's handled by PostCSS, this might be redundant or specific to certain Tailwind versions/setups.
-    // Given it's also in postcss.plugins, ensure this doesn't cause conflicts.
-    // Typically, for Tailwind CSS v3+ with PostCSS, it's configured in postcss.config.js or here in css.postcss.
     // For Tailwind CSS v4+ with its Vite plugin, this is the correct way.
     tailwindcss(),
   ],
@@ -147,6 +138,12 @@ export default defineConfig({
       // Enables polling for file changes. Useful in some environments (e.g., Docker, WSL)
       // where filesystem events might not work reliably. Can be CPU intensive.
       usePolling: true,
+    },
+  },
+  // Add alias resolution
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"), // Points '@' to the 'src' directory in your project root
     },
   },
 });
