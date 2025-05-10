@@ -1,6 +1,6 @@
 // Import the 'defineConfig' function from Vite to provide type-safe configuration.
 import { defineConfig } from "vite";
-// Import the Tailwind CSS plugin for Vite to integrate Tailwind CSS processing.
+import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
 // Import Autoprefixer to parse CSS and add vendor prefixes to CSS rules.
 import autoprefixer from "autoprefixer";
@@ -9,28 +9,9 @@ import autoprefixer from "autoprefixer";
 import viteImagemin from "vite-plugin-imagemin";
 // Import the Vite plugin for HTML minification to reduce the size of HTML files.
 import htmlMinifier from "vite-plugin-html-minifier";
-// Import the Vite plugin for EJS templating, allowing dynamic data in HTML.
-import { ViteEjsPlugin } from "vite-plugin-ejs";
-// Import the 'resolve' function from the 'path' module for resolving file paths.
-import { resolve } from "path";
-// __dirname is not available in ES modules by default.
-// If you need it, you can define it using import.meta.url:
-// import { fileURLToPath } from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = resolve(fileURLToPath(import.meta.url), '..');
-// Or, for Vite, `process.cwd()` can often be used for the project root,
-// and `resolve` can be used with relative paths from the config file location.
+import vue from "@vitejs/plugin-vue";
+import { fileURLToPath, URL } from "node:url";
 
-// For Vue support (example, currently commented out):
-// import vue from "@vitejs/plugin-vue"; // Import the Vue plugin for Vite.
-// import { fileURLToPath, URL } from 'node:url'; // Utilities for working with file URLs.
-
-/**
- * Vite configuration for the project.
- *
- * This configuration object defines settings for Vite's development server,
- * build process, CSS processing, and plugins.
- */
 export default defineConfig({
   // Set the project root directory. All paths will be resolved relative to this.
   // Here, it's set to './src', meaning Vite will look for source files in the 'src' folder.
@@ -43,20 +24,6 @@ export default defineConfig({
     outDir: "../dist",
     // If true, Vite will clear the output directory before each build.
     emptyOutDir: true,
-    // Advanced Rollup options for customizing the build.
-    rollupOptions: {
-      // Defines multiple entry points for the application.
-      // Each key-value pair represents an HTML file that will be processed as an entry point.
-      input: {
-        main: resolve(__dirname, "src/index.html"), // Main entry point (homepage).
-        about: resolve(__dirname, "src/about.html"), // About page entry point.
-        contact: resolve(__dirname, "src/contact.html"), // Contact page entry point.
-        blog: resolve(__dirname, "src/blog.html"), // Blog listing page entry point.
-        blogpost: resolve(__dirname, "src/blog-post.html"), // Single blog post template entry point.
-        category: resolve(__dirname, "src/category.html"), // Category page entry point.
-        credits: resolve(__dirname, "src/credits.html"), // Credits page entry point.
-      },
-    },
   },
 
   // Configuration for CSS processing.
@@ -71,29 +38,19 @@ export default defineConfig({
     },
   },
 
-  // Resolve alias configuration (example, currently commented out).
-  // Allows creating short aliases for frequently used import paths.
-  // resolve: {
-  //   alias: {
-  //     '@': fileURLToPath(new URL('./src', import.meta.url)) // Example: '@' alias for the 'src' directory.
-  //   }
-  // },
+  // Add resolve alias configuration
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)), // Define '@' to point to the 'src' directory
+    },
+  },
 
-  // Configuration for Vite plugins.
+  // Plugins configuration
   plugins: [
-    // vue(), // Example: Enable Vue plugin if using Vue.js.
-
-    // Image minification plugin configuration.
-    (viteImagemin.default || viteImagemin)({ // Attempt to use .default if viteImagemin itself is not the function
-      // Configuration for GIF optimization using gifsicle.
-      gifsicle: {
-        interlaced: true, // Creates interlaced GIFs.
-      },
-      // Configuration for JPEG optimization using mozjpeg.
-      mozjpeg: {
-        quality: 80, // Sets JPEG quality (0-100, higher is better quality but larger file).
-      },
-      // Configuration for PNG optimization using pngquant.
+    // Plugin Vue for Vite
+    vue(),
+    // Image minification
+    viteImagemin({
       pngquant: {
         quality: [0.7, 0.9], // Sets PNG quality range (0-1, lower is more compression).
         speed: 4, // Sets pngquant speed/quality trade-off (1=slowest/best, 11=fastest/worst).
@@ -126,17 +83,9 @@ export default defineConfig({
       removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
       useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
     }),
-
-    // EJS templating plugin, allowing use of EJS syntax in .html files.
-    // Pass data to EJS templates if needed, e.g., ViteEjsPlugin({ globalData: 'value' }).
-    ViteEjsPlugin(),
-
-    // Tailwind CSS plugin for Vite (already listed under css.postcss.plugins,
-    // but some newer versions of @tailwindcss/vite might recommend direct plugin usage as well.
-    // If it's handled by PostCSS, this might be redundant or specific to certain Tailwind versions/setups.
-    // Given it's also in postcss.plugins, ensure this doesn't cause conflicts.
-    // Typically, for Tailwind CSS v3+ with PostCSS, it's configured in postcss.config.js or here in css.postcss.
-    // For Tailwind CSS v4+ with its Vite plugin, this is the correct way.
+    // Plugin EJS templating for HTML // <-- Remove
+    // ViteEjsPlugin(), // <-- Remove
+    // Latest Tailwind 4.1 for Vite needs this line
     tailwindcss(),
   ],
 

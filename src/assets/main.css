@@ -28,10 +28,10 @@ layer(base);
   --animate-blob: blob 7s infinite;
 
   /* start the custom color collection */
-  --color-savory-white: hsl(0, 36%, 95%);
-  --color-broken-white: hsl(210, 20%, 98%);
-  --color-muted-white: hsl(224, 16%, 54%);
+  --color-white-savory: hsl(0, 36%, 95%);
+  --color-white-muted: hsl(224, 16%, 54%);
   --color-white-hover: hsl(0, 36%, 95%);
+  --color-white-pale: hsl(210, 20%, 98%);
   --color-pink-heading: hsl(279, 48%, 54%);
   --color-pink-sub-heading: hsl(293, 43%, 55%);
   --color-black-sub-heading: hsl(221, 39%, 11%);
