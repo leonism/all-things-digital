@@ -5,7 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 // Import Autoprefixer to parse CSS and add vendor prefixes to CSS rules.
 import autoprefixer from "autoprefixer";
 // Import the Vite plugin for image minification.
-// Assuming the latest version exports a default function, common for Vite plugins.
 import viteImagemin from "vite-plugin-imagemin";
 // Import the Vite plugin for HTML minification to reduce the size of HTML files.
 import htmlMinifier from "vite-plugin-html-minifier";
@@ -21,8 +20,7 @@ import { resolve } from "node:path";
  * build process, CSS processing, and plugins.
  */
 export default defineConfig({
-  // Set the project root directory. All paths will be resolved relative to this.
-  // Here, it's set to './src', meaning Vite will look for source files in the 'src' folder.
+  // Set root dir to './src', meaning Vite will look for source files in the 'src' folder.
   root: "./src",
 
   // Configuration for the build process.
