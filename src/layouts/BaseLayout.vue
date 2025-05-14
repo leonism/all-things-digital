@@ -11,7 +11,6 @@ import Footer from "../components/Footer.vue";
     <slot name="title"></slot>
   </Meta>
   <div class="bg-white-pale dark:bg-main min-h-screen flex flex-col">
-    <!-- Use the correct component name -->
     <Navigation />
     <div
       id="mainWrapper"
