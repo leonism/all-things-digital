@@ -1,7 +1,6 @@
 <!-- src/layouts/BaseLayout.vue -->
 <script setup>
 // Import the new Vue components
-// Using relative paths is generally safer unless aliases are configured
 import Meta from "../components/Meta.vue"; // Relative path
 import NavigationBar from "../components/Navigation.vue"; // Relative path & Correct Name
 import Footer from "../components/Footer.vue"; // Relative path
@@ -15,13 +14,13 @@ import Footer from "../components/Footer.vue"; // Relative path
 
   <div class="bg-white-pale dark:bg-main min-h-screen flex flex-col">
     <!-- Use the correct component name -->
-    <NavigationBar />
+    <Navigation />
     <!-- Corrected from <Navigation /> -->
     <div
       id="mainWrapper"
       class="mx-5 flex-grow">
-      <slot></slot>
       <!-- Main content passed from App.vue -->
+      <slot></slot>
     </div>
     <Footer />
     <!-- This was already correct -->

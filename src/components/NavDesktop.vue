@@ -24,7 +24,8 @@
         </svg>
       </button>
       <!-- Contact Button -->
-      <router-link to="/contact" class="hidden md:flex ml-3 px-5 pt-2.5 pb-2 text-white font-medium text-xs leading-normal uppercase rounded-lg transition duration-200 ease-in-out bg-linear-to-br from-indigo-400 to-pink-500 hover:text-whiteHover hover:shadow-lg hover:bg-opacity-40 hover:outline-1 dark:hover:shadow-cyan-500/60 hover:transition-colors hover:duration-200 focus:text-white focus:shadow-lg focus:outline-hidden focus:ring-1 active:text-white active:shadow-lg">
+      <router-link to="/contact"
+      class="hidden md:flex ml-3 px-5 pt-2.5 pb-2 text-white font-medium text-xs leading-normal uppercase rounded-lg transition duration-200 ease-in-out bg-linear-to-br from-indigo-400 to-pink-500 hover:text-whiteHover hover:shadow-lg hover:bg-opacity-40 hover:outline-1 dark:hover:shadow-cyan-500/60 hover:transition-colors hover:duration-200 focus:text-white focus:shadow-lg focus:outline-hidden focus:ring-1 active:text-white active:shadow-lg">
         Contact Me
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
           <path fill-rule="evenodd"
