@@ -12,18 +12,7 @@ import htmlMinifier from "vite-plugin-html-minifier";
 // Import the Vite plugin for EJS templating, allowing dynamic data in HTML.
 import { ViteEjsPlugin } from "vite-plugin-ejs";
 // Import the 'resolve' function from the 'path' module for resolving file paths.
-import { resolve } from "path";
-// __dirname is not available in ES modules by default.
-// If you need it, you can define it using import.meta.url:
-// import { fileURLToPath } from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = resolve(fileURLToPath(import.meta.url), '..');
-// Or, for Vite, `process.cwd()` can often be used for the project root,
-// and `resolve` can be used with relative paths from the config file location.
-
-// For Vue support (example, currently commented out):
-// import vue from "@vitejs/plugin-vue"; // Import the Vue plugin for Vite.
-// import { fileURLToPath, URL } from 'node:url'; // Utilities for working with file URLs.
+import { resolve } from "node:path";
 
 /**
  * Vite configuration for the project.
@@ -71,20 +60,13 @@ export default defineConfig({
     },
   },
 
-  // Resolve alias configuration (example, currently commented out).
-  // Allows creating short aliases for frequently used import paths.
-  // resolve: {
-  //   alias: {
-  //     '@': fileURLToPath(new URL('./src', import.meta.url)) // Example: '@' alias for the 'src' directory.
-  //   }
-  // },
-
   // Configuration for Vite plugins.
   plugins: [
     // vue(), // Example: Enable Vue plugin if using Vue.js.
 
     // Image minification plugin configuration.
-    (viteImagemin.default || viteImagemin)({ // Attempt to use .default if viteImagemin itself is not the function
+    (viteImagemin.default || viteImagemin)({
+      // Attempt to use .default if viteImagemin itself is not the function
       // Configuration for GIF optimization using gifsicle.
       gifsicle: {
         interlaced: true, // Creates interlaced GIFs.
@@ -128,14 +110,8 @@ export default defineConfig({
     }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
-    // Pass data to EJS templates if needed, e.g., ViteEjsPlugin({ globalData: 'value' }).
     ViteEjsPlugin(),
 
-    // Tailwind CSS plugin for Vite (already listed under css.postcss.plugins,
-    // but some newer versions of @tailwindcss/vite might recommend direct plugin usage as well.
-    // If it's handled by PostCSS, this might be redundant or specific to certain Tailwind versions/setups.
-    // Given it's also in postcss.plugins, ensure this doesn't cause conflicts.
-    // Typically, for Tailwind CSS v3+ with PostCSS, it's configured in postcss.config.js or here in css.postcss.
     // For Tailwind CSS v4+ with its Vite plugin, this is the correct way.
     tailwindcss(),
   ],
