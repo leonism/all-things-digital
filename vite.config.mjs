@@ -92,12 +92,12 @@ export default defineConfig({
       },
       // Configuration for JPEG optimization using mozjpeg.
       mozjpeg: {
-        quality: 50, // Sets JPEG quality (0-100, higher is better quality but larger file).
+        quality: 40, // Sets JPEG quality (0-100, higher is better quality but larger file).
       },
       // Configuration for PNG optimization using pngquant.
       pngquant: {
         quality: [0.7, 0.9], // Sets PNG quality range (0-1, lower is more compression).
-        speed: 4, // Sets pngquant speed/quality trade-off (1=slowest/best, 11=fastest/worst).
+        speed: 3, // Sets pngquant speed/quality trade-off (1=slowest/best, 11=fastest/worst).
       },
       // Configuration for SVG optimization using SVGO.
       svgo: {
