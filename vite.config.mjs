@@ -25,15 +25,13 @@ export default defineConfig({
 
   // Configuration for the build process.
   build: {
-    // Specifies the output directory for built files, relative to the project root.
-    // Here, built files will be placed in '../dist' (i.e., a 'dist' folder at the same level as 'src').
+    // Built files will be placed in '../dist' (i.e., a 'dist' folder at the same level as 'src').
     outDir: "../dist",
     // If true, Vite will clear the output directory before each build.
     emptyOutDir: true,
     // Advanced Rollup options for customizing the build.
     rollupOptions: {
       // Defines multiple entry points for the application.
-      // Each key-value pair represents an HTML file that will be processed as an entry point.
       input: {
         main: resolve(__dirname, "src/index.html"), // Main entry point (homepage).
         about: resolve(__dirname, "src/about.html"), // About page entry point.
@@ -63,20 +61,27 @@ export default defineConfig({
     // vue(), // Example: Enable Vue plugin if using Vue.js.
 
     // Image minification plugin configuration.
-    (viteImagemin.default || viteImagemin)({
-      // Attempt to use .default if viteImagemin itself is not the function
+    viteImagemin({
       // Configuration for GIF optimization using gifsicle.
       gifsicle: {
+        optimizationLevel: 7, // Sets GIF optimization level (0-3, higher is more optimized).
         interlaced: true, // Creates interlaced GIFs.
+      },
+      optipng: {
+        optimizationLevel: 7, // Sets PNG optimization level (0-7, higher is more optimized).
       },
       // Configuration for JPEG optimization using mozjpeg.
       mozjpeg: {
+<<<<<<< HEAD
         quality: 40, // Sets JPEG quality (0-100, higher is better quality but larger file).
+=======
+        quality: 15, // Sets JPEG quality (0-100, higher is better quality but larger file).
+>>>>>>> main
       },
       // Configuration for PNG optimization using pngquant.
       pngquant: {
         quality: [0.7, 0.9], // Sets PNG quality range (0-1, lower is more compression).
-        speed: 4, // Sets pngquant speed/quality trade-off (1=slowest/best, 11=fastest/worst).
+        speed: 1, // Sets pngquant speed/quality trade-off (1=slowest/best, 11=fastest/worst).
       },
       // Configuration for SVG optimization using SVGO.
       svgo: {
@@ -99,12 +104,16 @@ export default defineConfig({
     htmlMinifier({
       minify: true, // Enables minification.
       collapseWhitespace: true, // Removes whitespace in HTML.
-      keepClosingSlash: true, // Keeps closing slashes on void elements (e.g., <img />).
+      keepClosingSlash: true, // Keeps closing slashes on void elements
       removeComments: true, // Removes HTML comments.
       removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
       removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
       removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
       useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
+      removeEmptyAttributes: true,
+      minifyCSS: true,
+      minifyJS: true,
+      minifyURLs: true,
     }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
