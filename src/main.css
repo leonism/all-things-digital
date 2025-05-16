@@ -53,7 +53,7 @@ layer(base);
   /* start the background-color, so may call them with `bg-main` in your html class */
   --background-color-postcard: hsl(215, 45%, 14%);
 
-  /* start the postcard-background-color, so may call them with `bg-postcard` in your html class */
+  /* start the background-color-main, so may call them with `bg-main` in your html class */
   --background-color-main: hsl(212, 48%, 11%);
 
   /* apply to any element you wish to animate hover:animate-[var(--animate-blob)] */
