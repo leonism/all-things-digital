@@ -6,43 +6,7 @@
     "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/typography": "^0.5.8",
     "imagemin-avif": "^0.1.6",
-    "imagemin-webp": "^6.1.0",
-    "install": "^0.13.0",
-    "live-server": "^1.2.0",
-    "npm": "^11.3.0",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.7",
-    "vite": "^6.3.2",
-    "vite-plugin-ejs": "^1.7.0",
-    "vite-plugin-html-minifier": "^1.0.5",
-    "vite-plugin-imagemin": "^0.4.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
-    "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
-    "start": "live-server ./dist",
-    "render-build": "npm install && npm run build"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.7",
-    "autoprefixer": "^10.4.21"
-  }
-}
-
-{
-  "type": "module",
-  "devDependencies": {
-    "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/line-clamp": "^0.4.2",
-    "@tailwindcss/postcss": "^4.1.4",
-    "@tailwindcss/typography": "^0.5.8",
-    "imagemin-avif": "^0.1.6",
-    "imagemin-webp": "^6.1.0",
+    "imagemin-webp": "^8.0.0",
     "install": "^0.13.0",
     "live-server": "^1.2.0",
     "npm": "^11.3.0",
@@ -53,7 +17,8 @@
     "vite": "^6.3.2",
     "vite-plugin-ejs": "^1.7.0",
     "vite-plugin-html-minifier": "^1.0.5",
-    "vite-plugin-imagemin": "^0.4.0"
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-webp-generator": "^0.1.0"
   },
   "scripts": {
     "dev": "vite",
