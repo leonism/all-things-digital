@@ -1,58 +1,104 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("menu-btn");
-  const nav = document.getElementById("menu");
+document.addEventListener("DOMContentLoaded", () => {
+  // ======================
+  // Theme Management
+  // ======================
+  const theme = {
+    icons: {
+      sun: document.querySelector(".sun"),
+      moon: document.querySelector(".moon"),
+    },
+    storageKey: "theme",
+    classes: ["dark", "display-none"],
 
-  // Function to close the navigation menu
-  function closeNav() {
-    btn.classList.remove("open");
-    nav.classList.remove("flex");
-    nav.classList.add("hidden");
-    btn.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("overflow-hidden");
-  }
+    init() {
+      const savedTheme = localStorage.getItem(this.storageKey);
+      const systemDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const isDark = savedTheme ? savedTheme === "dark" : systemDark;
 
-  // Function to toggle navigation menu
-  function toggleNav() {
-    const isExpanded = btn.getAttribute("aria-expanded") === "true" || false;
+      this.toggleIcons(isDark);
+      document.documentElement.classList.toggle(this.classes[0], isDark);
+    },
 
-    // Toggle visual classes
-    btn.classList.toggle("open");
-    nav.classList.toggle("flex");
-    nav.classList.toggle("hidden");
+    toggleIcons(isDark) {
+      [this.icons.sun, this.icons.moon].forEach((icon, index) => {
+        icon.classList.toggle(this.classes[1], index === Number(isDark));
+      });
+    },
 
-    // Update ARIA attributes
-    btn.setAttribute("aria-expanded", !isExpanded);
+    switch() {
+      const isDark = document.documentElement.classList.toggle(this.classes[0]);
+      localStorage.setItem(this.storageKey, isDark ? "dark" : "light");
+      this.toggleIcons(isDark);
+    },
+  };
 
-    // Toggle scroll lock
-    if (!isExpanded) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }
+  // Theme event listeners
+  theme.icons.sun.addEventListener("click", () => theme.switch());
+  theme.icons.moon.addEventListener("click", () => theme.switch());
+  theme.init();
 
-  // Toggle navigation menu when hamburger is clicked
-  btn.addEventListener("click", function (e) {
-    e.stopPropagation(); // Prevent the click event from propagating to the document
-    toggleNav();
-  });
+  // ======================
+  // Menu Management
+  // ======================
+  const menu = {
+    btn: document.getElementById("menu-btn"),
+    nav: document.getElementById("menu"),
+    isOpen: false,
+    classes: {
+      open: "open",
+      flex: "flex",
+      hidden: "hidden",
+      lockScroll: "overflow-hidden",
+    },
 
-  // Close the navigation menu when clicking outside of it
-  document.addEventListener("click", function (e) {
-    if (!nav.contains(e.target) && !btn.contains(e.target)) {
-      closeNav();
-    }
-  });
+    setState(open) {
+      this.isOpen = open;
+      this.btn.classList.toggle(this.classes.open, open);
+      this.nav.classList.toggle(this.classes.flex, open);
+      this.nav.classList.toggle(this.classes.hidden, !open);
+      this.btn.setAttribute("aria-expanded", open);
+      document.body.classList.toggle(this.classes.lockScroll, open);
+    },
 
-  // Prevent closing the menu when clicking inside the navigation area
-  nav.addEventListener("click", function (e) {
-    e.stopPropagation(); // Stop clicks inside the navigation from propagating to the document
-  });
+    handleClosure(e) {
+      const isEscape = e.type === "keydown" && e.key === "Escape";
+      const isOutsideClick =
+        e.type === "click" &&
+        !this.nav.contains(e.target) &&
+        !this.btn.contains(e.target);
 
-  // Close menu when pressing Escape key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeNav();
-    }
-  });
+      if (isEscape || isOutsideClick) {
+        this.setState(false);
+        this.cleanup();
+      }
+    },
+
+    cleanup() {
+      document.removeEventListener("click", this.boundHandleClosure);
+      document.removeEventListener("keydown", this.boundHandleClosure);
+    },
+
+    init() {
+      this.boundHandleClosure = this.handleClosure.bind(this);
+
+      this.btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const newState = !this.isOpen;
+        this.setState(newState);
+
+        newState ? this.addListeners() : this.cleanup();
+      });
+
+      this.nav.addEventListener("click", (e) => e.stopPropagation());
+    },
+
+    addListeners() {
+      document.addEventListener("click", this.boundHandleClosure);
+      document.addEventListener("keydown", this.boundHandleClosure);
+    },
+  };
+
+  menu.init();
 });
