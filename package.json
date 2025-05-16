@@ -6,7 +6,7 @@
     "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/typography": "^0.5.8",
     "imagemin-avif": "^0.1.6",
-    "imagemin-webp": "^4.1.0",
+    "imagemin-webp": "^8.0.0",
     "install": "^0.13.0",
     "live-server": "^1.2.0",
     "npm": "^11.3.0",
@@ -29,7 +29,7 @@
     "render-build": "npm install && npm run build"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.7",
     "autoprefixer": "^10.4.21"
   }
 }
