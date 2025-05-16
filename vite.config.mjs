@@ -72,11 +72,7 @@ export default defineConfig({
       },
       // Configuration for JPEG optimization using mozjpeg.
       mozjpeg: {
-<<<<<<< HEAD
         quality: 40, // Sets JPEG quality (0-100, higher is better quality but larger file).
-=======
-        quality: 15, // Sets JPEG quality (0-100, higher is better quality but larger file).
->>>>>>> main
       },
       // Configuration for PNG optimization using pngquant.
       pngquant: {
