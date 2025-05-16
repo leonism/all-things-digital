@@ -1,10 +1,14 @@
-<header id="wrapperNavBar"
-  class="sticky top-0 z-10 bg-white/85 px-4 py-[25px] md:px-[25px] backdrop-blur-4xl drop-shadow-xl dark:bg-main/80 dark:backdrop-blur-4xl dark:drop-shadow-2xl dark:border-b dark:border-slate-900/20">
-  <section id="NavBar" class="flex flex-row items-center justify-between max-w-4xl mx-auto my-auto blurGrad">
-    <%- include('components/navigation/nav-logo.html') %>
-    <%- include('components/navigation/nav-desktop.html') %>
-    <%- include('components/navigation/nav-dark-mode.html') %>
-    <%- include('components/navigation/nav-contact-button.html') %>
-    <%- include('components/navigation/nav-mobile.html') %>
+<header
+  id="wrapperNavBar"
+  class="sticky top-0 z-10 bg-white/85 px-4 py-[25px] md:px-[25px] backdrop-blur-4xl drop-shadow-3xl dark:bg-main/80 dark:backdrop-blur-4xl dark:drop-shadow-3xl dark:border-b dark:border-slate-900/20">
+  <section
+    id="NavBar"
+    class="flex flex-row items-center justify-between max-w-4xl mx-auto my-auto blurGrad">
+    <%- include('components/navigation/nav-logo.html') %> <%-
+    include('components/navigation/nav-desktop.html') %> <%-
+    include('components/navigation/nav-dark-mode.html') %> <%-
+    include('components/navigation/nav-search-button.html') %> <%-
+    include('components/navigation/nav-contact-button.html') %> <%-
+    include('components/navigation/nav-mobile.html') %>
   </section>
 </header>

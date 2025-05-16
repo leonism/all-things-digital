@@ -50,13 +50,13 @@ layer(base);
   --color-fuchsia-900: #701a75;
   --color-fuchsia-950: #4a044e;
 
-  /* start the background-color, so may call them with `bg-main` in your html */
+  /* start the background-color, so may call them with `bg-main` in your html class */
   --background-color-postcard: hsl(215, 45%, 14%);
 
-  /* start the postcard-background-color, so may call them with `bg-postcard` in your html */
+  /* start the postcard-background-color, so may call them with `bg-postcard` in your html class */
   --background-color-main: hsl(212, 48%, 11%);
 
-  /* start the tailwind animation */
+  /* apply to any element you wish to animate hover:animate-[var(--animate-blob)] */
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
@@ -68,7 +68,7 @@ layer(base);
       transform: translate(-20px, 20px) scale(0.9);
     }
     100% {
-      transform: tranlate(0px, 0px) scale(1);
+      transform: translate(0px, 0px) scale(1);
     }
   }
 }
@@ -113,7 +113,42 @@ layer(base);
   );
 }
 
-/* Hamburger Menu */
+/*
+Custom Styles
+ */
+
+.blurGrad {
+  position: relative;
+}
+
+.blurGrad::after,
+.blurGrad::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -30;
+  filter: blur(45px);
+  border-radius: 10% 10% 10%;
+}
+
+.blurGrad::after {
+  background-color: hsl(var(--accent1) / 0.2);
+  transform: rotate(-20deg);
+}
+
+.blurGrad::before {
+  background-color: hsl(var(--accent2) / 0.2);
+  transform: rotate(20deg);
+}
+
+@media screen (max-width: 480px) {
+  .blurGrad::after,
+  .blurGrad::before {
+    filter: blur(20px);
+  }
+}
+
+/* Hamburger Mobile Menu */
 .hamburger {
   cursor: pointer;
   width: 24px;
@@ -152,39 +187,4 @@ layer(base);
 }
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
-}
-
-/*
-Custom Styles
- */
-
-.blurGrad {
-  position: relative;
-}
-
-.blurGrad::after,
-.blurGrad::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -30;
-  filter: blur(45px);
-  border-radius: 10% 10% 10%;
-}
-
-.blurGrad::after {
-  background-color: hsl(var(--accent1) / 0.2);
-  transform: rotate(-20deg);
-}
-
-.blurGrad::before {
-  background-color: hsl(var(--accent2) / 0.2);
-  transform: rotate(20deg);
-}
-
-@media screen (max-width: 480px) {
-  .blurGrad::after,
-  .blurGrad::before {
-    filter: blur(20px);
-  }
 }
