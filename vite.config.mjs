@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 // Import the 'defineConfig' function from Vite to provide type-safe configuration.
 import { defineConfig } from "vite";
 // Import the Tailwind CSS PostCSS plugin to integrate Tailwind CSS processing.
 import tailwindcss from "tailwindcss";
+=======
+// npm; // Import the 'defineConfig' function from Vite to provide type-safe configuration.
+import { defineConfig } from "vite";
+// Import the Tailwind CSS plugin for Vite to integrate Tailwind CSS processing.
+import tailwindcss from "@tailwindcss/vite";
+>>>>>>> d7f391f (feat: Add initial project structure with icons, images, and theme management)
 // Import Autoprefixer to parse CSS and add vendor prefixes to CSS rules.
 import autoprefixer from "autoprefixer";
 // Import the Vite plugin for image minification.
@@ -63,6 +70,7 @@ export default defineConfig({
     // vue(), // Example: Enable Vue plugin if using Vue.js.
 
     // Image minification plugin configuration.
+<<<<<<< HEAD
     // viteImagemin is not compatible with Vite 4+ and has been removed to resolve type errors.
     // If you need image optimization, consider using a compatible plugin or a separate build step.
 
@@ -75,13 +83,61 @@ export default defineConfig({
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true,
       }, // Pass options inside the 'minify' object as per plugin requirements.
+=======
+    (viteImagemin.default || viteImagemin)({
+      // Attempt to use .default if viteImagemin itself is not the function
+      // Configuration for GIF optimization using gifsicle.
+      gifsicle: {
+        interlaced: true, // Creates interlaced GIFs.
+      },
+      // Configuration for JPEG optimization using mozjpeg.
+      mozjpeg: {
+        quality: 50, // Sets JPEG quality (0-100, higher is better quality but larger file).
+      },
+      // Configuration for PNG optimization using pngquant.
+      pngquant: {
+        quality: [0.7, 0.9], // Sets PNG quality range (0-1, lower is more compression).
+        speed: 4, // Sets pngquant speed/quality trade-off (1=slowest/best, 11=fastest/worst).
+      },
+      // Configuration for SVG optimization using SVGO.
+      svgo: {
+        plugins: [
+          { name: "removeViewBox" }, // Removes the viewBox attribute (can be problematic, use with caution).
+          { name: "removeEmptyAttrs", active: false }, // Example: disable removing empty attributes.
+        ],
+      },
+      // Configuration for WebP image format conversion and optimization.
+      webp: {
+        quality: 75, // Sets WebP quality (0-100).
+      },
+      // Optionally, add AVIF configuration if you installed imagemin-avif (currently commented out).
+      avif: {
+        quality: 50, // Adjust AVIF quality as needed.
+      },
+    }),
+
+    // HTML minification plugin configuration.
+    htmlMinifier({
+      minify: true, // Enables minification.
+      collapseWhitespace: true, // Removes whitespace in HTML.
+      keepClosingSlash: true, // Keeps closing slashes on void elements (e.g., <img />).
+      removeComments: true, // Removes HTML comments.
+      removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
+      removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
+      removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
+      useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
+>>>>>>> d7f391f (feat: Add initial project structure with icons, images, and theme management)
     }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
     ViteEjsPlugin(),
 
     // For Tailwind CSS v4+ with its Vite plugin, this is the correct way.
+<<<<<<< HEAD
     // tailwindcss(), // Removed because Tailwind should only be in PostCSS plugins, not Vite plugins.
+=======
+    tailwindcss(),
+>>>>>>> d7f391f (feat: Add initial project structure with icons, images, and theme management)
   ],
 
   // Configuration for the Vite development server.
