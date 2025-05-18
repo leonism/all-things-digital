@@ -10,26 +10,15 @@
     itemscope
     itemtype="https://schema.org/ImageObject">
     <img
-      src="./img/thumbnail-01.jpg"
+      src="./assets/img/thumbnail-01.jpg"
       alt="Illustration for article about AI workplace knowledge"
       class="w-full h-full object-cover aspect-video"
       itemprop="url" />
   </figure>
 
   <div class="flex grow flex-col p-4 md:p-5 md:ml-0">
-    <!-- Header with author avatar -->
     <header class="mb-3 flex items-center">
-      <div
-        id="authorAvatar"
-        class="mr-3 p-0.5 flex shrink-0 basis-auto items-center self-start rounded-full bg-gradient-to-br from-indigo-400 to-pink-600 hover:from-indigo-500 hover:to-pink-700 transition-colors duration-300">
-        <img
-          src="./img/avatar.png"
-          alt="Author profile picture"
-          class="h-12 w-12 rounded-full max-w-full border-2 border-white dark:border-slate-800"
-          itemprop="author"
-          itemscope
-          itemtype="https://schema.org/Person" />
-      </div>
+      <%- include('components/avatar/avatar-author.html') %>
       <!-- Header with posts title and metadata -->
       <div
         id="postMetaData"
