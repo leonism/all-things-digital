@@ -1,6 +1,7 @@
-/* start the google fonts import class */
+/* start the google fonts import class
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
 layer(base);
+*/
 
 /* start the tailwind import class */
 @import "tailwindcss";
@@ -22,7 +23,7 @@ layer(base);
 
   /* start the fonts collection */
   --font-*: initial;
-  --font-navigation: Poppins, sans-serif;
+  /* --font-navigation: Poppins, sans-serif; */
 
   /* start the animation collection */
   --animate-blob: blob 7s infinite;
@@ -82,6 +83,26 @@ layer(base);
   color utility to any element that depends on these defaults.
 */
 @layer base {
+  :root {
+    --font-navigation: "Poppins", sans-serif;
+    --font-weight-extrabig: 1200;
+    /* Colors */
+    --bkg: 222 47.4% 11.2%;
+    --bkg-alt: 226 58.3% 18.8%;
+    --text: 226 100% 93.9%;
+    --text-alt: 226 22.1% 73.3%;
+    --muted: 230 39% 67.8%;
+    --white: 255 100% 100%;
+    --accent1: 241 76.8% 62.7%;
+    --accent2: 330 85.2% 60.4%;
+    --accent3: 0 90.6% 70.8%;
+    --gradient: linear-gradient(
+      94.55deg,
+      hsl(var(--accent2)) -4.6%,
+      hsl(var(--accent3)) 99.9%
+    );
+  }
+
   *,
   ::after,
   ::before,
@@ -89,33 +110,24 @@ layer(base);
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
-}
 
-.display-none {
-  @apply hidden;
-}
-
-:root {
-  /* Colors */
-  --bkg: 222 47.4% 11.2%;
-  --bkg-alt: 226 58.3% 18.8%;
-  --text: 226 100% 93.9%;
-  --text-alt: 226 22.1% 73.3%;
-  --muted: 230 39% 67.8%;
-  --white: 255 100% 100%;
-  --accent1: 241 76.8% 62.7%;
-  --accent2: 330 85.2% 60.4%;
-  --accent3: 0 90.6% 70.8%;
-  --gradient: linear-gradient(
-    94.55deg,
-    hsl(var(--accent2)) -4.6%,
-    hsl(var(--accent3)) 99.9%
-  );
+  @font-face {
+    font-family: "Poppins";
+    src: url("./src/assets/fonts/poppins-v23-latin-900.woff2") format("woff2");
+    /* font-weight: var(--font-weight-extrabig); */
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
 }
 
 /*
 Custom Styles
  */
+
+.display-none {
+  @apply hidden;
+}
 
 .blurGrad {
   position: relative;

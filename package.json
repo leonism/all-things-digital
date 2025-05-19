@@ -15,6 +15,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.6",
     "vite": "^6.3.2",
+    "vite-plugin-compression": "^0.5.1",
     "vite-plugin-ejs": "^1.7.0",
     "vite-plugin-html-minifier": "^1.0.5",
     "vite-plugin-imagemin": "^0.6.1",

@@ -12,6 +12,8 @@ import htmlMinifier from "vite-plugin-html-minifier";
 import { ViteEjsPlugin } from "vite-plugin-ejs";
 // Import the 'resolve' function from the 'path' module for resolving file paths.
 import { resolve } from "node:path";
+// Import the viteCompression plugin for Vite.
+import viteCompression from "vite-plugin-compression";
 
 /**
  * Vite configuration for the project.
@@ -59,6 +61,17 @@ export default defineConfig({
   // Configuration for Vite plugins.
   plugins: [
     // vue(), // Example: Enable Vue plugin if using Vue.js.
+    // Add the compression plugin here
+
+    viteCompression({
+      verbose: true, // Optional: Show compressed files in console
+      disable: false, // Enable compression
+      threshold: 10240, // Only compress files larger than 10KB
+      algorithm: "gzip", // Compression algorithm (can also use 'brotliCompress')
+      ext: ".gz", // File extension for compressed files
+      filter: /\.(js|css|html|svg|woff|woff2|ttf|eot|json)$/i, // Regex to target font files and other assets
+      deleteOriginFile: false, // Keep original files
+    }),
 
     // Image minification plugin configuration.
     viteImagemin({
