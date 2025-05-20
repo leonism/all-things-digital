@@ -1,47 +1,59 @@
 <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
   <%- include('./components/header/content-blog-post-header.html') %>
   <article
-    class="mx-auto prose md:prose-md lg:prose-lg prose-p:font-navigation prose-p:text-justify prose-headings:font-navigation prose-a:text-pink-heading dark:prose-invert">
+    class="mx-auto prose md:prose-md lg:prose-lg prose-p:font-navigation prose-p:text-justify prose-headings:font-navigation prose-a:text-pink-heading dark:prose-invert"
+  >
     <figure>
-      <img src="./assets/img/featured-blog.jpg" alt="FIFA data clustering visualization"
+      <img
+        src="./assets/img/featured-blog.jpg"
+        alt="FIFA's Data Mining &amp; Unsupervised Clustering Tech with Dataiku"
         class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
-        itemprop="url" loading="lazy">
+        itemprop="url"
+        loading="lazy"
+      />
       <figcaption class="text-center text-xs">
         Visualization of FIFA player clustering by skills and wages
       </figcaption>
     </figure>
-    <h3 id="1-introduction">
-      1. Introduction
-    </h3>
+    <h3 id="1-introduction">1. Introduction</h3>
     <p>
-      If there's one thing similar about an interesting dataset and a good rerun football's match on TV, is that they're
-      both doing pretty excellent job at keeping everyone's safe at home during this time of the pandemic. And in all
-      honesty, I'm not a data-scientist, nor a dev guru. I just recently got myself exposed to <strong>Machine Learning,
-        Data Mining</strong> and <strong>Artificial Intelligent</strong> in general, while doing them in both Python
-      (Pandas, NumPy and SciKit libraries</strong>), somewhere a little over then 3 months period of time. And without
-      any further ado, here's my take to the FIFAconundrum's challenge.
+      If there's one thing similar about an interesting dataset and a good rerun
+      football's match on TV, is that they're both doing pretty excellent job at
+      keeping everyone's safe at home during this time of the pandemic. And in
+      all honesty, I'm not a data-scientist, nor a dev guru. I just recently got
+      myself exposed to <strong>Machine Learning, Data Mining</strong> and
+      <strong>Artificial Intelligent</strong> in general, while doing them in
+      both Python (Pandas, NumPy and SciKit libraries, somewhere a little over
+      then 3 months period of time. And without any further ado, here's my take
+      to the FIFAconundrum's challenge.
     </p>
-    <h3 id="2-dataflow">
-      2. Dataflow
-    </h3>
+    <h3 id="2-dataflow">2. Dataflow</h3>
     <p>
-      And since the challenge is not to <strong>'predict'</strong> any variables, rather to '<strong>group'</strong> or
-      '<strong>cluster'</strong> the existing dataset from the player's skillsets, in reflect to their <strong>wages
-        rate</strong>. Here's what my current flow would look like, and don't bother much on the 2 additional datasets,
-      as they're merely exported from the existing model, so that I may explore them further later on. And to follow
-      along, here's the link to download the dataset in my <a
-        href="https://github.com/leonism/dataiku-FIFA/blob/master/uploads/Conundrum_13_Data/Conundrum_13_Data.csv">Github
-        repository</a>.
+      And since the challenge is not to <strong>'predict'</strong> any
+      variables, rather to '<strong>group'</strong> or '<strong
+        >cluster'</strong
+      >
+      the existing dataset from the player's skillsets, in reflect to their
+      <strong>wages rate</strong>. Here's what my current flow would look like,
+      and don't bother much on the 2 additional datasets, as they're merely
+      exported from the existing model, so that I may explore them further later
+      on. And to follow along, here's the link to download the dataset in my
+      <a
+        href="https://github.com/leonism/dataiku-FIFA/blob/master/uploads/Conundrum_13_Data/Conundrum_13_Data.csv"
+        >Github repository</a
+      >.
     </p>
-    <h3 id="3-prepare-recipes">
-      3. Prepare Recipes
-    </h3>
+    <h3 id="3-prepare-recipes">3. Prepare Recipes</h3>
     <p>
-      And here's how I go about on the prepare recipes, nothing out of the ordinary. Just converting
-      <strong><em>categorical</em></strong> to <strong><em>numerical</em></strong> values, through the
-      <strong><em>one-hot encoding</em></strong> and filling up the '<strong><em>NaN</em></strong>' with median values,
-      while grouping them to have better clarity, if ever the need occur for me to go back and revise anything again for
-      future reference.
+      And here's how I go about on the prepare recipes, nothing out of the
+      ordinary. Just converting
+      <strong><em>categorical</em></strong> to
+      <strong><em>numerical</em></strong> values, through the
+      <strong><em>one-hot encoding</em></strong> and filling up the '<strong
+        ><em>NaN</em></strong
+      >' with median values, while grouping them to have better clarity, if ever
+      the need occur for me to go back and revise anything again for future
+      reference.
     </p>
     <pre>
       <code>
@@ -57,8 +69,9 @@
       </ul>
     </section>
     <p>
-      Been enjoying exploring this dataset for sure, and certainly it was fun doing it, stays safe everyone and leave a
-      thumbs-up if you like the article and found this useful. 😊
+      Been enjoying exploring this dataset for sure, and certainly it was fun
+      doing it, stays safe everyone and leave a thumbs-up if you like the
+      article and found this useful. 😊
     </p>
   </article>
 </main>

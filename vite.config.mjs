@@ -1,19 +1,19 @@
 // Import the 'defineConfig' function from Vite to provide type-safe configuration.
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
 // Import the Tailwind CSS plugin for Vite to integrate Tailwind CSS processing.
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
 // Import Autoprefixer to parse CSS and add vendor prefixes to CSS rules.
-import autoprefixer from "autoprefixer";
+import autoprefixer from 'autoprefixer';
 // Import the Vite plugin for image minification.
-import viteImagemin from "vite-plugin-imagemin";
+import viteImagemin from 'vite-plugin-imagemin';
 // Import the Vite plugin for HTML minification to reduce the size of HTML files.
-import htmlMinifier from "vite-plugin-html-minifier";
+import htmlMinifier from 'vite-plugin-html-minifier';
 // Import the Vite plugin for EJS templating, allowing dynamic data in HTML.
-import { ViteEjsPlugin } from "vite-plugin-ejs";
+import { ViteEjsPlugin } from 'vite-plugin-ejs';
 // Import the 'resolve' function from the 'path' module for resolving file paths.
-import { resolve } from "node:path";
+import { resolve } from 'node:path';
 // Import the viteCompression plugin for Vite.
-import viteCompression from "vite-plugin-compression";
+import viteCompression from 'vite-plugin-compression';
 
 /**
  * Vite configuration for the project.
@@ -23,25 +23,25 @@ import viteCompression from "vite-plugin-compression";
  */
 export default defineConfig({
   // Set root dir to './src', meaning Vite will look for source files in the 'src' folder.
-  root: "./src",
+  root: './src',
 
   // Configuration for the build process.
   build: {
     // Built files will be placed in '../dist' (i.e., a 'dist' folder at the same level as 'src').
-    outDir: "../dist",
+    outDir: '../dist',
     // If true, Vite will clear the output directory before each build.
     emptyOutDir: true,
     // Advanced Rollup options for customizing the build.
     rollupOptions: {
       // Defines multiple entry points for the application.
       input: {
-        main: resolve(__dirname, "src/index.html"), // Main entry point (homepage).
-        about: resolve(__dirname, "src/about.html"), // About page entry point.
-        contact: resolve(__dirname, "src/contact.html"), // Contact page entry point.
-        blog: resolve(__dirname, "src/blog.html"), // Blog listing page entry point.
-        blogpost: resolve(__dirname, "src/blog-post.html"), // Single blog post template entry point.
-        category: resolve(__dirname, "src/category.html"), // Category page entry point.
-        credits: resolve(__dirname, "src/credits.html"), // Credits page entry point.
+        main: resolve(__dirname, 'src/index.html'), // Main entry point (homepage).
+        about: resolve(__dirname, 'src/about.html'), // About page entry point.
+        contact: resolve(__dirname, 'src/contact.html'), // Contact page entry point.
+        blog: resolve(__dirname, 'src/blog.html'), // Blog listing page entry point.
+        blogpost: resolve(__dirname, 'src/blog-post.html'), // Single blog post template entry point.
+        category: resolve(__dirname, 'src/category.html'), // Category page entry point.
+        credits: resolve(__dirname, 'src/credits.html'), // Credits page entry point.
       },
     },
   },
@@ -67,8 +67,8 @@ export default defineConfig({
       verbose: true, // Optional: Show compressed files in console
       disable: false, // Enable compression
       threshold: 10240, // Only compress files larger than 10KB
-      algorithm: "gzip", // Compression algorithm (can also use 'brotliCompress')
-      ext: ".gz", // File extension for compressed files
+      algorithm: 'gzip', // Compression algorithm (can also use 'brotliCompress')
+      ext: '.gz', // File extension for compressed files
       filter: /\.(js|css|html|svg|woff|woff2|ttf|eot|json)$/i, // Regex to target font files and other assets
       deleteOriginFile: false, // Keep original files
     }),
@@ -95,8 +95,8 @@ export default defineConfig({
       // Configuration for SVG optimization using SVGO.
       svgo: {
         plugins: [
-          { name: "removeViewBox" }, // Removes the viewBox attribute (can be problematic, use with caution).
-          { name: "removeEmptyAttrs", active: false }, // Example: disable removing empty attributes.
+          { name: 'removeViewBox' }, // Removes the viewBox attribute (can be problematic, use with caution).
+          { name: 'removeEmptyAttrs', active: false }, // Example: disable removing empty attributes.
         ],
       },
       // Configuration for WebP image format conversion and optimization.
