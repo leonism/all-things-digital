@@ -31,6 +31,8 @@ export default defineConfig({
     outDir: '../dist',
     // If true, Vite will clear the output directory before each build.
     emptyOutDir: true,
+    // Disable inlining for font files
+    assetsInlineLimit: 0,
     // Advanced Rollup options for customizing the build.
     rollupOptions: {
       // Defines multiple entry points for the application.
@@ -42,6 +44,14 @@ export default defineConfig({
         blogpost: resolve(__dirname, 'src/blog-post.html'), // Single blog post template entry point.
         category: resolve(__dirname, 'src/category.html'), // Category page entry point.
         credits: resolve(__dirname, 'src/credits.html'), // Credits page entry point.
+      },
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (/\.(woff2?|ttf|eot|otf)$/.test(assetInfo.name)) {
+            return 'assets/fonts/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
       },
     },
   },
