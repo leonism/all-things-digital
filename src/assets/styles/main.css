@@ -53,7 +53,6 @@ layer(base);
 
   /* start the background-color-postcard, so may call them with `bg-postcard` in your html class */
   --background-color-postcard: hsl(215, 45%, 14%);
-
   /* start the background-color-main, so may call them with `bg-main` in your html class */
   --background-color-main: hsl(212, 48%, 11%);
 
@@ -85,7 +84,7 @@ layer(base);
 @layer base {
   :root {
     --font-navigation: "Poppins", sans-serif;
-    --font-weight-extrabig: 1200;
+    --font-weight-black: 1200;
     /* Colors */
     --bkg: 222 47.4% 11.2%;
     --bkg-alt: 226 58.3% 18.8%;
@@ -113,8 +112,8 @@ layer(base);
 
   @font-face {
     font-family: "Poppins";
-    src: url("./src/assets/fonts/poppins-v23-latin-900.woff2") format("woff2");
-    /* font-weight: var(--font-weight-extrabig); */
+    src: url("/assets/fonts/poppins-v23-latin-900.woff2") format("woff2");
+    font-weight: var(--font-weight-black);
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -129,6 +128,40 @@ Custom Styles
   @apply hidden;
 }
 
+.gradient-heading {
+  margin-top: 1.25rem; /* mt-5 */
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 1.1; /* leading-[1.1] */
+  font-weight: 800; /* font-bold + font-extrabold */
+  font-family: var(--font-navigation); /* font-navigation */
+  letter-spacing: -0.025em; /* tracking-tight */
+  color: transparent; /* text-transparent */
+  background-clip: text; /* bg-clip-text */
+  -webkit-background-clip: text; /* For Safari */
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* drop-shadow-lg */
+  background-image: linear-gradient(
+    to bottom right,
+    #818cf8,
+    #ec4899
+  ); /* bg-gradient-to-br from-indigo-400 to-pink-600 */
+  -webkit-font-smoothing: subpixel-antialiased; /* subpixel-antialiased */
+
+  /* Responsive font sizes */
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  } /* sm:text-5xl */
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  } /* md:text-6xl */
+  @media (min-width: 1024px) {
+    font-size: 3.5rem;
+  } /* lg:text-7xl */
+  @media (min-width: 1280px) {
+    font-size: 4rem;
+  } /* xl:text-8xl */
+}
+
+/* Here's the background gradient effects */
 .blurGrad {
   position: relative;
 }
