@@ -47,16 +47,11 @@ export default defineConfig({
       },
       output: {
         assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name.split('.').at(1);
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-            extType = 'images';
-          } else if (/woff2?|ttf|eot|otf/i.test(extType)) {
-            extType = 'fonts';
+          if (/\.(woff2?|ttf|eot|otf)$/.test(assetInfo.name)) {
+            return 'assets/fonts/[name]-[hash][extname]';
           }
-          return `assets/${extType}/[name]-[hash][extname]`;
+          return 'assets/[name]-[hash][extname]';
         },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
       },
     },
   },
