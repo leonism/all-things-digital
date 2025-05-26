@@ -1,40 +1,37 @@
 <template>
-  <BaseLayout>
-    <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-      <ContentBlogHeader />
-      <div v-if="posts.length" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <BlogArticleCard
-          v-for="post in posts"
-          :key="post.slug"
-          :imageSrc="
-            post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
-          "
-          :imageAlt="post.featuredImage?.alt || post.title"
-          :title="post.title"
-          :postLink="`/blog/${post.slug}`"
-          :date="post.date"
-          :excerpt="post.excerpt || post.description"
-          :tags="post.tags"
-          :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
-          :authorImageAlt="post.author?.name || 'Author profile picture'"
-          :authorLink="post.author?.link || '/about'"
-        />
-      </div>
-      <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
-        <p>No blog posts found.</p>
-        <p>
-          Make sure you have Markdown files in `/src/content/posts/` and run
-          `node scripts/generate-blog-data.js`.
-        </p>
-      </div>
-    </main>
-  </BaseLayout>
+  <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+    <ContentBlogHeader />
+    <div v-if="posts.length" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <BlogArticleCard
+        v-for="post in posts"
+        :key="post.slug"
+        :imageSrc="
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+        "
+        :imageAlt="post.featuredImage?.alt || post.title"
+        :title="post.title"
+        :postLink="`/blog/${post.slug}`"
+        :date="post.date"
+        :excerpt="post.excerpt || post.description"
+        :tags="post.tags"
+        :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
+        :authorImageAlt="post.author?.name || 'Author profile picture'"
+        :authorLink="post.author?.link || '/about'"
+      />
+    </div>
+    <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
+      <p>No blog posts found.</p>
+      <p>
+        Make sure you have Markdown files in `/src/content/posts/` and run `node
+        scripts/generate-blog-data.js`.
+      </p>
+    </div>
+  </main>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useHead } from '@unhead/vue';
-import BaseLayout from '../layouts/BaseLayout.vue';
 import ContentBlogHeader from '../components/header/ContentBlogHeader.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';

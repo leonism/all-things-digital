@@ -1,12 +1,9 @@
 <template>
-  <BaseLayout>
-    <ContentAbout />
-  </BaseLayout>
+  <ContentAbout />
 </template>
 
 <script setup>
 import { useHead } from '@unhead/vue';
-import BaseLayout from '../layouts/BaseLayout.vue';
 import ContentAbout from '../content/ContentAbout.vue';
 
 useHead({

@@ -1,92 +1,89 @@
 <template>
-  <BaseLayout>
-    <div class="max-w-4xl mx-auto px-4 py-8">
-      <article
-        v-if="post"
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-      >
-        <ContentBlogPostHeader
-          :title="post.title"
-          :subtitle="post.subtitle"
-          :date="post.date"
-          :tags="post.tags"
-        />
-        <img
-          v-if="post.featuredImage && post.featuredImage.src"
-          :src="post.featuredImage.src"
-          :alt="post.featuredImage.alt || post.title"
-          class="w-full h-64 md:h-96 object-cover"
-        />
-        <div class="p-6 md:p-8">
-          <div
-            class="prose dark:prose-invert max-w-none"
-            v-html="post.contentHtml"
-          ></div>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <article
+      v-if="post"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+    >
+      <ContentBlogPostHeader
+        :title="post.title"
+        :subtitle="post.subtitle"
+        :date="post.date"
+        :tags="post.tags"
+      />
+      <img
+        v-if="post.featuredImage && post.featuredImage.src"
+        :src="post.featuredImage.src"
+        :alt="post.featuredImage.alt || post.title"
+        class="w-full h-64 md:h-96 object-cover"
+      />
+      <div class="p-6 md:p-8">
+        <div
+          class="prose dark:prose-invert max-w-none"
+          v-html="post.contentHtml"
+        ></div>
 
-          <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <div v-if="post.categories && post.categories.length" class="mb-4">
-              <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
-                >Categories:</span
-              >
-              <router-link
-                v-for="category in post.categories"
-                :key="category"
-                :to="{
-                  name: 'category-archive',
-                  params: { category: category },
-                }"
-                class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-              >
-                {{ category }}
-              </router-link>
-            </div>
-            <div v-if="post.tags && post.tags.length">
-              <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
-                >Tags:</span
-              >
-              <router-link
-                v-for="tag in post.tags"
-                :key="tag"
-                :to="{ name: 'tag-archive', params: { tag: tag } }"
-                class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-              >
-                #{{ tag }}
-              </router-link>
-            </div>
+        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <div v-if="post.categories && post.categories.length" class="mb-4">
+            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
+              >Categories:</span
+            >
+            <router-link
+              v-for="category in post.categories"
+              :key="category"
+              :to="{
+                name: 'category-archive',
+                params: { category: category },
+              }"
+              class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+            >
+              {{ category }}
+            </router-link>
           </div>
-
-          <div
-            id="comments-section"
-            class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
-          >
-            <h2 class="text-2xl font-bold mb-4 dark:text-white">Comments</h2>
-            <p class="text-gray-500 dark:text-gray-400">
-              (Comment system integration pending user configuration)
-            </p>
+          <div v-if="post.tags && post.tags.length">
+            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
+              >Tags:</span
+            >
+            <router-link
+              v-for="tag in post.tags"
+              :key="tag"
+              :to="{ name: 'tag-archive', params: { tag: tag } }"
+              class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+            >
+              #{{ tag }}
+            </router-link>
           </div>
         </div>
-      </article>
-      <div v-else class="text-center py-16">
-        <h2 class="text-2xl font-semibold dark:text-white">Post not found</h2>
-        <p class="text-gray-500 dark:text-gray-400 mt-2">
-          The requested blog post could not be found.
-        </p>
-        <router-link
-          to="/blog"
-          class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
+
+        <div
+          id="comments-section"
+          class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
         >
-          &larr; Back to Blog List
-        </router-link>
+          <h2 class="text-2xl font-bold mb-4 dark:text-white">Comments</h2>
+          <p class="text-gray-500 dark:text-gray-400">
+            (Comment system integration pending user configuration)
+          </p>
+        </div>
       </div>
+    </article>
+    <div v-else class="text-center py-16">
+      <h2 class="text-2xl font-semibold dark:text-white">Post not found</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2">
+        The requested blog post could not be found.
+      </p>
+      <router-link
+        to="/blog"
+        class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
+      >
+        &larr; Back to Blog List
+      </router-link>
     </div>
-  </BaseLayout>
+  </div>
 </template>
 
 <script setup>
 import { ref, watch, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
-import BaseLayout from '../layouts/BaseLayout.vue';
 import ContentBlogPostHeader from '../components/header/ContentBlogPostHeader.vue';
 import postsData from '../blog-data.json';
 

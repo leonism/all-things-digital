@@ -11,7 +11,12 @@ import viteImagemin from 'vite-plugin-imagemin';
 // Import the Vite plugin for HTML minification to reduce the size of HTML files.
 import htmlMinifier from 'vite-plugin-html-minifier';
 // Import the 'resolve' function from the 'path' module for resolving file paths.
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
+// Import the 'resolve' function from the 'url' module for resolving file paths.
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // Import the viteCompression plugin for Vite.
 import viteCompression from 'vite-plugin-compression';
 
@@ -120,27 +125,27 @@ export default defineConfig({
 
     // HTML minification plugin configuration.
     // NOTE: This might conflict with Vue's handling of index.html, may need adjustment.
-    // htmlMinifier({
-    //   minify: true, // Enables minification.
-    //   collapseWhitespace: true, // Removes whitespace in HTML.
-    //   keepClosingSlash: true, // Keeps closing slashes on void elements
-    //   removeComments: true, // Removes HTML comments.
-    //   removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
-    //   removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
-    //   removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
-    //   useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
-    //   removeEmptyAttributes: true,
-    //   minifyCSS: true,
-    //   minifyJS: true,
-    //   minifyURLs: true,
-    // }),
+    htmlMinifier({
+      minify: true, // Enables minification.
+      collapseWhitespace: true, // Removes whitespace in HTML.
+      keepClosingSlash: true, // Keeps closing slashes on void elements
+      removeComments: true, // Removes HTML comments.
+      removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
+      removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
+      removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
+      useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
+      removeEmptyAttributes: true,
+      minifyCSS: true,
+      minifyJS: true,
+      minifyURLs: true,
+    }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
     // NOTE: This will likely be removed once the migration to Vue is complete.
     // ViteEjsPlugin(),
 
     // For Tailwind CSS v4+ with its Vite plugin, this is the correct way.
-    // tailwindcss(),
+    tailwindcss(),
   ],
 
   // Configuration for the Vite development server.

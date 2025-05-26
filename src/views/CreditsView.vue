@@ -1,12 +1,9 @@
 <template>
-  <BaseLayout>
-    <ContentCredits />
-  </BaseLayout>
+  <ContentCredits />
 </template>
 
 <script setup>
 import { useHead } from '@unhead/vue';
-import BaseLayout from '../layouts/BaseLayout.vue';
 import ContentCredits from '../content/ContentCredits.vue';
 
 useHead({
