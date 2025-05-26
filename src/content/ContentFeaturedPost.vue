@@ -126,7 +126,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../components/avatar/AvatarAuthor.vue';
 

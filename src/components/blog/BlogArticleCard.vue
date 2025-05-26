@@ -25,7 +25,11 @@
 
     <div class="flex grow flex-col p-4 md:p-5 md:ml-0">
       <header class="mb-3 flex items-center">
-        <AvatarAuthor :imageSrc="authorImageSrc" :imageAlt="authorImageAlt" :link="authorLink" />
+        <AvatarAuthor
+          :imageSrc="authorImageSrc"
+          :imageAlt="authorImageAlt"
+          :link="authorLink"
+        />
         <!-- Header with posts title and metadata -->
         <div id="postMetaData" class="grow">
           <h2
@@ -55,7 +59,9 @@
                 d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
               />
             </svg>
-            <time :datetime="date" itemprop="datePublished">{{ formattedDate }}</time>
+            <time :datetime="date" itemprop="datePublished">{{
+              formattedDate
+            }}</time>
           </div>
         </div>
       </header>
@@ -103,9 +109,9 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from './avatar/AvatarAuthor.vue';
+import AvatarAuthor from '../avatar/AvatarAuthor.vue';
 
 const props = defineProps({
   imageSrc: {

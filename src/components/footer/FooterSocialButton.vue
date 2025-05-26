@@ -11,7 +11,8 @@
         <a
           href="https://twitter.com/gerryleonugroho"
           title="Twitter Account"
-          target="_blank" rel="noopener noreferrer" <!-- Add target and rel for external links -->
+          <!-- Add target and rel for external links -->
+          target="_blank" rel="noopener noreferrer"
           class="group relative flex h-12 w-12 items-center justify-center border border-gray-300 dark:border-none rounded-full bg-broken-white shadow-sm transition-all duration-300 hover:bg-blue-400 hover:shadow-md hover:-translate-y-0.5 dark:bg-gray-800 dark:hover:bg-blue-500"
         >
           <!-- SVG content omitted for brevity, assumed correct -->
@@ -82,4 +83,3 @@
 <style scoped>
 /* Add component-specific styles if necessary */
 </style>
-

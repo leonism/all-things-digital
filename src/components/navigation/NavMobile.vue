@@ -4,6 +4,7 @@
     id="mobileNavigation"
     class="flex justify-center w-10 h-10 ml-0 bg-white rounded-full shadow-lg md:hidden dark:bg-white drop-shadow-2xl dark:drop-shadow-2xl"
   >
+    <!-- Add open class dynamically -->
     <button
       id="menu-btn"
       aria-label="Toggle navigation menu"
@@ -11,7 +12,7 @@
       :aria-expanded="isMobileMenuOpen.toString()"
       type="button"
       class="mt-3 hamburger"
-      :class="{ open: isMobileMenuOpen }" <!-- Add open class dynamically -->
+      :class="{ open: isMobileMenuOpen }"
       @click="toggleMobileMenu"
     >
       <span class="hamburger-top"></span>
@@ -132,4 +133,3 @@ const closeMobileMenu = () => {
   background: #000; /* Adjust dark mode color if needed */
 }
 </style>
-

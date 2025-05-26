@@ -131,4 +131,3 @@ const formatDate = (dateString) => {
 <style scoped>
 /* Add component-specific styles if necessary */
 </style>
-

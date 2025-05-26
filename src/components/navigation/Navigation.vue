@@ -11,7 +11,7 @@
       <NavDesktop />
       <NavDarkMode />
       <!-- Pass the emit up from NavSearchButton -->
-      <NavSearchButton @open-search="$emit("open-search")" />
+        <NavSearchButton @open-search="$emit('open-search')" />
       <NavContactButton />
       <NavMobile />
     </section>
@@ -19,12 +19,12 @@
 </template>
 
 <script setup>
-import NavLogo from "./navigation/NavLogo.vue";
-import NavDesktop from "./navigation/NavDesktop.vue";
-import NavDarkMode from "./navigation/NavDarkMode.vue";
-import NavSearchButton from "./navigation/NavSearchButton.vue";
-import NavContactButton from "./navigation/NavContactButton.vue";
-import NavMobile from "./navigation/NavMobile.vue";
+import NavLogo from "./NavLogo.vue";
+import NavDesktop from "./NavDesktop.vue";
+import NavDarkMode from "./NavDarkMode.vue";
+import NavSearchButton from "./NavSearchButton.vue";
+import NavContactButton from "./NavContactButton.vue";
+import NavMobile from "./NavMobile.vue";
 
 // Define the emits for the component
 defineEmits(["open-search"]);
@@ -34,4 +34,3 @@ defineEmits(["open-search"]);
 <style scoped>
 /* Add component-specific styles if necessary */
 </style>
-

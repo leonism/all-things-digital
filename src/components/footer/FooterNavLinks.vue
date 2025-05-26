@@ -30,10 +30,11 @@
           Blog
         </router-link>
       </li>
+      <!-- Assuming a /credits route -->
       <li>
         <router-link
           class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
-          to="/credits" <!-- Assuming a /credits route -->
+          to="/credits"
         >
           Credits
         </router-link>
@@ -69,4 +70,3 @@
 <style scoped>
 /* Add component-specific styles if necessary */
 </style>
-

@@ -10,10 +10,9 @@
 <script setup>
 import { ref } from 'vue';
 import BaseLayout from './layouts/BaseLayout.vue';
-import SearchModal from "./components/SearchModal.vue"; // Import the search modal
+// import SearchModal from "./components/SearchModal.vue";
 
 const isSearchModalVisible = ref(false);
-
 const openSearchModal = () => {
   isSearchModalVisible.value = true;
 };

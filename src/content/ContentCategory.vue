@@ -24,10 +24,10 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
-import BlogArticleCard from '../components/BlogArticleCard.vue';
+import { computed } from 'vue';
+import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import ContentCategoryHeader from '../components/header/ContentCategoryHeader.vue';
-import postsData from '../../blog-data.json'; // Adjust path as needed
+import postsData from '../blog-data.json';
 
 const props = defineProps({
   category: {
