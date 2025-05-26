@@ -5,7 +5,7 @@
     itemscope
     itemtype="https://schema.org/BlogPosting"
   >
-    <!-- Visual content -->
+
     <figure
       class="mb-0 shrink-0 md:w-1/3"
       itemprop="image"
@@ -30,7 +30,7 @@
           :imageAlt="authorImageAlt"
           :link="authorLink"
         />
-        <!-- Header with posts title and metadata -->
+
         <div id="postMetaData" class="grow">
           <h2
             id="article-title"
@@ -66,7 +66,7 @@
         </div>
       </header>
 
-      <!-- Article excerpt -->
+
       <p
         itemprop="description"
         class="text-left text-slate-90 font-navigation tracking-wide text-slate-700 line-clamp-4 dark:text-white"
@@ -97,7 +97,7 @@
             d="M6 6h.008v.008H6V6z"
           />
         </svg>
-        <!-- Tags/categories -->
+
         <span itemprop="keywords">
           <template v-for="(tag, index) in tags" :key="tag">
             {{ tag }}<span v-if="index < tags.length - 1">, </span>

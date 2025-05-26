@@ -98,60 +98,83 @@ const route = useRoute();
 const post = ref(null);
 
 const findPost = (slug) => {
-  const foundPost = postsData.find(p => p.slug === slug);
-  return (foundPost && (!foundPost.status || foundPost.status === 'published')) ? foundPost : null;
+  const foundPost = postsData.find((p) => p.slug === slug);
+  return foundPost && (!foundPost.status || foundPost.status === 'published')
+    ? foundPost
+    : null;
 };
 
 // Computed properties for meta tags
-const pageTitle = computed(() => post.value?.seoTitle || post.value?.title || 'Blog Post');
-const pageDescription = computed(() => post.value?.excerpt || 'Read this blog post.');
-const ogImage = computed(() => post.value?.featuredImage?.src || '/images/default-og-image.png'); // Add a default OG image path
+const pageTitle = computed(
+  () => post.value?.seoTitle || post.value?.title || 'Blog Post',
+);
+const pageDescription = computed(
+  () => post.value?.excerpt || 'Read this blog post.',
+);
+const ogImage = computed(
+  () => post.value?.featuredImage?.src || '/images/default-og-image.png',
+); // Add a default OG image path
 const canonicalUrl = computed(() => {
-    // Construct canonical URL - replace with your actual domain
-    const base = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
-    return post.value ? `${base}/blog/${post.value.slug}` : base;
+  // Construct canonical URL - replace with your actual domain
+  const base = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
+  return post.value ? `${base}/blog/${post.value.slug}` : base;
 });
 
 // Update meta tags using useHead
-watch(post, (currentPost) => {
-  if (currentPost) {
-    useHead({
-      title: pageTitle.value,
-      meta: [
-        { name: 'description', content: pageDescription.value },
-        // Open Graph
-        { property: 'og:title', content: pageTitle.value },
-        { property: 'og:description', content: pageDescription.value },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:url', content: canonicalUrl.value },
-        { property: 'og:image', content: ogImage.value },
-        { property: 'article:published_time', content: currentPost.date },
-        { property: 'article:modified_time', content: currentPost.lastModified || currentPost.date },
-        // Add author, tags etc. if needed
-        // Twitter Card
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: pageTitle.value },
-        { name: 'twitter:description', content: pageDescription.value },
-        { name: 'twitter:image', content: ogImage.value },
-        // Robots
-        { name: 'robots', content: currentPost.metaRobots || 'index, follow' }
-      ],
-      link: [
-        { rel: 'canonical', href: currentPost.canonicalUrl || canonicalUrl.value }
-      ],
-      // Add JSON-LD script if available in post data
-      script: currentPost.schema ? [
-        {
-          type: 'application/ld+json',
-          innerHTML: JSON.stringify(currentPost.schema)
-        }
-      ] : []
-    });
-  } else {
-     // Optional: Set default tags if post not found
-     useHead({ title: 'Post Not Found' });
-  }
-}, { immediate: true });
+watch(
+  post,
+  (currentPost) => {
+    if (currentPost) {
+      useHead({
+        title: pageTitle.value,
+        meta: [
+          { name: 'description', content: pageDescription.value },
+          // Open Graph
+          { property: 'og:title', content: pageTitle.value },
+          { property: 'og:description', content: pageDescription.value },
+          { property: 'og:type', content: 'article' },
+          { property: 'og:url', content: canonicalUrl.value },
+          { property: 'og:image', content: ogImage.value },
+          { property: 'article:published_time', content: currentPost.date },
+          {
+            property: 'article:modified_time',
+            content: currentPost.lastModified || currentPost.date,
+          },
+          // Add author, tags etc. if needed
+          // Twitter Card
+          { name: 'twitter:card', content: 'summary_large_image' },
+          { name: 'twitter:title', content: pageTitle.value },
+          { name: 'twitter:description', content: pageDescription.value },
+          { name: 'twitter:image', content: ogImage.value },
+          // Robots
+          {
+            name: 'robots',
+            content: currentPost.metaRobots || 'index, follow',
+          },
+        ],
+        link: [
+          {
+            rel: 'canonical',
+            href: currentPost.canonicalUrl || canonicalUrl.value,
+          },
+        ],
+        // Add JSON-LD script if available in post data
+        script: currentPost.schema
+          ? [
+              {
+                type: 'application/ld+json',
+                innerHTML: JSON.stringify(currentPost.schema),
+              },
+            ]
+          : [],
+      });
+    } else {
+      // Optional: Set default tags if post not found
+      useHead({ title: 'Post Not Found' });
+    }
+  },
+  { immediate: true },
+);
 
 // Watch route changes to update the post
 watch(
@@ -162,7 +185,7 @@ watch(
       // Meta tags are updated automatically by the 'post' watcher above
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const formatDate = (dateString) => {
@@ -172,7 +195,7 @@ const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, options);
   } catch (e) {
-    console.error("Error formatting date:", dateString, e);
+    console.error('Error formatting date:', dateString, e);
     return dateString;
   }
 };

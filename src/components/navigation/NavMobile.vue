@@ -23,22 +23,22 @@
 
   <!-- mobile navigation -->
   <nav
-    id="mobile-menu" <!-- Changed ID to match aria-controls -->
+    id="mobile-menu"
     class="absolute flex-col items-center self-end py-5 mt-10 font-bold bg-white shadow-inner md:hidden dark:shadow-inner rounded-xl sm:w-auto sm:self-center top-20 left-5 right-5 drop-shadow-2xl"
-    :class="{ hidden: !isMobileMenuOpen }" <!-- Toggle visibility -->
+    :class="{ hidden: !isMobileMenuOpen }"
   >
     <router-link
       to="/"
       class="block px-5 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-pink-heading/70 hover:text-slate-900"
-      @click="closeMobileMenu" <!-- Close menu on link click -->
-      >Home</router-link
-    >
+      @click="closeMobileMenu">
+      Home
+    </router-link>
     <router-link
       to="/blog"
       class="block px-5 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-pink-heading/70 hover:text-slate-900"
-      @click="closeMobileMenu"
-      >Blog</router-link
-    >
+      @click="closeMobileMenu">
+      Blog
+    </router-link>
     <router-link
       to="/categories"
       class="block px-5 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-pink-heading/70 hover:text-slate-900"

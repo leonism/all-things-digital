@@ -30,7 +30,7 @@
           Blog
         </router-link>
       </li>
-      <!-- Assuming a /credits route -->
+
       <li>
         <router-link
           class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
@@ -44,7 +44,7 @@
         <router-link
           class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
           title="Cookies"
-          to="/cookies" <!-- Placeholder route -->
+          to="/cookies"
         >
           Cookies
         </router-link>
@@ -54,7 +54,7 @@
         <router-link
           class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white"
           title="Privacy Policy"
-          to="/privacy" <!-- Placeholder route -->
+          to="/privacy"
         >
           Privacy Policy
         </router-link>

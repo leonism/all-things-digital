@@ -1,5 +1,4 @@
 <template>
-  <!-- Header with author avatar -->
   <section
     class="mr-3 p-0.5 flex shrink-0 basis-auto items-center self-start rounded-full bg-gradient-to-br from-indigo-400 to-pink-600 transition hover:from-indigo-500 hover:to-pink-700 transition-colors duration-300 transform hover:scale-110"
   >

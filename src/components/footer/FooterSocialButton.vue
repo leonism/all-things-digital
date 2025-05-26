@@ -36,7 +36,7 @@
       <!-- LinkedIn -->
       <li>
         <a
-          href="#" <!-- Update with actual LinkedIn URL -->
+          href="#"
           title="LinkedIn Account"
           target="_blank" rel="noopener noreferrer"
           class="group relative flex h-12 w-12 items-center justify-center border border-gray-300 dark:border-none rounded-full bg-broken-white shadow-sm transition-all duration-300 hover:bg-blue-600 hover:shadow-md hover:-translate-y-0.5 dark:bg-gray-800 dark:hover:bg-blue-700"
@@ -59,11 +59,9 @@
           <span class="absolute -bottom-6 text-xs font-medium opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1 dark:text-gray-300">DEV.TO</span>
         </a>
       </li>
-      <!-- RSS -->
       <li>
-        <!-- Use router-link if RSS feed is generated locally, otherwise keep <a> -->
         <router-link
-          to="/rss.xml" <!-- Assuming RSS will be generated at this path -->
+          to="/rss.xml"
           title="RSS Feed"
           class="group relative flex h-12 w-12 items-center justify-center border border-gray-300 dark:border-none rounded-full bg-broken-white shadow-sm transition-all duration-300 hover:bg-orange-500 hover:shadow-md hover:-translate-y-0.5 dark:bg-gray-800 dark:hover:bg-orange-600"
         >
