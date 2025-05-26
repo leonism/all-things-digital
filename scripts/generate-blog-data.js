@@ -29,6 +29,7 @@ function getPostsData() {
 
       // Use markdown-it to convert markdown into HTML string
       const contentHtml = md.render(matterResult.content);
+      console.log(`Generated HTML for ${slug}:`, contentHtml); // Add this line for debugging
 
       // Combine the data with the slug and contentHtml
       // Ensure date is serialized correctly if it's a Date object
@@ -65,4 +66,3 @@ function generateBlogData() {
 }
 
 generateBlogData();
-

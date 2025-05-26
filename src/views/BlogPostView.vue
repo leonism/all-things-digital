@@ -18,13 +18,11 @@
           class="w-full h-64 md:h-96 object-cover"
         />
         <div class="p-6 md:p-8">
-          <!-- Render the HTML content generated from Markdown -->
           <div
             class="prose dark:prose-invert max-w-none"
             v-html="post.contentHtml"
           ></div>
 
-          <!-- Display Categories and Tags -->
           <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
             <div v-if="post.categories && post.categories.length" class="mb-4">
               <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
@@ -57,13 +55,11 @@
             </div>
           </div>
 
-          <!-- Placeholder for Comments Section -->
           <div
             id="comments-section"
             class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
           >
             <h2 class="text-2xl font-bold mb-4 dark:text-white">Comments</h2>
-            <!-- Giscus integration will go here -->
             <p class="text-gray-500 dark:text-gray-400">
               (Comment system integration pending user configuration)
             </p>
@@ -140,7 +136,6 @@ watch(
             property: 'article:modified_time',
             content: currentPost.lastModified || currentPost.date,
           },
-          // Add author, tags etc. if needed
           // Twitter Card
           { name: 'twitter:card', content: 'summary_large_image' },
           { name: 'twitter:title', content: pageTitle.value },
@@ -169,7 +164,6 @@ watch(
           : [],
       });
     } else {
-      // Optional: Set default tags if post not found
       useHead({ title: 'Post Not Found' });
     }
   },
