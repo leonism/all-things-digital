@@ -1,10 +1,10 @@
 <template>
-  <ContentAbout />
+  <About />
 </template>
 
 <script setup>
 import { useHead } from '@unhead/vue';
-import ContentAbout from '../content/ContentAbout.vue';
+import About from '@/components/content/ContentAbout.vue';
 
 useHead({
   title: 'About | DGPond.COM',

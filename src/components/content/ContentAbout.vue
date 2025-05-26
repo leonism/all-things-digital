@@ -1,6 +1,6 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-    <ContentAboutHeader />
+    <HeaderAbout />
     <article
       class="mx-auto prose md:prose-md lg:prose-lg prose-p:font-navigation prose-p:text-justify prose-headings:font-navigation prose-a:text-pink-heading dark:prose-invert"
     >
@@ -19,8 +19,9 @@
       </figure>
       <p>
         And where do we begin? I think I’ve come a long way within the
-        technological and creative sector. For the most part, I fell in love with
-        computers in general and learnt various knowledge from the Internet.
+        technological and creative sector. For the most part, I fell in love
+        with computers in general and learnt various knowledge from the
+        Internet.
       </p>
       <p>
         The sole purpose of having this blog was purely to document experimental
@@ -29,16 +30,16 @@
         you’re trying to Google your error code.
       </p>
       <p>
-        I’m also a self-taught developer who experiments with frontend frameworks,
-        digital marketing strategies, machine learning, and organic SERP through
-        SEO methods. Hope you enjoy reading my documentation!
+        I’m also a self-taught developer who experiments with frontend
+        frameworks, digital marketing strategies, machine learning, and organic
+        SERP through SEO methods. Hope you enjoy reading my documentation!
       </p>
     </article>
   </main>
 </template>
 
 <script setup>
-import ContentAboutHeader from '../components/header/ContentAboutHeader.vue';
+import HeaderAbout from '@/components/header/HeaderAbout.vue';
 </script>
 
 <style scoped>

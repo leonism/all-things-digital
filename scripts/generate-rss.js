@@ -24,7 +24,7 @@ const readJsonData = (filePath) => {
 
 const generateRssFeed = () => {
   // Read blog data using fs
-  const postsData = readJsonData("src/blog-data.json");
+  const postsData = readJsonData("src/data/blog-data.json");
 
   const publicDir = path.join(process.cwd(), "public");
   const feedPath = path.join(publicDir, "rss.xml");
@@ -100,4 +100,3 @@ try {
   console.error("❌ Error generating RSS feed:", error);
   process.exit(1);
 }
-

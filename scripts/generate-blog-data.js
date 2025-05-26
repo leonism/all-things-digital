@@ -8,8 +8,8 @@ import MarkdownIt from 'markdown-it';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const postsDir = path.resolve(__dirname, '../src/content/posts');
-const outputDataFile = path.resolve(__dirname, '../src/blog-data.json');
+const postsDir = path.resolve(__dirname, '../src/data/posts');
+const outputDataFile = path.resolve(__dirname, '../src/data/blog-data.json');
 const md = new MarkdownIt();
 
 function getPostsData() {

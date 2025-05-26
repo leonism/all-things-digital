@@ -30,6 +30,12 @@ export default defineConfig({
   // Set root dir to './src', meaning Vite will look for source files in the 'src' folder.
   root: './src',
 
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+
   // Configuration for the build process.
   build: {
     // Built files will be placed in '../dist' (i.e., a 'dist' folder at the same level as 'src').

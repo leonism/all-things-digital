@@ -29,8 +29,8 @@
 
 <script setup>
 import { computed } from 'vue';
-import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-import postsData from '../blog-data.json';
+import BlogArticleCard from '@/components/blog/BlogArticleCard.vue';
+import postsData from '@/data/blog-data.json';
 
 const limitedPosts = computed(() => {
   // Get only published posts and limit to, for example, 3 for the home page grid

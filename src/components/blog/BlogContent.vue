@@ -1,13 +1,13 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-    <ContentContactHeader />
-    <ContentContactForm />
+    <BlogHeader />
+    <BlogContentGrid />
   </main>
 </template>
 
 <script setup>
-import ContentContactHeader from '../components/header/ContentContactHeader.vue';
-import ContentContactForm from './ContentContactForm.vue';
+import BlogHeader from '@/components/header/ContentBlogHeader.vue';
+import BlogContentGrid from '@/components/blog/BlogContentGrid.vue';
 </script>
 
 <style scoped>

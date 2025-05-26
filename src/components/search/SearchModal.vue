@@ -50,7 +50,7 @@
 <script setup>
 import { ref, watch, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
-import postsData from '../blog-data.json'; // Assuming this path is correct
+import postsData from '../../data/blog-data.json'; // Corrected path
 
 const props = defineProps({
   showModal: Boolean,
@@ -101,4 +101,3 @@ const closeModal = () => {
 <style scoped>
 /* Add any specific styles for the modal here */
 </style>
-
