@@ -1,7 +1,5 @@
 // Import the 'defineConfig' function from Vite to provide type-safe configuration.
 import { defineConfig } from 'vite';
-// Import the Vue plugin for Vite
-import vue from '@vitejs/plugin-vue';
 // Import the Tailwind CSS plugin for Vite to integrate Tailwind CSS processing.
 import tailwindcss from '@tailwindcss/vite';
 // Import Autoprefixer to parse CSS and add vendor prefixes to CSS rules.
@@ -10,6 +8,8 @@ import autoprefixer from 'autoprefixer';
 import viteImagemin from 'vite-plugin-imagemin';
 // Import the Vite plugin for HTML minification to reduce the size of HTML files.
 import htmlMinifier from 'vite-plugin-html-minifier';
+// Import the Vite plugin for EJS templating, allowing dynamic data in HTML.
+import { ViteEjsPlugin } from 'vite-plugin-ejs';
 // Import the 'resolve' function from the 'path' module for resolving file paths.
 import { resolve } from 'node:path';
 // Import the viteCompression plugin for Vite.
@@ -36,12 +36,14 @@ export default defineConfig({
     // Advanced Rollup options for customizing the build.
     rollupOptions: {
       // Defines multiple entry points for the application.
-      // NOTE: This will need to change significantly for a Vue SPA.
-      // We will likely have a single entry point (src/main.js) that mounts the Vue app.
-      // HTML files will be served by Vue Router.
       input: {
-        // Keep index.html as the main entry for now, Vue will mount here.
-        main: resolve(__dirname, 'src/index.html'),
+        main: resolve(__dirname, 'src/index.html'), // Main entry point (homepage).
+        about: resolve(__dirname, 'src/about.html'), // About page entry point.
+        contact: resolve(__dirname, 'src/contact.html'), // Contact page entry point.
+        blog: resolve(__dirname, 'src/blog.html'), // Blog listing page entry point.
+        blogpost: resolve(__dirname, 'src/blog-post.html'), // Single blog post template entry point.
+        category: resolve(__dirname, 'src/category.html'), // Category page entry point.
+        credits: resolve(__dirname, 'src/credits.html'), // Credits page entry point.
       },
       output: {
         assetFileNames: (assetInfo) => {
@@ -68,10 +70,9 @@ export default defineConfig({
 
   // Configuration for Vite plugins.
   plugins: [
-    // Enable the Vue plugin
-    vue(),
-
+    // vue(), // Example: Enable Vue plugin if using Vue.js.
     // Add the compression plugin here
+
     viteCompression({
       verbose: true, // Optional: Show compressed files in console
       disable: false, // Enable compression
@@ -119,28 +120,26 @@ export default defineConfig({
     }),
 
     // HTML minification plugin configuration.
-    // NOTE: This might conflict with Vue's handling of index.html, may need adjustment.
-    // htmlMinifier({
-    //   minify: true, // Enables minification.
-    //   collapseWhitespace: true, // Removes whitespace in HTML.
-    //   keepClosingSlash: true, // Keeps closing slashes on void elements
-    //   removeComments: true, // Removes HTML comments.
-    //   removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
-    //   removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
-    //   removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
-    //   useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
-    //   removeEmptyAttributes: true,
-    //   minifyCSS: true,
-    //   minifyJS: true,
-    //   minifyURLs: true,
-    // }),
+    htmlMinifier({
+      minify: true, // Enables minification.
+      collapseWhitespace: true, // Removes whitespace in HTML.
+      keepClosingSlash: true, // Keeps closing slashes on void elements
+      removeComments: true, // Removes HTML comments.
+      removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
+      removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
+      removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
+      useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
+      removeEmptyAttributes: true,
+      minifyCSS: true,
+      minifyJS: true,
+      minifyURLs: true,
+    }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
-    // NOTE: This will likely be removed once the migration to Vue is complete.
-    // ViteEjsPlugin(),
+    ViteEjsPlugin(),
 
     // For Tailwind CSS v4+ with its Vite plugin, this is the correct way.
-    // tailwindcss(),
+    tailwindcss(),
   ],
 
   // Configuration for the Vite development server.

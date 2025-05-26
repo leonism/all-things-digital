@@ -1,4 +1,0 @@
-User-agent: Googlebot
-Disallow: /admin/
-Allow: /
-Sitemap: https://www.example.com/sitemap.xml

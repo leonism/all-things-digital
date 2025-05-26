@@ -1,0 +1,31 @@
+<template>
+  <section
+    class="mt-10 mb-10 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl md:flex-row md:my-6"
+  >
+    <!-- This will center text on mobile by default, and left align it on screens 640px and wider -->
+    <h2
+      class="text-center mx-5 mt-3 mb-2 sm:text-left text-4xl/12 subpixel-antialiased font-extrabold tracking-tight text-transparent drop-shadow-xl font-navigation bg-clip-text bg-linear-to-br from-indigo-400 to-pink-600"
+    >
+      Latest Blog
+    </h2>
+    <p
+      class="text-justify wrap-break-word tracking-wide mx-5 mt-2 mb-5 font-navigation text-slate-700 dark:text-white"
+    >
+      Discover the latest updates from the blog — a space where I regularly
+      document my hands-on experiments and insights with emerging web
+      technologies. I delve into cutting-edge tools, frameworks, and workflows,
+      highlighting both breakthroughs and common pitfalls, so you can navigate
+      them with confidence and clarity.
+    </p>
+    <!-- Blog posts will be rendered here, e.g., using a slot or passed as props -->
+    <slot name="latest-posts"></slot>
+  </section>
+</template>
+
+<script setup>
+// No script logic needed for this component
+</script>
+
+<style scoped>
+/* Scoped styles for this component if any */
+</style>
