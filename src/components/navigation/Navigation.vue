@@ -19,12 +19,12 @@
 </template>
 
 <script setup>
-import NavLogo from '@/components/navigation/NavLogo.vue';
-import NavDesktop from '@/components/navigation/NavDesktop.vue';
-import NavDarkMode from '@/components/navigation/NavDarkMode.vue';
-import NavSearchButton from '@/components/navigation/NavSearchButton.vue';
-import NavContactButton from '@/components/navigation/NavContactButton.vue';
-import NavMobile from '@/components/navigation/NavMobile.vue';
+import NavLogo from './NavLogo.vue';
+import NavDesktop from './NavDesktop.vue';
+import NavDarkMode from './NavDarkMode.vue';
+import NavSearchButton from './NavSearchButton.vue';
+import NavContactButton from './NavContactButton.vue';
+import NavMobile from './NavMobile.vue';
 
 // Define the emits for the component
 defineEmits(['open-search']);

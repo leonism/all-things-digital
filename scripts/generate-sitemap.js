@@ -22,7 +22,7 @@ const readJsonData = (filePath) => {
 
 const generateSitemap = async () => {
   // Read blog data
-  const postsData = readJsonData("src/data/blog-data.json");
+  const postsData = readJsonData("src/blog-data.json");
 
   const publicDir = path.join(process.cwd(), "public");
   const sitemapPath = path.join(publicDir, "sitemap.xml");

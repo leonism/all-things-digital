@@ -111,7 +111,7 @@
 <script setup>
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '@/components/avatar/AvatarAuthor.vue';
+import AvatarAuthor from '../avatar/AvatarAuthor.vue';
 
 const props = defineProps({
   imageSrc: {

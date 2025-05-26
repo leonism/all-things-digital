@@ -1,10 +1,10 @@
 <template>
-  <Credits />
+  <ContentCredits />
 </template>
 
 <script setup>
 import { useHead } from '@unhead/vue';
-import Credits from '@/components/content/ContentCredits.vue';
+import ContentCredits from '../content/ContentCredits.vue';
 
 useHead({
   title: 'Credits | DGPond.COM',

@@ -19,8 +19,8 @@
 
 <script setup>
 import { computed } from 'vue';
-import BlogArticleCard from '@/components/blog/BlogArticleCard.vue';
-import postsData from '@/data/blog-data.json';
+import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
+import postsData from '../blog-data.json';
 
 const publishedPosts = computed(() => {
   return postsData.filter(post => post.status === 'published' || !post.status);

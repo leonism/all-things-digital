@@ -12,9 +12,9 @@
 </template>
 
 <script setup>
-import FooterLogo from '@/components/footer/FooterLogo.vue';
-import FooterSocialButton from '@/components/footer/FooterSocialButton.vue';
-import FooterNavLinks from '@/components/footer/FooterNavLinks.vue';
+import FooterLogo from './FooterLogo.vue';
+import FooterSocialButton from './FooterSocialButton.vue';
+import FooterNavLinks from './FooterNavLinks.vue';
 </script>
 
 <style scoped>

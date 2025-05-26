@@ -1,7 +1,7 @@
 <template>
   <BaseLayout>
     <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-      <CategoryHeader :categoryName="categoryName" />
+      <ContentCategoryHeader :categoryName="categoryName" />
       <div
         v-if="filteredPosts.length"
         class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
@@ -39,10 +39,10 @@
 import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
-import BaseLayout from '@/layouts/BaseLayout.vue';
-import CategoryHeader from '@/components/header/HeaderCategory.vue';
-import BlogArticleCard from '@/components/blog/BlogArticleCard.vue';
-import postsData from '@/data/blog-data.json';
+import BaseLayout from '../layouts/BaseLayout.vue';
+import ContentCategoryHeader from '../components/header/ContentCategoryHeader.vue';
+import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
+import postsData from '../blog-data.json';
 
 const route = useRoute();
 const categoryName = ref(route.params.category);
