@@ -1,13 +1,13 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <HeaderBlog />
-    <ContentBlogGrid />
+    <BlogGridContent />
   </main>
 </template>
 
 <script setup>
 import HeaderBlog from './components/header/HeaderBlog.vue';
-import ContentBlogGrid from './ContentBlogGrid.vue';
+import BlogGridContent from './BlogGridContent.vue';
 </script>
 
 <style scoped>

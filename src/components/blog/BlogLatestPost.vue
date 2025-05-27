@@ -18,7 +18,7 @@
       them with confidence and clarity.
     </p>
     <!-- Blog posts will be rendered here, e.g., using a slot or passed as props -->
-    <slot name="latest-posts"></slot>
+    <!-- <slot name="latest-posts"> </slot> -->
   </section>
 </template>
 
