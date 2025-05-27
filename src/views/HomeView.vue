@@ -1,7 +1,6 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <HeaderHome />
-
     <BlogFeaturedPost
       v-if="featuredPost"
       :imageSrc="featuredImageSrc"
@@ -16,7 +15,6 @@
       :authorImageAlt="authorImageAlt"
       :authorLink="authorLink"
     />
-
     <BlogLatestPost>
       <template #latest-posts>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 p-5">
@@ -39,7 +37,6 @@
         </div>
       </template>
     </BlogLatestPost>
-
     <BlogGridHome />
   </main>
 </template>
@@ -47,13 +44,11 @@
 <script setup>
 import { computed } from 'vue';
 import { useHead } from '@unhead/vue';
-
 import HeaderHome from '../components/header/HeaderHome.vue';
 import BlogFeaturedPost from '../components/blog/BlogFeaturedPost.vue';
 import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
 import BlogGridHome from '../components/blog/BlogGridHome.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
 
