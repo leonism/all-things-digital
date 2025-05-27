@@ -50,11 +50,11 @@
 <script setup>
 import { computed } from 'vue';
 import { useHead } from '@unhead/vue';
-import ContentHomeHeader from '../components/header/ContentHomeHeader.vue';
+import HeaderHome from '../components/header/HeaderHome.vue';
 import ContentFeaturedPost from '../content/ContentFeaturedPost.vue';
 import ContentLatestBlog from '../content/ContentLatestBlog.vue';
-import HomeBlogGrid from '../content/HomeBlogGrid.vue';
-import BlogArticleCard from '../components/blog/BlogArticleCard.vue'; // Needed for the latest posts slot
+import HomeBlogGrid from '../components/blog/HomeBlogGrid.vue';
+import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
 
 useHead({

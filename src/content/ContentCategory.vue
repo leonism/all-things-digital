@@ -5,7 +5,9 @@
       <BlogArticleCard
         v-for="post in filteredPosts"
         :key="post.slug"
-        :imageSrc="post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'"
+        :imageSrc="
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+        "
         :imageAlt="post.featuredImage?.alt || post.title"
         :title="post.title"
         :postLink="`/blog/${post.slug}`"
@@ -16,7 +18,10 @@
         :authorImageAlt="post.author?.name || 'Author profile picture'"
         :authorLink="post.author?.link || '/about'"
       />
-      <div v-if="filteredPosts.length === 0" class="text-center text-gray-500 dark:text-gray-400 py-10">
+      <div
+        v-if="filteredPosts.length === 0"
+        class="text-center text-gray-500 dark:text-gray-400 py-10"
+      >
         <p>No blog posts found for this category.</p>
       </div>
     </section>
@@ -27,7 +32,7 @@
 import { computed } from 'vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import ContentCategoryHeader from '../components/header/ContentCategoryHeader.vue';
-import postsData from '../blog-data.json';
+import postsData from '../../blog-data.json';
 
 const props = defineProps({
   category: {
@@ -37,10 +42,14 @@ const props = defineProps({
 });
 
 const filteredPosts = computed(() => {
-  return postsData.filter(post =>
-    (post.status === 'published' || !post.status) &&
-    (post.category?.toLowerCase() === props.category.toLowerCase() ||
-     (post.categories && post.categories.map(c => c.toLowerCase()).includes(props.category.toLowerCase())))
+  return postsData.filter(
+    (post) =>
+      (post.status === 'published' || !post.status) &&
+      (post.category?.toLowerCase() === props.category.toLowerCase() ||
+        (post.categories &&
+          post.categories
+            .map((c) => c.toLowerCase())
+            .includes(props.category.toLowerCase()))),
   );
 });
 </script>

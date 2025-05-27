@@ -20,10 +20,12 @@
 <script setup>
 import { computed } from 'vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-import postsData from '../blog-data.json';
+import postsData from '../../blog-data.json';
 
 const publishedPosts = computed(() => {
-  return postsData.filter(post => post.status === 'published' || !post.status);
+  return postsData.filter(
+    (post) => post.status === 'published' || !post.status,
+  );
 });
 </script>
 

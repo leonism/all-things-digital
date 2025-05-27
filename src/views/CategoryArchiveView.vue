@@ -40,7 +40,7 @@ import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import BaseLayout from '../layouts/BaseLayout.vue';
-import ContentCategoryHeader from '../components/header/ContentCategoryHeader.vue';
+import HeaderCategory from '../components/header/HeaderCategory.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
 

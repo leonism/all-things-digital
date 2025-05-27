@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import ContentAboutHeader from '../components/header/ContentAboutHeader.vue';
+import ContentAboutHeader from '../components/header/HeaderAbout.vue';
 </script>
 
 <style scoped>

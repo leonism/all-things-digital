@@ -1,12 +1,12 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-    <ContentContactHeader />
+    <HeaderContact />
     <ContentContactForm />
   </main>
 </template>
 
 <script setup>
-import ContentContactHeader from '../components/header/ContentContactHeader.vue';
+import HeaderContact from '../components/header/HeaderContact.vue';
 import ContentContactForm from './ContentContactForm.vue';
 </script>
 

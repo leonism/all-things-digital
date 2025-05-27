@@ -16,8 +16,6 @@
 </template>
 
 <script setup>
-
-
 const props = defineProps({
   categoryName: {
     type: String,
