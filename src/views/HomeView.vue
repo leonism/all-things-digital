@@ -10,8 +10,12 @@
       :title="featuredPost.title"
       :postLink="`/blog/${featuredPost.slug}`"
       :date="featuredPost.date"
-      :category="category"
-      :categoryLink="categoryLink"
+      :category="
+        featuredPost.category ||
+        (featuredPost.categories && featuredPost.categories[0]) ||
+        'Uncategorized'
+      "
+      :categoryLink="`/blog/category/${(featuredPost.category || (featuredPost.categories && featuredPost.categories[0]) || 'uncategorized').toLowerCase()}`"
       :tags="featuredPost.tags"
       :authorImageSrc="featuredPost.author?.image || '/assets/img/avatar.png'"
       :authorImageAlt="featuredPost.author?.name || 'Author profile photo'"
@@ -44,29 +48,37 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { useHead } from '@unhead/vue';
-import { useBlogPosts } from '@/composables/useBlogPosts';
-import HeaderHome from '@/components/header/HeaderHome.vue';
-import BlogFeaturedPost from '@/components/blog/BlogFeaturedPost.vue';
-import BlogLatestPost from '@/components/blog/BlogLatestPost.vue';
-import BlogGridHome from '@/components/blog/BlogGridHome.vue';
-import BlogArticleCard from '@/components/blog/BlogArticleCard.vue';
-
-const { featuredPost, latestPosts } = useBlogPosts();
+import HeaderHome from '../components/header/HeaderHome.vue';
+import BlogFeaturedPost from '../components/blog/BlogFeaturedPost.vue';
+import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
+import BlogGridHome from '../components/blog/BlogGridHome.vue';
+import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
+import postsData from '../blog-data.json';
 
 useHead({
   title: 'DGPond.COM',
 });
 
-// Category fallback logic
-const category = computed(
-  () =>
-    featuredPost.value?.category ||
-    featuredPost.value?.categories?.[0] ||
-    'Uncategorized',
-);
+const featuredPost = computed(() => {
+  return postsData.find(
+    (post) => post.featured && (post.status === 'published' || !post.status),
+  );
+});
 
-const categoryLink = computed(
-  () => `/blog/category/${category.value.toLowerCase()}`,
-);
+const latestPosts = computed(() => {
+  // Get latest 3 published posts, excluding the featured one if it's among them
+  const published = postsData.filter(
+    (post) => post.status === 'published' || !post.status,
+  );
+  const sorted = published.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return sorted
+    .filter((post) => post.slug !== featuredPost.value?.slug)
+    .slice(0, 3);
+});
 </script>
+
+<style scoped>
+/* Scoped styles for this view if any */
+</style>
