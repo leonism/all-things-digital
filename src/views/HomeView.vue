@@ -1,7 +1,7 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-    <ContentHomeHeader />
-    <ContentFeaturedPost
+    <HeaderHome />
+    <BlogFeaturedPost
       v-if="featuredPost"
       :imageSrc="
         featuredPost.featuredImage?.src || '/assets/img/featured-blog-comp.jpg'
@@ -21,7 +21,7 @@
       :authorImageAlt="featuredPost.author?.name || 'Author profile photo'"
       :authorLink="featuredPost.author?.link || '/about'"
     />
-    <ContentLatestBlog>
+    <BlogLatestPost>
       <template #latest-posts>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 p-5">
           <BlogArticleCard
@@ -42,8 +42,8 @@
           />
         </div>
       </template>
-    </ContentLatestBlog>
-    <HomeBlogGrid />
+    </BlogLatestPost>
+    <BlogGridHome />
   </main>
 </template>
 
@@ -51,9 +51,9 @@
 import { computed } from 'vue';
 import { useHead } from '@unhead/vue';
 import HeaderHome from '../components/header/HeaderHome.vue';
-import ContentFeaturedPost from '../content/ContentFeaturedPost.vue';
-import ContentLatestBlog from '../content/ContentLatestBlog.vue';
-import HomeBlogGrid from '../components/blog/HomeBlogGrid.vue';
+import BlogFeaturedPost from '../components/blog/BlogFeaturedPost.vue';
+import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
+import BlogGridHome from '../components/blog/BlogGridHome.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
 

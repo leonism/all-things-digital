@@ -1,6 +1,6 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-    <ContentBlogHeader />
+    <HeaderBlog />
     <div v-if="posts.length" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <BlogArticleCard
         v-for="post in posts"
@@ -32,9 +32,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useHead } from '@unhead/vue';
-import HeaderBlog from '../components/header/HeaderBlog.vue';
-import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-import postsData from '../blog-data.json';
+import HeaderBlog from '../header/HeaderBlog.vue';
+import BlogArticleCard from './BlogArticleCard.vue';
+import postsData from '../../blog-data.json';
 // import SearchInput from '../components/SearchInput.vue'; // If implementing inline search
 
 const posts = ref([]);

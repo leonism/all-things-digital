@@ -5,8 +5,8 @@ import HomeView from '../views/HomeView.vue';
 import AboutView from '../views/AboutView.vue';
 import ContactView from '../views/ContactView.vue';
 import CreditsView from '../views/CreditsView.vue';
-import BlogListView from '../views/BlogListView.vue';
-import BlogPostView from '../views/BlogPostView.vue';
+import BlogListView from '../components/blog/BlogListView.vue';
+import BlogPostView from '../components/blog/BlogPostView.vue';
 import CategoryArchiveView from '../views/CategoryArchiveView.vue';
 import TagArchiveView from '../views/TagArchiveView.vue';
 // import NotFoundView from '../views/NotFoundView.vue'; // Optional: 404 page

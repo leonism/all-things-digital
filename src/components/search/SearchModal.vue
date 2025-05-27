@@ -80,7 +80,7 @@
 <script setup>
 import { ref, watch, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
-import postsData from '../blog-data.json';
+import postsData from '../../blog-data.json';
 
 const props = defineProps({
   showModal: Boolean,

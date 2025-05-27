@@ -27,7 +27,11 @@
         </router-link>
         <!-- Category Badge -->
         <div class="absolute bottom-2 right-2 md:bottom-10 md:right-8">
-          <router-link :to="categoryLink" :title="category + ' category'" class="inline-block">
+          <router-link
+            :to="categoryLink"
+            :title="category + ' category'"
+            class="inline-block"
+          >
             <span
               class="text-white text-xs px-2.5 py-1 rounded-full bg-linear-to-br from-indigo-400/50 to-pink-600/50 dark:bg-gray-800"
               itemprop="about"
@@ -128,7 +132,6 @@
 <script setup>
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '../components/avatar/AvatarAuthor.vue';
 
 const props = defineProps({
   imageSrc: {
