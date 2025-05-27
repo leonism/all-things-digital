@@ -2,14 +2,14 @@
   {
     "slug": "future-web-development-2025",
     "contentHtml": "<h1>Exploring the Future of Web Development in 2025</h1>\n<p>The world of web development moves at lightning speed. Staying ahead requires understanding the trends that will define the next year.</p>\n<h2>Key Trends to Watch</h2>\n<ul>\n<li><strong>AI Integration:</strong> Expect more AI tools for code generation, debugging, and testing.</li>\n<li><strong>Framework Evolution:</strong> Continued refinement of frameworks like Vue, React, and Svelte.</li>\n<li><strong>Serverless &amp; Edge Computing:</strong> Growing adoption for scalability and performance.</li>\n</ul>\n<p>This is just a glimpse into the exciting future of building for the web.</p>\n",
-    "title": "Exploring the Future of Web Development in 2025",
+    "title": "Exploring the Future of Web Development in 2025 2",
     "seoTitle": "Future of Web Development 2025 | Trends & Technologies Guide",
     "date": "2025-05-26",
     "lastModified": "2025-05-26",
     "author": {
       "name": "Alex Johnson",
       "role": "Lead Developer",
-      "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "image": "../src/assets/img/avatar.png"
     },
     "category": "Technology",
     "tags": [
@@ -40,13 +40,13 @@
       },
       "datePublished": "2025-05-26",
       "dateModified": "2025-05-26",
-      "image": "../src/assets/img/featured-blog.jpg",
+      "image": "../assets/img/featured-blog.jpg",
       "publisher": {
         "@type": "Organization",
         "name": "Tech Insights Blog",
         "logo": {
           "@type": "ImageObject",
-          "url": "/images/logo-placeholder.png"
+          "url": "..assets/img/icons/logo-footer.png"
         }
       }
     },
@@ -65,16 +65,8 @@
     "title": "My First Blog Post",
     "date": "2025-05-26",
     "author": "Manus AI",
-    "categories": [
-      "Tech",
-      "Vue"
-    ],
-    "tags": [
-      "vite",
-      "vue3",
-      "markdown",
-      "example"
-    ],
+    "categories": ["Tech", "Vue"],
+    "tags": ["vite", "vue3", "markdown", "example"],
     "description": "This is the first example blog post generated for testing the Markdown processing."
   },
   {
@@ -450,13 +442,7 @@
       "image": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     "category": "DIY",
-    "tags": [
-      "diy",
-      "home decor",
-      "crafts",
-      "budget friendly",
-      "upcycling"
-    ],
+    "tags": ["diy", "home decor", "crafts", "budget friendly", "upcycling"],
     "featuredImage": {
       "src": "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Cozy living room with DIY decorative elements",

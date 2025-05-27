@@ -1,7 +1,7 @@
 <template>
   <div
     id="footerLogo"
-    class="flex max-w-xs pt-5 mb-5 mx-auto -mt-9 overflow-hidden drop-shadow-xs grayscale opacity-80"
+    class="flex max-w-xs pt-5 mb-5 mx-auto -mt-18 overflow-hidden drop-shadow-xs grayscale opacity-80"
   >
     <a href="#" @click.prevent="scrollToTop">
       <img

@@ -4,7 +4,7 @@
         <title>All Things Digital Blog</title>
         <link>https://yourdomain.com</link>
         <description>Latest articles and insights from All Things Digital</description>
-        <lastBuildDate>Tue, 27 May 2025 10:41:28 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 May 2025 11:59:04 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Manus AI Feed Generator</generator>
         <language>en</language>
@@ -15,7 +15,7 @@
         </image>
         <copyright>All rights reserved 2025, Your Name</copyright>
         <item>
-            <title><![CDATA[Exploring the Future of Web Development in 2025]]></title>
+            <title><![CDATA[Exploring the Future of Web Development in 2025 2]]></title>
             <link>https://yourdomain.com/blog/future-web-development-2025</link>
             <guid isPermaLink="false">https://yourdomain.com/blog/future-web-development-2025</guid>
             <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
@@ -31,7 +31,7 @@
 <p>This is just a glimpse into the exciting future of building for the web.</p>
 ]]></content:encoded>
             <author>your.email@example.com (Alex Johnson)</author>
-            <enclosure url="https://yourdomain.com/../src/assets/img/featured-blog.jpg" length="0" type="image/jpg"/>
+            <enclosure url="https://yourdomain.com/../assets/img/featured-blog.jpg" length="0" type="image/jpg"/>
         </item>
         <item>
             <title><![CDATA[My First Blog Post]]></title>

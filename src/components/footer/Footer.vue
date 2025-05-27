@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="flex flex-col items-center max-w-4xl mx-auto my-10 md:my-10 border-t dark:border-slate-800/60 pt-8"
+    class="flex flex-col items-center max-w-4xl mx-auto my-10 border-t dark:border-slate-800/60 pt-8"
   >
     <FooterLogo />
     <FooterSocialButton />

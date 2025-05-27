@@ -1,5 +1,5 @@
 ---
-title: 'Exploring the Future of Web Development in 2025'
+title: 'Exploring the Future of Web Development in 2025 2'
 seoTitle: 'Future of Web Development 2025 | Trends & Technologies Guide'
 slug: 'future-web-development-2025'
 date: '2025-05-26'
@@ -7,7 +7,7 @@ lastModified: '2025-05-26'
 author:
   name: 'Alex Johnson'
   role: 'Lead Developer'
-  image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' # Placeholder author image
+  image: '/assets/img/avatar.png' # Placeholder author image
 category: 'Technology'
 tags:
   - 'web development'
@@ -16,7 +16,7 @@ tags:
   - 'javascript'
   - 'future tech'
 featuredImage:
-  src: '../src/assets/img/featured-blog.jpg'
+  src: '/assets/img/featured-blog.jpg'
   alt: 'Developer coding on a laptop with multiple monitors'
   caption: 'The landscape of web development is constantly evolving.'
 excerpt: 'Dive into the key trends shaping web development in 2025, from advancements in JavaScript frameworks to the rise of AI-powered coding assistants and serverless architectures.'
@@ -34,13 +34,13 @@ schema:
     jobTitle: 'Lead Developer'
   datePublished: '2025-05-26'
   dateModified: '2025-05-26'
-  image: '../src/assets/img/featured-blog.jpg'
+  image: '../assets/img/featured-blog.jpg'
   publisher:
     '@type': 'Organization'
     name: 'Tech Insights Blog'
     logo:
       '@type': 'ImageObject'
-      url: '/images/logo-placeholder.png'
+      url: '..assets/img/icons/logo-footer.png'
 relatedPosts:
   - 'ai-in-web-development'
   - 'top-javascript-frameworks'
