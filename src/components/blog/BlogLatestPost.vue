@@ -17,9 +17,9 @@
       highlighting both breakthroughs and common pitfalls, so you can navigate
       them with confidence and clarity.
     </p>
-    <!-- Blog posts will be rendered here, e.g., using a slot or passed as props -->
-    <slot name="latest-posts"></slot>
   </section>
+  <!-- Blog posts will be rendered here, e.g., using a slot or passed as props -->
+  <slot name="latest-posts"></slot>
 </template>
 
 <script setup>

@@ -1,26 +1,22 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <HeaderHome />
+
     <BlogFeaturedPost
       v-if="featuredPost"
-      :imageSrc="
-        featuredPost.featuredImage?.src || '/assets/img/featured-blog-comp.jpg'
-      "
-      :imageAlt="featuredPost.featuredImage?.alt || featuredPost.title"
+      :imageSrc="featuredImageSrc"
+      :imageAlt="featuredImageAlt"
       :title="featuredPost.title"
       :postLink="`/blog/${featuredPost.slug}`"
       :date="featuredPost.date"
-      :category="
-        featuredPost.category ||
-        (featuredPost.categories && featuredPost.categories[0]) ||
-        'Uncategorized'
-      "
-      :categoryLink="`/blog/category/${(featuredPost.category || (featuredPost.categories && featuredPost.categories[0]) || 'uncategorized').toLowerCase()}`"
+      :category="postCategory"
+      :categoryLink="categoryLink"
       :tags="featuredPost.tags"
-      :authorImageSrc="featuredPost.author?.image || '/assets/img/avatar.png'"
-      :authorImageAlt="featuredPost.author?.name || 'Author profile photo'"
-      :authorLink="featuredPost.author?.link || '/about'"
+      :authorImageSrc="authorImageSrc"
+      :authorImageAlt="authorImageAlt"
+      :authorLink="authorLink"
     />
+
     <BlogLatestPost>
       <template #latest-posts>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 p-5">
@@ -43,6 +39,7 @@
         </div>
       </template>
     </BlogLatestPost>
+
     <BlogGridHome />
   </main>
 </template>
@@ -50,35 +47,47 @@
 <script setup>
 import { computed } from 'vue';
 import { useHead } from '@unhead/vue';
+
 import HeaderHome from '../components/header/HeaderHome.vue';
 import BlogFeaturedPost from '../components/blog/BlogFeaturedPost.vue';
 import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
 import BlogGridHome from '../components/blog/BlogGridHome.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-import postsData from '../blog-data.json';
 
-useHead({
-  title: 'DGPond.COM',
-});
+import { useFeaturedPost } from '../composables/useFeaturedPost';
+import { useLatestPosts } from '../composables/useLatestPosts';
 
-const featuredPost = computed(() => {
-  return postsData.find(
-    (post) => post.featured && (post.status === 'published' || !post.status),
-  );
-});
+useHead({ title: 'DGPond.COM' });
 
-const latestPosts = computed(() => {
-  // Get latest 3 published posts, excluding the featured one if it's among them
-  const published = postsData.filter(
-    (post) => post.status === 'published' || !post.status,
-  );
-  const sorted = published.sort((a, b) => new Date(b.date) - new Date(a.date));
-  return sorted
-    .filter((post) => post.slug !== featuredPost.value?.slug)
-    .slice(0, 3);
-});
+const featuredPost = useFeaturedPost();
+const latestPosts = useLatestPosts();
+
+const featuredImageSrc = computed(
+  () =>
+    featuredPost.value?.featuredImage?.src ||
+    '/assets/img/featured-blog-comp.jpg',
+);
+const featuredImageAlt = computed(
+  () => featuredPost.value?.featuredImage?.alt || featuredPost.value?.title,
+);
+const postCategory = computed(
+  () =>
+    featuredPost.value?.category ||
+    featuredPost.value?.categories?.[0] ||
+    'Uncategorized',
+);
+const categoryLink = computed(
+  () => `/blog/category/${postCategory.value.toLowerCase()}`,
+);
+const authorImageSrc = computed(
+  () => featuredPost.value?.author?.image || '/assets/img/avatar.png',
+);
+const authorImageAlt = computed(
+  () => featuredPost.value?.author?.name || 'Author profile photo',
+);
+const authorLink = computed(() => featuredPost.value?.author?.link || '/about');
 </script>
 
 <style scoped>
-/* Scoped styles for this view if any */
+/* Optional scoped styles */
 </style>
