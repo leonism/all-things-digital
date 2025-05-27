@@ -1,38 +1,36 @@
 <template>
-  <BaseLayout>
-    <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
-      <ContentCategoryHeader :categoryName="categoryName" />
-      <div
-        v-if="filteredPosts.length"
-        class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+  <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+    <ContentCategoryHeader :categoryName="categoryName" />
+    <div
+      v-if="filteredPosts.length"
+      class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+    >
+      <BlogArticleCard
+        v-for="post in filteredPosts"
+        :key="post.slug"
+        :imageSrc="
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+        "
+        :imageAlt="post.featuredImage?.alt || post.title"
+        :title="post.title"
+        :postLink="`/blog/${post.slug}`"
+        :date="post.date"
+        :excerpt="post.excerpt || post.description"
+        :tags="post.tags"
+        :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
+        :authorImageAlt="post.author?.name || 'Author profile picture'"
+        :authorLink="post.author?.link || '/about'"
+      />
+    </div>
+    <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
+      <p>No posts found in the category "{{ categoryName }}".</p>
+      <router-link
+        to="/blog"
+        class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
+        >Back to Blog List</router-link
       >
-        <BlogArticleCard
-          v-for="post in filteredPosts"
-          :key="post.slug"
-          :imageSrc="
-            post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
-          "
-          :imageAlt="post.featuredImage?.alt || post.title"
-          :title="post.title"
-          :postLink="`/blog/${post.slug}`"
-          :date="post.date"
-          :excerpt="post.excerpt || post.description"
-          :tags="post.tags"
-          :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
-          :authorImageAlt="post.author?.name || 'Author profile picture'"
-          :authorLink="post.author?.link || '/about'"
-        />
-      </div>
-      <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
-        <p>No posts found in the category "{{ categoryName }}".</p>
-        <router-link
-          to="/blog"
-          class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
-          >Back to Blog List</router-link
-        >
-      </div>
-    </main>
-  </BaseLayout>
+    </div>
+  </main>
 </template>
 
 <script setup>
@@ -40,7 +38,7 @@ import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import BaseLayout from '../layouts/BaseLayout.vue';
-import HeaderCategory from '../components/header/HeaderCategory.vue';
+import HeaderCategory from '../components/heading/HeaderCategory.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
 

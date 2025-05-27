@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import AboutHeader from '../components/header/HeaderAbout.vue';
+import AboutHeader from '../components/heading/HeaderAbout.vue';
 </script>
 
 <style scoped>

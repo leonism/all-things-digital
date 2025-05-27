@@ -38,6 +38,11 @@ const routes = [
     component: BlogListView,
   },
   {
+    path: '/categories',
+    name: 'blog-catgories-list',
+    component: CategoryView,
+  },
+  {
     // Route for individual blog posts using slug
     path: '/blog/:slug',
     name: 'blog-post',

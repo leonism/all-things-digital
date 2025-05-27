@@ -84,7 +84,7 @@
 import { ref, watch, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
-import HeaderBlogPost from '../header/HeaderBlogPost.vue';
+import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 
 const route = useRoute();

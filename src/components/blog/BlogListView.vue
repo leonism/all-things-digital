@@ -32,7 +32,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useHead } from '@unhead/vue';
-import HeaderBlog from '../header/HeaderBlog.vue';
+import HeaderBlog from '../heading/HeaderBlog.vue';
 import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 // import SearchInput from '../components/SearchInput.vue'; // If implementing inline search

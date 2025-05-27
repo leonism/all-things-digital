@@ -44,7 +44,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useHead } from '@unhead/vue';
-import HeaderHome from '../components/header/HeaderHome.vue';
+import HeaderHome from '../components/heading/HeaderHome.vue';
 import BlogFeaturedPost from '../components/blog/BlogFeaturedPost.vue';
 import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
 import BlogGridHome from '../components/blog/BlogGridHome.vue';

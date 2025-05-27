@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import HeaderCredits from '../components/header/HeaderCredits.vue';
+import HeaderCredits from '../components/heading/HeaderCredits.vue';
 </script>
 
 <style scoped>

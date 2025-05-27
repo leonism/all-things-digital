@@ -31,7 +31,7 @@
 <script setup>
 import { computed } from 'vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-import ContentCategoryHeader from '../components/header/ContentCategoryHeader.vue';
+import ContentCategoryHeader from '../components/heading/ContentCategoryHeader.vue';
 import postsData from '../../blog-data.json';
 
 const props = defineProps({

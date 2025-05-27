@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import HeaderBlog from './components/header/HeaderBlog.vue';
+import HeaderBlog from './components/heading/HeaderBlog.vue';
 import BlogGrid from './BlogGrid.vue';
 </script>
 
