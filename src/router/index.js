@@ -5,10 +5,10 @@ import HomeView from '../views/HomeView.vue';
 import AboutView from '../views/AboutView.vue';
 import ContactView from '../views/ContactView.vue';
 import CreditsView from '../views/CreditsView.vue';
+import CategoryView from '../views/CategoryView.vue';
 import BlogListView from '../components/blog/BlogListView.vue';
 import BlogPostView from '../components/blog/BlogPostView.vue';
-import CategoryArchiveView from '../views/CategoryArchiveView.vue';
-import TagArchiveView from '../views/TagArchiveView.vue';
+import BlogTagView from '../components/blog/BlogTagView.vue';
 // import NotFoundView from '../views/NotFoundView.vue'; // Optional: 404 page
 
 const routes = [
@@ -47,13 +47,13 @@ const routes = [
   {
     path: '/blog/category/:category',
     name: 'category-archive',
-    component: CategoryArchiveView,
+    component: CategoryView,
     props: true,
   },
   {
     path: '/blog/tag/:tag',
     name: 'tag-archive',
-    component: TagArchiveView,
+    component: BlogTagView,
     props: true,
   },
   // Catch-all 404 route - uncomment if NotFoundView is created

@@ -103,7 +103,7 @@
 import { ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue'; // Import useHead
-import postsData from '../blog-data.json';
+import postsData from '../../blog-data.json';
 
 const route = useRoute();
 const tagName = ref(route.params.tag);
