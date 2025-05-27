@@ -24,7 +24,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run generate-rss && npm run generate-sitemap && npm run generate-blog-data",
     "preview": "vite preview",
     "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
     "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
@@ -35,12 +35,17 @@
     "format": "prettier --write .",
     "build-and-lint": "vite build && npm run lint:css",
     "generate-rss": "node scripts/generate-rss.js",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-blog-data": "node scripts/generate-blog-data.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "@unhead/vue": "^2.0.10",
     "autoprefixer": "^10.4.21",
+    "feed": "^5.1.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "sitemap": "^8.0.0",
     "vue-router": "^4.5.1"
   }
 }

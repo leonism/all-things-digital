@@ -20,7 +20,7 @@
       "future tech"
     ],
     "featuredImage": {
-      "src": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "src": "../src/assets/img/featured-blog.jpg",
       "alt": "Developer coding on a laptop with multiple monitors",
       "caption": "The landscape of web development is constantly evolving."
     },
@@ -40,7 +40,7 @@
       },
       "datePublished": "2025-05-26",
       "dateModified": "2025-05-26",
-      "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "image": "../src/assets/img/featured-blog.jpg",
       "publisher": {
         "@type": "Organization",
         "name": "Tech Insights Blog",

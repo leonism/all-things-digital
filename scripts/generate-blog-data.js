@@ -8,15 +8,15 @@ import MarkdownIt from 'markdown-it';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const postsDir = path.resolve(__dirname, '../src/content/posts');
+const postsDir = path.resolve(__dirname, '../src/data/posts');
 const outputDataFile = path.resolve(__dirname, '../src/blog-data.json');
 const md = new MarkdownIt();
 
 function getPostsData() {
   const fileNames = fs.readdirSync(postsDir);
   const allPostsData = fileNames
-    .filter(fileName => fileName.endsWith('.md')) // Only process markdown files
-    .map(fileName => {
+    .filter((fileName) => fileName.endsWith('.md')) // Only process markdown files
+    .map((fileName) => {
       // Remove ".md" from file name to get id (slug)
       const slug = fileName.replace(/\.md$/, '');
 
@@ -58,7 +58,7 @@ function generateBlogData() {
   try {
     const postsData = getPostsData();
     fs.writeFileSync(outputDataFile, JSON.stringify(postsData, null, 2));
-    console.log(`Successfully generated blog data to ${outputDataFile}`);
+    console.log(`✅ Successfully generated blog data to ${outputDataFile}`);
   } catch (error) {
     console.error('Error generating blog data:', error);
     process.exit(1); // Exit with error code
