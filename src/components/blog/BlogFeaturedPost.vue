@@ -28,7 +28,7 @@
         <!-- Category Badge -->
         <div class="absolute bottom-2 right-2 md:bottom-10 md:right-8">
           <router-link
-            :to="categoryLink"
+            :to="`/blog/category/${getTagSlug(category)}`"
             :title="category + ' category'"
             class="inline-block"
           >
@@ -116,7 +116,7 @@
             <span itemprop="keywords">
               <template v-for="(tag, index) in tags" :key="tag">
                 <router-link
-                  :to="`/blog/tag/${tag.toLowerCase()}`"
+                  :to="`/blog/tag/${getTagSlug(tag)}`"
                   class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >{{ tag }}</router-link
                 ><span v-if="index < tags.length - 1">, </span>
@@ -154,6 +154,17 @@
  */
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
+import AvatarAuthor from '../avatar/AvatarAuthor.vue';
+
+/**
+ * Generates a hyphenated slug from a tag name.
+ * Replaces spaces with hyphens and converts to lowercase.
+ * @param name The tag name.
+ * @returns The hyphenated tag slug.
+ */
+const getTagSlug = (name: string): string => {
+  return name.toLowerCase().replace(/\s+/g, '-');
+};
 
 interface Props {
   imageSrc: string;

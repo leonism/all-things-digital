@@ -52,6 +52,16 @@ import { useHead } from '@unhead/vue'; // Import useHead
 import postsData from '../../blog-data.json';
 import BlogArticleCard from './BlogArticleCard.vue'; // Import BlogArticleCard
 
+/**
+ * Generates a hyphenated slug from a tag name.
+ * Replaces spaces with hyphens and converts to lowercase.
+ * @param name The tag name.
+ * @returns The hyphenated tag slug.
+ */
+const getTagSlug = (name: string): string => {
+  return name.toLowerCase().replace(/\s+/g, '-');
+};
+
 const route = useRoute();
 // Reactive reference to store the current tag name from the route.
 // Handle the case where route.params.tag might be an array.
@@ -115,7 +125,7 @@ const pageDescription = computed(
 const canonicalUrl = computed(() => {
   const base = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
   return tagName.value
-    ? `${base}/blog/tag/${encodeURIComponent(tagName.value)}`
+    ? `${base}/blog/tag/${getTagSlug(tagName.value)}`
     : `${base}/blog`;
 });
 

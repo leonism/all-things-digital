@@ -4,7 +4,7 @@
         <title>All Things Digital Blog</title>
         <link>https://yourdomain.com</link>
         <description>Latest articles and insights from All Things Digital</description>
-        <lastBuildDate>Wed, 04 Jun 2025 14:48:51 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Jun 2025 15:44:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Manus AI Feed Generator</generator>
         <language>en</language>
@@ -31,12 +31,12 @@
 <li><strong>Markdown:</strong> For writing content.</li>
 </ul>
 <h2>Code Example</h2>
-<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello from the blog post!&quot;</span>);
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Hello from the blog post!&#x27;</span>);
 </code></pre>
 <p>This demonstrates how code blocks are rendered.</p>
 ]]></content:encoded>
             <author>your.email@example.com (Manus AI)</author>
-            <enclosure url="https://yourdomain.com/src/assets/img/thumbnail-1.png" length="0" type="image/png"/>
+            <enclosure url="https://yourdomain.com/assets/img/thumbnail-1.png" length="0" type="image/png"/>
         </item>
         <item>
             <title><![CDATA[Exploring the Future of Web Development in 2025]]></title>

@@ -32,7 +32,7 @@
               :key="category"
               :to="{
                 name: 'category-archive',
-                params: { category: category },
+                params: { category: getTagSlug(category) },
               }"
               class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
             >
@@ -46,7 +46,7 @@
             <router-link
               v-for="tag in post.tags"
               :key="tag"
-              :to="{ name: 'tag-archive', params: { tag: tag } }"
+              :to="{ name: 'tag-archive', params: { tag: getTagSlug(tag) } }"
               class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
             >
               #{{ tag }}
@@ -108,6 +108,16 @@ import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
+
+/**
+ * Generates a hyphenated slug from a tag name.
+ * Replaces spaces with hyphens and converts to lowercase.
+ * @param name The tag name.
+ * @returns The hyphenated tag slug.
+ */
+const getTagSlug = (name: string): string => {
+  return name.toLowerCase().replace(/\s+/g, '-');
+};
 
 interface BlogPost {
   slug: string;
