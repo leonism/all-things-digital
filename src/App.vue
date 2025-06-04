@@ -13,9 +13,9 @@ import BaseLayout from './layouts/BaseLayout.vue';
 import SearchModal from './components/search/SearchModal.vue';
 
 const isSearchModalVisible = ref(false);
-// const openSearchModal = () => {
-//   isSearchModalVisible.value = true;
-// };
+const openSearchModal = () => {
+  isSearchModalVisible.value = true;
+};
 
 const closeSearchModal = () => {
   isSearchModalVisible.value = false;

@@ -6,10 +6,10 @@ import AboutView from '../views/AboutView.vue';
 import ContactView from '../views/ContactView.vue';
 import CreditsView from '../views/CreditsView.vue';
 import CategoryView from '../views/CategoryView.vue';
+import NotFoundView from '../views/NotFoundView.vue';
 import BlogListView from '../components/blog/BlogListView.vue';
 import BlogPostView from '../components/blog/BlogPostView.vue';
 import BlogTagView from '../components/blog/BlogTagView.vue';
-// import NotFoundView from '../views/NotFoundView.vue'; // Optional: 404 page
 
 const routes = [
   {
@@ -61,12 +61,11 @@ const routes = [
     component: BlogTagView,
     props: true,
   },
-  // Catch-all 404 route - uncomment if NotFoundView is created
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   name: 'NotFound',
-  //   component: NotFoundView,
-  // },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFoundView,
+  },
 ];
 
 const router = createRouter({

@@ -27,7 +27,10 @@
         />
       </div>
       <div class="px-5 pb-5 max-h-96 overflow-y-auto">
-        <ul v-if="searchResults.length" class="space-y-3">
+        <ul
+          v-if="Array.isArray(searchResults) && searchResults.length > 0"
+          class="space-y-3"
+        >
           <li v-for="post in searchResults" :key="post.slug">
             <router-link
               :to="{ name: 'blog-post', params: { slug: post.slug } }"
@@ -44,7 +47,7 @@
           </li>
         </ul>
         <p
-          v-else-if="searchQuery && !searchResults.length"
+          v-else-if="searchQuery.trim() && searchResults.length === 0"
           class="text-gray-500 dark:text-gray-400 text-center py-4"
         >
           No results found for "{{ searchQuery }}".
@@ -77,20 +80,29 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
+
+interface Post {
+  slug: string;
+  title: string;
+  description?: string; // Made description optional
+  contentHtml?: string; // Added contentHtml for search
+}
 import postsData from '../../blog-data.json';
 
-const props = defineProps({
-  showModal: Boolean,
-});
+const posts: Post[] = postsData as Post[]; // Explicitly type postsData
+
+const props = defineProps<{
+  showModal: boolean;
+}>();
 
 const emit = defineEmits(['close']);
 
 const searchQuery = ref('');
-const searchResults = ref([]);
-const searchInput = ref(null); // Ref for the input element
+const searchResults = ref<Post[]>([]);
+const searchInput = ref<HTMLInputElement | null>(null); // Added type annotation
 const router = useRouter();
 
 const performSearch = () => {
@@ -100,13 +112,20 @@ const performSearch = () => {
   }
 
   const query = searchQuery.value.toLowerCase();
-  searchResults.value = postsData.filter((post) => {
-    const titleMatch = post.title?.toLowerCase().includes(query);
-    const descriptionMatch = post.description?.toLowerCase().includes(query);
-    // Basic content search (might be slow for large content, consider indexing later)
-    const contentMatch = post.contentHtml?.toLowerCase().includes(query);
-    return titleMatch || descriptionMatch || contentMatch;
-  });
+  searchResults.value = posts // Use the typed posts array
+    .filter((post: Post) => { // Explicitly type post
+      const titleMatch = post.title?.toLowerCase().includes(query);
+      const descriptionMatch = post.description?.toLowerCase().includes(query);
+      // Basic content search (might be slow for large content, consider indexing later)
+      const contentMatch = typeof post.contentHtml === 'string' && post.contentHtml.toLowerCase().includes(query);
+      return titleMatch || descriptionMatch || contentMatch;
+    })
+    .map((post: Post) => ({ // Explicitly type post
+      // Map to the Post interface
+      slug: post.slug,
+      title: post.title,
+      description: post.description, // description is optional in the interface
+    }));
 };
 
 watch(searchQuery, performSearch);

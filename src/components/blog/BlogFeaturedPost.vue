@@ -129,59 +129,30 @@
   </article>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
-const props = defineProps({
-  imageSrc: {
-    type: String,
-    required: true,
-  },
-  imageAlt: {
-    type: String,
-    default: '',
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  postLink: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: String,
-    required: true,
-  },
-  categoryLink: {
-    type: String,
-    required: true,
-  },
-  tags: {
-    type: Array,
-    default: () => [],
-  },
-  authorImageSrc: {
-    type: String,
-    default: '/assets/img/avatar.png',
-  },
-  authorImageAlt: {
-    type: String,
-    default: 'Author profile photo',
-  },
-  authorLink: {
-    type: String,
-    default: '/about',
-  },
+interface Props {
+  imageSrc: string;
+  imageAlt?: string;
+  title: string;
+  postLink: string;
+  date: string;
+  category: string;
+  categoryLink: string;
+  tags: string[];
+  authorImageSrc: string;
+  authorImageAlt?: string;
+  authorLink: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  authorLink: '/about',
 });
 
 const formattedDate = computed(() => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(props.date).toLocaleDateString('en-US', options);
 });
 </script>

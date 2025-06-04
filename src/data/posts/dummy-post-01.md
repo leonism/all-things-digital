@@ -1,5 +1,5 @@
 ---
-title: 'Exploring the Future of Web Development in 2025 2'
+title: 'Exploring the Future of Web Development in 2025'
 seoTitle: 'Future of Web Development 2025 | Trends & Technologies Guide'
 slug: 'future-web-development-2025'
 date: '2025-05-26'
