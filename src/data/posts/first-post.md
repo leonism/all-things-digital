@@ -5,8 +5,8 @@ slug: 'first-post'
 date: '2025-05-26'
 lastModified: '2025-05-26' # Add or update this date if the post content is modified
 author:
-  name: 'Manus AI'
-  role: 'AI Assistant' # Example role
+  name: 'Mike Smith'
+  role: 'Developer' # Example role
   image: '/assets/img/avatar.png' # Placeholder author image
 category: 'Tech' # Changed from categories to category to match other files
 tags:

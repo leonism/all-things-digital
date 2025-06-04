@@ -67,12 +67,12 @@ const generateRssFeed = () => {
   const postsData = readJsonData('src/blog-data.json');
 
   // Define the output directory and file path for the RSS feed
-  const publicDir = path.join(process.cwd(), 'public');
-  const feedPath = path.join(publicDir, 'rss.xml');
+  const distDir = path.join(process.cwd(), 'dist');
+  const feedPath = path.join(distDir, 'rss.xml');
 
-  // Create the public directory if it doesn't exist
-  if (!fs.existsSync(publicDir)) {
-    fs.mkdirSync(publicDir, { recursive: true });
+  // Create the dist directory if it doesn't exist
+  if (!fs.existsSync(distDir)) {
+    fs.mkdirSync(distDir, { recursive: true });
   }
 
   // Initialize a new Feed object with site details
@@ -86,7 +86,7 @@ const generateRssFeed = () => {
     favicon: `${YOUR_DOMAIN}/favicon.ico`, // Optional: update favicon path
     copyright: `All rights reserved ${new Date().getFullYear()}, ${YOUR_NAME}`,
     updated: new Date(), // Use the latest post date ideally
-    generator: 'Manus AI Feed Generator', // Identifier for the generator
+    generator: 'Javascript - RSS Generator ', // Identifier for the generator
     feedLinks: {
       rss2: `${YOUR_DOMAIN}/rss.xml`, // Link to the RSS feed itself
     },

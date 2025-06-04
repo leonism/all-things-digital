@@ -8,8 +8,6 @@ import tailwindcss from '@tailwindcss/vite';
 import autoprefixer from 'autoprefixer';
 // Import the Vite plugin for image minification.
 import viteImagemin from 'vite-plugin-imagemin';
-// Import the Vite plugin for HTML minification to reduce the size of HTML files.
-import htmlMinifier from 'vite-plugin-html-minifier';
 // Import the 'resolve' function from the 'path' module for resolving file paths.
 import { resolve, dirname } from 'node:path';
 // Import the 'resolve' function from the 'url' module for resolving file paths.
@@ -50,7 +48,10 @@ export default defineConfig({
       },
       output: {
         assetFileNames: (assetInfo) => {
-          if (/\.(woff2?|ttf|eot|otf)$/.test(assetInfo.name)) {
+          // Use assetInfo.name and ensure it's a string for the regex test
+          if (
+            /\.(woff2?|ttf|eot|otf)$/.test(String(assetInfo.name))
+          ) {
             return 'assets/fonts/[name]-[hash][extname]';
           }
           return 'assets/[name]-[hash][extname]';
@@ -65,7 +66,6 @@ export default defineConfig({
     postcss: {
       // An array of PostCSS plugins to be used.
       plugins: [
-        tailwindcss, // Integrates Tailwind CSS.
         autoprefixer, // Adds vendor prefixes for CSS properties.
       ],
     },
@@ -118,26 +118,6 @@ export default defineConfig({
         quality: 75, // Sets WebP quality (0-100).
       },
       // Optionally, add AVIF configuration if you installed imagemin-avif (currently commented out).
-      avif: {
-        quality: 50, // Adjust AVIF quality as needed.
-      },
-    }),
-
-    // HTML minification plugin configuration.
-    // NOTE: This might conflict with Vue's handling of index.html, may need adjustment.
-    htmlMinifier({
-      minify: true, // Enables minification.
-      collapseWhitespace: true, // Removes whitespace in HTML.
-      keepClosingSlash: true, // Keeps closing slashes on void elements
-      removeComments: true, // Removes HTML comments.
-      removeRedundantAttributes: true, // Removes redundant attributes (e.g., type="text" on input).
-      removeScriptTypeAttributes: true, // Removes type="text/javascript" from script tags.
-      removeStyleLinkTypeAttributes: true, // Removes type="text/css" from link and style tags.
-      useShortDoctype: true, // Uses the short HTML5 doctype (<!DOCTYPE html>).
-      removeEmptyAttributes: true,
-      minifyCSS: true,
-      minifyJS: true,
-      minifyURLs: true,
     }),
 
     // EJS templating plugin, allowing use of EJS syntax in .html files.
