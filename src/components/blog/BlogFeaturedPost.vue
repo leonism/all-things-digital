@@ -204,7 +204,6 @@ const processedImageSrc = computed(() => {
   return props.imageSrc || '';
 });
 
-
 /**
  * Computed property to format the post date into a human-readable string.
  * Uses Intl.DateTimeFormatOptions for localization options.

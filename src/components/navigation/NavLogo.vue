@@ -9,7 +9,7 @@
         itemprop="logo"
         width="100"
         height="100"
-        class="w-auto h-auto mt-2"
+        class="w-auto h-auto mt-1"
       />
     </router-link>
   </div>
@@ -22,4 +22,3 @@
 <style scoped>
 /* Add component-specific styles if necessary */
 </style>
-

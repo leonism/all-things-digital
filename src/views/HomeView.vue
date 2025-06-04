@@ -17,7 +17,7 @@
     />
     <BlogLatestPost>
       <template #latest-posts>
-        <div class="flex flex-col-reverse gap-1 p-1">
+        <div class="flex flex-col-reverse">
           <BlogArticleCard
             v-for="post in latestPosts"
             :key="post.slug"
@@ -45,13 +45,13 @@ import { useHead } from '@unhead/vue';
 import HeaderHome from '../components/heading/HeaderHome.vue';
 import BlogFeaturedPost from '../components/blog/BlogFeaturedPost.vue';
 import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
-import BlogGridHome from '../components/blog/BlogGridHome.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
 import featuredBlogComp from '../assets/img/featured-blog-comp.jpg'; // Import the featured blog image
 import thumbnail01Comp from '../assets/img/thumbnail-01-comp.jpg'; // Import the thumbnail image
 import avatar from '../assets/img/avatar.png'; // Import the avatar image
+// import BlogGridHome from '../components/blog/BlogGridHome.vue';
 
 useHead({ title: 'DGPond.COM' });
 
