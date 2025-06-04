@@ -23,7 +23,7 @@
       "alt": "Code example screenshot",
       "caption": "An example image for the first post."
     },
-    "excerpt": "This is the first example blog post generated for testing the Markdown processing and frontmatter structure.",
+    "excerpt": "This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.",
     "readingTime": "5 minutes",
     "status": "published",
     "featured": false,
@@ -116,7 +116,7 @@
       "alt": "Lush green landscape with mountains and a lake",
       "caption": "Embracing sustainability starts at home."
     },
-    "excerpt": "Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small changes can make a big impact.",
+    "excerpt": "Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small changes can make a big impact. Creating a sustainable home is easier than you think. Here are some actionable tips:",
     "readingTime": "8 minutes",
     "status": "published",
     "featured": false,

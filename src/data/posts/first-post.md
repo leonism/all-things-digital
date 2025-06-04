@@ -18,7 +18,7 @@ featuredImage:
   src: '/assets/img/thumbnail-1.png' # Placeholder featured image
   alt: 'Code example screenshot' # Alt text for the image
   caption: 'An example image for the first post.' # Optional caption
-excerpt: 'This is the first example blog post generated for testing the Markdown processing and frontmatter structure.' # A brief summary
+excerpt: 'This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.' # A brief summary
 readingTime: '5 minutes' # Estimated reading time
 status: 'published' # Possible values: "published", "draft"
 featured: false # Set to true if this post should be featured

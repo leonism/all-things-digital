@@ -30,13 +30,15 @@
     <router-link
       to="/"
       class="block px-5 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-pink-heading/70 hover:text-slate-900"
-      @click="closeMobileMenu">
+      @click="closeMobileMenu"
+    >
       Home
     </router-link>
     <router-link
       to="/blog"
       class="block px-5 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-pink-heading/70 hover:text-slate-900"
-      @click="closeMobileMenu">
+      @click="closeMobileMenu"
+    >
       Blog
     </router-link>
     <router-link
@@ -61,7 +63,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const isMobileMenuOpen = ref(false);
 
@@ -96,7 +98,7 @@ const closeMobileMenu = () => {
   left: 0;
   width: 24px;
   height: 2px;
-  background: #000; /* Adjust color as needed */
+  background: hsl(279, 48%, 54%); /* Adjust color as needed */
   transform: rotate(0);
   transition: all 0.5s;
 }
@@ -130,6 +132,6 @@ const closeMobileMenu = () => {
 .dark .hamburger-top,
 .dark .hamburger-middle,
 .dark .hamburger-bottom {
-  background: #000; /* Adjust dark mode color if needed */
+  background: hsl(279, 48%, 54%); /* Use text-pink-heading color in dark mode */
 }
 </style>

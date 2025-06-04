@@ -5,7 +5,6 @@
     itemscope
     itemtype="https://schema.org/BlogPosting"
   >
-
     <figure
       class="mb-0 shrink-0 md:w-1/3"
       itemprop="image"
@@ -13,7 +12,7 @@
       itemtype="https://schema.org/ImageObject"
     >
       <img
-        :src="imageSrc"
+        :src="processedImageSrc"
         :alt="imageAlt"
         class="w-full h-full object-cover aspect-video"
         width="1000"
@@ -26,7 +25,7 @@
     <div class="flex grow flex-col p-4 md:p-5 md:ml-0">
       <header class="mb-3 flex items-center">
         <AvatarAuthor
-          :imageSrc="authorImageSrc"
+          :imageSrc="processedAuthorImageSrc"
           :imageAlt="authorImageAlt"
           :link="authorLink"
         />
@@ -65,7 +64,6 @@
           </div>
         </div>
       </header>
-
 
       <p
         itemprop="description"
@@ -154,6 +152,33 @@ const props = defineProps({
     type: String,
     default: '/about', // Default link to author's about page
   },
+});
+
+// Function to dynamically import images
+const getImageUrl = (name) => {
+  // Construct the relative path from the component to the image
+  const relativePath = `../assets/img/${name}`;
+  return new URL(relativePath, import.meta.url).href;
+};
+
+const processedImageSrc = computed(() => {
+  if (props.imageSrc.startsWith('/assets/img/')) {
+    const filename = props.imageSrc.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  }
+  return props.imageSrc || '';
+});
+
+const processedAuthorImageSrc = computed(() => {
+  if (props.authorImageSrc.startsWith('/assets/img/')) {
+    const filename = props.authorImageSrc.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  }
+  return props.authorImageSrc || '';
 });
 
 const formattedDate = computed(() => {

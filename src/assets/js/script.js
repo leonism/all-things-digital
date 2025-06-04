@@ -23,7 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleIcons(isDark) {
       [this.icons.sun, this.icons.moon].forEach((icon, index) => {
-        icon.classList.toggle(this.classes[1], index === Number(isDark));
+        if (icon) {
+          // Add null check
+          icon.classList.toggle(this.classes[1], index === Number(isDark));
+        }
       });
     },
 
@@ -35,8 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Theme event listeners
-  theme.icons.sun.addEventListener('click', () => theme.switch());
-  theme.icons.moon.addEventListener('click', () => theme.switch());
+  if (theme.icons.sun) {
+    // Add null check
+    theme.icons.sun.addEventListener('click', () => theme.switch());
+  }
+  if (theme.icons.moon) {
+    // Add null check
+    theme.icons.moon.addEventListener('click', () => theme.switch());
+  }
   theme.init();
 
   // ======================
@@ -55,10 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setState(open) {
       this.isOpen = open;
-      this.btn.classList.toggle(this.classes.open, open);
-      this.nav.classList.toggle(this.classes.flex, open);
-      this.nav.classList.toggle(this.classes.hidden, !open);
-      this.btn.setAttribute('aria-expanded', open);
+      if (this.btn) {
+        // Add null check
+        this.btn.classList.toggle(this.classes.open, open);
+        this.btn.setAttribute('aria-expanded', open);
+      }
+      if (this.nav) {
+        // Add null check
+        this.nav.classList.toggle(this.classes.flex, open);
+        this.nav.classList.toggle(this.classes.hidden, !open);
+      }
       document.body.classList.toggle(this.classes.lockScroll, open);
     },
 
@@ -66,8 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isEscape = e.type === 'keydown' && e.key === 'Escape';
       const isOutsideClick =
         e.type === 'click' &&
-        !this.nav.contains(e.target) &&
-        !this.btn.contains(e.target);
+        !(this.nav && this.nav.contains(e.target)) &&
+        !(this.btn && this.btn.contains(e.target));
 
       if (isEscape || isOutsideClick) {
         this.setState(false);
@@ -76,27 +91,46 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     cleanup() {
-      document.removeEventListener('click', this.boundHandleClosure);
-      document.removeEventListener('keydown', this.boundHandleClosure);
+      if (
+        document &&
+        typeof document.removeEventListener === 'function' &&
+        this.boundHandleClosure
+      ) {
+        document.removeEventListener('click', this.boundHandleClosure);
+        document.removeEventListener('keydown', this.boundHandleClosure);
+      }
     },
 
     init() {
       this.boundHandleClosure = this.handleClosure.bind(this);
 
-      this.btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const newState = !this.isOpen;
-        this.setState(newState);
+      if (this.btn) {
+        // Add null check
+        this.btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const newState = !this.isOpen;
+          this.setState(newState);
 
-        newState ? this.addListeners() : this.cleanup();
-      });
+          newState ? this.addListeners() : this.cleanup();
+        });
+      }
 
-      this.nav.addEventListener('click', (e) => e.stopPropagation());
+      if (this.nav) {
+        // Add null check
+        this.nav.addEventListener('click', (e) => e.stopPropagation());
+      }
     },
 
     addListeners() {
-      document.addEventListener('click', this.boundHandleClosure);
-      document.addEventListener('keydown', this.boundHandleClosure);
+      if (
+        document &&
+        typeof document.addEventListener === 'function' &&
+        this.boundHandleClosure
+      ) {
+        const doc = document; // Assign to a temporary variable
+        doc.addEventListener('click', this.boundHandleClosure);
+        doc.addEventListener('keydown', this.boundHandleClosure);
+      }
     },
   };
 

@@ -17,20 +17,18 @@
     />
     <BlogLatestPost>
       <template #latest-posts>
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 p-5">
+        <div class="flex flex-col-reverse gap-1 p-1">
           <BlogArticleCard
             v-for="post in latestPosts"
             :key="post.slug"
-            :imageSrc="
-              post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
-            "
+            :imageSrc="post.featuredImage?.src || thumbnail01Comp"
             :imageAlt="post.featuredImage?.alt || post.title"
             :title="post.title"
             :postLink="`/blog/${post.slug}`"
             :date="post.date"
             :excerpt="post.excerpt || post.description"
             :tags="post.tags"
-            :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
+            :authorImageSrc="post.author?.image || avatar"
             :authorImageAlt="post.author?.name || 'Author profile picture'"
             :authorLink="post.author?.link || '/about'"
           />
@@ -51,15 +49,16 @@ import BlogGridHome from '../components/blog/BlogGridHome.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
+import featuredBlogComp from '../assets/img/featured-blog-comp.jpg'; // Import the featured blog image
+import thumbnail01Comp from '../assets/img/thumbnail-01-comp.jpg'; // Import the thumbnail image
+import avatar from '../assets/img/avatar.png'; // Import the avatar image
 
 useHead({ title: 'DGPond.COM' });
 
 const featuredPost = useFeaturedPost();
 const latestPosts = useLatestPosts();
 const featuredImageSrc = computed(
-  () =>
-    featuredPost.value?.featuredImage?.src ||
-    '/assets/img/featured-blog-comp.jpg',
+  () => featuredPost.value?.featuredImage?.src || featuredBlogComp, // Use the imported image variable
 );
 const featuredImageAlt = computed(
   () => featuredPost.value?.featuredImage?.alt || featuredPost.value?.title,
@@ -74,7 +73,7 @@ const categoryLink = computed(
   () => `/blog/category/${postCategory.value.toLowerCase()}`,
 );
 const authorImageSrc = computed(
-  () => featuredPost.value?.author?.image || '/assets/img/avatar.png',
+  () => featuredPost.value?.author?.image || avatar,
 );
 const authorImageAlt = computed(
   () => featuredPost.value?.author?.name || 'Author profile photo',

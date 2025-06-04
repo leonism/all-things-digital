@@ -15,8 +15,9 @@
         itemtype="https://schema.org/ImageObject"
       >
         <router-link :to="postLink" itemprop="url">
+          <!-- Use the processed image source -->
           <img
-            :src="imageSrc"
+            :src="processedImageSrc"
             :alt="imageAlt"
             class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
             width="1000"
@@ -152,7 +153,7 @@
  * The component uses Vue 3 Composition API with `<script setup>` and computed
  * properties to format the date.
  */
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../avatar/AvatarAuthor.vue';
 
@@ -183,6 +184,26 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   authorLink: '/about',
 });
+
+// Function to dynamically import images
+const getImageUrl = (name: string) => {
+  // Construct the relative path from the component to the image
+  const relativePath = `../../assets/img/${name}`;
+  return new URL(relativePath, import.meta.url).href;
+};
+
+const processedImageSrc = computed(() => {
+  if (props.imageSrc.startsWith('/assets/img/')) {
+    // Extract the filename from the prop path
+    const filename = props.imageSrc.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  }
+  // Use the external URL directly or return empty if filename is missing
+  return props.imageSrc || '';
+});
+
 
 /**
  * Computed property to format the post date into a human-readable string.
