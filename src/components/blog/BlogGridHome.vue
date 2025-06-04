@@ -11,11 +11,10 @@
         :title="post.title"
         :postLink="`/blog/${post.slug}`"
         :date="post.date"
-        :excerpt="post.excerpt || post.description"
+        :excerpt="post.excerpt"
         :tags="post.tags"
         :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
         :authorImageAlt="post.author?.name || 'Author profile picture'"
-        :authorLink="post.author?.link || '/about'"
       />
     </div>
     <div
@@ -28,10 +27,27 @@
 </template>
 
 <script setup>
+/**
+ * BlogGridHome Component
+ *
+ * This component displays a limited grid of blog posts for the home page
+ * using the `BlogArticleCard` component. It fetches all posts from
+ * `blog-data.json`, filters them to only show published posts, and then
+ * limits the number of displayed posts.
+ *
+ * The component uses Vue 3 Composition API with `<script setup>` and a
+ * computed property to handle the filtering and limiting logic.
+ */
 import { computed } from 'vue';
 import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 
+/**
+ * Computed property that filters the imported `postsData` array
+ * to include only posts where the `status` is 'published' or
+ * where the `status` field is not present (assuming it's published by default).
+ * It then limits the result to the first 3 posts.
+ */
 const limitedPosts = computed(() => {
   // Get only published posts and limit to, for example, 3 for the home page grid
   return postsData

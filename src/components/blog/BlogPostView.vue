@@ -4,7 +4,7 @@
       v-if="post"
       class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
     >
-      <ContentBlogPostHeader
+      <HeaderBlogPost
         :title="post.title"
         :subtitle="post.subtitle"
         :date="post.date"
@@ -80,20 +80,75 @@
   </div>
 </template>
 
-<script setup>
-import { ref, watch, computed } from 'vue';
+<script setup lang="ts">
+/**
+ * BlogPostView Component
+ *
+ * This component is responsible for fetching and displaying a single blog post
+ * based on the 'slug' parameter from the route. It retrieves post data from
+ * the `blog-data.json` file and dynamically updates the page's meta tags
+ * (title, description, Open Graph, Twitter Card, etc.) using the `@unhead/vue`
+ * library.
+ *
+ * The component uses Vue 3 Composition API with `<script setup>` for a
+ * cleaner and more concise syntax.
+ *
+ * Data Flow:
+ * 1. The component watches changes to the route's 'slug' parameter.
+ * 2. When the slug changes, the `findPost` function is called to locate the
+ *    corresponding post data in `blog-data.json`.
+ * 3. The found post data is assigned to the `post` ref.
+ * 4. A watcher on the `post` ref triggers the update of meta tags using `useHead`.
+ * 5. Computed properties (`pageTitle`, `pageDescription`, etc.) derive meta
+ *    tag values from the `post` data.
+ * 6. The template conditionally renders the post content or a "not found" message.
+ */
+import { ref, watch, computed, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 
-const route = useRoute();
-const post = ref(null);
+interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  date: string;
+  lastModified?: string;
+  author?: {
+    name: string;
+    role?: string;
+    image?: string;
+  };
+  category?: string;
+  categories?: string[];
+  tags?: string[];
+  featuredImage?: {
+    src: string;
+    alt?: string;
+  };
+  contentHtml: string;
+  seoTitle?: string;
+  excerpt?: string;
+  metaRobots?: string;
+  canonicalUrl?: string;
+  schema?: any; // Use a more specific type if schema structure is known
+  status?: 'published' | 'draft' | string; // Allow string type based on data structure
+}
 
-const findPost = (slug) => {
+const route = useRoute();
+const post: Ref<BlogPost | null> = ref(null);
+
+/**
+ * Finds a blog post by its slug in the imported posts data.
+ * Only returns published posts (or posts without a status field).
+ * @param slug The slug of the post to find.
+ * @returns The found blog post object or null if not found or not published.
+ */
+const findPost = (slug: string): BlogPost | null => {
   const foundPost = postsData.find((p) => p.slug === slug);
   return foundPost && (!foundPost.status || foundPost.status === 'published')
-    ? foundPost
+    ? (foundPost as BlogPost)
     : null;
 };
 
@@ -113,7 +168,8 @@ const canonicalUrl = computed(() => {
   return post.value ? `${base}/blog/${post.value.slug}` : base;
 });
 
-// Update meta tags using useHead
+// Watcher to update meta tags whenever the 'post' ref changes.
+// This ensures that meta tags are updated when a post is loaded.
 watch(
   post,
   (currentPost) => {
@@ -128,10 +184,13 @@ watch(
           { property: 'og:type', content: 'article' },
           { property: 'og:url', content: canonicalUrl.value },
           { property: 'og:image', content: ogImage.value },
-          { property: 'article:published_time', content: currentPost.date },
+          {
+            property: 'article:published_time',
+            content: currentPost.date as string,
+          },
           {
             property: 'article:modified_time',
-            content: currentPost.lastModified || currentPost.date,
+            content: (currentPost.lastModified || currentPost.date) as string,
           },
           // Twitter Card
           { name: 'twitter:card', content: 'summary_large_image' },
@@ -167,29 +226,19 @@ watch(
   { immediate: true },
 );
 
-// Watch route changes to update the post
+// Watcher to react to changes in the route's slug parameter.
+// This is triggered when navigating between blog posts.
 watch(
   () => route.params.slug,
   (newSlug) => {
     if (newSlug) {
-      post.value = findPost(newSlug);
+      const slug = Array.isArray(newSlug) ? newSlug[0] : newSlug;
+      post.value = findPost(slug);
       // Meta tags are updated automatically by the 'post' watcher above
     }
   },
   { immediate: true },
 );
-
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  try {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(undefined, options);
-  } catch (e) {
-    console.error('Error formatting date:', dateString, e);
-    return dateString;
-  }
-};
 </script>
 
 <style>

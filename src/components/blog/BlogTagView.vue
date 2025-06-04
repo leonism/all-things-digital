@@ -5,88 +5,22 @@
       v-if="filteredPosts.length"
       class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
     >
-      <div
+      <BlogArticleCard
         v-for="post in filteredPosts"
         :key="post.slug"
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 flex flex-col"
-      >
-        <router-link
-          :to="{ name: 'blog-post', params: { slug: post.slug } }"
-          class="block"
-        >
-          <img
-            v-if="post.featuredImage && post.featuredImage.src"
-            :src="post.featuredImage.src"
-            :alt="post.featuredImage.alt || post.title"
-            class="w-full h-48 object-cover"
-            loading="lazy"
-          />
-          <div
-            v-else
-            class="w-full h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-400"
-          >
-            No Image
-          </div>
-        </router-link>
-        <div class="p-6 flex flex-col flex-grow">
-          <h2 class="text-xl font-semibold mb-2 dark:text-white">
-            <router-link
-              :to="{ name: 'blog-post', params: { slug: post.slug } }"
-              class="hover:text-pink-500 dark:hover:text-pink-400"
-            >
-              {{ post.title }}
-            </router-link>
-          </h2>
-          <div
-            class="flex items-center text-gray-600 dark:text-gray-400 text-sm mb-2"
-          >
-            <img
-              v-if="post.author && post.author.image"
-              :src="post.author.image"
-              alt=""
-              class="w-6 h-6 rounded-full mr-2 object-cover"
-            />
-            <span
-              >By {{ post.author?.name || 'Admin' }} on
-              {{ formatDate(post.date) }}</span
-            >
-            <span v-if="post.readingTime" class="ml-auto"
-              >{{ post.readingTime }} read</span
-            >
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 mb-4 flex-grow">
-            {{
-              post.excerpt || post.description || 'No description available.'
-            }}
-          </p>
-          <div class="mt-auto">
-            <div class="mb-2">
-              <span
-                v-if="post.categories && post.categories.length"
-                class="text-sm text-gray-500 dark:text-gray-400 mr-2"
-                >Categories:</span
-              >
-              <router-link
-                v-for="category in post.categories"
-                :key="category"
-                :to="{
-                  name: 'category-archive',
-                  params: { category: category },
-                }"
-                class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-1 px-2.5 py-0.5 rounded"
-              >
-                {{ category }}
-              </router-link>
-            </div>
-            <router-link
-              :to="{ name: 'blog-post', params: { slug: post.slug } }"
-              class="text-pink-600 dark:text-pink-400 hover:underline font-medium"
-            >
-              Read more &rarr;
-            </router-link>
-          </div>
-        </div>
-      </div>
+        :imageSrc="
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+        "
+        :imageAlt="post.featuredImage?.alt || post.title"
+        :title="post.title"
+        :postLink="`/blog/${post.slug}`"
+        :date="post.date"
+        :excerpt="post.excerpt || post.description"
+        :tags="post.tags"
+        :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
+        :authorImageAlt="post.author?.name || 'Author profile picture'"
+        :authorLink="post.author?.link || '/about'"
+      />
     </div>
     <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
       <p>No posts found with the tag "#{{ tagName }}".</p>
@@ -99,16 +33,68 @@
   </div>
 </template>
 
-<script setup>
-import { ref, computed, watch } from 'vue';
+<script setup lang="ts">
+/**
+ * BlogTagView Component
+ *
+ * This component displays a list of blog posts associated with a specific tag.
+ * It retrieves the tag name from the route parameters, filters the blog posts
+ * from `blog-data.json` based on the tag, and updates the page's meta tags
+ * using `@unhead/vue`.
+ *
+ * The component uses Vue 3 Composition API with `<script setup>`, computed
+ * properties for filtering and meta tags, and watchers to react to route
+ * and tag name changes.
+ */
+import { ref, computed, watch, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue'; // Import useHead
 import postsData from '../../blog-data.json';
+import BlogArticleCard from './BlogArticleCard.vue'; // Import BlogArticleCard
 
 const route = useRoute();
-const tagName = ref(route.params.tag);
+// Reactive reference to store the current tag name from the route.
+// Handle the case where route.params.tag might be an array.
+const tagName = ref(
+  Array.isArray(route.params.tag) ? route.params.tag[0] : route.params.tag,
+);
 
-const filteredPosts = computed(() => {
+interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  date: string;
+  lastModified?: string;
+  author?: {
+    name: string;
+    role?: string;
+    image?: string;
+    link?: string; // Added link property
+  };
+  category?: string;
+  categories?: string[];
+  tags?: string[];
+  featuredImage?: {
+    src: string;
+    alt?: string;
+  };
+  contentHtml: string;
+  seoTitle?: string;
+  excerpt?: string;
+  description?: string; // Added description property
+  metaRobots?: string;
+  canonicalUrl?: string;
+  readingTime?: string | number; // Added readingTime property
+  schema?: any; // Use a more specific type if schema structure is known
+  status?: 'published' | 'draft' | string; // Allow string type based on data structure
+}
+
+/**
+ * Computed property that filters the imported `postsData` array
+ * to include only published posts that have the current tag.
+ * It converts tags to lowercase for case-insensitive matching.
+ */
+const filteredPosts: Ref<BlogPost[]> = computed(() => {
   if (!tagName.value) return [];
   const lowerCaseTag = tagName.value.toLowerCase();
   return postsData.filter(
@@ -133,7 +119,8 @@ const canonicalUrl = computed(() => {
     : `${base}/blog`;
 });
 
-// Update meta tags using useHead, reacting to tagName changes
+// Watcher to update meta tags whenever the 'tagName' ref changes.
+// This ensures that meta tags are updated when navigating between tags.
 watch(
   tagName,
   (newTagName) => {
@@ -162,18 +149,29 @@ watch(
   { immediate: true },
 );
 
-// Watch route param changes
+// Watcher to react to changes in the route's tag parameter.
+// This is triggered when navigating to a different tag page.
 watch(
   () => route.params.tag,
   (newTag) => {
-    tagName.value = newTag;
+    // Handle the case where newTag might be an array.
+    tagName.value = Array.isArray(newTag) ? newTag[0] : newTag;
     // Meta tags are updated by the tagName watcher
   },
 );
 
-const formatDate = (dateString) => {
+/**
+ * Formats a date string into a human-readable string.
+ * @param dateString The date string to format.
+ * @returns The formatted date string or the original string if formatting fails.
+ */
+const formatDate = (dateString: string | undefined): string => {
   if (!dateString) return '';
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
   try {
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, options);

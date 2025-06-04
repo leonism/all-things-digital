@@ -44,6 +44,7 @@
     "autoprefixer": "^10.4.21",
     "feed": "^5.1.0",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "sitemap": "^8.0.0",
     "vue-router": "^4.5.1"

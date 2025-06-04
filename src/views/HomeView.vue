@@ -37,7 +37,7 @@
         </div>
       </template>
     </BlogLatestPost>
-    <BlogGridHome />
+    <!-- <BlogGridHome /> -->
   </main>
 </template>
 
@@ -56,7 +56,6 @@ useHead({ title: 'DGPond.COM' });
 
 const featuredPost = useFeaturedPost();
 const latestPosts = useLatestPosts();
-
 const featuredImageSrc = computed(
   () =>
     featuredPost.value?.featuredImage?.src ||

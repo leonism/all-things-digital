@@ -29,18 +29,56 @@
   </main>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
+<script setup lang="ts">
+/**
+ * BlogListView Component
+ *
+ * This component displays a list of blog posts using the `BlogArticleCard`
+ * component. It fetches all published posts from `blog-data.json` when the
+ * component is mounted and updates the page's meta tags using `@unhead/vue`.
+ *
+ * The component uses Vue 3 Composition API with `<script setup>`.
+ */
+import { ref, onMounted, type Ref } from 'vue';
 import { useHead } from '@unhead/vue';
 import HeaderBlog from '../heading/HeaderBlog.vue';
 import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
-// import SearchInput from '../components/SearchInput.vue'; // If implementing inline search
 
-const posts = ref([]);
-// const searchQuery = ref(''); // If implementing inline search
+interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  date: string;
+  lastModified?: string;
+  author?: {
+    name: string;
+    role?: string;
+    image?: string;
+    link?: string; // Added link property
+  };
+  category?: string;
+  categories?: string[];
+  tags?: string[];
+  featuredImage?: {
+    src: string;
+    alt?: string;
+  };
+  contentHtml: string;
+  seoTitle?: string;
+  excerpt?: string;
+  description?: string; // Added description property
+  metaRobots?: string;
+  canonicalUrl?: string;
+  schema?: any; // Use a more specific type if schema structure is known
+  status?: 'published' | 'draft' | string; // Allow string type based on data structure
+}
 
-// Set meta tags for the main blog list page
+// Reactive reference to store the list of blog posts.
+const posts: Ref<BlogPost[]> = ref([]);
+
+// Set meta tags for the main blog list page using useHead.
+// This updates the document head with SEO-related information.
 useHead({
   title: 'Blog | DGPond.COM', // Updated title
   meta: [
@@ -69,28 +107,14 @@ useHead({
   ],
 });
 
+// Lifecycle hook that runs after the component is mounted.
+// It fetches and filters the blog posts.
 onMounted(() => {
+  // Filter posts to include only those with status 'published' or no status field.
   posts.value = postsData.filter(
     (post) => !post.status || post.status === 'published',
   );
 });
-
-// const updateSearchQuery = (query) => { // If implementing inline search
-//   searchQuery.value = query;
-//   // Add filtering logic here based on searchQuery.value
-// };
-
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  try {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(undefined, options);
-  } catch (e) {
-    console.error('Error formatting date:', dateString, e);
-    return dateString;
-  }
-};
 </script>
 
 <style scoped>

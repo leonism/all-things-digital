@@ -4,7 +4,7 @@
         <title>All Things Digital Blog</title>
         <link>https://yourdomain.com</link>
         <description>Latest articles and insights from All Things Digital</description>
-        <lastBuildDate>Tue, 27 May 2025 11:59:04 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Jun 2025 14:48:51 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Manus AI Feed Generator</generator>
         <language>en</language>
@@ -15,7 +15,31 @@
         </image>
         <copyright>All rights reserved 2025, Your Name</copyright>
         <item>
-            <title><![CDATA[Exploring the Future of Web Development in 2025 2]]></title>
+            <title><![CDATA[My First Blog Post]]></title>
+            <link>https://yourdomain.com/blog/first-post</link>
+            <guid isPermaLink="false">https://yourdomain.com/blog/first-post</guid>
+            <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is the first example blog post generated for testing the Markdown processing and frontmatter structure.]]></description>
+            <content:encoded><![CDATA[<h2>Introduction</h2>
+<p>Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.</p>
+<h2>Features</h2>
+<p>We are using:</p>
+<ul>
+<li><strong>Vite:</strong> For fast development and builds.</li>
+<li><strong>Vue 3:</strong> The progressive JavaScript framework.</li>
+<li><strong>TailwindCSS:</strong> For utility-first styling.</li>
+<li><strong>Markdown:</strong> For writing content.</li>
+</ul>
+<h2>Code Example</h2>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello from the blog post!&quot;</span>);
+</code></pre>
+<p>This demonstrates how code blocks are rendered.</p>
+]]></content:encoded>
+            <author>your.email@example.com (Manus AI)</author>
+            <enclosure url="https://yourdomain.com/src/assets/img/thumbnail-1.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[Exploring the Future of Web Development in 2025]]></title>
             <link>https://yourdomain.com/blog/future-web-development-2025</link>
             <guid isPermaLink="false">https://yourdomain.com/blog/future-web-development-2025</guid>
             <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
@@ -31,32 +55,7 @@
 <p>This is just a glimpse into the exciting future of building for the web.</p>
 ]]></content:encoded>
             <author>your.email@example.com (Alex Johnson)</author>
-            <enclosure url="https://yourdomain.com/../assets/img/featured-blog.jpg" length="0" type="image/jpg"/>
-        </item>
-        <item>
-            <title><![CDATA[My First Blog Post]]></title>
-            <link>https://yourdomain.com/blog/first-post</link>
-            <guid isPermaLink="false">https://yourdomain.com/blog/first-post</guid>
-            <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[This is the first example blog post generated for testing the Markdown processing.]]></description>
-            <content:encoded><![CDATA[<h2>Introduction</h2>
-<p>Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.</p>
-<h2>Features</h2>
-<p>We are using:</p>
-<ul>
-<li><strong>Vite:</strong> For fast development and builds.</li>
-<li><strong>Vue 3:</strong> The progressive JavaScript framework.</li>
-<li><strong>TailwindCSS:</strong> For utility-first styling.</li>
-<li><strong>Markdown:</strong> For writing content.</li>
-</ul>
-<h2>Code Example</h2>
-<pre><code class="language-javascript">console.log(&quot;Hello from the blog post!&quot;);
-</code></pre>
-<p>This demonstrates how code blocks are rendered.</p>
-]]></content:encoded>
-            <author>your.email@example.com (Your Name)</author>
-            <category>Tech</category>
-            <category>Vue</category>
+            <enclosure url="https://yourdomain.com/assets/img/featured-blog.jpg" length="0" type="image/jpg"/>
         </item>
         <item>
             <title><![CDATA[Sustainable Living: Tips for an Eco-Friendly Home]]></title>

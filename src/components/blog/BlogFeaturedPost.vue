@@ -130,6 +130,28 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * BlogFeaturedPost Component
+ *
+ * This component displays a featured blog post with its image, title, date,
+ * category, and author avatar. It receives all necessary data as props.
+ *
+ * Props:
+ * - imageSrc: URL for the featured image.
+ * - imageAlt: Alt text for the featured image.
+ * - title: The title of the blog post.
+ * - postLink: The router link path to the full blog post.
+ * - date: The publication date of the post (string).
+ * - category: The category of the post.
+ * - categoryLink: The router link path to the category archive page.
+ * - tags: An array of tags associated with the post.
+ * - authorImageSrc: URL for the author's avatar image.
+ * - authorImageAlt: Alt text for the author's avatar image.
+ * - authorLink: The router link path to the author's page (defaults to '/about').
+ *
+ * The component uses Vue 3 Composition API with `<script setup>` and computed
+ * properties to format the date.
+ */
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -151,8 +173,16 @@ const props = withDefaults(defineProps<Props>(), {
   authorLink: '/about',
 });
 
+/**
+ * Computed property to format the post date into a human-readable string.
+ * Uses Intl.DateTimeFormatOptions for localization options.
+ */
 const formattedDate = computed(() => {
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
   return new Date(props.date).toLocaleDateString('en-US', options);
 });
 </script>

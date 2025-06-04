@@ -8,20 +8,34 @@
       :title="post.title"
       :postLink="`/blog/${post.slug}`"
       :date="post.date"
-      :excerpt="post.excerpt || post.description"
+      :excerpt="post.excerpt"
       :tags="post.tags"
       :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
       :authorImageAlt="post.author?.name || 'Author profile picture'"
-      :authorLink="post.author?.link || '/about'"
     />
   </section>
 </template>
 
 <script setup>
+/**
+ * BlogGrid Component
+ *
+ * This component displays a grid of blog posts using the `BlogArticleCard`
+ * component. It fetches all posts from `blog-data.json` and filters them
+ * to only show published posts.
+ *
+ * The component uses Vue 3 Composition API with `<script setup>` and a
+ * computed property to handle the filtering logic.
+ */
 import { computed } from 'vue';
-import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
+import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 
+/**
+ * Computed property that filters the imported `postsData` array
+ * to include only posts where the `status` is 'published' or
+ * where the `status` field is not present (assuming it's published by default).
+ */
 const publishedPosts = computed(() => {
   return postsData.filter(
     (post) => post.status === 'published' || !post.status,

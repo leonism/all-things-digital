@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import "highlight.js/styles/github.css"; /* Import highlight.js theme */
 
 /* @tailwind base;
 @tailwind components;
@@ -226,4 +227,16 @@ Custom Styles
 }
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+/* Optional: Add some basic styling for code blocks */
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }

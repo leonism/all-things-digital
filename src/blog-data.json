@@ -1,15 +1,47 @@
 [
   {
+    "slug": "first-post",
+    "contentHtml": "<h2>Introduction</h2>\n<p>Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.</p>\n<h2>Features</h2>\n<p>We are using:</p>\n<ul>\n<li><strong>Vite:</strong> For fast development and builds.</li>\n<li><strong>Vue 3:</strong> The progressive JavaScript framework.</li>\n<li><strong>TailwindCSS:</strong> For utility-first styling.</li>\n<li><strong>Markdown:</strong> For writing content.</li>\n</ul>\n<h2>Code Example</h2>\n<pre><code class=\"language-javascript\"><span class=\"hljs-variable language_\">console</span>.<span class=\"hljs-title function_\">log</span>(<span class=\"hljs-string\">&#x27;Hello from the blog post!&#x27;</span>);\n</code></pre>\n<p>This demonstrates how code blocks are rendered.</p>\n",
+    "title": "My First Blog Post",
+    "seoTitle": "My First Blog Post | Example Article",
+    "date": "2025-05-26",
+    "lastModified": "2025-05-26",
+    "author": {
+      "name": "Manus AI",
+      "role": "AI Assistant",
+      "image": "/assets/img/avatar.png"
+    },
+    "category": "Tech",
+    "tags": [
+      "vite",
+      "vue3",
+      "markdown",
+      "example"
+    ],
+    "featuredImage": {
+      "src": "/assets/img/thumbnail-1.png",
+      "alt": "Code example screenshot",
+      "caption": "An example image for the first post."
+    },
+    "excerpt": "This is the first example blog post generated for testing the Markdown processing and frontmatter structure.",
+    "readingTime": "5 minutes",
+    "status": "published",
+    "featured": false,
+    "priority": "low",
+    "metaRobots": "index, follow",
+    "canonicalUrl": "https://yourdomain.com/blog/first-post"
+  },
+  {
     "slug": "future-web-development-2025",
     "contentHtml": "<h1>Exploring the Future of Web Development in 2025</h1>\n<p>The world of web development moves at lightning speed. Staying ahead requires understanding the trends that will define the next year.</p>\n<h2>Key Trends to Watch</h2>\n<ul>\n<li><strong>AI Integration:</strong> Expect more AI tools for code generation, debugging, and testing.</li>\n<li><strong>Framework Evolution:</strong> Continued refinement of frameworks like Vue, React, and Svelte.</li>\n<li><strong>Serverless &amp; Edge Computing:</strong> Growing adoption for scalability and performance.</li>\n</ul>\n<p>This is just a glimpse into the exciting future of building for the web.</p>\n",
-    "title": "Exploring the Future of Web Development in 2025 2",
+    "title": "Exploring the Future of Web Development in 2025",
     "seoTitle": "Future of Web Development 2025 | Trends & Technologies Guide",
     "date": "2025-05-26",
     "lastModified": "2025-05-26",
     "author": {
       "name": "Alex Johnson",
       "role": "Lead Developer",
-      "image": "../src/assets/img/avatar.png"
+      "image": "/assets/img/avatar.png"
     },
     "category": "Technology",
     "tags": [
@@ -20,7 +52,7 @@
       "future tech"
     ],
     "featuredImage": {
-      "src": "../src/assets/img/featured-blog.jpg",
+      "src": "/assets/img/featured-blog.jpg",
       "alt": "Developer coding on a laptop with multiple monitors",
       "caption": "The landscape of web development is constantly evolving."
     },
@@ -58,16 +90,6 @@
     "toc": true,
     "metaRobots": "index, follow",
     "canonicalUrl": "https://example.com/news/future-web-development-2025"
-  },
-  {
-    "slug": "first-post",
-    "contentHtml": "<h2>Introduction</h2>\n<p>Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.</p>\n<h2>Features</h2>\n<p>We are using:</p>\n<ul>\n<li><strong>Vite:</strong> For fast development and builds.</li>\n<li><strong>Vue 3:</strong> The progressive JavaScript framework.</li>\n<li><strong>TailwindCSS:</strong> For utility-first styling.</li>\n<li><strong>Markdown:</strong> For writing content.</li>\n</ul>\n<h2>Code Example</h2>\n<pre><code class=\"language-javascript\">console.log(&quot;Hello from the blog post!&quot;);\n</code></pre>\n<p>This demonstrates how code blocks are rendered.</p>\n",
-    "title": "My First Blog Post",
-    "date": "2025-05-26",
-    "author": "Manus AI",
-    "categories": ["Tech", "Vue"],
-    "tags": ["vite", "vue3", "markdown", "example"],
-    "description": "This is the first example blog post generated for testing the Markdown processing."
   },
   {
     "slug": "sustainable-living-eco-friendly-home",
@@ -442,7 +464,13 @@
       "image": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     "category": "DIY",
-    "tags": ["diy", "home decor", "crafts", "budget friendly", "upcycling"],
+    "tags": [
+      "diy",
+      "home decor",
+      "crafts",
+      "budget friendly",
+      "upcycling"
+    ],
     "featuredImage": {
       "src": "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Cozy living room with DIY decorative elements",
