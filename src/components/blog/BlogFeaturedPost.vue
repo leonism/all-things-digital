@@ -51,7 +51,7 @@
       >
         <router-link :to="authorLink">
           <img
-            :src="authorImageSrc"
+            :src="processedAuthorImageSrc"
             :alt="authorImageAlt"
             class="h-12 w-12 md:h-17 md:w-17 rounded-full border-1 border-white dark:border-gray-800"
             itemprop="author"
@@ -193,8 +193,17 @@ const getImageUrl = (name: string) => {
 };
 
 const processedImageSrc = computed(() => {
-  if (props.imageSrc.startsWith('/assets/img/')) {
-    // Extract the filename from the prop path
+  if (props.imageSrc.startsWith('/')) {
+    // If the path is already absolute, use it directly
+    return props.imageSrc;
+  }
+  if (props.imageSrc.startsWith('../assets/img/')) {
+    // Handle relative paths from markdown files if necessary, though we changed them to absolute
+    const filename = props.imageSrc.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  } else if (props.imageSrc.startsWith('/assets/img/')) {
     const filename = props.imageSrc.split('/').pop();
     if (filename) {
       return getImageUrl(filename);
@@ -202,6 +211,16 @@ const processedImageSrc = computed(() => {
   }
   // Use the external URL directly or return empty if filename is missing
   return props.imageSrc || '';
+});
+
+const processedAuthorImageSrc = computed(() => {
+  if (props.authorImageSrc.startsWith('/assets/img/')) {
+    const filename = props.authorImageSrc.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  }
+  return props.authorImageSrc || '';
 });
 
 /**

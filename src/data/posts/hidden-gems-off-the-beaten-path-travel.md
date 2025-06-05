@@ -12,8 +12,8 @@ category: "Travel"
 tags:
   - "travel"
   - "adventure"
-  - "hidden gems"
-  - "off the beaten path"
+  - "hidden-gems"
+  - "off-the-beaten-path"
   - "explore"
 featuredImage:
   src: "https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

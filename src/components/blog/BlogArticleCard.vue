@@ -21,7 +21,6 @@
         loading="lazy"
       />
     </figure>
-
     <div class="flex grow flex-col p-4 md:p-5 md:ml-0">
       <header class="mb-3 flex items-center">
         <AvatarAuthor
@@ -29,14 +28,17 @@
           :imageAlt="authorImageAlt"
           :link="authorLink"
         />
-
         <div id="postMetaData" class="grow">
           <h2
             id="article-title"
             class="text-left font-navigation text-base text-slate-700 line-clamp-2 dark:text-white"
             itemprop="headline"
           >
-            <router-link :to="postLink" itemprop="url">
+            <router-link
+              :to="postLink"
+              itemprop="url"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            >
               {{ title }}
             </router-link>
           </h2>
@@ -95,10 +97,14 @@
             d="M6 6h.008v.008H6V6z"
           />
         </svg>
-
         <span itemprop="keywords">
           <template v-for="(tag, index) in tags" :key="tag">
-            {{ tag }}<span v-if="index < tags.length - 1">, </span>
+            <router-link
+              :to="`/category/${getTagSlug(tag)}`"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            >
+              {{ tag }}</router-link
+            ><span v-if="index < tags.length - 1">, </span>
           </template>
         </span>
       </footer>
@@ -110,6 +116,16 @@
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../avatar/AvatarAuthor.vue';
+
+/**
+ * Generates a hyphenated slug from a tag name.
+ * Replaces spaces with hyphens and converts to lowercase.
+ * @param name The tag name.
+ * @returns The hyphenated tag slug.
+ */
+const getTagSlug = (name) => {
+  return name.toLowerCase().replace(/\s+/g, '-');
+};
 
 const props = defineProps({
   imageSrc: {
@@ -157,7 +173,7 @@ const props = defineProps({
 // Function to dynamically import images
 const getImageUrl = (name) => {
   // Construct the relative path from the component to the image
-  const relativePath = `../assets/img/${name}`;
+  const relativePath = `../../assets/img/${name}`;
   return new URL(relativePath, import.meta.url).href;
 };
 

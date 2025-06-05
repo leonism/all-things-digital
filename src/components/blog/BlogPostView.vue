@@ -11,9 +11,9 @@
         :tags="post.tags"
       />
       <img
-        v-if="post.featuredImage && post.featuredImage.src"
-        :src="post.featuredImage.src"
-        :alt="post.featuredImage.alt || post.title"
+        v-if="processedFeaturedImageSrc"
+        :src="processedFeaturedImageSrc"
+        :alt="post.featuredImage?.alt || post.title"
         class="w-full h-64 md:h-96 object-cover"
       />
       <div class="p-6 md:p-8">
@@ -108,6 +108,13 @@ import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
+
+// Function to dynamically import images
+const getImageUrl = (name: string): string => {
+  // Construct the relative path from the component to the image
+  const relativePath = `../../assets/img/${name}`;
+  return new URL(relativePath, import.meta.url).href;
+};
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -249,6 +256,16 @@ watch(
   },
   { immediate: true },
 );
+
+const processedFeaturedImageSrc = computed(() => {
+  if (post.value?.featuredImage?.src?.startsWith('/assets/img/')) {
+    const filename = post.value.featuredImage.src.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  }
+  return post.value?.featuredImage?.src || '';
+});
 </script>
 
 <style>

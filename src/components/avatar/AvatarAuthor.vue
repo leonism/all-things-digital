@@ -4,19 +4,27 @@
   >
     <router-link :to="link">
       <img
-        :src="imageSrc"
+        :src="processedImageSrc"
         :alt="imageAlt"
         class="h-12 w-12 rounded-full max-w-full border-2 border-white dark:border-slate-800"
         itemprop="author"
         itemscope
         itemtype="https://schema.org/Person"
       />
-    </router-link>
-  </section>
+</router-link>
+</section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { computed } from 'vue';
+
+// Function to dynamically import images
+const getImageUrl = (name: string): string => {
+  // Construct the relative path from the component to the image
+  const relativePath = `../../assets/img/${name}`;
+  return new URL(relativePath, import.meta.url).href;
+};
 
 const props = defineProps({
   imageSrc: {
@@ -31,6 +39,16 @@ const props = defineProps({
     type: String,
     default: '/about', // Default link to about page
   },
+});
+
+const processedImageSrc = computed(() => {
+  if (props.imageSrc?.startsWith('/assets/img/')) {
+    const filename = props.imageSrc.split('/').pop();
+    if (filename) {
+      return getImageUrl(filename);
+    }
+  }
+  return props.imageSrc || '';
 });
 </script>
 

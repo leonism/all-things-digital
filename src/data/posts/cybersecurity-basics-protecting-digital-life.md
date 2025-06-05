@@ -11,10 +11,10 @@ author:
 category: "Security"
 tags:
   - "cybersecurity"
-  - "online safety"
+  - "online-safety"
   - "passwords"
   - "phishing"
-  - "data privacy"
+  - "data-privacy"
 featuredImage:
   src: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   alt: "Abstract image of digital code and security locks"

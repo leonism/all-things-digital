@@ -10,11 +10,11 @@ author:
   image: '/assets/img/avatar.png' # Placeholder author image
 category: 'Technology'
 tags:
-  - 'web development'
+  - 'web-development'
   - 'frontend'
   - 'backend'
   - 'javascript'
-  - 'future tech'
+  - 'future-tech'
 featuredImage:
   src: '/assets/img/featured-blog.jpg'
   alt: 'Developer coding on a laptop with multiple monitors'

@@ -10,9 +10,9 @@ author:
   image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 category: 'Lifestyle'
 tags:
-  - 'sustainable living'
+  - 'sustainable-living'
   - 'eco-friendly'
-  - 'green home'
+  - 'green-home'
   - 'environment'
   - 'conservation'
 featuredImage:

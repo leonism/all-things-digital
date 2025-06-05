@@ -10,11 +10,11 @@ author:
   image: "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 category: "Technology"
 tags:
-  - "artificial intelligence"
-  - "creative industries"
+  - "artificial-intelligence"
+  - "creative-industries"
   - "design"
   - "art"
-  - "future of work"
+  - "future-of-work"
 featuredImage:
   src: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   alt: "Abstract image representing artificial intelligence and creativity"
