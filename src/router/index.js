@@ -44,6 +44,11 @@ const routes = [
     props: true, // Pass route params as props to the component
   },
   {
+    path: '/category',
+    name: 'category-list',
+    component: CategoryView,
+  },
+  {
     path: '/category/:category?/page/:page?', // Make category and page parameters optional
     name: 'blog-categories-list',
     component: CategoryView,
