@@ -44,9 +44,10 @@ const routes = [
     props: true, // Pass route params as props to the component
   },
   {
-    path: '/categories',
-    name: 'blog-catgories-list',
+    path: '/category/:category?', // Make category parameter optional
+    name: 'blog-categories-list', // Renamed for clarity
     component: CategoryView,
+    props: true,
   },
   {
     // Route for individual blog posts using slug
@@ -64,6 +65,12 @@ const routes = [
   {
     path: '/blog/tag/:tag',
     name: 'tag-archive',
+    component: BlogTagView,
+    props: true,
+  },
+   {
+    path: '/blog/tag/:tag/page/:page',
+    name: 'tag-archive-pagination',
     component: BlogTagView,
     props: true,
   },

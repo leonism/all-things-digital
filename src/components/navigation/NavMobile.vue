@@ -42,7 +42,7 @@
       Blog
     </router-link>
     <router-link
-      to="/categories"
+      to="/category"
       class="block px-5 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-pink-heading/70 hover:text-slate-900"
       @click="closeMobileMenu"
       >Category</router-link

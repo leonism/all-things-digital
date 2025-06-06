@@ -8,7 +8,7 @@ author:
   name: 'David Lee'
   role: 'Productivity Coach'
   image: 'https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-category: 'Career'
+category: 'Lifestyle'
 tags:
   - 'remote-work'
   - 'productivity'

@@ -2,11 +2,11 @@
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div
-      v-if="filteredPosts.length"
+      v-if="paginatedPosts.length"
       class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
     >
       <BlogArticleCard
-        v-for="post in filteredPosts"
+        v-for="post in paginatedPosts"
         :key="post.slug"
         :imageSrc="
           post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
@@ -30,107 +30,86 @@
         >Back to Blog List</router-link
       >
     </div>
+    <!-- Pagination Controls -->
+    <div v-if="totalPages > 1" class="pagination">
+      <button
+        :disabled="currentPage === 1"
+        @click="goToPageLocal(currentPage - 1)"
+      >
+        Previous
+      </button>
+      <button
+        v-for="page in totalPages"
+        :key="page"
+        :class="{ active: page === currentPage }"
+        @click="goToPageLocal(page)"
+      >
+        {{ page }}
+      </button>
+      <button :disabled="totalPages" @click="goToPageLocal(currentPage + 1)">
+        Next
+      </button>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts">
-/**
- * BlogTagView Component
- *
- * This component displays a list of blog posts associated with a specific tag.
- * It retrieves the tag name from the route parameters, filters the blog posts
- * from `blog-data.json` based on the tag, and updates the page's meta tags
- * using `@unhead/vue`.
- *
- * The component uses Vue 3 Composition API with `<script setup>`, computed
- * properties for filtering and meta tags, and watchers to react to route
- * and tag name changes.
- */
-import { ref, computed, watch, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
-import { useHead } from '@unhead/vue'; // Import useHead
+<script setup>
+import { ref, computed, watch, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
-import BlogArticleCard from './BlogArticleCard.vue'; // Import BlogArticleCard
+import BlogArticleCard from './BlogArticleCard.vue';
+import { usePagination } from '../../composables/usePagination';
 
-/**
- * Generates a hyphenated slug from a tag name.
- * Replaces spaces with hyphens and converts to lowercase.
- * @param name The tag name.
- * @returns The hyphenated tag slug.
- */
-const getTagSlug = (name: string): string => {
+const getTagSlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
 const route = useRoute();
-// Reactive reference to store the current tag name from the route.
-// Handle the case where route.params.tag might be an array.
+const router = useRouter();
 const tagName = ref(
   Array.isArray(route.params.tag) ? route.params.tag[0] : route.params.tag,
 );
 
-interface BlogPost {
-  slug: string;
-  title: string;
-  subtitle?: string;
-  date: string;
-  lastModified?: string;
-  author?: {
-    name: string;
-    role?: string;
-    image?: string;
-    link?: string; // Added link property
-  };
-  category?: string;
-  categories?: string[];
-  tags?: string[];
-  featuredImage?: {
-    src: string;
-    alt?: string;
-  };
-  contentHtml: string;
-  seoTitle?: string;
-  excerpt?: string;
-  description?: string; // Added description property
-  metaRobots?: string;
-  canonicalUrl?: string;
-  readingTime?: string | number; // Added readingTime property
-  schema?: any; // Use a more specific type if schema structure is known
-  status?: 'published' | 'draft' | string; // Allow string type based on data structure
-}
+const postsPerPage = 6;
+const allPosts = ref([]);
 
-/**
- * Computed property that filters the imported `postsData` array
- * to include only published posts that have the current tag.
- * It converts tags to lowercase for case-insensitive matching.
- */
-const filteredPosts: Ref<BlogPost[]> = computed(() => {
-  if (!tagName.value) return [];
-  const lowerCaseTag = tagName.value.toLowerCase();
-  return postsData.filter(
-    (post) =>
-      (!post.status || post.status === 'published') && // Filter published posts
-      post.tags &&
-      post.tags.map((t) => t.toLowerCase()).includes(lowerCaseTag),
-  );
+const { currentPage, totalPages, goToPage } = usePagination(
+  computed(() => allPosts.value.length),
+  postsPerPage,
+);
+
+const paginatedPosts = computed(() => {
+  const startIndex = (currentPage.value - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  return allPosts.value.slice(startIndex, endIndex);
 });
+
+const goToPageLocal = (page) => {
+  if (page >= 1 && page <= totalPages.value) {
+    goToPage(page);
+    router.push({
+      name: 'tag-archive-pagination',
+      params: { tag: route.params.tag, page: String(page) },
+    });
+  }
+};
 
 // Computed properties for meta tags
 const pageTitle = computed(
   () => `Tag: #${tagName.value || 'Archive'} - All Things Digital`,
-); // Replace site name
+);
 const pageDescription = computed(
   () => `Posts tagged with #${tagName.value || 'archive'}.`,
 );
 const canonicalUrl = computed(() => {
-  const base = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
+  const base = 'https://yourdomain.com';
   return tagName.value
     ? `${base}/blog/tag/${getTagSlug(tagName.value)}`
     : `${base}/blog`;
 });
 
 // Watcher to update meta tags whenever the 'tagName' ref changes.
-// This ensures that meta tags are updated when navigating between tags.
 watch(
   tagName,
   (newTagName) => {
@@ -143,12 +122,12 @@ watch(
           { property: 'og:description', content: pageDescription.value },
           { property: 'og:type', content: 'website' },
           { property: 'og:url', content: canonicalUrl.value },
-          { property: 'og:image', content: '/images/default-og-image.png' }, // Default image for tag pages
+          { property: 'og:image', content: '/images/default-og-image.png' },
           { name: 'twitter:card', content: 'summary' },
           { name: 'twitter:title', content: pageTitle.value },
           { name: 'twitter:description', content: pageDescription.value },
-          { name: 'twitter:image', content: '/images/default-og-image.png' }, // Default image
-          { name: 'robots', content: 'index, follow' }, // Allow indexing for tag pages
+          { name: 'twitter:image', content: '/images/default-og-image.png' },
+          { name: 'robots', content: 'index, follow' },
         ],
         link: [{ rel: 'canonical', href: canonicalUrl.value }],
       });
@@ -159,29 +138,27 @@ watch(
   { immediate: true },
 );
 
-// Watcher to react to changes in the route's tag parameter.
-// This is triggered when navigating to a different tag page.
-watch(
-  () => route.params.tag,
-  (newTag) => {
-    // Handle the case where newTag might be an array.
-    tagName.value = Array.isArray(newTag) ? newTag[0] : newTag;
-    // Meta tags are updated by the tagName watcher
-  },
-);
+onMounted(() => {
+  const tag = route.params.tag;
+  const page = Number(route.params.page) || 1;
 
-/**
- * Formats a date string into a human-readable string.
- * @param dateString The date string to format.
- * @returns The formatted date string or the original string if formatting fails.
- */
-const formatDate = (dateString: string | undefined): string => {
+  console.log("Current tag from route:", tag);
+
+  const filtered = postsData.filter(
+    (post) =>
+      (!post.status || post.status === 'published') &&
+      post.tags &&
+      post.tags.map((t) => t.toLowerCase()).includes(tag),
+  );
+  console.log("Filtered posts for tag:", filtered);
+
+  allPosts.value = filtered;
+  currentPage.value = page;
+});
+
+const formatDate = (dateString) => {
   if (!dateString) return '';
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
   try {
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, options);
@@ -194,4 +171,52 @@ const formatDate = (dateString: string | undefined): string => {
 
 <style scoped>
 /* Add component-specific styles if necessary */
+
+/* Basic styling for pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 0.25rem; /* Rounded corners */
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background-color: #007bff; /* Example active color */
+  color: white;
+  border-color: #007bff;
+}
+
+/* Dark mode styles for pagination */
+.dark .pagination button {
+  background-color: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+.dark .pagination button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+.dark .pagination button.active {
+  background-color: #0056b3; /* Example active color in dark mode */
+  border-color: #0056b3;
+}
 </style>

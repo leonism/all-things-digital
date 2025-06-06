@@ -8,7 +8,7 @@ author:
   name: 'Aisha Khan'
   role: 'Wellness Coach'
   image: 'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-category: 'Wellness'
+category: 'Health'
 tags:
   - 'mindfulness'
   - 'meditation'

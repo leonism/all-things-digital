@@ -26,7 +26,7 @@
       <li>
         <!-- Assuming category will list all categories, or link to a main category page -->
         <router-link
-          to="/categories"
+          to="/category"
           class="block px-3 py-2 transition-colors duration-200 rounded-xl dark:hover:text-slate-900 hover:bg-slate-100 hover:text-slate-900"
           active-class="bg-slate-100 text-slate-900 dark:bg-slate-700 dark:text-white"
           >Category</router-link
@@ -55,4 +55,3 @@
   /* Tailwind's active-class prop is often sufficient */
 }
 </style>
-

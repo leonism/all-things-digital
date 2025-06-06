@@ -6,9 +6,9 @@ date: '2025-05-26'
 lastModified: '2025-05-26' # Add or update this date if the post content is modified
 author:
   name: 'Mike Smith'
-  role: 'Developer' # Example role
+  role: 'Developer'
   image: '/assets/img/avatar.png' # Placeholder author image
-category: 'Tech' # Changed from categories to category to match other files
+category: 'Technology'
 tags:
   - 'vite'
   - 'vue3'
