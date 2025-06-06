@@ -11,7 +11,7 @@
       "role": "Developer",
       "image": "/assets/img/avatar.png"
     },
-    "category": "Tech",
+    "category": "Technology",
     "tags": [
       "vite",
       "vue3",
@@ -163,7 +163,7 @@
       "role": "Productivity Coach",
       "image": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
-    "category": "Career",
+    "category": "Lifestyle",
     "tags": [
       "remote-work",
       "productivity",
@@ -463,7 +463,7 @@
       "role": "DIY Blogger",
       "image": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
-    "category": "DIY",
+    "category": "Lifestyle",
     "tags": [
       "diy",
       "home-decor",
@@ -523,7 +523,7 @@
       "role": "Security Expert",
       "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
-    "category": "Security",
+    "category": "Technology",
     "tags": [
       "cybersecurity",
       "online-safety",
@@ -583,7 +583,7 @@
       "role": "Wellness Coach",
       "image": "https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
-    "category": "Wellness",
+    "category": "Health",
     "tags": [
       "mindfulness",
       "meditation",

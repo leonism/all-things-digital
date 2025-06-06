@@ -44,8 +44,8 @@ const routes = [
     props: true, // Pass route params as props to the component
   },
   {
-    path: '/category/:category?', // Make category parameter optional
-    name: 'blog-categories-list', // Renamed for clarity
+    path: '/category/:category?/page/:page?', // Make category and page parameters optional
+    name: 'blog-categories-list',
     component: CategoryView,
     props: true,
   },
@@ -54,10 +54,10 @@ const routes = [
     path: '/blog/:slug',
     name: 'blog-post',
     component: BlogPostView,
-    props: true, // Pass route params as props to the component
+    props: true,
   },
   {
-    path: '/blog/category/:category',
+    path: '/blog/category/:category/page/:page?', // Add optional page parameter
     name: 'category-archive',
     component: CategoryView,
     props: true,

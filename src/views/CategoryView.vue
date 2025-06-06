@@ -109,9 +109,14 @@ const pageDescription = computed(
 );
 const canonicalUrl = computed(() => {
   const base = "https://yourdomain.com"; // Replace with your actual domain
-  return categoryParam.value
+  let url = categoryParam.value
     ? `${base}/blog/category/${encodeURIComponent(categoryParam.value)}`
     : `${base}/category`;
+
+  if (currentPage.value > 1) {
+    url += `/page/${currentPage.value}`;
+  }
+  return url;
 });
 
 // Update meta tags using useHead, reacting to categoryParam changes
