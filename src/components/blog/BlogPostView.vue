@@ -77,6 +77,7 @@
         &larr; Back to Blog List
       </router-link>
     </div>
+    <BlogPostNavigation :previousPost="previousPost" :nextPost="nextPost" />
   </div>
 </template>
 
@@ -108,6 +109,7 @@ import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
+import BlogPostNavigation from './BlogPostNavigation.vue';
 
 // Function to dynamically import images
 const getImageUrl = (name: string): string => {
@@ -256,6 +258,31 @@ watch(
   },
   { immediate: true },
 );
+
+const allPosts = postsData.filter(
+  (post) => !post.status || post.status === 'published',
+);
+
+const currentPostIndex = computed(() => {
+  return allPosts.findIndex((p) => p.slug === route.params.slug);
+});
+
+const previousPost = computed(() => {
+  if (currentPostIndex.value === -1 || currentPostIndex.value === 0) {
+    return null;
+  }
+  return allPosts[currentPostIndex.value - 1];
+});
+
+const nextPost = computed(() => {
+  if (
+    currentPostIndex.value === -1 ||
+    currentPostIndex.value === allPosts.length - 1
+  ) {
+    return null;
+  }
+  return allPosts[currentPostIndex.value + 1];
+});
 
 const processedFeaturedImageSrc = computed(() => {
   if (post.value?.featuredImage?.src?.startsWith('/assets/img/')) {

@@ -31,8 +31,9 @@
       >
     </div>
     <!-- Pagination Controls -->
-    <div v-if="totalPages > 1" class="pagination">
+    <div v-if="totalPages > 1" class="flex justify-center mt-8 gap-2">
       <button
+        class="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
         :disabled="currentPage === 1"
         @click="goToPageLocal(currentPage - 1)"
       >
@@ -41,14 +42,32 @@
       <button
         v-for="page in totalPages"
         :key="page"
-        :class="{ active: page === currentPage }"
+        class="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600"
+        :class="{
+          'bg-indigo-600 text-white border-indigo-600': page === currentPage,
+        }"
         @click="goToPageLocal(page)"
       >
         {{ page }}
       </button>
-      <button :disabled="totalPages" @click="goToPageLocal(currentPage + 1)">
+      <button
+        class="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+        :disabled="currentPage === totalPages"
+        @click="goToPageLocal(currentPage + 1)"
+      >
         Next
       </button>
+    </div>
+    <div v-if="!tagName" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        v-for="tag in allTags"
+        :key="tag"
+        class="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+      >
+        <router-link :to="`/blog/tag/${getTagSlug(tag)}`">
+          #{{ tag }}
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -142,7 +161,7 @@ onMounted(() => {
   const tag = route.params.tag;
   const page = Number(route.params.page) || 1;
 
-  console.log("Current tag from route:", tag);
+  console.log('Current tag from route:', tag);
 
   const filtered = postsData.filter(
     (post) =>
@@ -150,7 +169,7 @@ onMounted(() => {
       post.tags &&
       post.tags.map((t) => t.toLowerCase()).includes(tag),
   );
-  console.log("Filtered posts for tag:", filtered);
+  console.log('Filtered posts for tag:', filtered);
 
   allPosts.value = filtered;
   currentPage.value = page;
@@ -167,56 +186,14 @@ const formatDate = (dateString) => {
     return dateString;
   }
 };
+
+const allTags = computed(() => {
+  const tags = new Set();
+  postsData.forEach((post) => {
+    if (post.tags) {
+      post.tags.forEach((tag) => tags.add(tag));
+    }
+  });
+  return Array.from(tags).sort();
+});
 </script>
-
-<style scoped>
-/* Add component-specific styles if necessary */
-
-/* Basic styling for pagination */
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  gap: 0.5rem; /* Space between buttons */
-}
-
-.pagination button {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  border-radius: 0.25rem; /* Rounded corners */
-}
-
-.pagination button:hover:not(:disabled) {
-  background-color: #f0f0f0;
-}
-
-.pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pagination button.active {
-  background-color: #007bff; /* Example active color */
-  color: white;
-  border-color: #007bff;
-}
-
-/* Dark mode styles for pagination */
-.dark .pagination button {
-  background-color: #333;
-  border-color: #555;
-  color: #eee;
-}
-
-.dark .pagination button:hover:not(:disabled) {
-  background-color: #555;
-}
-
-.dark .pagination button.active {
-  background-color: #0056b3; /* Example active color in dark mode */
-  border-color: #0056b3;
-}
-</style>

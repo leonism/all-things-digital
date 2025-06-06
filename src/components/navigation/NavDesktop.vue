@@ -48,10 +48,4 @@
 // No specific script logic needed for this simple component yet
 </script>
 
-<style scoped>
-/* Add component-specific styles if necessary */
-.router-link-exact-active {
-  /* You can add specific styles for the exact active link if needed */
-  /* Tailwind's active-class prop is often sufficient */
-}
-</style>
+<style scoped></style>

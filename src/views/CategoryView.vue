@@ -54,154 +54,23 @@
         Next
       </button>
     </div>
+    <div v-if="!categoryParam" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <router-link
+        v-for="category in allCategories"
+        :key="category"
+        :to="`/category/${getTagSlug(category)}`"
+        class="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+      >
+        {{ category }}
+      </router-link>
+    </div>
   </main>
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { useHead } from "@unhead/vue";
-import { usePagination } from "../composables/usePagination";
-import HeaderCategory from "../components/heading/HeaderCategory.vue";
-import BlogArticleCard from "../components/blog/BlogArticleCard.vue";
-import postsData from "../blog-data.json";
-
-const route = useRoute();
-const router = useRouter();
-const categoryParam = ref(route.params.category);
-const postsPerPage = 6;
-const allPosts = ref([]);
-
-const { currentPage, totalPages, goToPage } = usePagination(
-  computed(() => allPosts.value.length),
-  postsPerPage
-);
-
-const displayCategoryName = computed(() => {
-  return categoryParam.value
-    ? categoryParam.value.charAt(0).toUpperCase() + categoryParam.value.slice(1)
-    : "All Categories";
-});
-
-const paginatedPosts = computed(() => {
-  const startIndex = (currentPage.value - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  return allPosts.value.slice(startIndex, endIndex);
-});
-
-const goToPageLocal = (page) => {
-  if (page >= 1 && page <= totalPages.value) {
-    goToPage(page);
-    const routeName = route.name === 'blog-categories-list' ? 'blog-categories-list' : 'category-archive';
-    router.push({
-      name: routeName,
-      params: { category: categoryParam.value || undefined, page: String(page) },
-    });
-  }
-};
-
-// Computed properties for meta tags
-const pageTitle = computed(
-  () => `${displayCategoryName.value} Blog Posts | DGPond.COM`
-);
-const pageDescription = computed(
-  () => `Browse blog posts categorized under ${displayCategoryName.value}.`
-);
-const canonicalUrl = computed(() => {
-  const base = "https://yourdomain.com"; // Replace with your actual domain
-  let url = categoryParam.value
-    ? `${base}/blog/category/${encodeURIComponent(categoryParam.value)}`
-    : `${base}/category`;
-
-  if (currentPage.value > 1) {
-    url += `/page/${currentPage.value}`;
-  }
-  return url;
-});
-
-// Update meta tags using useHead, reacting to categoryParam changes
-watch(
-  categoryParam,
-  (newCategoryParam) => {
-    if (newCategoryParam) {
-      useHead({
-        title: pageTitle.value,
-        meta: [
-          { name: "description", content: pageDescription.value },
-          { property: "og:title", content: pageTitle.value },
-          { property: "og:description", content: pageDescription.value },
-          { property: "og:type", content: "website" },
-          { property: "og:url", content: canonicalUrl.value },
-          { property: "og:image", content: "/images/default-og-image.png" },
-          { name: "twitter:card", content: "summary" },
-          { name: "twitter:title", content: pageTitle.value },
-          { name: "twitter:description", content: pageDescription.value },
-          { name: "twitter:image", content: "/images/default-og-image.png" },
-          { name: "robots", content: "index, follow" },
-        ],
-        link: [{ rel: "canonical", href: canonicalUrl.value }],
-      });
-    } else {
-      useHead({ title: "All Categories Archive" });
-    }
-  },
-  { immediate: true }
-);
-
-// Watch route param changes
-watch(
-  () => route.params.category,
-  (newCategory) => {
-    categoryParam.value = newCategory;
-    // Meta tags are updated by the categoryParam watcher
-    updatePosts();
-  }
-);
-
-onMounted(() => {
-  updatePosts();
-});
-
-const updatePosts = () => {
-  let filtered = postsData.filter(
-    (post) => !post.status || post.status === "published"
-  );
-
-  if (categoryParam.value) {
-    const lowerCaseCategory = categoryParam.value.toLowerCase();
-    filtered = filtered.filter(
-      (post) =>
-        post.categories &&
-        post.categories.map((c) => c.toLowerCase()).includes(lowerCaseCategory)
-    );
-  }
-
-  allPosts.value = filtered;
-
-  const initialPage = Number(route.params.page) || 1;
-  if (initialPage > 1 && initialPage <= totalPages.value) {
-    currentPage.value = initialPage;
-  } else {
-    currentPage.value = 1;
-  }
-};
-
-const formatDate = (dateString) => {
-  if (!dateString) return "";
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  try {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(undefined, options);
-  } catch (e) {
-    console.error("Error formatting date:", dateString, e);
-    return dateString;
-  }
-};
 </script>
 
 <style scoped>
-/* Add component-specific styles if necessary */
-
 /* Basic styling for pagination */
 .pagination {
   display: flex;
