@@ -38,6 +38,12 @@ const routes = [
     component: BlogListView,
   },
   {
+    path: '/blog/page/:page',
+    name: 'blog-list-pagination',
+    component: BlogListView,
+    props: true, // Pass route params as props to the component
+  },
+  {
     path: '/categories',
     name: 'blog-catgories-list',
     component: CategoryView,

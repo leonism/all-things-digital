@@ -1,9 +1,9 @@
 <template>
   <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <HeaderBlog />
-    <div v-if="posts.length" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div v-if="paginatedPosts.length" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <BlogArticleCard
-        v-for="post in posts"
+        v-for="post in paginatedPosts"
         :key="post.slug"
         :imageSrc="
           post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
@@ -26,6 +26,30 @@
         scripts/generate-blog-data.js`.
       </p>
     </div>
+
+    <!-- Pagination Controls -->
+    <div v-if="totalPages > 1" class="pagination">
+      <button
+        :disabled="currentPage === 1"
+        @click="goToPage(currentPage - 1)"
+      >
+        Previous
+      </button>
+      <button
+        v-for="page in totalPages"
+        :key="page"
+        :class="{ active: page === currentPage }"
+        @click="goToPage(page)"
+      >
+        {{ page }}
+      </button>
+      <button
+        :disabled="currentPage === totalPages"
+        @click="goToPage(currentPage + 1)"
+      >
+        Next
+      </button>
+    </div>
   </main>
 </template>
 
@@ -39,8 +63,9 @@
  *
  * The component uses Vue 3 Composition API with `<script setup>`.
  */
-import { ref, onMounted, type Ref } from 'vue';
+import { ref, onMounted, computed, type Ref } from 'vue';
 import { useHead } from '@unhead/vue';
+import { useRouter, useRoute } from 'vue-router'; // Import useRouter and useRoute
 import HeaderBlog from '../heading/HeaderBlog.vue';
 import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
@@ -74,8 +99,40 @@ interface BlogPost {
   status?: 'published' | 'draft' | string; // Allow string type based on data structure
 }
 
-// Reactive reference to store the list of blog posts.
-const posts: Ref<BlogPost[]> = ref([]);
+// Get router and route instances
+const router = useRouter();
+const route = useRoute();
+
+// Reactive references and constants for pagination
+const postsPerPage = 6;
+const currentPage = ref(1);
+const allPosts: Ref<BlogPost[]> = ref([]);
+
+// Reactive reference to store the list of blog posts for the current page.
+const paginatedPosts = computed(() => {
+  const startIndex = (currentPage.value - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  return allPosts.value.slice(startIndex, endIndex);
+});
+
+// Computed property for total number of pages
+const totalPages = computed(() => {
+  return Math.ceil(allPosts.value.length / postsPerPage);
+});
+
+// Methods for pagination
+const goToPage = (page: number) => {
+  if (page >= 1 && page <= totalPages.value) {
+    currentPage.value = page;
+    // Update URL with page route parameter
+    router.push({ name: 'blog-list-pagination', params: { page: page.toString() } });
+    // Scroll to top of the blog list when changing page
+    const mainWrapper = document.getElementById('mainWrapper');
+    if (mainWrapper) {
+      mainWrapper.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+};
 
 // Set meta tags for the main blog list page using useHead.
 // This updates the document head with SEO-related information.
@@ -108,14 +165,77 @@ useHead({
 });
 
 // Lifecycle hook that runs after the component is mounted.
-// It fetches and filters the blog posts.
+// It fetches, filters, and sorts the blog posts, and reads initial page from URL.
 onMounted(() => {
-  // Filter posts to include only those with status 'published' or no status field.
-  posts.value = postsData.filter(
-    (post) => !post.status || post.status === 'published',
-  );
+  // Filter for published posts and sort by date in descending order
+  const publishedPosts = postsData.filter(post => post.status === 'published');
+  publishedPosts.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA; // Descending order
+  });
+
+  allPosts.value = publishedPosts;
+
+  // Read initial page from URL route parameter
+  const initialPage = Number(route.params.page) || 1;
+  if (initialPage > 1 && initialPage <= totalPages.value) {
+    currentPage.value = initialPage;
+  }
 });
 </script>
+
+<style scoped>
+/* Add component-specific styles if necessary */
+
+/* Basic styling for pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 0.25rem; /* Rounded corners */
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background-color: #007bff; /* Example active color */
+  color: white;
+  border-color: #007bff;
+}
+
+/* Dark mode styles for pagination */
+.dark .pagination button {
+  background-color: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+.dark .pagination button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+.dark .pagination button.active {
+  background-color: #0056b3; /* Example active color in dark mode */
+  border-color: #0056b3;
+}
+</style>
 
 <style scoped>
 /* Add component-specific styles if necessary */
