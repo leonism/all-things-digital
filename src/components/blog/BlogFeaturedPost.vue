@@ -1,21 +1,25 @@
 <template>
+  <!--
+    Featured blog post card with hover effects and schema.org markup
+    Maintains all original classes and functionality while improving semantics
+  -->
   <article
     id="featuredPost"
-    class="mx-auto md:mb-10 rounded-xl shadow-xl bg-broken-white dark:bg-postcard transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
+    class="mx-auto md:mb-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
     itemscope
     itemtype="https://schema.org/BlogPosting"
     aria-labelledby="featuredPostTitle"
   >
-    <header>
-      <!-- Featured Image -->
+    <!-- Article Header - Contains featured image and category badge -->
+    <header class="relative">
       <figure
         class="relative"
         itemprop="image"
         itemscope
         itemtype="https://schema.org/ImageObject"
       >
-        <router-link :to="postLink" itemprop="url">
-          <!-- Use the processed image source -->
+        <!-- Featured image with lazy loading -->
+        <router-link :to="postLink" itemprop="url" aria-label="Read full post">
           <img
             :src="processedImageSrc"
             :alt="imageAlt"
@@ -24,13 +28,15 @@
             height="600"
             itemprop="url"
             loading="lazy"
+            decoding="async"
           />
         </router-link>
-        <!-- Category Badge -->
-        <div class="absolute bottom-2 right-2 md:bottom-10 md:right-8">
+
+        <!-- Category badge positioned absolutely over the image -->
+        <figcaption class="absolute bottom-2 right-2 md:bottom-10 md:right-8">
           <router-link
             :to="`/blog/category/${getTagSlug(category)}`"
-            :title="category + ' category'"
+            :title="`View all posts in ${category} category`"
             class="inline-block"
           >
             <span
@@ -40,29 +46,34 @@
               {{ category }}
             </span>
           </router-link>
-        </div>
+        </figcaption>
       </figure>
     </header>
 
+    <!-- Article Content - Contains author info and post metadata -->
     <div class="flex items-center text-center p-2 md:p-6">
-      <!-- Author Avatar -->
+      <!-- Author avatar with link -->
       <div
         class="ml-1 md:ml-5 shrink-0 self-start rounded-full bg-linear-to-br from-indigo-400 to-pink-600 drop-shadow-lg p-1"
+        itemprop="author"
+        itemscope
+        itemtype="https://schema.org/Person"
       >
-        <router-link :to="authorLink">
+        <router-link
+          :to="authorLink"
+          :title="`View ${authorImageAlt}'s profile`"
+        >
           <img
             :src="processedAuthorImageSrc"
             :alt="authorImageAlt"
             class="h-12 w-12 md:h-17 md:w-17 rounded-full border-1 border-white dark:border-gray-800"
-            itemprop="author"
-            itemscope
-            itemtype="https://schema.org/Person"
           />
         </router-link>
       </div>
 
-      <!-- Post Details -->
+      <!-- Post title and metadata -->
       <div class="ml-3 mr-3 flex-1 text-left">
+        <!-- Post title as heading -->
         <h2
           id="featuredPostTitle"
           class="font-navigation line-clamp-2 text-slate-700 dark:text-white leading-6 md:text-xl/5 md:leading-7"
@@ -76,29 +87,39 @@
             {{ title }}
           </router-link>
         </h2>
+
+        <!-- Post metadata footer -->
         <footer
           class="flex items-center text-xs text-slate-500 dark:text-gray-500 mt-1"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-3.5 h-3.5 mr-1"
-            aria-hidden="true"
+          <!-- Publication date -->
+          <div class="flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-3.5 h-3.5 mr-1"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+              />
+            </svg>
+            <time :datetime="date" itemprop="datePublished">
+              {{ formattedDate }}
+            </time>
+          </div>
+
+          <!-- Tags list (hidden on mobile) -->
+          <div
+            class="hidden md:inline-flex items-center ml-2"
+            itemprop="keywords"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-            />
-          </svg>
-          <time :datetime="date" itemprop="datePublished">
-            {{ formattedDate }}
-          </time>
-          <!-- Tags (visible on medium+ screens) -->
-          <div class="hidden md:inline-flex items-center ml-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -107,6 +128,7 @@
               stroke="currentColor"
               class="w-3.5 h-3.5 mx-1"
               aria-hidden="true"
+              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -114,13 +136,16 @@
                 d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
               />
             </svg>
-            <span itemprop="keywords">
+            <span>
               <template v-for="(tag, index) in tags" :key="tag">
                 <router-link
                   :to="`/blog/tag/${getTagSlug(tag)}`"
                   class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  >{{ tag }}</router-link
-                ><span v-if="index < tags.length - 1">, </span>
+                  :title="`View posts tagged ${tag}`"
+                >
+                  {{ tag }}
+                </router-link>
+                <span v-if="index < tags.length - 1">, </span>
               </template>
             </span>
           </div>

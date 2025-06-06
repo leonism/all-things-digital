@@ -48,8 +48,8 @@ import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
-import thumbnail01Comp from '../assets/img/thumbnail-01-comp.jpg'; // Import the thumbnail image
-import avatar from '../assets/img/avatar.png'; // Import the avatar image
+// import thumbnail01Comp from '../assets/img/thumbnail-01-comp.jpg'; // Import the thumbnail image
+//import avatar from '../assets/img/avatar.png'; // Import the avatar image
 // import BlogGridHome from '../components/blog/BlogGridHome.vue';
 
 useHead({ title: 'DGPond.COM' });
@@ -57,7 +57,9 @@ useHead({ title: 'DGPond.COM' });
 const featuredPost = useFeaturedPost();
 const latestPosts = useLatestPosts();
 const featuredImageSrc = computed(
-  () => featuredPost.value?.featuredImage?.src || '/assets/img/featured-blog-comp.jpg', // Use the absolute path
+  () =>
+    featuredPost.value?.featuredImage?.src ||
+    '/assets/img/featured-blog-comp.jpg', // Use the absolute path
 );
 const featuredImageAlt = computed(
   () => featuredPost.value?.featuredImage?.alt || featuredPost.value?.title,

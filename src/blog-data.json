@@ -45,11 +45,11 @@
     },
     "category": "Technology",
     "tags": [
-      "web development",
+      "web-development",
       "frontend",
       "backend",
       "javascript",
-      "future tech"
+      "future-tech"
     ],
     "featuredImage": {
       "src": "/assets/img/featured-blog.jpg",
@@ -105,9 +105,9 @@
     },
     "category": "Lifestyle",
     "tags": [
-      "sustainable living",
+      "sustainable-living",
       "eco-friendly",
-      "green home",
+      "green-home",
       "environment",
       "conservation"
     ],
@@ -165,11 +165,11 @@
     },
     "category": "Career",
     "tags": [
-      "remote work",
+      "remote-work",
       "productivity",
-      "work from home",
+      "work-from-home",
       "well-being",
-      "career advice"
+      "career-advice"
     ],
     "featuredImage": {
       "src": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -225,11 +225,11 @@
     },
     "category": "Technology",
     "tags": [
-      "artificial intelligence",
-      "creative industries",
+      "artificial-intelligence",
+      "creative-industries",
       "design",
       "art",
-      "future of work"
+      "future-of-work"
     ],
     "featuredImage": {
       "src": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -285,7 +285,7 @@
     },
     "category": "Finance",
     "tags": [
-      "financial planning",
+      "financial-planning",
       "millennials",
       "investing",
       "retirement",
@@ -345,11 +345,11 @@
     },
     "category": "Health",
     "tags": [
-      "healthy eating",
+      "healthy-eating",
       "nutrition",
       "wellness",
       "diet",
-      "mental health"
+      "mental-health"
     ],
     "featuredImage": {
       "src": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -407,8 +407,8 @@
     "tags": [
       "travel",
       "adventure",
-      "hidden gems",
-      "off the beaten path",
+      "hidden-gems",
+      "off-the-beaten-path",
       "explore"
     ],
     "featuredImage": {
@@ -466,9 +466,9 @@
     "category": "DIY",
     "tags": [
       "diy",
-      "home decor",
+      "home-decor",
       "crafts",
-      "budget friendly",
+      "budget-friendly",
       "upcycling"
     ],
     "featuredImage": {
@@ -526,10 +526,10 @@
     "category": "Security",
     "tags": [
       "cybersecurity",
-      "online safety",
+      "online-safety",
       "passwords",
       "phishing",
-      "data privacy"
+      "data-privacy"
     ],
     "featuredImage": {
       "src": "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -587,8 +587,8 @@
     "tags": [
       "mindfulness",
       "meditation",
-      "stress relief",
-      "mental health",
+      "stress-relief",
+      "mental-health",
       "well-being"
     ],
     "featuredImage": {

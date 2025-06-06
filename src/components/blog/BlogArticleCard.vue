@@ -1,10 +1,12 @@
 <template>
+  <!-- Blog Post Card Component -->
   <article
     class="flex flex-col my-5 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl md:flex-row md:my-6"
     aria-labelledby="article-title"
     itemscope
     itemtype="https://schema.org/BlogPosting"
   >
+    <!-- Featured Image Section -->
     <figure
       class="mb-0 shrink-0 md:w-1/3"
       itemprop="image"
@@ -19,9 +21,13 @@
         height="600"
         itemprop="url"
         loading="lazy"
+        decoding="async"
       />
     </figure>
+
+    <!-- Content Section -->
     <div class="flex grow flex-col p-4 md:p-5 md:ml-0">
+      <!-- Article Header -->
       <header class="mb-3 flex items-center">
         <AvatarAuthor
           :imageSrc="processedAuthorImageSrc"
@@ -38,12 +44,16 @@
               :to="postLink"
               itemprop="url"
               class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              aria-label="Read more about this article"
             >
               {{ title }}
             </router-link>
           </h2>
+
+          <!-- Publication Date -->
           <div
             class="flex items-center text-xs text-slate-500 dark:text-gray-400 mt-1"
+            itemprop="datePublished"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +63,7 @@
               stroke="currentColor"
               class="mr-1.5 h-3.5 w-3.5"
               aria-hidden="true"
+              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -60,13 +71,12 @@
                 d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
               />
             </svg>
-            <time :datetime="date" itemprop="datePublished">{{
-              formattedDate
-            }}</time>
+            <time :datetime="date">{{ formattedDate }}</time>
           </div>
         </div>
       </header>
 
+      <!-- Article Excerpt -->
       <p
         itemprop="description"
         class="text-left text-slate-90 font-navigation tracking-wide text-slate-700 line-clamp-4 dark:text-white"
@@ -74,6 +84,7 @@
         {{ excerpt }}
       </p>
 
+      <!-- Article Footer (Tags) -->
       <footer
         class="flex items-center text-xs text-slate-500 mt-2 dark:text-gray-400"
       >
@@ -85,6 +96,7 @@
           stroke="currentColor"
           class="mr-2 h-3.5 w-3.5"
           aria-hidden="true"
+          focusable="false"
         >
           <path
             stroke-linecap="round"
@@ -102,6 +114,7 @@
             <router-link
               :to="`/category/${getTagSlug(tag)}`"
               class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              :aria-label="`Browse articles tagged ${tag}`"
             >
               {{ tag }}</router-link
             ><span v-if="index < tags.length - 1">, </span>
