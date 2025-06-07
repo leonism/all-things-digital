@@ -1,7 +1,7 @@
 <template>
-  <main
+  <section
     id="mainWrapper"
-    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
+    class="max-w-4xl sm:mx-5 md:mx-10 lg:mx-auto"
     role="main"
   >
     <HeaderHome />
@@ -40,7 +40,7 @@
       </template>
     </BlogLatestPost>
     <!-- <BlogGridHome /> -->
-  </main>
+  </section>
 </template>
 
 <script setup>
@@ -53,7 +53,7 @@ import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
 // import thumbnail01Comp from '../assets/img/thumbnail-01-comp.jpg'; // Import the thumbnail image
-//import avatar from '../assets/img/avatar.png'; // Import the avatar image
+// import avatar from '../assets/img/avatar.png'; // Import the avatar image
 // import BlogGridHome from '../components/blog/BlogGridHome.vue';
 
 useHead({ title: 'DGPond.COM' });

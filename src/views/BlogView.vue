@@ -1,11 +1,7 @@
-<!--
-  Blog View Template
-  Main blog listing page with paginated article cards
--->
 <template>
-  <main
+  <section
     id="mainWrapper"
-    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
+    class="max-w-4xl sm:mx-5 md:mx-10 lg:mx-auto"
     role="main"
   >
     <!-- Blog Header Section -->
@@ -13,10 +9,7 @@
 
     <!-- Conditional Blog Posts Grid -->
     <template v-if="paginatedPosts.length">
-      <section
-        class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-        aria-label="Blog articles"
-      >
+      <section class="" aria-label="Blog Articles - Horizontal Scroll">
         <BlogArticleCard
           v-for="post in paginatedPosts"
           :key="post.slug"
@@ -46,7 +39,7 @@
       </nav>
     </template>
 
-    <!-- Empty State -->
+    <!-- Empty State, backfall if no markdown populated  -->
     <div
       v-else
       class="text-center text-gray-500 dark:text-gray-400 py-10"
@@ -58,7 +51,7 @@
         scripts/generate-blog-data.js`.
       </p>
     </div>
-  </main>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -71,11 +64,10 @@
  *
  * The component uses Vue 3 Composition API with `<script setup>`.
  */
-import { ref, onMounted, computed, type Ref } from 'vue'; // Added computed
+import { ref, onMounted, computed, type Ref } from 'vue';
 import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
-import Pagination from '../components/common/Pagination.vue'; // Import Pagination component
 import postsData from '../blog-data.json';
 
 interface BlogPost {

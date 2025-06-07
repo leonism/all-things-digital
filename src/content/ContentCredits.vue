@@ -1,5 +1,5 @@
 <template>
-  <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <HeaderCredits />
     <article
       class="p-1 mx-auto prose md:prose-md lg:prose-lg prose-p:font-navigation prose-p:text-justify dark:prose-invert"
@@ -36,7 +36,7 @@
         proper acknowledgment.
       </p>
     </article>
-  </main>
+  </section>
 </template>
 
 <script setup>

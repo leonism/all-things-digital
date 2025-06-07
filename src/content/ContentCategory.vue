@@ -1,5 +1,5 @@
 <template>
-  <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <ContentCategoryHeader :categoryName="category" />
     <section id="blogArticles" class="flex flex-col">
       <BlogArticleCard
@@ -25,7 +25,7 @@
         <p>No blog posts found for this category.</p>
       </div>
     </section>
-  </main>
+  </section>
 </template>
 
 <script setup>

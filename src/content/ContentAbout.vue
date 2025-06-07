@@ -1,5 +1,5 @@
 <template>
-  <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <AboutHeader />
     <article
       class="mx-auto prose md:prose-md lg:prose-lg prose-p:font-navigation prose-p:text-justify prose-headings:font-navigation prose-a:text-pink-heading dark:prose-invert"
@@ -35,7 +35,7 @@
         SERP through SEO methods. Hope you enjoy reading my documentation!
       </p>
     </article>
-  </main>
+  </section>
 </template>
 
 <script setup>
