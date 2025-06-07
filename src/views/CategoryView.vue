@@ -1,7 +1,7 @@
 <template>
   <main
     id="mainWrapper"
-    class="max-w-4xl px-5 mx-auto sm:px-6 lg:px-8 py-8"
+    class="max-w-4xl mx-5 py-8 sm:mx-5 md:mx-10 lg:mx-auto"
     role="main"
   >
     <!-- Category Header Section -->

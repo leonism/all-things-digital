@@ -1,5 +1,9 @@
 <template>
-  <main id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+  <main
+    id="mainWrapper"
+    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
+    role="main"
+  >
     <HeaderHome />
     <BlogFeaturedPost
       v-if="featuredPost"

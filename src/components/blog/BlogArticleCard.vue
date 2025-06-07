@@ -8,7 +8,7 @@
   >
     <!-- Featured Image with proper figure semantics -->
     <figure
-      class="mb-0 shrink-0 md:w-1/3"
+      class="mb-0 shrink-0 md:w-2/5"
       itemprop="image"
       itemscope
       itemtype="https://schema.org/ImageObject"
