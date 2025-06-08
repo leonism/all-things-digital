@@ -1,7 +1,7 @@
 <template>
   <!-- Blog Post Card Component - Enhanced with semantic HTML and ARIA -->
   <article
-    class="flex flex-col my-5 sm:my-5 md:my-3 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
+    class="flex flex-col min-h-60 my-5 sm:my-5 md:my-3 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
     aria-labelledby="article-title article-excerpt"
     itemscope
     itemtype="https://schema.org/BlogPosting"
@@ -58,10 +58,31 @@
             </router-link>
           </h2>
 
-          <!-- Publication Date and Category with machine-readable format -->
+          <!-- Author, Publication Date (with machine-readable format), and Category -->
           <div
             class="flex items-center text-xs text-slate-500 dark:text-gray-400 mt-1"
           >
+            <span v-if="authorName" class="flex items-center mr-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mr-1.5 h-3.5 w-3.5"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <title>Author</title>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a8.967 8.967 0 0015 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span itemprop="author">{{ authorName }}</span>
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -80,9 +101,9 @@
                 d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
               />
             </svg>
-            <time :datetime="date" itemprop="datePublished">{{
-              formattedDate
-            }}</time>
+            <time :datetime="date" itemprop="datePublished">
+              {{ formattedDate }}
+            </time>
             <span v-if="category" class="ml-3 flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -188,6 +209,7 @@ interface Props {
   authorImageSrc?: string;
   authorImageAlt?: string;
   authorLink?: string;
+  authorName?: string; // Add authorName prop
   category?: string; // Add category prop
 }
 
@@ -208,6 +230,7 @@ const props = withDefaults(defineProps<Props>(), {
   authorImageSrc: '/assets/img/avatar.png',
   authorImageAlt: 'Author profile picture',
   authorLink: '/about',
+  authorName: 'Unknown Author', // Default for authorName
   category: '', // Default for category
 });
 

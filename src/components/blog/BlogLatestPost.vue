@@ -13,7 +13,6 @@
         Latest Blog
       </h2>
     </header>
-
     <!--
       Content section with preserved text styling and responsive behavior
       Using <section> here would be redundant, so we keep it as <div>

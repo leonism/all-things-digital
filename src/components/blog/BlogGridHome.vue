@@ -15,6 +15,7 @@
         :tags="post.tags"
         :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
         :authorImageAlt="post.author?.name || 'Author profile picture'"
+        :authorName="post.author?.name || 'Unknown Author'"
       />
     </div>
     <div

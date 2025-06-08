@@ -94,6 +94,27 @@
         >
           <!-- Publication date -->
           <div class="flex items-center">
+            <span v-if="authorName" class="flex items-center mr-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mr-1.5 h-3.5 w-3.5"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <title>Author</title>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a8.967 8.967 0 0015 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span itemprop="author">{{ authorName }}</span>
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -204,6 +225,7 @@ interface Props {
   authorImageSrc: string;
   authorImageAlt?: string;
   authorLink: string;
+  authorName?: string; // Add authorName prop
 }
 
 const props = withDefaults(defineProps<Props>(), {

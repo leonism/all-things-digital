@@ -147,6 +147,7 @@
         :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
         :authorImageAlt="post.author?.name || 'Author profile picture'"
         :authorLink="post.author?.link || '/about'"
+        :authorName="post.author?.name || 'Unknown Author'"
         role="article"
       />
 

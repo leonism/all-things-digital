@@ -20,6 +20,7 @@
         :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
         :authorImageAlt="post.author?.name || 'Author profile picture'"
         :authorLink="post.author?.link || '/about'"
+        :authorName="post.author?.name || 'Unknown Author'"
       />
     </div>
     <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
