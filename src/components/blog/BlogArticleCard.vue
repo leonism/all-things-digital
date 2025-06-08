@@ -1,7 +1,7 @@
 <template>
   <!-- Blog Post Card Component - Enhanced with semantic HTML and ARIA -->
   <article
-    class="flex flex-col overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 sm:my-5 md:my-3 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
+    class="flex flex-col overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 my-5 sm:my-5 md:my-3 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
     aria-labelledby="article-title article-excerpt"
     itemscope
     itemtype="https://schema.org/BlogPosting"
@@ -110,7 +110,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="mr-2 h-3.5 w-3.5"
+          class="mr-2 h-5 w-5"
           aria-hidden="true"
           focusable="false"
           role="img"

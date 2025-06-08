@@ -33,28 +33,11 @@
     </div>
 
     <!-- Pagination Controls -->
-    <div v-if="totalPages > 1" class="pagination">
-      <button
-        :disabled="currentPage === 1"
-        @click="goToPageLocal(currentPage - 1)"
-      >
-        Previous
-      </button>
-      <button
-        v-for="page in totalPages"
-        :key="page"
-        :class="{ active: page === currentPage }"
-        @click="goToPageLocal(page)"
-      >
-        {{ page }}
-      </button>
-      <button
-        :disabled="currentPage === totalPages"
-        @click="goToPageLocal(currentPage + 1)"
-      >
-        Next
-      </button>
-    </div>
+    <Pagination
+      :currentPage="currentPage"
+      :totalPages="totalPages"
+      @page-change="goToPageLocal"
+    />
   </section>
 </template>
 
@@ -74,6 +57,7 @@ import { useRoute } from 'vue-router';
 import { usePagination } from '../../composables/usePagination';
 import HeaderBlog from '../heading/HeaderBlog.vue';
 import BlogArticleCard from './BlogArticleCard.vue';
+import Pagination from '../../components/common/Pagination.vue';
 import postsData from '../../blog-data.json';
 
 interface BlogPost {
@@ -125,14 +109,12 @@ const { currentPage, totalPages, goToPage } = usePagination(
 );
 
 // Function to handle page navigation locally and update the URL.
-const goToPageLocal = (page) => {
-  if (page >= 1 && page <= totalPages.value) {
-    goToPage(page);
-    router.push({
-      name: 'blog-list-pagination',
-      params: { page: String(page) },
-    });
-  }
+const goToPageLocal = (page: number) => {
+  goToPage(page);
+  router.push({
+    name: 'blog-list-pagination',
+    params: { page: String(page) },
+  });
 };
 
 // Computed property to get the posts for the current page.
@@ -202,59 +184,3 @@ onMounted(() => {
   }
 });
 </script>
-
-<style scoped>
-/* Add component-specific styles if necessary */
-
-/* Basic styling for pagination */
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  gap: 0.5rem; /* Space between buttons */
-}
-
-.pagination button {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  border-radius: 0.25rem; /* Rounded corners */
-}
-
-.pagination button:hover:not(:disabled) {
-  background-color: #f0f0f0;
-}
-
-.pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pagination button.active {
-  background-color: #007bff; /* Example active color */
-  color: white;
-  border-color: #007bff;
-}
-
-/* Dark mode styles for pagination */
-.dark .pagination button {
-  background-color: #333;
-  border-color: #555;
-  color: #eee;
-}
-
-.dark .pagination button:hover:not(:disabled) {
-  background-color: #555;
-}
-
-.dark .pagination button.active {
-  background-color: #0056b3; /* Example active color in dark mode */
-  border-color: #0056b3;
-}
-</style>
-
-<style scoped>
-/* Add component-specific styles if necessary */
-</style>

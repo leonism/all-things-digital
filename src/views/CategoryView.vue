@@ -154,37 +154,11 @@
       </div>
 
       <!-- Fluid Pagination -->
-      <div v-if="totalPages > 1" class="flex justify-center mt-12 space-x-2">
-        <button
-          @click="goToPageLocal(currentPage - 1)"
-          :disabled="currentPage === 1"
-          class="px-4 py-2 text-sm font-medium text-gray-700 bg-white/70 border border-gray-200/50 rounded-xl dark:bg-gray-800/50 dark:text-gray-300 dark:border-gray-700/50 disabled:opacity-50 hover:bg-white dark:hover:bg-gray-700/70 transition-all duration-200"
-        >
-          Previous
-        </button>
-
-        <button
-          v-for="page in totalPages"
-          :key="page"
-          @click="goToPageLocal(page)"
-          :class="{
-            'bg-indigo-500/90 text-white': currentPage === page,
-            'bg-white/70 text-gray-700 dark:bg-gray-800/50 dark:text-gray-300':
-              currentPage !== page,
-          }"
-          class="px-4 py-2 text-sm font-medium border border-gray-200/50 dark:border-gray-700/50 rounded-xl hover:bg-white/90 dark:hover:bg-gray-700/70 transition-all duration-200"
-        >
-          {{ page }}
-        </button>
-
-        <button
-          @click="goToPageLocal(currentPage + 1)"
-          :disabled="currentPage === totalPages"
-          class="px-4 py-2 text-sm font-medium text-gray-700 bg-white/70 border border-gray-200/50 rounded-xl dark:bg-gray-800/50 dark:text-gray-300 dark:border-gray-700/50 disabled:opacity-50 hover:bg-white dark:hover:bg-gray-700/70 transition-all duration-200"
-        >
-          Next
-        </button>
-      </div>
+      <Pagination
+        :currentPage="currentPage"
+        :totalPages="totalPages"
+        @page-change="goToPageLocal"
+      />
     </section>
 
     <!-- Empty State -->
@@ -206,17 +180,53 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import blogData from '../blog-data.json';
 import HeaderCategory from '../components/heading/HeaderCategory.vue';
+import Pagination from '../components/common/Pagination.vue';
+import { usePagination } from '../composables/usePagination';
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  subtitle?: string;
+  date: string;
+  lastModified?: string;
+  author?: {
+    name: string;
+    role?: string;
+    image?: string;
+    link?: string;
+  };
+  category?: string;
+  categories?: string[];
+  tags?: string[];
+  featuredImage?: {
+    src: string;
+    alt?: string;
+  };
+  contentHtml: string;
+  seoTitle?: string;
+  excerpt?: string;
+  description?: string;
+  metaRobots?: string;
+  canonicalUrl?: string;
+  schema?: any;
+  status?: 'published' | 'draft' | string;
+}
 
 const route = useRoute();
 const router = useRouter();
 const categoryParam = route.params.category;
-const currentPage = ref(1);
 const postsPerPage = 3;
+const allPosts = ref<BlogPost[]>([]);
+
+const { currentPage, totalPages, goToPage } = usePagination(
+  computed(() => allPosts.value.length),
+  postsPerPage,
+);
 
 const displayCategoryName = computed(() => {
   return categoryParam
@@ -224,21 +234,9 @@ const displayCategoryName = computed(() => {
     : 'All Categories';
 });
 
-const filteredPosts = computed(() => {
-  return !categoryParam
-    ? blogData
-    : blogData.filter(
-        (post) => post.category.toLowerCase() === categoryParam.toLowerCase(),
-      );
-});
-
-const totalPages = computed(() => {
-  return Math.ceil(filteredPosts.value.length / postsPerPage);
-});
-
 const paginatedPosts = computed(() => {
   const startIndex = (currentPage.value - 1) * postsPerPage;
-  return filteredPosts.value.slice(startIndex, startIndex + postsPerPage);
+  return allPosts.value.slice(startIndex, startIndex + postsPerPage);
 });
 
 const allCategories = computed(() => {
@@ -273,19 +271,36 @@ function formatDate(dateString) {
   });
 }
 
-function goToPageLocal(page) {
-  if (page >= 1 && page <= totalPages.value) {
-    currentPage.value = page;
-    if (categoryParam) {
-      router.push({
-        name: 'category-archive',
-        params: { category: categoryParam, page: page },
-      });
-    } else {
-      router.push({ name: 'blog-categories-list', params: { page: page } });
-    }
+const goToPageLocal = (page: number) => {
+  goToPage(page);
+  if (categoryParam) {
+    router.push({
+      name: 'category-archive',
+      params: { category: categoryParam, page: String(page) },
+    });
+  } else {
+    router.push({ name: 'blog-categories-list', params: { page: String(page) } });
   }
-}
+};
+
+onMounted(() => {
+  const category = categoryParam;
+  const page = Number(route.params.page) || 1;
+
+  const filtered = blogData.filter(
+    (post) =>
+      (!post.status || post.status === 'published') &&
+      (!category || (post.category && post.category.toLowerCase() === category.toLowerCase()))
+  );
+
+  allPosts.value = filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  if (page > 1 && page <= totalPages.value) {
+    currentPage.value = page;
+  } else {
+    currentPage.value = 1;
+  }
+});
 </script>
 
 <style>

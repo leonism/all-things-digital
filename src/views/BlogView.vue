@@ -30,13 +30,11 @@
       </section>
 
       <!-- Pagination Controls -->
-      <nav aria-label="Blog pagination">
-        <Pagination
-          :currentPage="currentPage"
-          :totalPages="totalPages"
-          @page-change="handlePageChange"
-        />
-      </nav>
+      <Pagination
+        :currentPage="currentPage"
+        :totalPages="totalPages"
+        @page-change="handlePageChange"
+      />
     </template>
 
     <!-- Empty State, backfall if no markdown populated  -->
@@ -102,16 +100,13 @@ interface BlogPost {
 // Reactive reference to store all published blog posts.
 const allPublishedPosts: Ref<BlogPost[]> = ref([]);
 
-// Pagination state
 const postsPerPage = 6;
-const currentPage = ref(1);
 
-// Computed property for the total number of pages
-const totalPages = computed(() => {
-  return Math.ceil(allPublishedPosts.value.length / postsPerPage);
-});
+const { currentPage, totalPages, goToPage } = usePagination(
+  computed(() => allPublishedPosts.value.length),
+  postsPerPage
+);
 
-// Computed property for the posts to display on the current page
 const paginatedPosts = computed(() => {
   const start = (currentPage.value - 1) * postsPerPage;
   const end = start + postsPerPage;
@@ -120,7 +115,7 @@ const paginatedPosts = computed(() => {
 
 // Function to handle page changes from the pagination component
 const handlePageChange = (page: number) => {
-  currentPage.value = page;
+  goToPage(page);
   // Optional: Scroll to top when page changes
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };

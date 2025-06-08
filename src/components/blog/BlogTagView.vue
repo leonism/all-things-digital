@@ -31,33 +31,11 @@
       >
     </div>
     <!-- Pagination Controls -->
-    <div v-if="totalPages > 1" class="flex justify-center mt-8 gap-2">
-      <button
-        class="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-        :disabled="currentPage === 1"
-        @click="goToPageLocal(currentPage - 1)"
-      >
-        Previous
-      </button>
-      <button
-        v-for="page in totalPages"
-        :key="page"
-        class="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600"
-        :class="{
-          'bg-indigo-600 text-white border-indigo-600': page === currentPage,
-        }"
-        @click="goToPageLocal(page)"
-      >
-        {{ page }}
-      </button>
-      <button
-        class="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-        :disabled="currentPage === totalPages"
-        @click="goToPageLocal(currentPage + 1)"
-      >
-        Next
-      </button>
-    </div>
+    <Pagination
+      :currentPage="currentPage"
+      :totalPages="totalPages"
+      @page-change="goToPageLocal"
+    />
     <div v-if="!tagName" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <div
         v-for="tag in allTags"
@@ -72,13 +50,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
 import BlogArticleCard from './BlogArticleCard.vue';
 import { usePagination } from '../../composables/usePagination';
+import Pagination from '../common/Pagination.vue';
 
 const getTagSlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, '-');
@@ -104,14 +83,12 @@ const paginatedPosts = computed(() => {
   return allPosts.value.slice(startIndex, endIndex);
 });
 
-const goToPageLocal = (page) => {
-  if (page >= 1 && page <= totalPages.value) {
-    goToPage(page);
-    router.push({
-      name: 'tag-archive-pagination',
-      params: { tag: route.params.tag, page: String(page) },
-    });
-  }
+const goToPageLocal = (page: number) => {
+  goToPage(page);
+  router.push({
+    name: 'tag-archive-pagination',
+    params: { tag: route.params.tag, page: String(page) },
+  });
 };
 
 // Computed properties for meta tags
