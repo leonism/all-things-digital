@@ -103,7 +103,7 @@
 
   @font-face {
     font-family: 'Poppins';
-    src: url('/assets/fonts/poppins-v23-latin-900.woff2') format('woff2');
+    src: url('/assets/fonts/poppins/poppins-v23-latin-900.woff2') format('woff2');
     font-weight: var(--font-weight-black);
     font-weight: 900;
     font-style: normal;

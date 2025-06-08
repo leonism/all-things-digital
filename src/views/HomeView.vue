@@ -39,7 +39,6 @@
         </div>
       </template>
     </BlogLatestPost>
-    <!-- <BlogGridHome /> -->
   </section>
 </template>
 
@@ -63,7 +62,7 @@ const latestPosts = useLatestPosts();
 const featuredImageSrc = computed(
   () =>
     featuredPost.value?.featuredImage?.src ||
-    '/assets/img/featured-blog-comp.jpg', // Use the absolute path
+    '/assets/img/featured-blog-comp.jpg',
 );
 const featuredImageAlt = computed(
   () => featuredPost.value?.featuredImage?.alt || featuredPost.value?.title,

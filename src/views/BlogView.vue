@@ -68,7 +68,7 @@ import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
-import usePagination from '../composables/usePagination.js';
+import usePagination from '../composables/usePagination';
 
 interface BlogPost {
   slug: string;
