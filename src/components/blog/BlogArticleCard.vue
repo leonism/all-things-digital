@@ -3,7 +3,6 @@
   <article
     class="flex flex-col min-h-60 my-5 sm:my-5 md:my-3 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
     aria-labelledby="article-title article-excerpt"
-    itemscope
     itemtype="https://schema.org/BlogPosting"
   >
     <!-- Featured Image with proper figure semantics -->
@@ -26,7 +25,7 @@
     </figure>
 
     <!-- Main content container with proper landmark roles -->
-    <div
+    <section
       class="flex grow flex-col p-4 md:p-5 md:ml-0"
       role="region"
       aria-labelledby="article-title"
@@ -41,7 +40,7 @@
           itemscope
           itemtype="https://schema.org/Person"
         />
-        <div id="postMetaData" class="grow">
+        <section id="postMetaData" class="grow">
           <!-- Main article title as h2 for proper document outline -->
           <h2
             id="article-title"
@@ -57,12 +56,11 @@
               {{ title }}
             </router-link>
           </h2>
-
           <!-- Author, Publication Date (with machine-readable format), and Category -->
-          <div
+          <section
             class="flex items-center text-xs text-slate-500 dark:text-gray-400 mt-1"
           >
-            <span v-if="authorName" class="flex items-center mr-3">
+            <span v-if="authorName" class="flex items-center text-nowrap">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -81,30 +79,32 @@
                   d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a8.967 8.967 0 0015 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span itemprop="author">{{ authorName }}</span>
-            </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="mr-1.5 h-3.5 w-3.5"
-              aria-hidden="true"
-              focusable="false"
-              role="img"
-            >
-              <title>Published date</title>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-              />
-            </svg>
-            <time :datetime="date" itemprop="datePublished">
-              {{ formattedDate }}
-            </time>
-            <span v-if="category" class="ml-3 flex items-center">
+              <span itemprop="author" class="mr-1 md:mr-2">
+                {{ authorName }}
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mr-1.5 h-3.5 w-3.5"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <title>Published date</title>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              <time :datetime="date" itemprop="datePublished">
+                <span itemprop="date" class="mr-1 md:mr-2">
+                  {{ formattedDate }}
+                </span>
+              </time>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -128,15 +128,18 @@
                   d="M6 6h.008v.008H6V6z"
                 />
               </svg>
-              <router-link
-                :to="`/blog/category/${category.toLowerCase()}`"
-                class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                itemprop="articleSection"
-                >{{ category }}</router-link
-              >
+              <span itemprop="category" class="mr-1 md:mr-2">
+                <router-link
+                  :to="`/blog/category/${category.toLowerCase()}`"
+                  class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  itemprop="articleSection"
+                >
+                  {{ category }}
+                </router-link>
+              </span>
             </span>
-          </div>
-        </div>
+          </section>
+        </section>
       </header>
 
       <!-- Article Excerpt with accessible description -->
@@ -184,12 +187,13 @@
               :aria-label="`Browse articles tagged ${tag}`"
               itemprop="about"
             >
-              {{ tag }}</router-link
-            ><span v-if="index < tags.length - 1" aria-hidden="true">, </span>
+              {{ tag }}
+            </router-link>
+            <span v-if="index < tags.length - 1" aria-hidden="true">, </span>
           </template>
         </span>
       </footer>
-    </div>
+    </section>
   </article>
 </template>
 
