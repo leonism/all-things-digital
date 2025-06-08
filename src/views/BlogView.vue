@@ -79,7 +79,7 @@ interface BlogPost {
     name: string;
     role?: string;
     image?: string;
-    link?: string; // Added link property
+    link?: string;
   };
   category?: string;
   categories?: string[];
@@ -91,18 +91,18 @@ interface BlogPost {
   contentHtml: string;
   seoTitle?: string;
   excerpt?: string;
-  description?: string; // Added description property
+  description?: string;
   metaRobots?: string;
   canonicalUrl?: string;
-  schema?: any; // Use a more specific type if schema structure is known
-  status?: 'published' | 'draft' | string; // Allow string type based on data structure
+  schema?: any;
+  status?: 'published' | 'draft' | string;
 }
 
 // Reactive reference to store all published blog posts.
 const allPublishedPosts: Ref<BlogPost[]> = ref([]);
-
+// Configure how many post being shown per pages.
 const postsPerPage = 6;
-
+// Confihure the pagination.
 const { currentPage, totalPages, goToPage } = usePagination(
   computed(() => allPublishedPosts.value.length),
   postsPerPage,

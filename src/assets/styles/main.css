@@ -1,10 +1,6 @@
 @import 'tailwindcss';
 @import 'highlight.js/styles/github.css'; /* Import highlight.js theme */
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 /* start the tailwind dark-mode targeting */
 @custom-variant dark (&:is(.dark *));
 
@@ -123,24 +119,23 @@ Custom Styles
   @apply hidden;
 }
 
-.gradient-heading {
+.gradient-headers {
   margin-top: 1.25rem; /* mt-5 */
   font-size: 2.25rem; /* text-4xl */
-  line-height: 1.1; /* leading-[1.1] */
+  line-height: 1.15; /* leading-[1.15] */
   font-weight: 800; /* font-bold + font-extrabold */
   font-family: var(--font-navigation); /* font-navigation */
   letter-spacing: -0.025em; /* tracking-tight */
   color: transparent; /* text-transparent */
   background-clip: text; /* bg-clip-text */
   -webkit-background-clip: text; /* For Safari */
-  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* drop-shadow-lg */
+  @apply drop-shadow-lg; /* drop-shadow-lg */
   background-image: linear-gradient(
     to bottom right,
     #818cf8,
     #ec4899
   ); /* bg-gradient-to-br from-indigo-400 to-pink-600 */
   -webkit-font-smoothing: subpixel-antialiased; /* subpixel-antialiased */
-
   /* Responsive font sizes */
   @media (min-width: 640px) {
     font-size: 2.5rem;
@@ -156,7 +151,7 @@ Custom Styles
   } /* xl:text-8xl */
 }
 
-/* Here's the background gradient effects */
+/* Here's the main background gradient effects */
 .blurGrad {
   position: relative;
 }

@@ -1,8 +1,6 @@
 <template>
   <header id="mainHeading" class="text-center">
-    <h1
-      class="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] subpixel-antialiased font-extrabold font-navigation tracking-tight text-transparent bg-clip-text drop-shadow-lg bg-linear-to-br from-indigo-400 to-pink-600"
-    >
+    <h1 id="mainHeading" class="gradient-headers">
       {{ title }}
     </h1>
     <h2
@@ -32,7 +30,8 @@
       </svg>
       <time :datetime="date">{{ formattedDate }}</time>
       <template v-for="(tag, index) in tags" :key="tag">
-        <a href="#" rel="tag">{{ tag }}</a><span v-if="index < tags.length - 1">, </span>
+        <a href="#" rel="tag">{{ tag }}</a
+        ><span v-if="index < tags.length - 1">, </span>
       </template>
     </p>
   </aside>
