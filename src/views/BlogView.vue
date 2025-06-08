@@ -67,6 +67,7 @@ import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
+import usePagination from '../composables/usePagination.js';
 
 interface BlogPost {
   slug: string;
@@ -104,7 +105,7 @@ const postsPerPage = 6;
 
 const { currentPage, totalPages, goToPage } = usePagination(
   computed(() => allPublishedPosts.value.length),
-  postsPerPage
+  postsPerPage,
 );
 
 const paginatedPosts = computed(() => {

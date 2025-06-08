@@ -147,7 +147,7 @@
 <script setup>
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '../avatar/AvatarAuthor.vue';
+import AvatarAuthor from '../common/AvatarAuthor.vue';
 
 /**
  * Generates a hyphenated slug from a tag name.
