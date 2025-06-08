@@ -5,7 +5,7 @@
   -->
   <article
     id="featuredPost"
-    class="mx-5 mx-auto md:mb-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
+    class="my-10 sm:my-10 md:my-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
     itemscope
     itemtype="https://schema.org/BlogPosting"
     aria-labelledby="featuredPostTitle"

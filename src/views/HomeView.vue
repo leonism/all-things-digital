@@ -1,7 +1,7 @@
 <template>
   <section
     id="mainWrapper"
-    class="max-w-4xl sm:mx-5 md:mx-10 lg:mx-auto"
+    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
     role="main"
   >
     <HeaderHome />
