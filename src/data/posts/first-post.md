@@ -13,7 +13,7 @@ tags:
   - 'vite'
   - 'vue3'
   - 'markdown'
-  - 'example'
+  - 'Vite'
 featuredImage:
   src: '/assets/img/thumbnail-1.png' # Placeholder featured image
   alt: 'Code example screenshot' # Alt text for the image

@@ -23,7 +23,6 @@
         loading="lazy"
         decoding="async"
       />
-      <!-- Note: Consider adding <figcaption> if images need captions -->
     </figure>
 
     <!-- Main content container with proper landmark roles -->
@@ -59,11 +58,9 @@
             </router-link>
           </h2>
 
-          <!-- Publication Date with machine-readable format -->
+          <!-- Publication Date and Category with machine-readable format -->
           <div
             class="flex items-center text-xs text-slate-500 dark:text-gray-400 mt-1"
-            itemprop="datePublished"
-            content="date"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,9 +83,40 @@
             <time :datetime="date" itemprop="datePublished">{{
               formattedDate
             }}</time>
+            <span v-if="category" class="ml-3 flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="mr-1.5 h-3.5 w-3.5"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <title>Category</title>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 6h.008v.008H6V6z"
+                />
+              </svg>
+              <router-link
+                :to="`/blog/category/${category.toLowerCase()}`"
+                class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                itemprop="articleSection"
+                >{{ category }}</router-link
+              >
+            </span>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
       <!-- Article Excerpt with accessible description -->
       <p
@@ -130,7 +158,7 @@
         <span itemprop="keywords">
           <template v-for="(tag, index) in tags" :key="tag">
             <router-link
-              :to="`/category/${getTagSlug(tag)}`"
+              :to="`/blog/tag/${getTagSlug(tag)}`"
               class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               :aria-label="`Browse articles tagged ${tag}`"
               itemprop="about"
@@ -144,10 +172,24 @@
   </article>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
+
+interface Props {
+  imageSrc: string;
+  imageAlt?: string;
+  title: string;
+  postLink: string;
+  date: string;
+  excerpt?: string;
+  tags?: string[];
+  authorImageSrc?: string;
+  authorImageAlt?: string;
+  authorLink?: string;
+  category?: string; // Add category prop
+}
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -159,47 +201,14 @@ const getTagSlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
-const props = defineProps({
-  imageSrc: {
-    type: String,
-    required: true,
-  },
-  imageAlt: {
-    type: String,
-    default: '',
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  postLink: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: String,
-    required: true,
-  },
-  excerpt: {
-    type: String,
-    default: '',
-  },
-  tags: {
-    type: Array,
-    default: () => [],
-  },
-  authorImageSrc: {
-    type: String,
-    default: '/assets/img/avatar.png', // Default author image
-  },
-  authorImageAlt: {
-    type: String,
-    default: 'Author profile picture',
-  },
-  authorLink: {
-    type: String,
-    default: '/about', // Default link to author's about page
-  },
+const props = withDefaults(defineProps<Props>(), {
+  imageAlt: '',
+  excerpt: '',
+  tags: () => [],
+  authorImageSrc: '/assets/img/avatar.png',
+  authorImageAlt: 'Author profile picture',
+  authorLink: '/about',
+  category: '', // Default for category
 });
 
 // Function to dynamically import images

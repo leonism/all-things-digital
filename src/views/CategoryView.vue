@@ -1,7 +1,7 @@
 <template>
-  <main
+  <section
     id="mainWrapper"
-    class="max-w-4xl mx-5 py-8 sm:mx-5 md:mx-10 lg:mx-auto"
+    class="max-w-4xl sm:mx-5 md:mx-10 lg:mx-auto"
     role="main"
   >
     <!-- Category Header Section -->
@@ -132,26 +132,23 @@
 
     <!-- Blog Posts Grid -->
     <section v-if="paginatedPosts.length" aria-label="Blog articles">
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <BlogArticleCard
-          v-for="post in paginatedPosts"
-          :key="post.slug"
-          :imageSrc="
-            post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
-          "
-          :imageAlt="post.featuredImage?.alt || post.title"
-          :title="post.title"
-          :postLink="`/blog/${post.slug}`"
-          :date="post.date"
-          :excerpt="post.excerpt || post.description"
-          :tags="post.tags"
-          :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
-          :authorImageAlt="post.author?.name || 'Author profile picture'"
-          :authorLink="post.author?.link || '/about'"
-          class="bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-700/70 border border-gray-100/50 dark:border-gray-700/50 rounded-2xl backdrop-blur-sm transition-all duration-300 hover:shadow-sm"
-          role="article"
-        />
-      </div>
+      <BlogArticleCard
+        v-for="post in paginatedPosts"
+        :key="post.slug"
+        :imageSrc="
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+        "
+        :imageAlt="post.featuredImage?.alt || post.title"
+        :title="post.title"
+        :postLink="`/blog/${post.slug}`"
+        :date="post.date"
+        :excerpt="post.excerpt || post.description"
+        :tags="post.tags"
+        :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
+        :authorImageAlt="post.author?.name || 'Author profile picture'"
+        :authorLink="post.author?.link || '/about'"
+        role="article"
+      />
 
       <!-- Fluid Pagination -->
       <Pagination
@@ -177,7 +174,7 @@
         Back to Blog List
       </router-link>
     </section>
-  </main>
+  </section>
 </template>
 
 <script setup lang="ts">

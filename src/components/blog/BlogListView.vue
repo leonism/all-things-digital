@@ -20,6 +20,7 @@
         :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
         :authorImageAlt="post.author?.name || 'Author profile picture'"
         :authorLink="post.author?.link || '/about'"
+        :category="post.category"
       />
     </div>
 
