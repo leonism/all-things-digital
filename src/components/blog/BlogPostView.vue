@@ -20,8 +20,9 @@
       <div class="p-6 md:p-8">
         <div
           class="prose prose-lg dark:prose-invert max-w-none prose-blue dark:prose-blue"
-          v-html="post.contentHtml"
-        ></div>
+        >
+          <component :is="postContentComponent" v-if="postContentComponent" />
+        </div>
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
           <div v-if="post.categories && post.categories.length" class="mb-4">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
@@ -110,6 +111,12 @@ import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
 
+// Define a type for the dynamically imported Markdown component
+interface MarkdownModule {
+  default: Component;
+  frontmatter: Record<string, any>;
+}
+
 // Function to dynamically import images
 const getImageUrl = (path: string): string => {
   // Use the path directly as it's already relative to the project root or an absolute URL
@@ -145,7 +152,6 @@ interface BlogPost {
     src: string;
     alt?: string;
   };
-  contentHtml: string;
   seoTitle?: string;
   excerpt?: string;
   metaRobots?: string;
@@ -156,6 +162,7 @@ interface BlogPost {
 
 const route = useRoute();
 const post: Ref<BlogPost | null> = ref(null);
+const postContentComponent: Ref<Component | null> = ref(null);
 
 /**
  * Finds a blog post by its slug in the imported posts data.
@@ -168,6 +175,22 @@ const findPost = (slug: string): BlogPost | null => {
   return foundPost && (!foundPost.status || foundPost.status === 'published')
     ? (foundPost as BlogPost)
     : null;
+};
+
+// Function to dynamically import the Markdown file
+const loadMarkdownComponent = async (slug: string) => {
+  try {
+    // Dynamically import the Markdown file based on the slug
+    const module = (await import(
+      `../../data/posts/${slug}.md`
+    )) as MarkdownModule;
+    postContentComponent.value = module.default;
+    // You can also access frontmatter here if needed for other parts of the component
+    // For example: console.log(module.frontmatter);
+  } catch (error) {
+    console.error(`Failed to load Markdown for slug: ${slug}`, error);
+    postContentComponent.value = null;
+  }
 };
 
 // Computed properties for meta tags
@@ -252,7 +275,11 @@ watch(
     if (newSlug) {
       const slug = Array.isArray(newSlug) ? newSlug[0] : newSlug;
       post.value = findPost(slug);
-      // Meta tags are updated automatically by the 'post' watcher above
+      if (post.value) {
+        loadMarkdownComponent(slug);
+      } else {
+        postContentComponent.value = null;
+      }
     }
   },
   { immediate: true },

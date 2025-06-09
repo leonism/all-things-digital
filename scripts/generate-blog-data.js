@@ -2,16 +2,15 @@ import fs from 'fs';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
-import MarkdownIt from 'markdown-it';
-import hljs from 'highlight.js'; // Import highlight.js
 
 /**
  * This script reads all markdown files from the 'src/data/posts' directory,
- * extracts their frontmatter (metadata) and content, converts the markdown
- * content to HTML with syntax highlighting, and compiles all post data into a single JSON file.
+ * extracts their frontmatter (metadata), and compiles all post data into a single JSON file.
  *
  * The generated JSON file ('src/blog-data.json') is used by the blog
- * components to display post listings and individual post content.
+ * components to display post listings and individual post metadata.
+ * The actual Markdown content rendering is handled by `unplugin-vue-markdown`
+ * directly in Vue components.
  *
  * The script performs the following steps:
  * 1. Reads all files in the posts directory.
@@ -20,9 +19,7 @@ import hljs from 'highlight.js'; // Import highlight.js
  *    - Extracts the slug from the filename.
  *    - Reads the file content.
  *    - Parses the frontmatter (YAML header) using gray-matter.
- *    - Converts the markdown content (after frontmatter) to HTML using markdown-it,
- *      applying syntax highlighting with highlight.js.
- *    - Combines the slug, HTML content, and frontmatter data into a post object.
+ *    - Combines the slug and frontmatter data into a post object.
  *    - Ensures the date is correctly formatted (ISO string).
  * 4. Sorts the resulting array of post objects by date in descending order (newest first).
  * 5. Writes the sorted post data array to 'src/blog-data.json' as a pretty-printed JSON string.
@@ -37,29 +34,9 @@ const __dirname = dirname(__filename); // Corrected path resolution
 const postsDir = path.resolve(__dirname, '../src/data/posts');
 const outputDataFile = path.resolve(__dirname, '../src/blog-data.json');
 
-// Initialize MarkdownIt with options for syntax highlighting
-const md = new MarkdownIt({
-  html: true, // Enable HTML tags in source
-  xhtmlOut: false, // Use '/' to close single tags (<br/>).
-  breaks: false, // Convert '\n' in paragraphs into <br>
-  langPrefix: 'language-', // CSS language prefix for fenced blocks. Can be useful for external highlighters.
-  linkify: true, // Autoconvert URL-like text to links
-
-  // Enable syntax highlighting and configure highlight.js
-  highlight: function (str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return hljs.highlight(str, { language: lang }).value;
-      } catch (__) {}
-    }
-
-    return ''; // use external default highlighter or do nothing
-  },
-});
-
 /**
  * Reads, parses, and processes all markdown post files.
- * @returns {Array<{ slug: string; contentHtml: string; date?: string | Date; [key: string]: any }>} An array of post data objects, sorted by date.
+ * @returns {Array<{ slug: string; date?: string | Date; [key: string]: any }>} An array of post data objects, sorted by date.
  */
 function getPostsData() {
   // Read all filenames in the posts directory
@@ -67,7 +44,7 @@ function getPostsData() {
 
   /**
    * Process each markdown file to extract data.
-   * @type {Array<{ slug: string; contentHtml: string; date?: string | Date; [key: string]: any }>}
+   * @type {Array<{ slug: string; date?: string | Date; [key: string]: any }>}
    */
   const allPostsData = fileNames
     .filter((fileName) => fileName.endsWith('.md')) // Only process markdown files
@@ -79,20 +56,15 @@ function getPostsData() {
       const fullPath = path.join(postsDir, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-      // Use gray-matter to parse the post metadata (frontmatter) and content
+      // Use gray-matter to parse the post metadata (frontmatter)
       const matterResult = matter(fileContents);
 
-      // Use markdown-it to convert the markdown content (after frontmatter) into an HTML string
-      // Syntax highlighting is applied here via the 'highlight' option configured above
-      const contentHtml = md.render(matterResult.content);
-
-      // Combine the extracted data with the slug and generated contentHtml
+      // Combine the extracted data with the slug
       /**
-       * @type {{ slug: string; contentHtml: string; date?: string | Date; [key: string]: any }}
+       * @type {{ slug: string; date?: string | Date; [key: string]: any }}
        */
       const postData = {
         slug,
-        contentHtml,
         ...matterResult.data, // Include all frontmatter data (title, date, etc.)
       };
 

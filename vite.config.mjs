@@ -13,7 +13,7 @@ import { resolve, dirname } from 'node:path';
 // Import the 'resolve' function from the 'url' module for resolving file paths.
 import { fileURLToPath } from 'node:url';
 // Import for markdown parsing
-// import Markdown from 'vite-plugin-md';
+import Markdown from 'unplugin-vue-markdown/vite';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -86,10 +86,10 @@ export default defineConfig({
         },
       },
     }),
-    // Markdown({
-    //   wrapperComponent: 'BaseLayout.vue', // Optional, or use your own
-    //   markdownItOptions: { html: true },
-    // }),
+    Markdown({
+      //   wrapperComponent: 'BaseLayout.vue', // Optional, or use your own
+      //   markdownItOptions: { html: true },
+    }),
 
     // Add the compression plugin here
     viteCompression({
