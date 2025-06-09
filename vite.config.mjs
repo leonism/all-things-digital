@@ -55,9 +55,11 @@ export default defineConfig({
       },
       output: {
         assetFileNames: (assetInfo) => {
-          // Use assetInfo.name and ensure it's a string for the regex test
           if (/\.(woff2?|ttf|eot|otf)$/.test(String(assetInfo.name))) {
             return 'assets/fonts/[name]-[hash][extname]';
+          }
+          if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(String(assetInfo.name))) {
+            return 'assets/images/[name]-[hash][extname]';
           }
           return 'assets/[name]-[hash][extname]';
         },
@@ -67,12 +69,9 @@ export default defineConfig({
 
   // Configuration for CSS processing.
   css: {
-    // Configuration for PostCSS.
+    // PostCSS configuration will be primarily handled by postcss.config.js
+    // and the @tailwindcss/vite plugin, which includes autoprefixer.
     postcss: {
-      // An array of PostCSS plugins to be used.
-      plugins: [
-        autoprefixer, // Adds vendor prefixes for CSS properties.
-      ],
     },
   },
 
@@ -100,7 +99,7 @@ export default defineConfig({
       threshold: 10240, // Only compress files larger than 10KB
       algorithm: 'gzip', // Compression algorithm (can also use 'brotliCompress')
       ext: '.gz', // File extension for compressed files
-      filter: /\.(js|css|html|svg|woff|woff2|ttf|eot|json)$/i, // Regex to target font files and other assets
+      filter: /\.(js|css|html|svg|woff|woff2|ttf|eot|json|jpg|jpeg|gif|png|ico)$/i, // Regex to target font files and other assets
       deleteOriginFile: false, // Keep original files
     }),
 
@@ -108,7 +107,7 @@ export default defineConfig({
     viteImagemin({
       // Configuration for GIF optimization using gifsicle.
       gifsicle: {
-        optimizationLevel: 7, // Sets GIF optimization level (0-3, higher is more optimized).
+        optimizationLevel: 3, // Sets GIF optimization level (1-3, higher is more optimized).
         interlaced: true, // Creates interlaced GIFs.
       },
       optipng: {

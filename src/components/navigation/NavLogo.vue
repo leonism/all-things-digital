@@ -3,7 +3,7 @@
     <!-- Use router-link for internal navigation -->
     <router-link to="/">
       <img
-        src="/assets/img/icons/icon-dgpondcom.png"
+        src="../../assets/img/icons/icon-dgpondcom.png"
         alt="Logo"
         id="DGPond"
         itemprop="logo"

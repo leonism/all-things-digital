@@ -12,7 +12,7 @@
       aria-label="Scroll to top of page"
     >
       <img
-        src="/assets/img/icons/logo-footer.png"
+        src="../../assets/img/icons/logo-footer.png"
         width="35"
         height="35"
         alt="Company logo"
