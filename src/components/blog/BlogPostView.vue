@@ -6,7 +6,7 @@
   >
     <article
       v-if="post"
-      class="overflow-hidden md:flex-row md:my-6 rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
+      class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
     >
       <!-- <img
         v-if="processedFeaturedImageSrc"
