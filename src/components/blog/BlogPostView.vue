@@ -8,12 +8,6 @@
       v-if="post"
       class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
     >
-      <!-- <img
-        v-if="processedFeaturedImageSrc"
-        :src="processedFeaturedImageSrc"
-        :alt="post.featuredImage?.alt || post.title"
-        class="w-full h-64 md:h-96 object-cover"
-      /> -->
       <HeaderBlogPost
         :title="post.title"
         :subtitle="post.subtitle"

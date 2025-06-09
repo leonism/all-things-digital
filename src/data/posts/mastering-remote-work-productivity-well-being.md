@@ -102,7 +102,7 @@ For further reading, check out these related articles:
 - [Avoiding Burnout While Working From Home](#): Learn strategies to recognize and prevent burnout.
 - [Creating an Ergonomic Home Office](#): Tips for designing a workspace that supports your health.
 
-![Healthy Remote Work Habits](https://images.pexels.com/photos/4056896/pexels-photo-4056896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+![Healthy Remote Work Habits](https://images.pexels.com/photos/6893801/pexels-photo-6893801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
 _Caption: Practicing healthy habits while working remotely leads to sustained success._
 
 By implementing these strategies, you can thrive in a remote work environment while maintaining your productivity and well-being. Remember, remote work is a marathon, not a sprint—pace yourself and enjoy the journey!
