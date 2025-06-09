@@ -7,7 +7,7 @@ lastModified: '2025-05-26' # Add or update this date if the post content is modi
 author:
   name: 'Mike Smith'
   role: 'Developer'
-  image: '/src/assets/img/avatar.png' # Placeholder author image
+  image: '../../assets/img/avatar.png' # Placeholder author image
 category: 'Technology'
 tags:
   - 'vite'
@@ -15,7 +15,7 @@ tags:
   - 'markdown'
   - 'Vite'
 featuredImage:
-  src: '/src/assets/img/thumbnail-1.png' # Placeholder featured image
+  src: '../../assets/img/thumbnail-1.png'
   alt: 'Code example screenshot' # Alt text for the image
   caption: 'An example image for the first post.' # Optional caption
 excerpt: 'This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.' # A brief summary

@@ -9,7 +9,7 @@
     "author": {
       "name": "Mike Smith",
       "role": "Developer",
-      "image": "/src/assets/img/avatar.png"
+      "image": "../../assets/img/avatar.png"
     },
     "category": "Technology",
     "tags": [
@@ -19,7 +19,7 @@
       "Vite"
     ],
     "featuredImage": {
-      "src": "/src/assets/img/thumbnail-1.png",
+      "src": "../../assets/img/thumbnail-1.png",
       "alt": "Code example screenshot",
       "caption": "An example image for the first post."
     },

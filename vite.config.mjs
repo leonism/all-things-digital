@@ -77,7 +77,15 @@ export default defineConfig({
   // Configuration for Vite plugins.
   plugins: [
     // Enable the Vue plugin
-    vue(),
+    // Add this to your plugins array
+    vue({
+      include: [/\.vue$/, /\.md$/],
+      template: {
+        transformAssetUrls: {
+          includeAbsolute: false
+        }
+      }
+    }),
 
     // Add the compression plugin here
     viteCompression({
