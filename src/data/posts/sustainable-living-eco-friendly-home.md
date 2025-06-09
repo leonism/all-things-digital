@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/lifestyle/sustainable-living-eco-friendly-home'
 ---
 
-# Sustainable Living: Tips for an Eco-Friendly Home
-
 Creating a sustainable home is easier than you think. Here are some actionable tips:
 
 ## Reduce, Reuse, Recycle

@@ -8,12 +8,12 @@
       v-if="post"
       class="overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
     >
-      <img
+      <!-- <img
         v-if="processedFeaturedImageSrc"
         :src="processedFeaturedImageSrc"
         :alt="post.featuredImage?.alt || post.title"
         class="w-full h-64 md:h-96 object-cover"
-      />
+      /> -->
       <HeaderBlogPost
         :title="post.title"
         :subtitle="post.subtitle"
@@ -21,6 +21,7 @@
         :authorAvatar="post.author?.image"
         :date="post.date"
         :category="post.category"
+        :featuredImage="processedFeaturedImageSrc"
       />
       <div class="p-6 md:p-8">
         <div
