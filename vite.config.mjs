@@ -25,6 +25,11 @@ import viteCompression from 'vite-plugin-compression';
  * build process, CSS processing, and plugins.
  */
 export default defineConfig({
+  // Explicitly set the base public path for the application.
+  // This is important for correct asset resolution in production builds,
+  // especially when deploying to a subpath or ensuring root-relative paths work.
+  base: '/',
+
   // Set root dir to './src', meaning Vite will look for source files in the 'src' folder.
   root: './src',
 
@@ -49,9 +54,7 @@ export default defineConfig({
       output: {
         assetFileNames: (assetInfo) => {
           // Use assetInfo.name and ensure it's a string for the regex test
-          if (
-            /\.(woff2?|ttf|eot|otf)$/.test(String(assetInfo.name))
-          ) {
+          if (/\.(woff2?|ttf|eot|otf)$/.test(String(assetInfo.name))) {
             return 'assets/fonts/[name]-[hash][extname]';
           }
           return 'assets/[name]-[hash][extname]';

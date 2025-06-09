@@ -20,7 +20,7 @@
       :authorLink="authorLink"
     />
     <BlogLatestPost />
-    <div class="flex flex-col-reverse">
+    <div class="flex flex-col">
       <BlogArticleCard
         v-for="post in latestPosts"
         :key="post.slug"

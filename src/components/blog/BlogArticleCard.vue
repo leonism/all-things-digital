@@ -242,30 +242,20 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // Function to dynamically import images
-const getImageUrl = (name) => {
-  // Construct the relative path from the component to the image
-  const relativePath = `../../assets/img/${name}`;
-  return new URL(relativePath, import.meta.url).href;
+const getImageUrl = (path) => {
+  // Use the path directly as it's already relative to the project root or an absolute URL
+  // Vite will handle assets starting with /src/ or /public/ correctly
+  return new URL(path, import.meta.url).href;
 };
 
 const processedImageSrc = computed(() => {
-  if (props.imageSrc.startsWith('/assets/img/')) {
-    const filename = props.imageSrc.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  }
-  return props.imageSrc || '';
+  // Pass the full path from the frontmatter directly to getImageUrl
+  return props.imageSrc ? getImageUrl(props.imageSrc) : '';
 });
 
 const processedAuthorImageSrc = computed(() => {
-  if (props.authorImageSrc.startsWith('/assets/img/')) {
-    const filename = props.authorImageSrc.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  }
-  return props.authorImageSrc || '';
+  // Pass the full path from the frontmatter directly to getImageUrl
+  return props.authorImageSrc ? getImageUrl(props.authorImageSrc) : '';
 });
 
 const formattedDate = computed(() => {

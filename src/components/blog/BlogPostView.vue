@@ -111,10 +111,10 @@ import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
 
 // Function to dynamically import images
-const getImageUrl = (name: string): string => {
-  // Construct the relative path from the component to the image
-  const relativePath = `../../assets/img/${name}`;
-  return new URL(relativePath, import.meta.url).href;
+const getImageUrl = (path: string): string => {
+  // Use the path directly as it's already relative to the project root or an absolute URL
+  // Vite will handle assets starting with /src/ or /public/ correctly
+  return new URL(path, import.meta.url).href;
 };
 
 /**
@@ -284,13 +284,10 @@ const nextPost = computed(() => {
 });
 
 const processedFeaturedImageSrc = computed(() => {
-  if (post.value?.featuredImage?.src?.startsWith('/assets/img/')) {
-    const filename = post.value.featuredImage.src.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  }
-  return post.value?.featuredImage?.src || '';
+  // Pass the full path from the frontmatter directly to getImageUrl
+  return post.value?.featuredImage?.src
+    ? getImageUrl(post.value.featuredImage.src)
+    : '';
 });
 </script>
 

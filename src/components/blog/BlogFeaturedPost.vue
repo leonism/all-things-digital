@@ -21,8 +21,12 @@
         <!-- Featured image with lazy loading -->
         <router-link :to="postLink" itemprop="url" aria-label="Read full post">
           <img
-            :src="processedImageSrc"
+            :src="imageSrc"
             :alt="imageAlt"
+            :loading="lazy"
+            :decoding="async"
+            :width="1000"
+            :height="600"
             class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
             width="1000"
             height="600"
@@ -199,7 +203,7 @@
  */
 import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '../avatar/AvatarAuthor.vue';
+import AvatarAuthor from '../components/common/AvatarAuthor.vue';
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -231,41 +235,20 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // Function to dynamically import images
-const getImageUrl = (name: string) => {
-  // Construct the relative path from the component to the image
-  const relativePath = `../../assets/img/${name}`;
-  return new URL(relativePath, import.meta.url).href;
+const getImageUrl = (path: string) => {
+  // Use the path directly as it's already relative to the project root or an absolute URL
+  // Vite will handle assets starting with /src/ or /public/ correctly
+  return new URL(path, import.meta.url).href;
 };
 
 const processedImageSrc = computed(() => {
-  if (props.imageSrc.startsWith('/')) {
-    // If the path is already absolute, use it directly
-    return props.imageSrc;
-  }
-  if (props.imageSrc.startsWith('../assets/img/')) {
-    // Handle relative paths from markdown files if necessary, though we changed them to absolute
-    const filename = props.imageSrc.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  } else if (props.imageSrc.startsWith('/assets/img/')) {
-    const filename = props.imageSrc.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  }
-  // Use the external URL directly or return empty if filename is missing
-  return props.imageSrc || '';
+  // Pass the full path from the frontmatter directly to getImageUrl
+  return props.imageSrc ? getImageUrl(props.imageSrc) : '';
 });
 
 const processedAuthorImageSrc = computed(() => {
-  if (props.authorImageSrc.startsWith('/assets/img/')) {
-    const filename = props.authorImageSrc.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  }
-  return props.authorImageSrc || '';
+  // Pass the full path from the frontmatter directly to getImageUrl
+  return props.authorImageSrc ? getImageUrl(props.authorImageSrc) : '';
 });
 
 /**

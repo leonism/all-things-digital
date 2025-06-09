@@ -7,7 +7,7 @@ lastModified: '2025-05-26' # Add or update this date if the post content is modi
 author:
   name: 'Mike Smith'
   role: 'Developer'
-  image: '/assets/img/avatar.png' # Placeholder author image
+  image: '/src/assets/img/avatar.png' # Placeholder author image
 category: 'Technology'
 tags:
   - 'vite'
@@ -15,7 +15,7 @@ tags:
   - 'markdown'
   - 'Vite'
 featuredImage:
-  src: '/assets/img/thumbnail-1.png' # Placeholder featured image
+  src: '/src/assets/img/thumbnail-1.png' # Placeholder featured image
   alt: 'Code example screenshot' # Alt text for the image
   caption: 'An example image for the first post.' # Optional caption
 excerpt: 'This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.' # A brief summary
@@ -104,7 +104,7 @@ Check out [Pexels](https://www.pexels.com/) for free stock photos.
 
 Here’s an image sourced from Pexels:
 
-![Beautiful Landscape](https://images.pexels.com/photos/24999/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+![Beautiful Landscape](https://images.pexels.com/photos/19928140/pexels-photo-19928140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 _Caption: A serene landscape captured during sunrise._
 
 ### Conclusion
@@ -112,7 +112,5 @@ _Caption: A serene landscape captured during sunrise._
 In conclusion, this post showcases some of the capabilities of **Markdown**, demonstrating how it simplifies content creation while maintaining flexibility in formatting. By leveraging tools such as Vite, Vue 3, and TailwindCSS, we can build fast, scalable, and well-styled web applications with ease.
 
 Feel free to experiment with this setup, and let us know what you think! Stay tuned for more updates as we continue refining our development process.
-
----
 
 Happy coding!
