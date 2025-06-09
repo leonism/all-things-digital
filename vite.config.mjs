@@ -71,8 +71,7 @@ export default defineConfig({
   css: {
     // PostCSS configuration will be primarily handled by postcss.config.js
     // and the @tailwindcss/vite plugin, which includes autoprefixer.
-    postcss: {
-    },
+    postcss: {},
   },
 
   // Configuration for Vite plugins.
@@ -99,7 +98,8 @@ export default defineConfig({
       threshold: 10240, // Only compress files larger than 10KB
       algorithm: 'gzip', // Compression algorithm (can also use 'brotliCompress')
       ext: '.gz', // File extension for compressed files
-      filter: /\.(js|css|html|svg|woff|woff2|ttf|eot|json|jpg|jpeg|gif|png|ico)$/i, // Regex to target font files and other assets
+      filter:
+        /\.(js|css|html|svg|woff|woff2|ttf|eot|json|jpg|jpeg|gif|png|ico)$/i, // Regex to target font files and other assets
       deleteOriginFile: false, // Keep original files
     }),
 
