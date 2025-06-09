@@ -41,7 +41,7 @@
     "author": {
       "name": "Alex Johnson",
       "role": "Lead Developer",
-      "image": "/assets/img/avatar.png"
+      "image": "https://res.cloudinary.com/du61t1sey/image/upload/v1749473303/all-things-digital/avatar_scu51x.png"
     },
     "category": "Technology",
     "tags": [
@@ -52,7 +52,7 @@
       "future-tech"
     ],
     "featuredImage": {
-      "src": "/assets/img/featured-blog.jpg",
+      "src": "https://res.cloudinary.com/du61t1sey/image/upload/v1749473298/all-things-digital/_featured-blog_m6l6al.jpg",
       "alt": "Developer coding on a laptop with multiple monitors",
       "caption": "The landscape of web development is constantly evolving."
     },
