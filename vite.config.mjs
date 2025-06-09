@@ -12,6 +12,8 @@ import viteImagemin from 'vite-plugin-imagemin';
 import { resolve, dirname } from 'node:path';
 // Import the 'resolve' function from the 'url' module for resolving file paths.
 import { fileURLToPath } from 'node:url';
+// Import for markdown parsing
+// import Markdown from 'vite-plugin-md';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -82,10 +84,14 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
       template: {
         transformAssetUrls: {
-          includeAbsolute: false
-        }
-      }
+          includeAbsolute: false,
+        },
+      },
     }),
+    // Markdown({
+    //   wrapperComponent: 'BaseLayout.vue', // Optional, or use your own
+    //   markdownItOptions: { html: true },
+    // }),
 
     // Add the compression plugin here
     viteCompression({
