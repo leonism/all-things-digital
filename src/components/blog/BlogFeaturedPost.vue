@@ -49,11 +49,10 @@
         </figcaption>
       </figure>
     </header>
-
     <!-- Article Content - Contains author info and post metadata -->
-    <div class="flex items-center text-center p-2 md:p-6">
+    <div class="flex flex-row items-center text-center p-2 md:p-6">
       <!-- Author avatar with link -->
-      <div
+      <section
         class="ml-1 md:ml-5 shrink-0 self-start rounded-full bg-linear-to-br from-indigo-400 to-pink-600 drop-shadow-lg p-1"
         itemprop="author"
         itemscope
@@ -69,10 +68,9 @@
             class="h-12 w-12 md:h-17 md:w-17 rounded-full border-1 border-white dark:border-gray-800"
           />
         </router-link>
-      </div>
-
+      </section>
       <!-- Post title and metadata -->
-      <div class="ml-3 mr-3 flex-1 text-left">
+      <section class="ml-3 mr-3 flex-1 text-left">
         <!-- Post title as heading -->
         <h2
           id="featuredPostTitle"
@@ -171,7 +169,7 @@
             </span>
           </div>
         </footer>
-      </div>
+      </section>
     </div>
   </article>
 </template>
