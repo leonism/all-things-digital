@@ -3,7 +3,7 @@ title: 'My First Blog Post'
 seoTitle: 'My First Blog Post | Example Article'
 slug: 'first-post'
 date: '2025-05-26'
-lastModified: '2025-05-26' # Add or update this date if the post content is modified
+lastModified: '2025-05-27' # Add or update this date if the post content is modified
 author:
   name: 'Mike Smith'
   role: 'Developer'
