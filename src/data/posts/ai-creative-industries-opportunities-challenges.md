@@ -50,8 +50,6 @@ metaRobots: "index, follow"
 canonicalUrl: "https://example.com/tech/ai-creative-industries"
 ---
 
-# The Rise of AI in Creative Industries
-
 Artificial Intelligence is no longer just science fiction; it's actively reshaping creative workflows.
 
 ## Opportunities

@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/diy/home-decor-budget-projects'
 ---
 
-# DIY Home Decor on a Budget
-
 Add personal touches to your home affordably.
 
 ## Project Ideas

@@ -6,7 +6,7 @@
   >
     <article
       v-if="post"
-      class="overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
+      class="overflow-hidden md:flex-row md:my-6 rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
     >
       <!-- <img
         v-if="processedFeaturedImageSrc"

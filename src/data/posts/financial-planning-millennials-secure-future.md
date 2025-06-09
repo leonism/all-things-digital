@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/finance/millennial-financial-planning'
 ---
 
-# Financial Planning for Millennials
-
 Navigating finances can be challenging. Here’s a roadmap for millennials:
 
 ## Budgeting Basics

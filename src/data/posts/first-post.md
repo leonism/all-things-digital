@@ -27,8 +27,6 @@ metaRobots: 'index, follow' # SEO robots directive
 canonicalUrl: 'https://yourdomain.com/blog/first-post' # Replace with the actual canonical URL
 ---
 
-## Introduction
-
 Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
 
 ## Features

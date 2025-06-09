@@ -1,63 +1,56 @@
 <template>
-  <header id="mainHeading" class="text-center">
-    <div class="relative w-full h-96 overflow-hidden rounded-lg shadow-lg mb-8">
+  <header class="article-header">
+    <figure class="featured-image">
       <img
         :src="featuredImage"
-        alt="Featured Image"
-        class="absolute inset-0 w-full h-full object-cover"
+        :alt="`Featured image for ${title}`"
+        width="1200"
+        height="600"
+        loading="eager"
       />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"
-      ></div>
-      <div
-        class="absolute bottom-4 left-4 z-10 flex items-center text-white text-shadow-md"
-      >
+      <figcaption class="image-meta">
         <AvatarAuthor :imageSrc="authorAvatar" :imageAlt="authorName" />
-        <div class="flex flex-col">
-          <span class="text-lg font-semibold">{{ authorName }}</span>
-          <div class="flex items-center text-sm text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-3.5 h-3.5 mr-1"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v3.75a.75.75 0 00.75.75h3.75a.75.75 0 000-1.5h-3v-3.75z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <time :datetime="date">{{ formattedDate }}</time>
-            <span class="mx-2"> | </span>
-            <span class="text-sm text-gray-300">
+        <div class="meta-content">
+          <span class="author-name">{{ authorName }}</span>
+          <div class="meta-details">
+            <time :datetime="date">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
                 viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-3.5 h-3.5 mr-1"
+                width="14"
+                height="14"
               >
                 <path
-                  fill-rule="evenodd"
+                  fill="currentColor"
                   d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v3.75a.75.75 0 00.75.75h3.75a.75.75 0 000-1.5h-3v-3.75z"
-                  clip-rule="evenodd"
+                />
+              </svg>
+              {{ formattedDate }}
+            </time>
+            <span aria-hidden="true"> | </span>
+            <span class="category">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+              >
+                <path
+                  fill="currentColor"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v3.75a.75.75 0 00.75.75h3.75a.75.75 0 000-1.5h-3v-3.75z"
                 />
               </svg>
               {{ category }}
             </span>
           </div>
         </div>
-      </div>
+      </figcaption>
+    </figure>
+
+    <div class="header-content">
+      <h1>{{ title }}</h1>
+      <h2 v-if="subtitle">{{ subtitle }}</h2>
     </div>
-    <h1 id="mainHeading" class="gradient-headers">
-      {{ title }}
-    </h1>
-    <h2
-      id="subHeading"
-      class="text-shadow-2xs mt-1 mb-2 text-xl subpixel-antialiased font-bold leading-tight text-center md:font-extrabold md:text-3xl text-slate-600/90 dark:text-white"
-    >
-      {{ subtitle }}
-    </h2>
   </header>
 </template>
 
@@ -103,5 +96,112 @@ const formattedDate = computed(() => {
 </script>
 
 <style scoped>
-/* Scoped styles for this component if any */
+.article-header {
+  --text-color: theme('colors.slate.600');
+  --text-color-dark: theme('colors.white');
+  --meta-color: theme('colors.gray.300');
+  --gradient-from: theme('colors.black' / 70%);
+  --shadow-color: theme('colors.black' / 10%);
+  margin-bottom: 2rem;
+}
+
+.featured-image {
+  position: relative;
+  width: 100%;
+  height: 24rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  margin-bottom: 2rem;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--gradient-from),
+    transparent,
+    transparent
+  );
+}
+
+.image-meta {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+}
+
+.meta-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.meta-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--meta-color);
+}
+
+.meta-details svg {
+  margin-right: 0.25rem;
+}
+
+.header-content {
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  background: linear-gradient(to right, #4f46e5, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.header-content h2 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+@media (min-width: 768px) {
+  .header-content h1 {
+    font-size: 3rem;
+  }
+
+  .header-content h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .header-content h2 {
+    color: var(--text-color-dark);
+  }
+}
 </style>

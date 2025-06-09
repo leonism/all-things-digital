@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/security/cybersecurity-basics'
 ---
 
-# Cybersecurity Basics
-
 Protecting your digital identity is crucial.
 
 ## Strong Passwords

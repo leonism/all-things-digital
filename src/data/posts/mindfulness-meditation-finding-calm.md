@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/wellness/mindfulness-meditation-calm'
 ---
 
-# Mindfulness and Meditation
-
 Find moments of peace in your hectic schedule.
 
 ## Simple Techniques

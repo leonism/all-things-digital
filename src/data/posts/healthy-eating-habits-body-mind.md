@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/health/healthy-eating-habits'
 ---
 
-# Healthy Eating Habits
-
 Good nutrition is the foundation of a healthy life.
 
 ## Balanced Diet Essentials

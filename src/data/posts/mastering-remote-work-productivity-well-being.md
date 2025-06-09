@@ -50,8 +50,6 @@ metaRobots: 'index, follow'
 canonicalUrl: 'https://example.com/career/mastering-remote-work'
 ---
 
-# Mastering Remote Work: Productivity and Well-being
-
 Remote work offers flexibility but requires discipline. Here’s how to succeed:
 
 ## Establish a Routine
