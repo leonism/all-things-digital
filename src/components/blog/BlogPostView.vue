@@ -1,12 +1,12 @@
 <template>
   <section
     id="mainWrapper"
-    class="max-w-4xl mt-10 mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
+    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto mt-10 mb-20"
     role="main"
   >
     <article
       v-if="post"
-      class="flex flex-col min-h-60 my-5 sm:my-5 md:my-3 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
+      class="overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row md:my-6 hover:scale-[1.02] hover:shadow-2xl"
     >
       <img
         v-if="processedFeaturedImageSrc"

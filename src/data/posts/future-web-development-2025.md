@@ -76,9 +76,9 @@ Frontend frameworks continue to push boundaries. Here’s what’s coming:
 
 Serverless architecture and edge computing will redefine backend development:
 
-✅ **Faster Load Times** – Edge computing reduces latency by processing data closer to users.
-✅ **Cost Efficiency** – Pay-per-use models eliminate idle server costs.
-✅ **Scalability** – Automatic scaling handles traffic spikes effortlessly.
+- **Faster Load Times** – Edge computing reduces latency by processing data closer to users.
+- **Cost Efficiency** – Pay-per-use models eliminate idle server costs.
+- **Scalability** – Automatic scaling handles traffic spikes effortlessly.
 
 #### Why This Matters:
 
