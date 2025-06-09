@@ -39,7 +39,8 @@
     "generate-rss": "node scripts/generate-rss.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "generate-blog-data": "node scripts/generate-blog-data.js",
-    "prepare": "npx lightningcss || echo 'lightningcss not required locally'"
+    "prepare": "npx lightningcss || echo 'lightningcss not required locally'",
+    "postinstall": "npm rebuild"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
