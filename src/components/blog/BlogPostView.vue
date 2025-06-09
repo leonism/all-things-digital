@@ -1,32 +1,37 @@
 <template>
-  <div class="max-w-4xl mx-auto px-4 py-8">
+  <section
+    id="mainWrapper"
+    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
+    role="main"
+  >
     <article
       v-if="post"
       class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
     >
-      <HeaderBlogPost
-        :title="post.title"
-        :subtitle="post.subtitle"
-        :date="post.date"
-        :tags="post.tags"
-      />
       <img
         v-if="processedFeaturedImageSrc"
         :src="processedFeaturedImageSrc"
         :alt="post.featuredImage?.alt || post.title"
         class="w-full h-64 md:h-96 object-cover"
       />
+      <HeaderBlogPost
+        :title="post.title"
+        :subtitle="post.subtitle"
+        :authorName="post.author?.name"
+        :authorAvatar="post.author?.image"
+        :date="post.date"
+        :category="post.category"
+      />
       <div class="p-6 md:p-8">
         <div
-          class="prose dark:prose-invert max-w-none"
+          class="prose prose-lg dark:prose-invert max-w-none prose-blue dark:prose-blue"
           v-html="post.contentHtml"
         ></div>
-
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
           <div v-if="post.categories && post.categories.length" class="mb-4">
-            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
-              >Categories:</span
-            >
+            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
+              Categories:
+            </span>
             <router-link
               v-for="category in post.categories"
               :key="category"
@@ -53,7 +58,6 @@
             </router-link>
           </div>
         </div>
-
         <div
           id="comments-section"
           class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
@@ -78,7 +82,7 @@
       </router-link>
     </div>
     <BlogPostNavigation :previousPost="previousPost" :nextPost="nextPost" />
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -300,5 +304,175 @@ const processedFeaturedImageSrc = computed(() => {
 .prose :where(code):not(:where([class~='not-prose'] *))::before,
 .prose :where(code):not(:where([class~='not-prose'] *))::after {
   content: '';
+}
+
+/* Custom styles for better readability and aesthetics */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: bold;
+  color: rgb(17, 24, 39);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: rgb(255, 255, 255);
+}
+
+.prose h1 {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 2.25rem;
+  @media (min-width: 768px) {
+    font-size: 2.25rem; /* md:text-4xl */
+    line-height: 2.5rem;
+  }
+}
+
+.prose h2 {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem;
+  @media (min-width: 768px) {
+    font-size: 1.875rem; /* md:text-3xl */
+    line-height: 2.25rem;
+  }
+}
+
+.prose h3 {
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem;
+  @media (min-width: 768px) {
+    font-size: 1.5rem; /* md:text-2xl */
+    line-height: 2rem;
+  }
+}
+
+.prose p {
+  line-height: 1.625;
+  margin-bottom: 1rem;
+  color: rgb(55, 65, 81);
+}
+
+.dark .prose p {
+  line-height: 1.625;
+  margin-bottom: 1rem;
+  color: rgb(237, 228, 228);
+}
+
+.prose a {
+  color: rgb(37, 99, 235); /* text-blue-600 */
+  text-decoration: none;
+}
+
+.dark .prose a {
+  color: rgb(96, 165, 250); /* dark:text-blue-400 */
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose ul,
+.prose ol {
+  list-style-position: inside;
+  margin-bottom: 1rem;
+}
+
+.prose ul li {
+  list-style-type: disc;
+}
+
+.prose ol li {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  color: rgb(55, 65, 81);
+}
+.dark .prose li {
+  color: rgb(209, 213, 219);
+}
+
+.prose blockquote {
+  border-left: 4px solid rgb(59, 130, 246);
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-style: italic;
+  color: rgb(75, 85, 99);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose pre {
+  background-color: rgb(243, 244, 246);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+
+.dark .prose pre {
+  background-color: rgb(17, 24, 39);
+}
+
+.prose code {
+  background-color: rgb(229, 231, 235);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  color: rgb(220, 38, 38);
+}
+
+.dark .prose code {
+  background-color: rgb(55, 65, 81);
+  color: rgb(248, 113, 113);
+}
+
+.prose table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid rgb(209, 213, 219);
+  padding: 1rem 1rem;
+  text-align: left;
+  color: rgb(31, 41, 55);
+}
+
+.dark .prose th,
+.dark .prose td {
+  border-color: rgb(75, 85, 99);
+  color: rgb(229, 231, 235);
+}
+
+.prose th {
+  background-color: rgb(229, 231, 235); /* bg-gray-200 */
+  font-weight: 600; /* font-semibold */
+}
+
+.dark .prose th {
+  background-color: rgb(55, 65, 81); /* dark:bg-gray-700 */
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 </style>

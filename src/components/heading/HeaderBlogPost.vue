@@ -11,28 +11,48 @@
     </h2>
   </header>
   <aside class="mx-auto text-center">
+    <div class="flex flex-row items-center justify-center mb-3">
+      <img
+        :src="authorAvatar"
+        alt="Author Avatar"
+        class="w-15 h-15 mr-2 rounded-full"
+      />
+      <span class="text-xs text-slate-500 dark:text-muted-white">
+        {{ authorName }}
+      </span>
+    </div>
     <p
       class="inline-flex mb-5 text-xs mx-auto text-slate-500 dark:text-muted-white"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="none"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
+        fill="currentColor"
         class="w-3.5 h-3.5 mr-1"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+          fill-rule="evenodd"
+          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v3.75a.75.75 0 00.75.75h3.75a.75.75 0 000-1.5h-3v-3.75z"
+          clip-rule="evenodd"
         />
       </svg>
       <time :datetime="date">{{ formattedDate }}</time>
-      <template v-for="(tag, index) in tags" :key="tag">
-        <a href="#" rel="tag">{{ tag }}</a
-        ><span v-if="index < tags.length - 1">, </span>
-      </template>
+      <span class="mx-2"> | </span>
+      <span class="text-xs text-slate-500 dark:text-muted-white">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-3.5 h-3.5 mr-1"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v3.75a.75.75 0 00.75.75h3.75a.75.75 0 000-1.5h-3v-3.75z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        {{ category }}
+      </span>
     </p>
   </aside>
 </template>
@@ -49,13 +69,21 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  authorName: {
+    type: String,
+    required: true,
+  },
+  authorAvatar: {
+    type: String,
+    required: true,
+  },
   date: {
     type: String,
     required: true,
   },
-  tags: {
-    type: Array,
-    default: () => [],
+  category: {
+    type: String,
+    required: true,
   },
 });
 
