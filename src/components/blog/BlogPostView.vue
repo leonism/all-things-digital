@@ -113,7 +113,7 @@ import BlogPostNavigation from './BlogPostNavigation.vue';
 
 // Define a type for the dynamically imported Markdown component
 interface MarkdownModule {
-  default: Component;
+  default: any;
   frontmatter: Record<string, any>;
 }
 
@@ -162,7 +162,7 @@ interface BlogPost {
 
 const route = useRoute();
 const post: Ref<BlogPost | null> = ref(null);
-const postContentComponent: Ref<Component | null> = ref(null);
+const postContentComponent: Ref<any | null> = ref(null);
 
 /**
  * Finds a blog post by its slug in the imported posts data.
