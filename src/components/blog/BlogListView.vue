@@ -141,7 +141,10 @@ useHead({
       content: 'Read the latest articles and insights on our blog.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://yourdomain.com/blog'    },
+    {
+      property: 'og:url',
+      content: 'https://all-things-digital.pages.dev/blog',
+    },
     { property: 'og:image', content: '/images/default-og-image.png' },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: 'Blog | DGPond.COM' },
@@ -151,7 +154,9 @@ useHead({
     },
     { name: 'twitter:image', content: '/images/default-og-image.png' },
   ],
-  link: [{ rel: 'canonical', href: 'https://yourdomain.com/blog'    }],
+  link: [
+    { rel: 'canonical', href: 'https://all-things-digital.pages.dev/blog' },
+  ],
 });
 
 // Lifecycle hook that runs after the component is mounted.

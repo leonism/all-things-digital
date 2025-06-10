@@ -138,7 +138,10 @@ useHead({
       content: 'Read the latest articles and insights on our blog.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://yourdomain.com/blog' }, // <<<--- IMPORTANT: Replace with your actual domain
+    {
+      property: 'og:url',
+      content: 'https://all-things-digital.pages.dev/blog',
+    }, // <<<--- IMPORTANT: Replace with your actual domain
     { property: 'og:image', content: '/images/default-og-image.png' }, // <<<--- IMPORTANT: Replace with your default OG image path
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: 'Blog | DGPond.COM' },
@@ -149,7 +152,7 @@ useHead({
     { name: 'twitter:image', content: '/images/default-og-image.png' }, // <<<--- IMPORTANT: Replace with your default Twitter image path
   ],
   link: [
-    { rel: 'canonical', href: 'https://yourdomain.com/blog' }, // <<<--- IMPORTANT: Replace with your actual domain
+    { rel: 'canonical', href: 'https://all-things-digital.pages.dev/blog' }, // <<<--- IMPORTANT: Replace with your actual domain
   ],
 });
 

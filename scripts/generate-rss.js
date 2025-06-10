@@ -28,9 +28,9 @@ import path from 'path';
  */
 
 // --- Configuration (User should update these) ---
-const YOUR_DOMAIN = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
-const YOUR_NAME = 'Your Name'; // <<<--- IMPORTANT: Replace with your name
-const YOUR_EMAIL = 'your.email@example.com'; // <<<--- IMPORTANT: Replace with your email
+const YOUR_DOMAIN = 'https://all-things-digital.pages.dev/'; // <<<--- IMPORTANT: Replace with your actual domain
+const YOUR_NAME = 'All Things Digital'; // <<<--- IMPORTANT: Replace with your name
+const YOUR_EMAIL = 'me@allthingsdigital.com'; // <<<--- IMPORTANT: Replace with your email
 const SITE_TITLE = 'All Things Digital Blog'; // <<<--- Optional: Update site title
 const SITE_DESCRIPTION = 'Latest articles and insights from All Things Digital'; // <<<--- Optional: Update site description
 // -------------------------------------------------

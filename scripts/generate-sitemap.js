@@ -31,7 +31,7 @@ import path from 'path';
  */
 
 // --- Configuration (User should update these) ---
-const YOUR_DOMAIN = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
+const YOUR_DOMAIN = 'https://all-things-digital.pages.dev/'; // <<<--- IMPORTANT: Replace with your actual domain
 const SITE_TITLE = 'All Things Digital Blog'; // <<<--- Optional: Update site title
 // -------------------------------------------------
 

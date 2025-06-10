@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://yourdomain.com/sitemap.xml
-Sitemap: https://yourdomain.com/rss.xml
+Sitemap: https://all-things-digital.pages.dev/sitemap.xml
+Sitemap: https://all-things-digital.pages.dev/rss.xml
 Host: https://yourdomain.com
