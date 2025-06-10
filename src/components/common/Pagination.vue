@@ -16,7 +16,7 @@
           aria-label="Previous page"
         >
           <span aria-hidden="true">&larr;</span>
-          <span class="ml-1">Previous</span>
+          <span class="ml-1">Prev</span>
         </button>
       </li>
 
@@ -31,7 +31,7 @@
             'text-slate-300 shadow-md transition-all duration-300 hover:bg-white dark:text-white dark:hover:bg-gray-700':
               page !== currentPage,
           }"
-          :aria-current="page === currentPage ? 'page' : null"
+          :aria-current="page === currentPage ? 'page' : undefined"
           :aria-label="`Go to page ${page}`"
         >
           {{ page }}

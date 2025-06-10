@@ -220,7 +220,7 @@ const ogImage = computed(
 ); // Add a default OG image path
 const canonicalUrl = computed(() => {
   // Construct canonical URL - replace with your actual domain
-  const base = 'https://yourdomain.com'; // <<<--- IMPORTANT: Replace with your actual domain
+  const base = 'https://all-things-digital.pages.dev'; // <<<--- IMPORTANT: Replace with your actual domain
   return post.value ? `${base}/blog/${post.value.slug}` : base;
 });
 

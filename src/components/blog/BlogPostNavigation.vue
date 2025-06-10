@@ -19,7 +19,10 @@
 </template>
 
 <script setup lang="ts">
-import { type BlogPost } from '../../types'; // Assuming you have a type definition for BlogPost
+interface BlogPost {
+  slug: string;
+  // Add other required properties based on usage
+}
 
 defineProps<{
   previousPost: BlogPost | null;
