@@ -1,3 +1,68 @@
+/**
+ * Cloudinary Image Upload Script
+ * 
+ * This script automates the process of uploading images to Cloudinary for optimized
+ * delivery in the blog application. It handles batch uploads, generates mapping files,
+ * and provides comprehensive error handling for production-ready image management.
+ * 
+ * CURRENT FLOW LOGIC:
+ * 
+ * 1. ENVIRONMENT SETUP:
+ *    - Loads environment variables from .env file (CLOUDINARY_CLOUD_NAME, API_KEY, API_SECRET)
+ *    - Validates all required Cloudinary credentials are present
+ *    - Configures Cloudinary SDK with proper authentication
+ *    - Sets up ES Module path resolution for file operations
+ * 
+ * 2. IMAGE DISCOVERY PHASE:
+ *    - Scans predefined directories for image files (src/assets/images, public/images)
+ *    - Supports multiple image formats: .jpg, .jpeg, .png, .gif, .webp, .svg
+ *    - Recursively traverses subdirectories to find all images
+ *    - Builds comprehensive list of local image files with metadata
+ * 
+ * 3. CLOUDINARY INTEGRATION:
+ *    - Generates meaningful public IDs based on file paths and names
+ *    - Implements folder structure in Cloudinary (e.g., 'all-things-digital/blog/')
+ *    - Configures upload parameters for optimal web delivery:
+ *      * Auto format selection for best compression
+ *      * Quality optimization for web performance
+ *      * Responsive image generation
+ *      * SEO-friendly URLs
+ * 
+ * 4. BATCH UPLOAD PROCESS:
+ *    - Uploads images with progress tracking and detailed logging
+ *    - Handles upload failures with retry mechanisms
+ *    - Generates secure URLs for immediate use
+ *    - Creates transformation URLs for different use cases (thumbnails, hero images)
+ * 
+ * 5. MAPPING FILE GENERATION:
+ *    - Creates src/data/cloudinary-mapping.json with public ID to URL mappings
+ *    - Enables efficient URL resolution in generate-blog-data.js
+ *    - Supports both exact matches and filename-based fallbacks
+ *    - Maintains backward compatibility with existing image references
+ * 
+ * 6. ERROR HANDLING & VALIDATION:
+ *    - Comprehensive error handling for network issues and API failures
+ *    - Validates image file integrity before upload
+ *    - Provides detailed progress reporting and success/failure statistics
+ *    - Graceful handling of duplicate uploads and existing resources
+ * 
+ * INTEGRATION WITH BUILD PROCESS:
+ * - Run manually or as part of CI/CD pipeline for image optimization
+ * - Generates mapping data consumed by generate-blog-data.js
+ * - Enables CDN-powered image delivery for improved performance
+ * - Supports incremental uploads for efficient workflow
+ * 
+ * CLOUDINARY FEATURES UTILIZED:
+ * - Auto format and quality optimization
+ * - Responsive image transformations
+ * - SEO-friendly URL structure
+ * - Global CDN distribution
+ * - Advanced compression algorithms
+ * 
+ * This script is essential for the blog's image optimization strategy,
+ * ensuring fast loading times and excellent user experience across all devices.
+ */
+
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
 import path from 'path';

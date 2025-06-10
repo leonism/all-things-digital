@@ -4,26 +4,69 @@ import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
 
 /**
- * This script reads all markdown files from the 'src/data/posts' directory,
- * extracts their frontmatter (metadata), and compiles all post data into a single JSON file.
- *
- * The generated JSON file ('src/blog-data.json') is used by the blog
- * components to display post listings and individual post metadata.
- * The actual Markdown content rendering is handled by `unplugin-vue-markdown`
- * directly in Vue components.
- *
- * The script performs the following steps:
- * 1. Reads all files in the posts directory.
- * 2. Filters for files ending with '.md'.
- * 3. For each markdown file:
- *    - Extracts the slug from the filename.
- *    - Reads the file content.
- *    - Parses the frontmatter (YAML header) using gray-matter.
- *    - Combines the slug and frontmatter data into a post object.
- *    - Ensures the date is correctly formatted (ISO string).
- * 4. Sorts the resulting array of post objects by date in descending order (newest first).
- * 5. Writes the sorted post data array to 'src/blog-data.json' as a pretty-printed JSON string.
- * 6. Includes basic error handling.
+ * Blog Data Generation Script
+ * 
+ * This script is a critical part of the blog's build process that transforms markdown files
+ * into a structured JSON dataset for the Vue.js blog application. It handles both content
+ * metadata extraction and Cloudinary image URL processing for optimized image delivery.
+ * 
+ * CURRENT FLOW LOGIC:
+ * 
+ * 1. INITIALIZATION PHASE:
+ *    - Sets up ES Module path resolution (__dirname equivalent)
+ *    - Defines input directory (src/data/posts) and output file (src/blog-data.json)
+ *    - Loads Cloudinary mapping data from src/data/cloudinary-mapping.json
+ *    - Gracefully handles missing Cloudinary mapping file with warnings
+ * 
+ * 2. CLOUDINARY INTEGRATION:
+ *    - Loads pre-generated Cloudinary mapping that contains public ID to URL mappings
+ *    - Provides utility functions to convert Cloudinary public IDs to full URLs
+ *    - Recursively processes all object properties to find and convert image references
+ *    - Supports both direct public ID matching and filename-based fallback matching
+ *    - Maintains backward compatibility with non-Cloudinary image URLs
+ * 
+ * 3. MARKDOWN PROCESSING PHASE:
+ *    - Scans the posts directory for all .md files
+ *    - For each markdown file:
+ *      a) Extracts slug from filename (removes .md extension)
+ *      b) Reads file content using fs.readFileSync
+ *      c) Parses frontmatter (YAML metadata) using gray-matter library
+ *      d) Processes all frontmatter data through Cloudinary URL conversion
+ *      e) Combines slug with processed frontmatter into post object
+ *      f) Normalizes date format to ISO string for consistency
+ * 
+ * 4. DATA PROCESSING:
+ *    - Collects all post objects into an array
+ *    - Sorts posts by date in descending order (newest first)
+ *    - Handles missing or invalid dates gracefully in sort comparison
+ * 
+ * 5. OUTPUT GENERATION:
+ *    - Writes processed data to src/blog-data.json as pretty-printed JSON
+ *    - Used by Vue components for:
+ *      * Blog post listings and pagination
+ *      * Individual post metadata display
+ *      * SEO meta tags and structured data
+ *      * RSS feed generation
+ * 
+ * 6. ERROR HANDLING:
+ *    - Comprehensive error handling for file operations
+ *    - Graceful degradation when Cloudinary mapping is unavailable
+ *    - Process exit with error codes for build pipeline integration
+ * 
+ * INTEGRATION WITH BUILD PROCESS:
+ * - Runs during build time to generate static data
+ * - Enables static site generation with dynamic content
+ * - Separates content processing from runtime rendering
+ * - Supports incremental builds by processing only changed files
+ * 
+ * CLOUDINARY WORKFLOW:
+ * - Expects images to be uploaded via upload-to-cloudinary.js script
+ * - Converts public IDs like 'all-things-digital/featured-blog' to full URLs
+ * - Maintains mapping file for efficient URL resolution
+ * - Supports both exact public ID matches and filename-based fallbacks
+ * 
+ * The generated JSON file serves as the single source of truth for blog metadata,
+ * enabling fast page loads and efficient content management in the Vue.js application.
  */
 
 // ES Module equivalent of __dirname for resolving paths
