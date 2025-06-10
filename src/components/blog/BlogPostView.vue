@@ -104,7 +104,7 @@
  *    tag values from the `post` data.
  * 6. The template conditionally renders the post content or a "not found" message.
  */
-import { ref, watch, computed, type Ref } from 'vue';
+import { ref, watch, computed, type Ref, markRaw } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
@@ -184,9 +184,24 @@ const loadMarkdownComponent = async (slug: string) => {
     const module = (await import(
       `../../data/posts/${slug}.md`
     )) as MarkdownModule;
-    postContentComponent.value = module.default;
-    // You can also access frontmatter here if needed for other parts of the component
-    // For example: console.log(module.frontmatter);
+    postContentComponent.value = markRaw(module.default);
+    // Extract frontmatter and update head
+    if (module.frontmatter) {
+      const { title, description, ...rest } = module.frontmatter;
+      useHead({
+        title: title || pageTitle.value,
+        meta: [
+          {
+            name: 'description',
+            content: description || pageDescription.value,
+          },
+          ...Object.entries(rest).map(([key, value]) => ({
+            property: `og:${key}`,
+            content: value,
+          })),
+        ],
+      });
+    }
   } catch (error) {
     console.error(`Failed to load Markdown for slug: ${slug}`, error);
     postContentComponent.value = null;
@@ -211,62 +226,6 @@ const canonicalUrl = computed(() => {
 
 // Watcher to update meta tags whenever the 'post' ref changes.
 // This ensures that meta tags are updated when a post is loaded.
-watch(
-  post,
-  (currentPost) => {
-    if (currentPost) {
-      useHead({
-        title: pageTitle.value,
-        meta: [
-          { name: 'description', content: pageDescription.value },
-          // Open Graph
-          { property: 'og:title', content: pageTitle.value },
-          { property: 'og:description', content: pageDescription.value },
-          { property: 'og:type', content: 'article' },
-          { property: 'og:url', content: canonicalUrl.value },
-          { property: 'og:image', content: ogImage.value },
-          {
-            property: 'article:published_time',
-            content: currentPost.date as string,
-          },
-          {
-            property: 'article:modified_time',
-            content: (currentPost.lastModified || currentPost.date) as string,
-          },
-          // Twitter Card
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:title', content: pageTitle.value },
-          { name: 'twitter:description', content: pageDescription.value },
-          { name: 'twitter:image', content: ogImage.value },
-          // Robots
-          {
-            name: 'robots',
-            content: currentPost.metaRobots || 'index, follow',
-          },
-        ],
-        link: [
-          {
-            rel: 'canonical',
-            href: currentPost.canonicalUrl || canonicalUrl.value,
-          },
-        ],
-        // Add JSON-LD script if available in post data
-        script: currentPost.schema
-          ? [
-              {
-                type: 'application/ld+json',
-                innerHTML: JSON.stringify(currentPost.schema),
-              },
-            ]
-          : [],
-      });
-    } else {
-      useHead({ title: 'Post Not Found' });
-    }
-  },
-  { immediate: true },
-);
-
 // Watcher to react to changes in the route's slug parameter.
 // This is triggered when navigating between blog posts.
 watch(
