@@ -15,7 +15,7 @@ tags:
   - 'markdown'
   - 'Vite'
 featuredImage:
-  src: 'https://res.cloudinary.com/du61t1sey/image/upload/v1749473299/all-things-digital/thumbnail-01-comp_f0xaj2.jpg'
+  src: 'https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/thumbnail-03-comp'
   alt: 'Code example screenshot' # Alt text for the image
   caption: 'An example image for the first post.' # Optional caption
 excerpt: 'This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.' # A brief summary
