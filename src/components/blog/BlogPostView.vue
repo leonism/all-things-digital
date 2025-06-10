@@ -110,19 +110,13 @@ import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
+import { useCloudinary } from '../../composables/useCloudinary';
 
 // Define a type for the dynamically imported Markdown component
 interface MarkdownModule {
   default: any;
   frontmatter: Record<string, any>;
 }
-
-// Function to dynamically import images
-const getImageUrl = (path: string): string => {
-  // Use the path directly as it's already relative to the project root or an absolute URL
-  // Vite will handle assets starting with /src/ or /public/ correctly
-  return new URL(path, import.meta.url).href;
-};
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -269,11 +263,20 @@ const nextPost = computed(() => {
   return allPosts[currentPostIndex.value + 1];
 });
 
+// Use Cloudinary for featured image optimization
+const featuredImageCloudinary = useCloudinary(
+  computed(() => post.value?.featuredImage?.src || ''),
+);
+
 const processedFeaturedImageSrc = computed(() => {
-  // Pass the full path from the frontmatter directly to getImageUrl
-  return post.value?.featuredImage?.src
-    ? getImageUrl(post.value.featuredImage.src)
-    : '';
+  if (!post.value?.featuredImage?.src) return '';
+
+  // Generate optimized hero image for blog post header
+  return featuredImageCloudinary.hero.value(1200, 600, {
+    c: 'fill',
+    g: 'auto',
+    q: 'auto:good',
+  });
 });
 </script>
 

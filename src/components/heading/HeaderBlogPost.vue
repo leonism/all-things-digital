@@ -6,7 +6,7 @@
     >
       <!-- Dynamic image with conditional masking and parallax -->
       <img
-        :src="featuredImage"
+        :src="processedFeaturedImage"
         alt=""
         aria-hidden="true"
         class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-[1.02] transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
@@ -101,39 +101,36 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
+import { useCloudinary } from '@/composables/useCloudinary';
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  subtitle: {
-    type: String,
-    default: '',
-  },
-  authorName: {
-    type: String,
-    required: true,
-  },
-  authorAvatar: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: String,
-    required: true,
-  },
-  category: {
-    type: String,
-    required: true,
-  },
-  featuredImage: {
-    type: String,
-    default: '/assets/img/featured-blog.jpg',
-  },
+interface Props {
+  title: string;
+  subtitle?: string;
+  authorName: string;
+  authorAvatar: string;
+  date: string;
+  category: string;
+  featuredImage?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  subtitle: '',
+  featuredImage: '/assets/img/featured-blog.jpg',
+});
+
+// Use Cloudinary for hero image optimization
+const featuredImageCloudinary = useCloudinary(computed(() => props.featuredImage));
+
+// Generate optimized hero image with appropriate dimensions
+const processedFeaturedImage = computed(() => {
+  return featuredImageCloudinary.hero.value(1200, 600, {
+    c: 'fill',
+    g: 'auto',
+    q: 'auto:good'
+  });
 });
 
 const formattedDate = computed(() => {

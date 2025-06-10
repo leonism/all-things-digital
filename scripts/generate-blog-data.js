@@ -33,6 +33,80 @@ const __dirname = dirname(__filename); // Corrected path resolution
 // Define the directory containing markdown posts and the output JSON file path
 const postsDir = path.resolve(__dirname, '../src/data/posts');
 const outputDataFile = path.resolve(__dirname, '../src/blog-data.json');
+const cloudinaryMappingFile = path.resolve(__dirname, '../src/data/cloudinary-mapping.json');
+
+// Load Cloudinary mapping data
+let cloudinaryMapping = {};
+try {
+  const mappingData = fs.readFileSync(cloudinaryMappingFile, 'utf8');
+  cloudinaryMapping = JSON.parse(mappingData);
+} catch (error) {
+  console.warn('Warning: Could not load Cloudinary mapping file:', error.message);
+}
+
+/**
+ * Converts a Cloudinary public ID to a full URL using the mapping file
+ * @param {string} publicId - The Cloudinary public ID (e.g., 'all-things-digital/avatar')
+ * @returns {string} - The full Cloudinary URL or the original value if not found
+ */
+function getCloudinaryUrl(publicId) {
+  if (!publicId || typeof publicId !== 'string') {
+    return publicId;
+  }
+
+  // Try to find the mapping by public ID
+  for (const [key, value] of Object.entries(cloudinaryMapping)) {
+    if (value.publicId === publicId) {
+      return value.secureUrl;
+    }
+  }
+
+  // If not found, try to find by key (filename)
+  const filename = publicId.split('/').pop();
+  for (const [key, value] of Object.entries(cloudinaryMapping)) {
+    if (key.includes(filename) || value.publicId.endsWith(filename)) {
+      return value.secureUrl;
+    }
+  }
+
+  // If still not found, return the original value
+  console.warn(`Warning: No Cloudinary mapping found for: ${publicId}`);
+  return publicId;
+}
+
+/**
+ * Recursively processes an object to convert Cloudinary public IDs to full URLs
+ * @param {any} obj - The object to process
+ * @returns {any} - The processed object with converted URLs
+ */
+function processCloudinaryUrls(obj) {
+  if (typeof obj === 'string') {
+    // Check if this looks like a Cloudinary public ID
+    if (obj.startsWith('all-things-digital/') || obj === 'all-things-digital/avatar') {
+      return getCloudinaryUrl(obj);
+    }
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(processCloudinaryUrls);
+  }
+
+  if (obj && typeof obj === 'object') {
+    const processed = {};
+    for (const [key, value] of Object.entries(obj)) {
+      // Process image-related fields
+      if (key === 'src' || key === 'image' || key.toLowerCase().includes('image')) {
+        processed[key] = processCloudinaryUrls(value);
+      } else {
+        processed[key] = processCloudinaryUrls(value);
+      }
+    }
+    return processed;
+  }
+
+  return obj;
+}
 
 /**
  * Reads, parses, and processes all markdown post files.
@@ -65,7 +139,7 @@ function getPostsData() {
        */
       const postData = {
         slug,
-        ...matterResult.data, // Include all frontmatter data (title, date, etc.)
+        ...processCloudinaryUrls(matterResult.data), // Include all frontmatter data with processed Cloudinary URLs
       };
 
       // Ensure the date is serialized correctly if it's a Date object

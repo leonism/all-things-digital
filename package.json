@@ -49,6 +49,7 @@
     "@unhead/vue": "^2.0.10",
     "autoprefixer": "^10.4.21",
     "cloudinary": "^2.6.1",
+    "dotenv": "^16.5.0",
     "feed": "^5.1.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",

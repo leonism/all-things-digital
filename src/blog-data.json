@@ -8,7 +8,7 @@
     "author": {
       "name": "Mike Smith",
       "role": "Developer",
-      "image": "https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar"
+      "image": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535914/all-things-digital/avatar.png"
     },
     "category": "Technology",
     "tags": [
@@ -18,7 +18,7 @@
       "Vite"
     ],
     "featuredImage": {
-      "src": "https://res.cloudinary.com/du61t1sey/image/upload/f_webp,q_auto,w_1000,h_600,c_fill/v1/all-things-digital/thumbnail-03-comp",
+      "src": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535923/all-things-digital/thumbnail-03-comp.jpg",
       "alt": "Code example screenshot",
       "caption": "An example image for the first post."
     },

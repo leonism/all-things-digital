@@ -7,7 +7,7 @@ lastModified: '2025-05-26'
 author:
   name: 'Alex Johnson'
   role: 'Lead Developer'
-  image: 'https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar' # Placeholder author image
+  image: 'https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar' # Placeholder author image 
 category: 'Technology'
 tags:
   - 'web-development'

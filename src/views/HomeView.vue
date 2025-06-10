@@ -50,12 +50,12 @@ import BlogLatestPost from '../components/blog/BlogLatestPost.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
-// import thumbnail01Comp from '../assets/img/thumbnail-01-comp.jpg'; // Import the thumbnail image
-// import avatar from '../assets/img/avatar.png'; // Import the avatar image
-// import BlogGridHome from '../components/blog/BlogGridHome.vue';
+
+// Define fallback images
+const thumbnail01Comp = '/assets/img/thumbnail-01-comp.jpg';
+const avatar = '/assets/img/avatar.png';
 
 useHead({ title: 'DGPond.COM' });
-
 const featuredPost = useFeaturedPost();
 const latestPosts = useLatestPosts();
 const featuredImageSrc = computed(

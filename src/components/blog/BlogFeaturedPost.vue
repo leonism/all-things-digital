@@ -23,8 +23,6 @@
           <img
             :src="imageSrc"
             :alt="imageAlt"
-            :loading="lazy"
-            :decoding="async"
             :width="1000"
             :height="600"
             class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"

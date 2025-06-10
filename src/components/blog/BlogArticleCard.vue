@@ -204,6 +204,7 @@
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
+import { useCloudinary } from '@/composables/useCloudinary';
 
 interface Props {
   imageSrc: string;
@@ -241,21 +242,25 @@ const props = withDefaults(defineProps<Props>(), {
   category: '', // Default for category
 });
 
-// Function to dynamically import images
-const getImageUrl = (path) => {
-  // Use the path directly as it's already relative to the project root or an absolute URL
-  // Vite will handle assets starting with /src/ or /public/ correctly
-  return new URL(path, import.meta.url).href;
-};
+// Use Cloudinary for image optimization
+const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
+const authorImageCloudinary = useCloudinary(computed(() => props.authorImageSrc));
 
+// Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
-  // Pass the full path from the frontmatter directly to getImageUrl
-  return props.imageSrc ? getImageUrl(props.imageSrc) : '';
+  // Use responsive image with card-appropriate dimensions
+  return featuredImageCloudinary.responsive.value(400, 250, {
+    c: 'fill',
+    g: 'auto'
+  });
 });
 
 const processedAuthorImageSrc = computed(() => {
-  // Pass the full path from the frontmatter directly to getImageUrl
-  return props.authorImageSrc ? getImageUrl(props.authorImageSrc) : '';
+  // Use thumbnail for author avatar
+  return authorImageCloudinary.thumbnail.value(48, {
+    c: 'thumb',
+    g: 'face'
+  });
 });
 
 const formattedDate = computed(() => {

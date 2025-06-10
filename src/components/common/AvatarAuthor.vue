@@ -18,13 +18,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 import { computed } from 'vue';
-
-// Function to dynamically import images
-const getImageUrl = (name: string): string => {
-  // Construct the relative path from the component to the image
-  const relativePath = `../../assets/img/${name}`;
-  return new URL(relativePath, import.meta.url).href;
-};
+import { useCloudinary } from '@/composables/useCloudinary';
 
 const props = defineProps({
   imageSrc: {
@@ -41,14 +35,16 @@ const props = defineProps({
   },
 });
 
+// Use Cloudinary for author avatar optimization
+const authorImageCloudinary = useCloudinary(computed(() => props.imageSrc));
+
 const processedImageSrc = computed(() => {
-  if (props.imageSrc?.startsWith('/assets/img/')) {
-    const filename = props.imageSrc.split('/').pop();
-    if (filename) {
-      return getImageUrl(filename);
-    }
-  }
-  return props.imageSrc || '';
+  // Generate optimized avatar with face detection and cropping
+  return authorImageCloudinary.thumbnail.value(48, {
+    c: 'thumb',
+    g: 'face',
+    r: 'max' // Make it circular
+  });
 });
 </script>
 
