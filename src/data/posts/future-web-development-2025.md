@@ -7,7 +7,7 @@ lastModified: '2025-05-26'
 author:
   name: 'Alex Johnson'
   role: 'Lead Developer'
-  image: 'https://res.cloudinary.com/du61t1sey/image/upload/v1749473303/all-things-digital/avatar_scu51x.png' # Placeholder author image
+  image: 'https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar' # Placeholder author image
 category: 'Technology'
 tags:
   - 'web-development'
@@ -16,7 +16,7 @@ tags:
   - 'javascript'
   - 'future-tech'
 featuredImage:
-  src: 'https://res.cloudinary.com/du61t1sey/image/upload/v1749473298/all-things-digital/_featured-blog_m6l6al.jpg'
+  src: 'https://res.cloudinary.com/du61t1sey/image/upload/f_webp,q_auto,w_1000,h_600,c_fill/v1/all-things-digital/featured-blog-comp'
   alt: 'Developer coding on a laptop with multiple monitors'
   caption: 'The landscape of web development is constantly evolving.'
 excerpt: 'Dive into the key trends shaping web development in 2025, from advancements in JavaScript frameworks to the rise of AI-powered coding assistants and serverless architectures.'
