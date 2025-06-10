@@ -43,6 +43,8 @@
     "prepare": "npx lightningcss || echo 'lightningcss not required locally'"
   },
   "dependencies": {
+    "@cloudinary/url-gen": "^1.21.0",
+    "@cloudinary/vue": "^1.13.3",
     "@tailwindcss/vite": "^4.1.7",
     "@unhead/vue": "^2.0.10",
     "autoprefixer": "^10.4.21",
