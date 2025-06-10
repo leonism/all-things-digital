@@ -96,8 +96,8 @@ export default defineConfig({
       verbose: true, // Optional: Show compressed files in console
       disable: false, // Enable compression
       threshold: 10240, // Only compress files larger than 10KB
-      algorithm: 'gzip', // Compression algorithm (can also use 'brotliCompress')
-      ext: '.gz', // File extension for compressed files
+      algorithm: 'brotliCompress', // Compression algorithm (can also use 'brotliCompress')
+      ext: '.br', // File extension for compressed files
       filter:
         /\.(js|css|html|svg|woff|woff2|ttf|eot|json|jpg|jpeg|gif|png|ico)$/i, // Regex to target font files and other assets
       deleteOriginFile: false, // Keep original files
