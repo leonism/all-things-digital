@@ -69,12 +69,12 @@ import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
 import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
-import usePagination from '../composables/usePagination';
+import { usePagination } from '../composables/usePagination';
 
 interface BlogPost {
   slug: string;
   title: string;
-  subtitle?: string;
+  seoTitle?: string;
   date: string;
   lastModified?: string;
   author?: {
@@ -84,20 +84,20 @@ interface BlogPost {
     link?: string;
   };
   category?: string;
-  categories?: string[];
   tags?: string[];
   featuredImage?: {
     src: string;
     alt?: string;
+    caption?: string;
   };
-  contentHtml: string;
-  seoTitle?: string;
   excerpt?: string;
-  description?: string;
+  readingTime?: string;
+  status?: 'published' | 'draft' | string;
+  featured?: boolean;
+  priority?: string;
   metaRobots?: string;
   canonicalUrl?: string;
-  schema?: any;
-  status?: 'published' | 'draft' | string;
+  description?: string;
 }
 
 // Reactive reference to store all published blog posts.

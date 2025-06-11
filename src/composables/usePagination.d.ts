@@ -1,4 +1,4 @@
-import { ComputedRef, Ref } from 'vue';
+import type { Ref, ComputedRef } from 'vue';
 
 export interface PaginationReturn {
   currentPage: Ref<number>;

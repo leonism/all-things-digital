@@ -1,13 +1,10 @@
 <template>
   <!-- Main wrapper with blog page styling -->
-  <main class="min-h-screen bg-broken-white dark:bg-gray-900 transition-colors duration-300">
+  <section id="mainWrapper" class="max-w-4xl mx-0 mx-auto" role="main">
     <!-- Blog-style Header Section -->
     <section class="py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <HeaderCategory :categoryName="displayCategoryName" />
-      </div>
+      <HeaderCategory :categoryName="displayCategoryName" />
     </section>
-
     <!-- Blog-style Content Section -->
     <section class="py-8 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
@@ -32,7 +29,10 @@
         </div>
 
         <!-- All Categories Display -->
-        <div v-else-if="!categoryParam" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          v-else-if="!categoryParam"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <article
             v-for="(category, index) in sortedCategories"
             :key="category"
@@ -42,14 +42,27 @@
             <!-- Category Header -->
             <header class="p-6">
               <div class="flex items-center justify-between mb-4">
-                <div class="bg-indigo-100 dark:bg-indigo-900/50 rounded-full p-3">
-                  <svg class="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+                <div
+                  class="bg-indigo-100 dark:bg-indigo-900/50 rounded-full p-3"
+                >
+                  <svg
+                    class="w-8 h-8 text-indigo-600 dark:text-indigo-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"
+                    ></path>
                   </svg>
                 </div>
-                <span class="text-slate-500 dark:text-gray-400 text-sm font-medium">{{ getPostsByCategory(category).length }} posts</span>
+                <span
+                  class="text-slate-500 dark:text-gray-400 text-sm font-medium"
+                  >{{ getPostsByCategory(category).length }} posts</span
+                >
               </div>
-              <h3 class="text-xl font-bold text-slate-700 dark:text-white mb-2">{{ category }}</h3>
+              <h3 class="text-xl font-bold text-slate-700 dark:text-white mb-2">
+                {{ category }}
+              </h3>
             </header>
 
             <!-- Featured Posts Preview -->
@@ -60,16 +73,31 @@
                   :key="post.slug"
                   class="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <h4 class="text-slate-700 dark:text-white font-medium text-sm line-clamp-1">{{ post.title }}</h4>
-                  <p class="text-slate-500 dark:text-gray-400 text-xs mt-1">{{ formatDate(post.date) }}</p>
-                  <p class="text-slate-600 dark:text-gray-300 text-xs line-clamp-2 mt-1">{{ post.excerpt }}</p>
+                  <h4
+                    class="text-slate-700 dark:text-white font-medium text-sm line-clamp-1"
+                  >
+                    {{ post.title }}
+                  </h4>
+                  <p class="text-slate-500 dark:text-gray-400 text-xs mt-1">
+                    {{ formatDate(post.date) }}
+                  </p>
+                  <p
+                    class="text-slate-600 dark:text-gray-300 text-xs line-clamp-2 mt-1"
+                  >
+                    {{ post.excerpt }}
+                  </p>
                 </div>
               </div>
             </section>
 
             <!-- Show More Indicator -->
-            <div v-if="getPostsByCategory(category).length > 2" class="px-6 pb-4">
-              <div class="text-slate-500 dark:text-gray-400 text-xs text-center">
+            <div
+              v-if="getPostsByCategory(category).length > 2"
+              class="px-6 pb-4"
+            >
+              <div
+                class="text-slate-500 dark:text-gray-400 text-xs text-center"
+              >
                 +{{ getPostsByCategory(category).length - 2 }} more posts
               </div>
             </div>
@@ -88,11 +116,25 @@
         <!-- Empty State -->
         <div v-else class="text-center py-16">
           <div class="max-w-md mx-auto">
-            <svg class="mx-auto h-12 w-12 text-slate-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <svg
+              class="mx-auto h-12 w-12 text-slate-400 dark:text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
             </svg>
-            <h3 class="mt-4 text-lg font-medium text-slate-900 dark:text-white">No articles found</h3>
-            <p class="mt-2 text-slate-500 dark:text-gray-400">No articles found in the {{ categoryParam }} category.</p>
+            <h3 class="mt-4 text-lg font-medium text-slate-900 dark:text-white">
+              No articles found
+            </h3>
+            <p class="mt-2 text-slate-500 dark:text-gray-400">
+              No articles found in the {{ categoryParam }} category.
+            </p>
             <div class="mt-6">
               <router-link
                 to="/blog"
@@ -105,7 +147,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -157,12 +199,12 @@ const allPosts = ref<BlogPost[]>([]);
 const categoryParam = computed(() => route.params.category as string);
 
 // Computed properties
-const publishedPosts = computed(() => 
-  allPosts.value.filter(post => !post.status || post.status === 'published')
+const publishedPosts = computed(() =>
+  allPosts.value.filter((post) => !post.status || post.status === 'published'),
 );
 
 const allCategories = computed(() => {
-  const categories = publishedPosts.value.map(post => post.category);
+  const categories = publishedPosts.value.map((post) => post.category);
   return [...new Set(categories)].sort();
 });
 
@@ -176,19 +218,21 @@ const sortedCategories = computed(() => {
 
 const displayCategoryName = computed(() => {
   if (!categoryParam.value) return 'All Categories';
-  return categoryParam.value.charAt(0).toUpperCase() + categoryParam.value.slice(1);
+  return (
+    categoryParam.value.charAt(0).toUpperCase() + categoryParam.value.slice(1)
+  );
 });
 
 const categoryPosts = computed(() => {
   if (!categoryParam.value) return [];
-  return publishedPosts.value.filter(post => 
-    post.category.toLowerCase() === categoryParam.value.toLowerCase()
+  return publishedPosts.value.filter(
+    (post) => post.category.toLowerCase() === categoryParam.value.toLowerCase(),
   );
 });
 
 // Functions
 const getPostsByCategory = (category: string): BlogPost[] => {
-  return publishedPosts.value.filter(post => post.category === category);
+  return publishedPosts.value.filter((post) => post.category === category);
 };
 
 const getLatestPosts = (category: string, limit: number): BlogPost[] => {
@@ -206,10 +250,10 @@ const navigateToPost = (slug: string) => {
 };
 
 const formatDate = (dateString: string): string => {
-  const options: Intl.DateTimeFormatOptions = { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   };
   return new Date(dateString).toLocaleDateString('en-US', options);
 };
@@ -218,7 +262,7 @@ const formatDate = (dateString: string): string => {
 onMounted(() => {
   // Filter and sort posts
   allPosts.value = blogDataRef.value
-    .filter(post => !post.status || post.status === 'published')
+    .filter((post) => !post.status || post.status === 'published')
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 });
 </script>
