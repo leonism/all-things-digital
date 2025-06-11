@@ -20,24 +20,22 @@
       :authorLink="authorLink"
     />
     <BlogLatestPost />
-    <div class="flex flex-col">
-      <BlogArticleCard
-        v-for="post in latestPosts"
-        :key="post.slug"
-        :imageSrc="post.featuredImage?.src || thumbnail01Comp"
-        :imageAlt="post.featuredImage?.alt || post.title"
-        :title="post.title"
-        :category="post.category"
-        :postLink="`/blog/${post.slug}`"
-        :date="post.date"
-        :excerpt="post.excerpt || post.description"
-        :tags="post.tags"
-        :authorImageSrc="post.author?.image || avatar"
-        :authorImageAlt="post.author?.name || 'Author profile picture'"
-        :authorLink="post.author?.link || '/about'"
-        :authorName="post.author?.name || 'Unknown Author'"
-      />
-    </div>
+    <BlogArticleCard
+      v-for="post in latestPosts"
+      :key="post.slug"
+      :imageSrc="post.featuredImage?.src || thumbnail01Comp"
+      :imageAlt="post.featuredImage?.alt || post.title"
+      :title="post.title"
+      :category="post.category"
+      :postLink="`/blog/${post.slug}`"
+      :date="post.date"
+      :excerpt="post.excerpt || post.description"
+      :tags="post.tags"
+      :authorImageSrc="post.author?.image || avatar"
+      :authorImageAlt="post.author?.name || 'Author profile picture'"
+      :authorLink="post.author?.link || '/about'"
+      :authorName="post.author?.name || 'Unknown Author'"
+    />
   </section>
 </template>
 
