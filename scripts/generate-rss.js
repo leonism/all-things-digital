@@ -107,10 +107,14 @@ const generateRssFeed = () => {
     // Construct the absolute URL for the post
     const postUrl = `${YOUR_DOMAIN}/blog/${post.slug}`;
 
-    // Ensure image URLs are absolute if they are relative
+    // Ensure image URLs are absolute if they are relative and properly escape XML entities
     let imageUrl = post.featuredImage?.src;
     if (imageUrl && !imageUrl.startsWith('http')) {
       imageUrl = `${YOUR_DOMAIN}${imageUrl.startsWith('/') ? '' : '/'}${imageUrl}`;
+    }
+    // Escape XML entities in image URLs (especially ampersands)
+    if (imageUrl) {
+      imageUrl = imageUrl.replace(/&/g, '&amp;');
     }
 
     feed.addItem({

@@ -18,7 +18,6 @@
         itemscope
         itemtype="https://schema.org/ImageObject"
       >
-        <!-- Featured image with lazy loading -->
         <router-link :to="postLink" itemprop="url" aria-label="Read full post">
           <img
             :src="imageSrc"
@@ -26,10 +25,7 @@
             :width="1000"
             :height="600"
             class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
-            width="1000"
-            height="600"
             itemprop="url"
-            loading="lazy"
             decoding="async"
           />
         </router-link>

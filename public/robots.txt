@@ -4,4 +4,4 @@ Disallow: /admin/
 
 Sitemap: https://all-things-digital.pages.dev/sitemap.xml
 Sitemap: https://all-things-digital.pages.dev/rss.xml
-Host: https://yourdomain.com
+Host: https://all-things-digital.pages.dev/
