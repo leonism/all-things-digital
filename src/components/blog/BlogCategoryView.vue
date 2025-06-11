@@ -1,6 +1,6 @@
 <template>
   <div class="mainWrapper max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
+    <h1 class="text-3xl font-bold mb-8 dark:text-white">Category: {{ displayCategoryName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
       <BlogArticleCard
         v-for="post in allPosts"
@@ -18,27 +18,17 @@
         :authorImageAlt="post.author?.name || 'Author profile picture'"
         :authorLink="post.author?.link || '/about'"
         :authorName="post.author?.name || 'Unknown Author'"
+        :category="post.category"
         role="article"
       />
     </div>
     <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
-      <p>No posts found with the tag "#{{ tagName }}".</p>
+      <p>No posts found in the category "{{ displayCategoryName }}".</p>
       <router-link
         to="/blog"
         class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
         >Back to Blog List</router-link
       >
-    </div>
-    <div v-if="!tagName" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <div
-        v-for="tag in allTags"
-        :key="tag"
-        class="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-      >
-        <router-link :to="`/blog/tag/${getTagSlug(tag)}`">
-          #{{ tag }}
-        </router-link>
-      </div>
     </div>
   </div>
 </template>
@@ -50,37 +40,46 @@ import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
 import BlogArticleCard from '../home/BlogArticleCard.vue';
 
-const getTagSlug = (name) => {
+const getCategorySlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
 const route = useRoute();
 const router = useRouter();
-const tagName = ref(
-  Array.isArray(route.params.tag) ? route.params.tag[0] : route.params.tag,
+const categorySlug = ref(
+  Array.isArray(route.params.category) ? route.params.category[0] : route.params.category,
 );
 
 const allPosts = ref([]);
 
+// Convert slug back to display name
+const displayCategoryName = computed(() => {
+  if (!categorySlug.value) return '';
+  return categorySlug.value
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+});
+
 // Computed properties for meta tags
 const pageTitle = computed(
-  () => `Tag: #${tagName.value || 'Archive'} - All Things Digital`,
+  () => `Category: ${displayCategoryName.value || 'Archive'} - All Things Digital`,
 );
 const pageDescription = computed(
-  () => `Posts tagged with #${tagName.value || 'archive'}.`,
+  () => `Posts in the ${displayCategoryName.value || 'archive'} category.`,
 );
 const canonicalUrl = computed(() => {
   const base = 'https://yourdomain.com';
-  return tagName.value
-    ? `${base}/blog/tag/${getTagSlug(tagName.value)}`
+  return categorySlug.value
+    ? `${base}/blog/category/${categorySlug.value}`
     : `${base}/blog`;
 });
 
-// Watcher to update meta tags whenever the 'tagName' ref changes.
+// Watcher to update meta tags whenever the 'categorySlug' ref changes.
 watch(
-  tagName,
-  (newTagName) => {
-    if (newTagName) {
+  categorySlug,
+  (newCategorySlug) => {
+    if (newCategorySlug) {
       useHead({
         title: pageTitle.value,
         meta: [
@@ -99,29 +98,37 @@ watch(
         link: [{ rel: 'canonical', href: canonicalUrl.value }],
       });
     } else {
-      useHead({ title: 'Tag Archive' });
+      useHead({ title: 'Category Archive' });
     }
   },
   { immediate: true },
 );
 
 onMounted(() => {
-  const tag = route.params.tag;
-  console.log('Current tag from route:', tag, typeof tag);
+  const category = route.params.category;
 
-  const filtered = postsData.filter((post) => {
-    if (!post.status || post.status === 'published') {
-      if (post.tags) {
-        const lowerCaseTags = post.tags.map((t) => t.toLowerCase());
-        if (lowerCaseTags.includes(tag.toLowerCase())) {
-          console.log('Post included:', post);
-          return true;
-        }
-      }
+  console.log('Current category from route:', category);
+
+  // Find the actual category name from posts data
+  const categoryNames = new Set();
+  postsData.forEach((post) => {
+    if (post.category) {
+      categoryNames.add(post.category);
     }
-    return false;
   });
-  console.log('Filtered posts for tag:', filtered);
+
+  // Find matching category (case-insensitive)
+  const matchingCategory = Array.from(categoryNames).find(
+    (cat) => getCategorySlug(cat) === category
+  );
+
+  const filtered = postsData.filter(
+    (post) =>
+      (!post.status || post.status === 'published') &&
+      post.category &&
+      getCategorySlug(post.category) === category,
+  );
+  console.log('Filtered posts for category:', filtered);
 
   allPosts.value = filtered;
 });
@@ -137,14 +144,4 @@ const formatDate = (dateString) => {
     return dateString;
   }
 };
-
-const allTags = computed(() => {
-  const tags = new Set();
-  postsData.forEach((post) => {
-    if (post.tags) {
-      post.tags.forEach((tag) => tags.add(tag));
-    }
-  });
-  return Array.from(tags).sort();
-});
 </script>

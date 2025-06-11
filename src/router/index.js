@@ -10,6 +10,7 @@ import NotFoundView from '../views/NotFoundView.vue';
 import BlogListView from '../components/blog/BlogListView.vue';
 import BlogPostView from '../components/blog/BlogPostView.vue';
 import BlogTagView from '../components/blog/BlogTagView.vue';
+import BlogCategoryView from '../components/blog/BlogCategoryView.vue';
 
 const routes = [
   {
@@ -62,9 +63,15 @@ const routes = [
     props: true,
   },
   {
-    path: '/blog/category/:category/page/:page?', // Add optional page parameter
+    path: '/blog/category/:category/page/:page?',
+    name: 'category-archive-pagination',
+    component: BlogCategoryView,
+    props: true,
+  },
+  {
+    path: '/blog/category/:category',
     name: 'category-archive',
-    component: CategoryView,
+    component: BlogCategoryView,
     props: true,
   },
   {
