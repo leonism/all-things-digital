@@ -48,24 +48,15 @@
       </figure>
     </header>
     <!-- Article Content - Contains author info and post metadata -->
-    <div class="flex flex-row items-center text-center p-2 md:p-6">
+    <section class="flex flex-row items-center text-center p-2 md:p-6">
       <!-- Author avatar with link -->
-      <section
-        class="ml-1 md:ml-5 shrink-0 self-start rounded-full bg-linear-to-br from-indigo-400 to-pink-600 drop-shadow-lg p-1"
-        itemprop="author"
-        itemscope
-        itemtype="https://schema.org/Person"
-      >
-        <router-link
-          :to="authorLink"
-          :title="`View ${authorImageAlt}'s profile`"
-        >
-          <img
-            :src="processedAuthorImageSrc"
-            :alt="authorImageAlt"
-            class="h-12 w-12 md:h-17 md:w-17 rounded-full border-1 border-white dark:border-gray-800"
-          />
-        </router-link>
+      <section class="ml-1 md:ml-5">
+        <AvatarAuthor
+          :imageSrc="authorImageSrc"
+          :imageAlt="authorImageAlt"
+          :link="authorLink"
+          class="drop-shadow-lg"
+        />
       </section>
       <!-- Post title and metadata -->
       <section class="ml-3 mr-3 flex-1 text-left">
@@ -168,7 +159,7 @@
           </div>
         </footer>
       </section>
-    </div>
+    </section>
   </article>
 </template>
 
@@ -197,7 +188,7 @@
  */
 import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '../components/common/AvatarAuthor.vue';
+import AvatarAuthor from '../common/AvatarAuthor.vue';
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -238,11 +229,6 @@ const getImageUrl = (path: string) => {
 const processedImageSrc = computed(() => {
   // Pass the full path from the frontmatter directly to getImageUrl
   return props.imageSrc ? getImageUrl(props.imageSrc) : '';
-});
-
-const processedAuthorImageSrc = computed(() => {
-  // Pass the full path from the frontmatter directly to getImageUrl
-  return props.authorImageSrc ? getImageUrl(props.authorImageSrc) : '';
 });
 
 /**
