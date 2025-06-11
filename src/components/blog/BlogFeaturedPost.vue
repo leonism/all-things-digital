@@ -1,8 +1,7 @@
 <template>
   <!--
-    Featured blog post card with modular components for improved maintainability.
-    Uses FeaturedPostHeader for image/category and FeaturedPostContent for title/metadata.
-    Maintains all original styling, functionality, and schema.org markup.
+    Featured blog post card with hover effects and schema.org markup
+    Maintains all original classes and functionality while improving semantics
   -->
   <article
     id="featuredPost"
@@ -49,24 +48,15 @@
       </figure>
     </header>
     <!-- Article Content - Contains author info and post metadata -->
-    <div class="flex flex-row items-center text-center p-2 md:p-6">
+    <section class="flex flex-row items-center text-center p-2 md:p-6">
       <!-- Author avatar with link -->
-      <section
-        class="ml-1 md:ml-5 shrink-0 self-start rounded-full bg-linear-to-br from-indigo-400 to-pink-600 drop-shadow-lg p-1"
-        itemprop="author"
-        itemscope
-        itemtype="https://schema.org/Person"
-      >
-        <router-link
-          :to="authorLink"
-          :title="`View ${authorImageAlt}'s profile`"
-        >
-          <img
-            :src="processedAuthorImageSrc"
-            :alt="authorImageAlt"
-            class="h-12 w-12 md:h-17 md:w-17 rounded-full border-1 border-white dark:border-gray-800"
-          />
-        </router-link>
+      <section class="ml-1 md:ml-5">
+        <AvatarAuthor
+          :imageSrc="authorImageSrc"
+          :imageAlt="authorImageAlt"
+          :link="authorLink"
+          class="drop-shadow-lg"
+        />
       </section>
       <!-- Post title and metadata -->
       <section class="ml-3 mr-3 flex-1 text-left">
@@ -169,41 +159,36 @@
           </div>
         </footer>
       </section>
-    </div>
+    </section>
   </article>
 </template>
 
 <script setup lang="ts">
 /**
- * BlogFeaturedPost Component (Refactored)
+ * BlogFeaturedPost Component
  *
- * This is the main container component for a featured blog post that orchestrates
- * modular sub-components for improved maintainability and readability.
- *
- * Architecture:
- * - FeaturedPostHeader: Handles featured image and category badge
- * - FeaturedPostContent: Manages author avatar, title, and metadata
+ * This component displays a featured blog post with its image, title, date,
+ * category, and author avatar. It receives all necessary data as props.
  *
  * Props:
- * - imageSrc: URL for the featured image
- * - imageAlt: Alt text for the featured image
- * - title: The title of the blog post
- * - postLink: The router link path to the full blog post
- * - date: The publication date of the post (string)
- * - category: The category of the post
- * - categoryLink: The router link path to the category archive page
- * - tags: An array of tags associated with the post
- * - authorImageSrc: URL for the author's avatar image
- * - authorImageAlt: Alt text for the author's avatar image
- * - authorLink: The router link path to the author's page (defaults to '/about')
- * - authorName: The name of the author (optional)
+ * - imageSrc: URL for the featured image.
+ * - imageAlt: Alt text for the featured image.
+ * - title: The title of the blog post.
+ * - postLink: The router link path to the full blog post.
+ * - date: The publication date of the post (string).
+ * - category: The category of the post.
+ * - categoryLink: The router link path to the category archive page.
+ * - tags: An array of tags associated with the post.
+ * - authorImageSrc: URL for the author's avatar image.
+ * - authorImageAlt: Alt text for the author's avatar image.
+ * - authorLink: The router link path to the author's page (defaults to '/about').
  *
- * The component uses Vue 3 Composition API with modular sub-components
- * for better separation of concerns and maintainability.
+ * The component uses Vue 3 Composition API with `<script setup>` and computed
+ * properties to format the date.
  */
 import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '@/components/common/AvatarAuthor.vue';
+import AvatarAuthor from '../common/AvatarAuthor.vue';
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -227,22 +212,14 @@ interface Props {
   authorImageSrc: string;
   authorImageAlt?: string;
   authorLink: string;
-  authorName?: string;
+  authorName?: string; // Add authorName prop
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  imageAlt: '',
-  authorImageAlt: '',
-  authorName: '',
   authorLink: '/about',
 });
 
-/**
- * Function to dynamically process image URLs.
- * Handles both relative paths and absolute URLs for Vite compatibility.
- * @param path The image path from props
- * @returns Processed image URL
- */
+// Function to dynamically import images
 const getImageUrl = (path: string) => {
   // Use the path directly as it's already relative to the project root or an absolute URL
   // Vite will handle assets starting with /src/ or /public/ correctly
@@ -254,23 +231,20 @@ const processedImageSrc = computed(() => {
   return props.imageSrc ? getImageUrl(props.imageSrc) : '';
 });
 
-const processedAuthorImageSrc = computed(() => {
-  // Pass the full path from the frontmatter directly to getImageUrl
-  return props.authorImageSrc ? getImageUrl(props.authorImageSrc) : '';
-});
-
 /**
- * Computed property for processed image source.
- * Ensures proper image URL handling for the featured image.
+ * Computed property to format the post date into a human-readable string.
+ * Uses Intl.DateTimeFormatOptions for localization options.
  */
+const formattedDate = computed(() => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  return new Date(props.date).toLocaleDateString('en-US', options);
+});
 </script>
 
 <style scoped>
-/**
- * Scoped styles for the main BlogFeaturedPost container.
- * Individual component styles are handled in their respective files:
- * - FeaturedPostHeader.vue
- * - FeaturedPostContent.vue
- * - FeaturedPostMetadata.vue
- */
+/* Scoped styles for this component if any */
 </style>

@@ -28,7 +28,7 @@ import path from 'path';
  */
 
 // --- Configuration (User should update these) ---
-const YOUR_DOMAIN = 'https://all-things-digital.pages.dev/'; // <<<--- IMPORTANT: Replace with your actual domain
+const YOUR_DOMAIN = 'https://all-things-digital.pages.dev'; // <<<--- IMPORTANT: Replace with your actual domain, and don't include the trailing slash
 const YOUR_NAME = 'All Things Digital'; // <<<--- IMPORTANT: Replace with your name
 const YOUR_EMAIL = 'me@allthingsdigital.com'; // <<<--- IMPORTANT: Replace with your email
 const SITE_TITLE = 'All Things Digital Blog'; // <<<--- Optional: Update site title

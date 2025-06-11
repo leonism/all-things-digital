@@ -1,4 +1,3 @@
-import useCloudinary from '@/composables/useCloudinary';
 <template>
   <!-- Blog Post Card Component - Enhanced with semantic HTML and ARIA -->
   <article
@@ -33,8 +32,14 @@ import useCloudinary from '@/composables/useCloudinary';
     >
       <!-- Article Header with author and metadata -->
       <header class="mb-3 flex items-center">
-        <AvatarAuthor :author="{ name: author.name, avatar: author.avatar }" />
-        itemscope itemtype="https://schema.org/Person" />
+        <AvatarAuthor
+          :imageSrc="processedAuthorImageSrc"
+          :imageAlt="authorImageAlt"
+          :link="authorLink"
+          itemprop="author"
+          itemscope
+          itemtype="https://schema.org/Person"
+        />
         <section id="postMetaData" class="grow">
           <!-- Main article title as h2 for proper document outline -->
           <h2
@@ -55,7 +60,7 @@ import useCloudinary from '@/composables/useCloudinary';
           <section
             class="flex items-center text-xs text-slate-500 dark:text-gray-400 mt-1"
           >
-            <span class="flex items-center text-nowrap">
+            <span v-if="authorName" class="flex items-center text-nowrap">
               <span
                 itemprop="author"
                 class="hidden sm:hidden md:flex md:mr-1 md:mr-2"
@@ -212,7 +217,7 @@ interface Props {
   authorImageSrc?: string;
   authorImageAlt?: string;
   authorLink?: string;
-  author: { name: string; avatar: string };
+  authorName?: string; // Add authorName prop
   category?: string; // Add category prop
 }
 
@@ -239,27 +244,27 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Use Cloudinary for image optimization
 const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-const authorImageCloudinary = useCloudinary(
-  computed(() => props.authorImageSrc),
-);
+const authorImageCloudinary = useCloudinary(computed(() => props.authorImageSrc));
 
 // Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
   // Use responsive image with card-appropriate dimensions
-  return featuredImageCloudinary.responsive.value(400, 250);
+  return featuredImageCloudinary.responsive.value(400, 250, {
+    c: 'fill',
+    g: 'auto'
+  });
 });
 
 const processedAuthorImageSrc = computed(() => {
   // Use thumbnail for author avatar
-  return authorImageCloudinary.thumbnail.value(48);
+  return authorImageCloudinary.thumbnail.value(48, {
+    c: 'thumb',
+    g: 'face'
+  });
 });
 
 const formattedDate = computed(() => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-  };
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(props.date).toLocaleDateString('en-US', options);
 });
 </script>

@@ -3,5 +3,4 @@ Allow: /
 Disallow: /admin/
 
 Sitemap: https://all-things-digital.pages.dev/sitemap.xml
-Sitemap: https://all-things-digital.pages.dev/rss.xml
 Host: https://all-things-digital.pages.dev/
