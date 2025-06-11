@@ -1,10 +1,12 @@
 <script setup>
 import Navigation from '../components/navigation/Navigation.vue';
 import Footer from '../components/footer/Footer.vue';
+
+defineEmits(['open-search']);
 </script>
 
 <template>
-  <Navigation />
+  <Navigation @open-search="$emit('open-search')" />
   <slot />
   <Footer />
 </template>

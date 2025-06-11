@@ -1,16 +1,19 @@
 <template>
-  <BaseLayout>
+  <BaseLayout @open-search="openSearchModal">
     <main class="flex-grow">
       <router-view />
     </main>
-    <SearchModal :show-modal="isSearchModalVisible" @close="closeSearchModal" />
+    <EnhancedSearchModal 
+      :show-modal="isSearchModalVisible" 
+      @close="closeSearchModal" 
+    />
   </BaseLayout>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import BaseLayout from './layouts/BaseLayout.vue';
-import SearchModal from './components/search/SearchModal.vue';
+import EnhancedSearchModal from './components/search/EnhancedSearchModal.vue';
 
 const isSearchModalVisible = ref(false);
 const openSearchModal = () => {
@@ -20,6 +23,26 @@ const openSearchModal = () => {
 const closeSearchModal = () => {
   isSearchModalVisible.value = false;
 };
+
+// Global keyboard shortcut for search
+const handleGlobalKeydown = (event) => {
+  if (event.key === '/' && !isSearchModalVisible.value) {
+    // Prevent typing '/' in input fields
+    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.isContentEditable) {
+      return;
+    }
+    event.preventDefault();
+    openSearchModal();
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('keydown', handleGlobalKeydown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleGlobalKeydown);
+});
 </script>
 
 <style>

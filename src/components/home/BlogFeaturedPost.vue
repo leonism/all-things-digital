@@ -68,7 +68,6 @@
             {{ title }}
           </router-link>
         </h2>
-
         <!-- Post metadata -->
         <div
           class="flex items-center text-xs text-slate-500 dark:text-gray-500 mt-1"
@@ -94,7 +93,6 @@
               </svg>
               <span itemprop="author">{{ authorName }}</span>
             </span>
-
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
