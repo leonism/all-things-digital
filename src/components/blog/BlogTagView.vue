@@ -56,7 +56,7 @@ import { ref, computed, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
-import BlogArticleCard from './BlogArticleCard.vue';
+import BlogArticleCard from '../home/BlogArticleCard.vue';
 import { usePagination } from '../../composables/usePagination';
 import Pagination from '../common/Pagination.vue';
 

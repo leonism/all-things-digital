@@ -58,7 +58,7 @@ import { useHead } from '@unhead/vue';
 import { useRoute } from 'vue-router';
 import { usePagination } from '../../composables/usePagination';
 import HeaderBlog from '../heading/HeaderBlog.vue';
-import BlogArticleCard from './BlogArticleCard.vue';
+import BlogArticleCard from '../home/BlogArticleCard.vue';
 import Pagination from '../../components/common/Pagination.vue';
 import postsData from '../../blog-data.json';
 
