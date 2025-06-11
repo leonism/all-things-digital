@@ -5,7 +5,7 @@
     @click.self="closeModal"
   >
     <div
-      class="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-lg shadow-xl mx-4"
+      class="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-lg shadow-xl mx-4 border border-gray-200 dark:border-gray-700 overflow-hidden"
       role="dialog"
       aria-modal="true"
       aria-labelledby="search-modal-title"

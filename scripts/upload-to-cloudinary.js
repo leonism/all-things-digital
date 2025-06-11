@@ -1,24 +1,24 @@
 /**
  * Cloudinary Image Upload Script
- * 
+ *
  * This script automates the process of uploading images to Cloudinary for optimized
  * delivery in the blog application. It handles batch uploads, generates mapping files,
  * and provides comprehensive error handling for production-ready image management.
- * 
+ *
  * CURRENT FLOW LOGIC:
- * 
+ *
  * 1. ENVIRONMENT SETUP:
  *    - Loads environment variables from .env file (CLOUDINARY_CLOUD_NAME, API_KEY, API_SECRET)
  *    - Validates all required Cloudinary credentials are present
  *    - Configures Cloudinary SDK with proper authentication
  *    - Sets up ES Module path resolution for file operations
- * 
+ *
  * 2. IMAGE DISCOVERY PHASE:
  *    - Scans predefined directories for image files (src/assets/images, public/images)
  *    - Supports multiple image formats: .jpg, .jpeg, .png, .gif, .webp, .svg
  *    - Recursively traverses subdirectories to find all images
  *    - Builds comprehensive list of local image files with metadata
- * 
+ *
  * 3. CLOUDINARY INTEGRATION:
  *    - Generates meaningful public IDs based on file paths and names
  *    - Implements folder structure in Cloudinary (e.g., 'all-things-digital/blog/')
@@ -27,38 +27,38 @@
  *      * Quality optimization for web performance
  *      * Responsive image generation
  *      * SEO-friendly URLs
- * 
+ *
  * 4. BATCH UPLOAD PROCESS:
  *    - Uploads images with progress tracking and detailed logging
  *    - Handles upload failures with retry mechanisms
  *    - Generates secure URLs for immediate use
  *    - Creates transformation URLs for different use cases (thumbnails, hero images)
- * 
+ *
  * 5. MAPPING FILE GENERATION:
  *    - Creates src/data/cloudinary-mapping.json with public ID to URL mappings
  *    - Enables efficient URL resolution in generate-blog-data.js
  *    - Supports both exact matches and filename-based fallbacks
  *    - Maintains backward compatibility with existing image references
- * 
+ *
  * 6. ERROR HANDLING & VALIDATION:
  *    - Comprehensive error handling for network issues and API failures
  *    - Validates image file integrity before upload
  *    - Provides detailed progress reporting and success/failure statistics
  *    - Graceful handling of duplicate uploads and existing resources
- * 
+ *
  * INTEGRATION WITH BUILD PROCESS:
  * - Run manually or as part of CI/CD pipeline for image optimization
  * - Generates mapping data consumed by generate-blog-data.js
  * - Enables CDN-powered image delivery for improved performance
  * - Supports incremental uploads for efficient workflow
- * 
+ *
  * CLOUDINARY FEATURES UTILIZED:
  * - Auto format and quality optimization
  * - Responsive image transformations
  * - SEO-friendly URL structure
  * - Global CDN distribution
  * - Advanced compression algorithms
- * 
+ *
  * This script is essential for the blog's image optimization strategy,
  * ensuring fast loading times and excellent user experience across all devices.
  */
@@ -92,10 +92,12 @@ function configureCloudinary() {
 
   if (missingVars.length > 0) {
     console.error('❌ Missing Cloudinary environment variables:');
-    missingVars.forEach(varName => {
+    missingVars.forEach((varName) => {
       console.error(`   - ${varName}`);
     });
-    console.error('\n💡 Please check your .env file and ensure all variables are set.');
+    console.error(
+      '\n💡 Please check your .env file and ensure all variables are set.',
+    );
     console.error('   Example .env file:');
     console.error('   CLOUDINARY_CLOUD_NAME=your_cloud_name');
     console.error('   CLOUDINARY_API_KEY=your_api_key');
@@ -166,25 +168,27 @@ async function uploadImage(imagePath, index, total, existingMapping = {}) {
         bytes: existingMapping[relativePath].bytes,
         webpUrl: existingMapping[relativePath].webpUrl,
         avifUrl: existingMapping[relativePath].avifUrl,
-        skipped: true
+        skipped: true,
       };
     }
 
     // Check if image exists in Cloudinary
-    const existingImage = await checkImageExists(`all-things-digital/${publicId}`);
+    const existingImage = await checkImageExists(
+      `all-things-digital/${publicId}`,
+    );
     if (existingImage) {
       console.log(`   ♻️  Found existing: ${existingImage.public_id}`);
-      
+
       // Generate modern format URLs
       const webpUrl = cloudinary.url(existingImage.public_id, {
         format: 'webp',
-        quality: 'auto'
+        quality: 'auto',
       });
       const avifUrl = cloudinary.url(existingImage.public_id, {
         format: 'avif',
-        quality: 'auto'
+        quality: 'auto',
       });
-      
+
       return {
         originalPath: relativePath,
         publicId: existingImage.public_id,
@@ -195,7 +199,7 @@ async function uploadImage(imagePath, index, total, existingMapping = {}) {
         bytes: existingImage.bytes,
         webpUrl: webpUrl,
         avifUrl: avifUrl,
-        skipped: true
+        skipped: true,
       };
     }
 
@@ -213,14 +217,16 @@ async function uploadImage(imagePath, index, total, existingMapping = {}) {
     // Generate modern format URLs
     const webpUrl = cloudinary.url(result.public_id, {
       format: 'webp',
-      quality: 'auto'
+      quality: 'auto',
     });
     const avifUrl = cloudinary.url(result.public_id, {
       format: 'avif',
-      quality: 'auto'
+      quality: 'auto',
     });
 
-    console.log(`   ✅ Success: ${result.public_id} (${(result.bytes / 1024).toFixed(1)}KB)`);
+    console.log(
+      `   ✅ Success: ${result.public_id} (${(result.bytes / 1024).toFixed(1)}KB)`,
+    );
     console.log(`   🎨 WebP: ${webpUrl}`);
     console.log(`   🚀 AVIF: ${avifUrl}`);
 
@@ -236,11 +242,14 @@ async function uploadImage(imagePath, index, total, existingMapping = {}) {
       avifUrl: avifUrl,
     };
   } catch (error) {
-    console.error(`   ❌ Failed to process ${path.basename(imagePath)}:`, error.message);
+    console.error(
+      `   ❌ Failed to process ${path.basename(imagePath)}:`,
+      error.message,
+    );
     return {
       originalPath: path.relative(imagesPath, imagePath),
       error: error.message,
-      failed: true
+      failed: true,
     };
   }
 }
@@ -249,7 +258,7 @@ async function uploadImage(imagePath, index, total, existingMapping = {}) {
 async function uploadAllImages() {
   try {
     console.log('🚀 Starting Cloudinary upload process...');
-    console.log('=' .repeat(50));
+    console.log('='.repeat(50));
 
     // Configure Cloudinary with validation
     configureCloudinary();
@@ -260,15 +269,19 @@ async function uploadAllImages() {
       try {
         const existingData = fs.readFileSync(outputPath, 'utf8');
         existingMapping = JSON.parse(existingData);
-        console.log(`📋 Loaded existing mapping with ${Object.keys(existingMapping).length} entries`);
+        console.log(
+          `📋 Loaded existing mapping with ${Object.keys(existingMapping).length} entries`,
+        );
       } catch (error) {
-        console.warn('⚠️  Could not load existing mapping file, starting fresh');
+        console.warn(
+          '⚠️  Could not load existing mapping file, starting fresh',
+        );
       }
     }
 
     const imageFiles = getAllImageFiles(imagesPath);
     console.log(`\n📁 Found ${imageFiles.length} image files to process`);
-    
+
     if (imageFiles.length === 0) {
       console.log('⚠️  No images found in the assets/img directory.');
       return;
@@ -282,8 +295,13 @@ async function uploadAllImages() {
     // Process images with a delay to avoid rate limiting
     for (let i = 0; i < imageFiles.length; i++) {
       const imagePath = imageFiles[i];
-      const result = await uploadImage(imagePath, i, imageFiles.length, existingMapping);
-      
+      const result = await uploadImage(
+        imagePath,
+        i,
+        imageFiles.length,
+        existingMapping,
+      );
+
       if (result) {
         if (result.failed) {
           failedUploads.push(result);
@@ -294,7 +312,7 @@ async function uploadAllImages() {
           }
         }
       }
-      
+
       // Small delay to avoid overwhelming the API
       if (i < imageFiles.length - 1) {
         await new Promise((resolve) => setTimeout(resolve, 300));
@@ -325,41 +343,55 @@ async function uploadAllImages() {
     console.log('\n' + '='.repeat(50));
     console.log('📊 PROCESSING SUMMARY');
     console.log('='.repeat(50));
-    
-    const newUploads = uploadResults.filter(r => !r.skipped);
-    const skipped = uploadResults.filter(r => r.skipped);
-    
+
+    const newUploads = uploadResults.filter((r) => !r.skipped);
+    const skipped = uploadResults.filter((r) => r.skipped);
+
     console.log(`✅ Total processed: ${uploadResults.length} images`);
     console.log(`🆕 New uploads: ${newUploads.length} images`);
     console.log(`⏭️  Skipped (existing): ${skipped.length} images`);
-    
+
     if (failedUploads.length > 0) {
       console.log(`❌ Failed: ${failedUploads.length} images`);
       console.log('\n🔍 Failed files:');
-      failedUploads.forEach(failed => {
+      failedUploads.forEach((failed) => {
         console.log(`   - ${failed.originalPath}: ${failed.error}`);
       });
     }
-    
+
     if (uploadResults.length > 0) {
-      const totalSize = uploadResults.reduce((sum, result) => sum + result.bytes, 0);
-      const newUploadSize = newUploads.reduce((sum, result) => sum + result.bytes, 0);
-      
+      const totalSize = uploadResults.reduce(
+        (sum, result) => sum + result.bytes,
+        0,
+      );
+      const newUploadSize = newUploads.reduce(
+        (sum, result) => sum + result.bytes,
+        0,
+      );
+
       console.log(`\n📦 Total size: ${(totalSize / 1024 / 1024).toFixed(2)}MB`);
       if (newUploads.length > 0) {
-        console.log(`📤 New uploads size: ${(newUploadSize / 1024 / 1024).toFixed(2)}MB`);
+        console.log(
+          `📤 New uploads size: ${(newUploadSize / 1024 / 1024).toFixed(2)}MB`,
+        );
       }
       console.log(`📄 Mapping saved to: ${outputPath}`);
-      
+
       console.log('\n🎯 Next steps:');
-      console.log('   1. Update your Markdown frontmatter to use Cloudinary public IDs');
-      console.log('   2. Update Vue components to use the Cloudinary helper function');
+      console.log(
+        '   1. Update your Markdown frontmatter to use Cloudinary public IDs',
+      );
+      console.log(
+        '   2. Update Vue components to use the Cloudinary helper function',
+      );
       console.log('   3. Check the mapping file for public ID references');
       console.log('   4. Use webpUrl and avifUrl for modern image formats');
     }
-    
+
     if (failedUploads.length === imageFiles.length) {
-      throw new Error('All uploads failed. Please check your Cloudinary configuration.');
+      throw new Error(
+        'All uploads failed. Please check your Cloudinary configuration.',
+      );
     }
   } catch (error) {
     console.error('Upload process failed:', error);

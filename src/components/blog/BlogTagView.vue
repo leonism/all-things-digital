@@ -1,12 +1,13 @@
 <template>
-  <div class="mainWrapper max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div id="mainWrapper" class="max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
       <BlogArticleCard
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
-          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+          post.featuredImage?.src ||
+          '/assets/img/thumbnail-01-comp.jpg'
         "
         :imageAlt="post.featuredImage?.alt || post.title"
         :title="post.title"
@@ -32,7 +33,7 @@
     <div v-if="!tagName" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <div
         v-for="tag in allTags"
-        :key="tag"
+        :key="String(tag)"
         class="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
       >
         <router-link :to="`/blog/tag/${getTagSlug(tag)}`">
@@ -45,12 +46,14 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue';
+import type { Post } from '../../types/Post';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
 import BlogArticleCard from '../home/BlogArticleCard.vue';
+const posts = postsData as Post[];
 
-const getTagSlug = (name) => {
+const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
@@ -60,7 +63,7 @@ const tagName = ref(
   Array.isArray(route.params.tag) ? route.params.tag[0] : route.params.tag,
 );
 
-const allPosts = ref([]);
+const allPosts = ref<Post[]>([]);
 
 // Computed properties for meta tags
 const pageTitle = computed(
@@ -70,7 +73,7 @@ const pageDescription = computed(
   () => `Posts tagged with #${tagName.value || 'archive'}.`,
 );
 const canonicalUrl = computed(() => {
-  const base = 'https://yourdomain.com';
+  const base = 'https://allthingsdigital.netlify.app';
   return tagName.value
     ? `${base}/blog/tag/${getTagSlug(tagName.value)}`
     : `${base}/blog`;
@@ -109,11 +112,15 @@ onMounted(() => {
   const tag = route.params.tag;
   console.log('Current tag from route:', tag, typeof tag);
 
-  const filtered = postsData.filter((post) => {
+  const filtered = postsData.filter((post: Post) => {
     if (!post.status || post.status === 'published') {
       if (post.tags) {
-        const lowerCaseTags = post.tags.map((t) => t.toLowerCase());
-        if (lowerCaseTags.includes(tag.toLowerCase())) {
+        const lowerCaseTags = post.tags.map((t: string) => t.toLowerCase());
+        if (
+          Array.isArray(tag)
+            ? lowerCaseTags.includes(tag[0].toLowerCase())
+            : lowerCaseTags.includes(tag.toLowerCase())
+        ) {
           console.log('Post included:', post);
           return true;
         }
@@ -126,9 +133,9 @@ onMounted(() => {
   allPosts.value = filtered;
 });
 
-const formatDate = (dateString) => {
+const formatDate = (dateString: string): string => {
   if (!dateString) return '';
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
   try {
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, options);
@@ -139,10 +146,10 @@ const formatDate = (dateString) => {
 };
 
 const allTags = computed(() => {
-  const tags = new Set();
-  postsData.forEach((post) => {
+  const tags = new Set<string>();
+  postsData.forEach((post: Post) => {
     if (post.tags) {
-      post.tags.forEach((tag) => tags.add(tag));
+      post.tags.forEach((tag: string) => tags.add(tag));
     }
   });
   return Array.from(tags).sort();
