@@ -8,5 +8,5 @@ export interface PaginationReturn {
 
 export declare function usePagination(
   totalItems: ComputedRef<number>,
-  itemsPerPage: number,
+  itemsPerPage: number
 ): PaginationReturn;

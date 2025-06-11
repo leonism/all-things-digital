@@ -2,32 +2,50 @@
   <Teleport to="body">
     <div
       v-if="showModal"
-      class="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-8 md:pt-16 bg-gray-900/75 backdrop-blur-sm"
+      class="fixed inset-0 z-50 flex items-start justify-center pt-2 sm:pt-4 md:pt-8 lg:pt-16 bg-gray-900/75 backdrop-blur-sm"
       @click.self="closeModal"
       @keydown.esc="closeModal"
     >
       <div
-        class="relative w-full max-w-2xl bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 mx-2 sm:mx-4 max-h-[90vh] sm:max-h-[85vh] md:max-h-[80vh] flex flex-col"
-        style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);"
+        class="relative w-full max-w-xs sm:max-w-sm md:max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 mx-2 sm:mx-4 max-h-[95vh] sm:max-h-[90vh] md:max-h-[80vh] flex flex-col"
+        style="
+          box-shadow:
+            0 25px 50px -12px rgba(0, 0, 0, 0.25),
+            0 0 0 1px rgba(255, 255, 255, 0.05);
+        "
         role="dialog"
         aria-modal="true"
         aria-labelledby="search-modal-title"
       >
-        <!-- Close Button - Moved to top right corner -->
+        <!-- Close Button - Center aligned with search elements -->
         <button
           @click="closeModal"
-          class="absolute top-2 sm:top-3 right-2 sm:right-3 z-10 p-1.5 sm:p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+          class="absolute -p-2 top-6 sm:top-4 right-4 sm:right-5 z-10 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
           aria-label="Close search modal"
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
         <!-- Search Header -->
-        <div class="p-3 sm:p-4 pr-10 sm:pr-12 border-b border-gray-200 dark:border-gray-700">
+        <div
+          class="p-3 sm:p-4 pr-12 sm:pr-16 border-b border-gray-200 dark:border-gray-700"
+        >
           <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <div
+              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+            >
               <svg
                 class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400"
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,19 +65,23 @@
               v-model="searchQuery"
               type="search"
               placeholder="Search posts, categories, tags..."
-              class="block w-full pl-9 sm:pl-10 pr-12 sm:pr-16 py-2.5 sm:py-3 border-0 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:bg-white dark:focus:bg-gray-700 transition-colors text-sm sm:text-base"
+              class="block w-full pl-9 sm:pl-10 pr-14 sm:pr-16 py-2.5 sm:py-3 border-0 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:bg-white dark:focus:bg-gray-700 transition-colors text-sm sm:text-base"
               @keydown.down.prevent="navigateFilteredResults('down')"
               @keydown.up.prevent="navigateFilteredResults('up')"
               @keydown.enter.prevent="selectCurrentResult"
               @keydown.tab.prevent="selectSuggestion"
             />
-            <div class="absolute inset-y-0 right-0 pr-2 sm:pr-3 flex items-center">
-              <kbd class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs font-medium text-gray-500 bg-gray-100 dark:bg-gray-700 dark:text-gray-400 rounded border border-gray-300 dark:border-gray-600">
+            <div
+              class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center"
+            >
+              <kbd
+                class="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs font-medium text-gray-500 bg-gray-100 dark:bg-gray-700 dark:text-gray-400 rounded border border-gray-300 dark:border-gray-600"
+              >
                 ESC
               </kbd>
             </div>
           </div>
-          
+
           <!-- Search Stats -->
           <div class="mt-2">
             <SearchStats
@@ -76,15 +98,23 @@
         <div class="flex-1 overflow-hidden">
           <!-- Loading State -->
           <div v-if="isSearching" class="p-6 text-center">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-500 mx-auto"></div>
-            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Searching...</p>
+            <div
+              class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-500 mx-auto"
+            ></div>
+            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+              Searching...
+            </p>
           </div>
 
           <!-- No Query State - Show Suggestions -->
           <div v-else-if="!searchQuery" class="p-4 space-y-6">
             <!-- Recent Searches -->
             <div v-if="recentSearches.length > 0">
-              <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Recent Searches</h3>
+              <h3
+                class="text-sm font-medium text-gray-900 dark:text-white mb-3"
+              >
+                Recent Searches
+              </h3>
               <div class="flex flex-wrap gap-2">
                 <button
                   v-for="recent in recentSearches"
@@ -99,22 +129,34 @@
 
             <!-- Quick Suggestions -->
             <div>
-              <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Browse by Category</h3>
-              <div class="grid grid-cols-2 gap-2">
+              <h3
+                class="text-sm font-medium text-gray-900 dark:text-white mb-3"
+              >
+                Browse by Category
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <button
                   v-for="category in searchSuggestions.categories"
                   :key="category"
                   @click="searchQuery = category"
-                  class="p-3 text-left bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  class="p-2 sm:p-3 text-left bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">{{ category }}</div>
+                  <div
+                    class="text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    {{ category }}
+                  </div>
                 </button>
               </div>
             </div>
 
             <!-- Popular Tags -->
             <div>
-              <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Popular Tags</h3>
+              <h3
+                class="text-sm font-medium text-gray-900 dark:text-white mb-3"
+              >
+                Popular Tags
+              </h3>
               <div class="flex flex-wrap gap-2">
                 <button
                   v-for="tag in searchSuggestions.tags"
@@ -129,11 +171,25 @@
           </div>
 
           <!-- Search Results -->
-          <div v-else-if="filteredResults.length > 0" class="overflow-y-auto max-h-64 sm:max-h-80 md:max-h-96">
+          <div
+            v-else-if="filteredResults.length > 0"
+            class="overflow-y-auto max-h-48 sm:max-h-64 md:max-h-80 lg:max-h-96"
+          >
             <!-- Grouped Results -->
-            <div v-if="Object.keys(filteredGroupedResults).length > 1 && !activeCategoryFilter" class="p-3 sm:p-4 space-y-4 sm:space-y-6">
-              <div v-for="(posts, category) in filteredGroupedResults" :key="category">
-                <h3 class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 sm:mb-3 uppercase tracking-wide">
+            <div
+              v-if="
+                Object.keys(filteredGroupedResults).length > 1 &&
+                !activeCategoryFilter
+              "
+              class="p-3 sm:p-4 space-y-4 sm:space-y-6"
+            >
+              <div
+                v-for="(posts, category) in filteredGroupedResults"
+                :key="category"
+              >
+                <h3
+                  class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 sm:mb-3 uppercase tracking-wide"
+                >
                   {{ category }} ({{ posts.length }})
                 </h3>
                 <div class="space-y-1 sm:space-y-2">
@@ -141,9 +197,13 @@
                     v-for="(post, index) in posts"
                     :key="post.slug"
                     :post="post"
-                    :is-selected="filteredSelectedIndex === getFilteredGlobalIndex(post)"
+                    :is-selected="
+                      filteredSelectedIndex === getFilteredGlobalIndex(post)
+                    "
                     @click="selectPost(post)"
-                    @mouseenter="filteredSelectedIndex = getFilteredGlobalIndex(post)"
+                    @mouseenter="
+                      filteredSelectedIndex = getFilteredGlobalIndex(post)
+                    "
                   />
                 </div>
               </div>
@@ -164,12 +224,27 @@
 
           <!-- No Results -->
           <div v-else-if="searchQuery" class="p-6 text-center">
-            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 6.306a7.962 7.962 0 00-6 0m6 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v1.306m8 0V7a2 2 0 012 2v6.414l-1.293-1.293a1 1 0 00-1.414 0L12 16.414l-2.293-2.293a1 1 0 00-1.414 0L7 15.414V9a2 2 0 012-2h6a2 2 0 012 2v6.414z" />
+            <svg
+              class="mx-auto h-12 w-12 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 6.306a7.962 7.962 0 00-6 0m6 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v1.306m8 0V7a2 2 0 012 2v6.414l-1.293-1.293a1 1 0 00-1.414 0L12 16.414l-2.293-2.293a1 1 0 00-1.414 0L7 15.414V9a2 2 0 012-2h6a2 2 0 012 2v6.414z"
+              />
             </svg>
-            <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-white">No results found</h3>
+            <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-white">
+              No results found
+            </h3>
             <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-              No posts found for "<span class="font-medium">{{ searchQuery }}</span>"
+              No posts found for "<span class="font-medium">{{
+                searchQuery
+              }}</span
+              >"
             </p>
             <div class="mt-4">
               <button
@@ -183,26 +258,41 @@
         </div>
 
         <!-- Search Footer -->
-        <div class="p-3 sm:p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div
+          class="p-3 sm:p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 rounded-bl-2xl rounded-br-2xl"
+        >
+          <div
+            class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400"
+          >
             <div class="flex items-center space-x-2 sm:space-x-4">
               <span class="flex items-center">
-                <kbd class="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded text-xs">↑↓</kbd>
+                <kbd
+                  class="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded text-xs"
+                  >↑↓</kbd
+                >
                 <span class="ml-1 sm:ml-2 hidden sm:inline">Navigate</span>
                 <span class="ml-1 sm:hidden">Nav</span>
               </span>
               <span class="flex items-center">
-                <kbd class="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded text-xs">↵</kbd>
+                <kbd
+                  class="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded text-xs"
+                  >↵</kbd
+                >
                 <span class="ml-1 sm:ml-2 hidden sm:inline">Select</span>
                 <span class="ml-1 sm:hidden">OK</span>
               </span>
             </div>
-            <span class="hidden sm:inline">Search powered by Vue</span>
-            <span class="sm:hidden text-xs">Vue Search</span>
+            <div class="flex items-center space-x-1 sm:space-x-2">
+              <img
+                src="../../assets/img/icons/logo-footer.png"
+                alt="Logo"
+                class="w-6 h-6 sm:w-4 sm:h-4 opacity-60 dark:opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+              />
+              <span class="hidden sm:inline">Search powered by Vue</span>
+              <span class="sm:hidden text-xs">Vue Search</span>
+            </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </Teleport>
@@ -219,8 +309,8 @@ import SearchStats from './SearchStats.vue';
 const props = defineProps({
   showModal: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 const emit = defineEmits(['close']);
@@ -241,7 +331,7 @@ const {
   navigateResults,
   selectResult,
   clearSearch,
-  addToRecentSearches
+  addToRecentSearches,
 } = useSearch();
 
 // Additional computed properties for the template
@@ -258,21 +348,21 @@ const filteredResults = computed(() => {
   if (!activeCategoryFilter.value) {
     return searchResults.value;
   }
-  return searchResults.value.filter(result => 
-    (result.category || 'Other') === activeCategoryFilter.value
+  return searchResults.value.filter(
+    (result) => (result.category || 'Other') === activeCategoryFilter.value,
   );
 });
 
 // Result categories with active state
 const resultCategories = computed(() => {
   const categories = {};
-  searchResults.value.forEach(result => {
+  searchResults.value.forEach((result) => {
     const category = result.category || 'Other';
     if (!categories[category]) {
-      categories[category] = { 
-        name: category, 
-        count: 0, 
-        active: activeCategoryFilter.value === category 
+      categories[category] = {
+        name: category,
+        count: 0,
+        active: activeCategoryFilter.value === category,
       };
     }
     categories[category].count++;
@@ -283,7 +373,7 @@ const resultCategories = computed(() => {
 // Update grouped results to use filtered results
 const filteredGroupedResults = computed(() => {
   const grouped = {};
-  filteredResults.value.forEach(result => {
+  filteredResults.value.forEach((result) => {
     const category = result.category || 'Other';
     if (!grouped[category]) {
       grouped[category] = [];
@@ -296,12 +386,12 @@ const suggestions = computed(() => searchSuggestions.value || []);
 
 // Get global index for grouped results
 function getGlobalIndex(post) {
-  return searchResults.value.findIndex(result => result.slug === post.slug);
+  return searchResults.value.findIndex((result) => result.slug === post.slug);
 }
 
 // Get global index for filtered results
 function getFilteredGlobalIndex(post) {
-  return filteredResults.value.findIndex(result => result.slug === post.slug);
+  return filteredResults.value.findIndex((result) => result.slug === post.slug);
 }
 
 // Navigate to selected post
@@ -314,7 +404,11 @@ function selectPost(post) {
 // Select current highlighted result
 function selectCurrentResult() {
   const results = filteredResults.value;
-  if (results.length > 0 && filteredSelectedIndex.value >= 0 && filteredSelectedIndex.value < results.length) {
+  if (
+    results.length > 0 &&
+    filteredSelectedIndex.value >= 0 &&
+    filteredSelectedIndex.value < results.length
+  ) {
     selectPost(results[filteredSelectedIndex.value]);
   }
 }
@@ -358,18 +452,26 @@ function handleCategoryFilter(categoryName) {
 // Navigate filtered results with keyboard
 function navigateFilteredResults(direction) {
   const maxIndex = filteredResults.value.length - 1;
-  
+
   if (maxIndex < 0) return;
-  
+
   if (direction === 'down') {
-    filteredSelectedIndex.value = filteredSelectedIndex.value < maxIndex ? filteredSelectedIndex.value + 1 : 0;
+    filteredSelectedIndex.value =
+      filteredSelectedIndex.value < maxIndex
+        ? filteredSelectedIndex.value + 1
+        : 0;
   } else if (direction === 'up') {
-    filteredSelectedIndex.value = filteredSelectedIndex.value > 0 ? filteredSelectedIndex.value - 1 : maxIndex;
+    filteredSelectedIndex.value =
+      filteredSelectedIndex.value > 0
+        ? filteredSelectedIndex.value - 1
+        : maxIndex;
   }
-  
+
   // Scroll selected item into view
   nextTick(() => {
-    const selectedElement = document.querySelector('.search-result-item.selected');
+    const selectedElement = document.querySelector(
+      '.search-result-item.selected',
+    );
     if (selectedElement) {
       selectedElement.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
@@ -389,9 +491,9 @@ function handleKeydown(event) {
     // The parent component (App.vue) should handle this global shortcut
     return;
   }
-  
+
   if (!props.showModal) return;
-  
+
   switch (event.key) {
     case 'Escape':
       event.preventDefault();
@@ -419,18 +521,21 @@ function handleKeydown(event) {
 }
 
 // Focus input when modal opens and handle body scroll
-watch(() => props.showModal, (newValue) => {
-  if (newValue) {
-    preventBodyScroll();
-    filteredSelectedIndex.value = -1;
-    nextTick(() => {
-      searchInput.value?.focus();
-    });
-  } else {
-    restoreBodyScroll();
-    filteredSelectedIndex.value = -1;
-  }
-});
+watch(
+  () => props.showModal,
+  (newValue) => {
+    if (newValue) {
+      preventBodyScroll();
+      filteredSelectedIndex.value = -1;
+      nextTick(() => {
+        searchInput.value?.focus();
+      });
+    } else {
+      restoreBodyScroll();
+      filteredSelectedIndex.value = -1;
+    }
+  },
+);
 
 // Reset filtered selected index when search query or filter changes
 watch([searchQuery, activeCategoryFilter], () => {

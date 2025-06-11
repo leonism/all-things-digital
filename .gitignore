@@ -5,12 +5,17 @@ dist
 # dependencies
 node_modules/
 
+# settings
+.vscode/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# fonts
+.woff2
 
 # environment variables
 .env
@@ -22,3 +27,6 @@ pnpm-debug.log*
 # git / github
 .github
 /etc
+
+# creative
+.mp4
