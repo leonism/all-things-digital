@@ -20,7 +20,7 @@
         <!-- Close Button - Center aligned with search elements -->
         <button
           @click="closeModal"
-          class="absolute -p-2 top-6 sm:top-4 right-4 sm:right-5 z-10 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+          class="absolute sm:-p-2 md:ml-3 md:p-2 md:mt-1 top-6 sm:top-4 right-4 sm:right-5 z-10 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
           aria-label="Close search modal"
         >
           <svg
