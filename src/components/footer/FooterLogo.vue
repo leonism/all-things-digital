@@ -16,7 +16,7 @@
         width="35"
         height="35"
         alt="Company logo"
-        class="animate-bounce-infinite"
+        class="animate-bounce-infinite border border-gray-300 dark:border-none rounded-full"
       />
     </a>
   </figure>
