@@ -1,66 +1,60 @@
 <template>
-  <!--
-    Featured blog post card with hover effects and schema.org markup
-    Maintains all original classes and functionality while improving semantics
-  -->
+  <!-- Featured blog post card with hover effects and schema.org markup -->
   <article
     id="featuredPost"
-    class="my-10 sm:my-10 md:my-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
+    class="my-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
     itemscope
     itemtype="https://schema.org/BlogPosting"
     aria-labelledby="featuredPostTitle"
   >
-    <!-- Article Header - Contains featured image and category badge -->
-    <header class="relative">
-      <figure
-        class="relative"
-        itemprop="image"
-        itemscope
-        itemtype="https://schema.org/ImageObject"
-      >
-        <router-link :to="postLink" itemprop="url" aria-label="Read full post">
-          <img
-            :src="imageSrc"
-            :alt="imageAlt"
-            :width="1000"
-            :height="600"
-            class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
-            itemprop="url"
-            decoding="async"
-          />
-        </router-link>
-
-        <!-- Category badge positioned absolutely over the image -->
-        <figcaption class="absolute bottom-2 right-2 md:bottom-10 md:right-8">
-          <router-link
-            :to="`/blog/category/${getTagSlug(category)}`"
-            :title="`View all posts in ${category} category`"
-            class="inline-block"
+    <!-- Featured image with category badge -->
+    <figure
+      class="relative"
+      itemprop="image"
+      itemscope
+      itemtype="https://schema.org/ImageObject"
+    >
+      <router-link :to="postLink" itemprop="url" aria-label="Read full post">
+        <img
+          :src="imageSrc"
+          :alt="imageAlt"
+          width="1000"
+          height="600"
+          class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
+          itemprop="url"
+          decoding="async"
+        />
+      </router-link>
+      <figcaption class="absolute bottom-2 right-2 md:bottom-10 md:right-8">
+        <router-link
+          :to="`/blog/category/${getTagSlug(category)}`"
+          :title="`View all posts in ${category} category`"
+          class="inline-block"
+        >
+          <span
+            class="text-white text-xs px-2.5 py-1 rounded-full bg-linear-to-br from-indigo-400/50 to-pink-600/50 dark:bg-gray-800"
+            itemprop="about"
           >
-            <span
-              class="text-white text-xs px-2.5 py-1 rounded-full bg-linear-to-br from-indigo-400/50 to-pink-600/50 dark:bg-gray-800"
-              itemprop="about"
-            >
-              {{ category }}
-            </span>
-          </router-link>
-        </figcaption>
-      </figure>
-    </header>
-    <!-- Article Content - Contains author info and post metadata -->
-    <section class="flex flex-row items-center text-center p-2 md:p-6">
-      <!-- Author avatar with link -->
-      <section class="ml-1 md:ml-5">
+            {{ category }}
+          </span>
+        </router-link>
+      </figcaption>
+    </figure>
+
+    <!-- Post content area -->
+    <div class="flex items-center p-2 md:p-6">
+      <!-- Author avatar -->
+      <div class="ml-1 md:ml-5">
         <AvatarAuthor
           :imageSrc="authorImageSrc"
           :imageAlt="authorImageAlt"
           :link="authorLink"
           class="drop-shadow-lg"
         />
-      </section>
+      </div>
+
       <!-- Post title and metadata -->
-      <section class="ml-3 mr-3 flex-1 text-left">
-        <!-- Post title as heading -->
+      <div class="ml-3 flex-1 text-left">
         <h2
           id="featuredPostTitle"
           class="font-navigation line-clamp-2 text-slate-700 dark:text-white leading-6 md:text-xl/5 md:leading-7"
@@ -75,11 +69,11 @@
           </router-link>
         </h2>
 
-        <!-- Post metadata footer -->
-        <footer
+        <!-- Post metadata -->
+        <div
           class="flex items-center text-xs text-slate-500 dark:text-gray-500 mt-1"
         >
-          <!-- Publication date -->
+          <!-- Author and date -->
           <div class="flex items-center">
             <span v-if="authorName" class="flex items-center mr-3">
               <svg
@@ -90,8 +84,6 @@
                 stroke="currentColor"
                 class="mr-1.5 h-3.5 w-3.5"
                 aria-hidden="true"
-                focusable="false"
-                role="img"
               >
                 <title>Author</title>
                 <path
@@ -102,6 +94,7 @@
               </svg>
               <span itemprop="author">{{ authorName }}</span>
             </span>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -110,7 +103,6 @@
               stroke="currentColor"
               class="w-3.5 h-3.5 mr-1"
               aria-hidden="true"
-              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -123,7 +115,7 @@
             </time>
           </div>
 
-          <!-- Tags list (hidden on mobile) -->
+          <!-- Tags (hidden on mobile) -->
           <div
             class="hidden md:inline-flex items-center ml-2"
             itemprop="keywords"
@@ -136,7 +128,6 @@
               stroke="currentColor"
               class="w-3.5 h-3.5 mx-1"
               aria-hidden="true"
-              focusable="false"
             >
               <path
                 stroke-linecap="round"
@@ -157,9 +148,9 @@
               </template>
             </span>
           </div>
-        </footer>
-      </section>
-    </section>
+        </div>
+      </div>
+    </div>
   </article>
 </template>
 
@@ -182,20 +173,11 @@
  * - authorImageSrc: URL for the author's avatar image.
  * - authorImageAlt: Alt text for the author's avatar image.
  * - authorLink: The router link path to the author's page (defaults to '/about').
- *
- * The component uses Vue 3 Composition API with `<script setup>` and computed
- * properties to format the date.
  */
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
 
-/**
- * Generates a hyphenated slug from a tag name.
- * Replaces spaces with hyphens and converts to lowercase.
- * @param name The tag name.
- * @returns The hyphenated tag slug.
- */
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
@@ -212,29 +194,13 @@ interface Props {
   authorImageSrc: string;
   authorImageAlt?: string;
   authorLink: string;
-  authorName?: string; // Add authorName prop
+  authorName?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   authorLink: '/about',
 });
 
-// Function to dynamically import images
-const getImageUrl = (path: string) => {
-  // Use the path directly as it's already relative to the project root or an absolute URL
-  // Vite will handle assets starting with /src/ or /public/ correctly
-  return new URL(path, import.meta.url).href;
-};
-
-const processedImageSrc = computed(() => {
-  // Pass the full path from the frontmatter directly to getImageUrl
-  return props.imageSrc ? getImageUrl(props.imageSrc) : '';
-});
-
-/**
- * Computed property to format the post date into a human-readable string.
- * Uses Intl.DateTimeFormatOptions for localization options.
- */
 const formattedDate = computed(() => {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -244,7 +210,3 @@ const formattedDate = computed(() => {
   return new Date(props.date).toLocaleDateString('en-US', options);
 });
 </script>
-
-<style scoped>
-/* Scoped styles for this component if any */
-</style>
