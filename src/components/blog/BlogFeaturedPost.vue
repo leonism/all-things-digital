@@ -11,27 +11,6 @@
     itemtype="https://schema.org/BlogPosting"
     aria-labelledby="featuredPostTitle"
   >
-<<<<<<< HEAD
-    <!-- Modular Header Component - Featured image and category badge -->
-    <FeaturedPostHeader
-      :imageSrc="processedImageSrc"
-      :imageAlt="imageAlt"
-      :postLink="postLink"
-      :category="category"
-    />
-    
-    <!-- Modular Content Component - Author avatar, title, and metadata -->
-    <FeaturedPostContent
-      :title="title"
-      :postLink="postLink"
-      :authorImageSrc="authorImageSrc"
-      :authorImageAlt="authorImageAlt"
-      :authorLink="authorLink"
-      :authorName="authorName"
-      :date="date"
-      :tags="tags"
-    />
-=======
     <!-- Article Header - Contains featured image and category badge -->
     <header class="relative">
       <figure
@@ -191,7 +170,6 @@
         </footer>
       </section>
     </div>
->>>>>>> parent of 9ca984a (refactor(blog): replace custom avatar section with AvatarAuthor component)
   </article>
 </template>
 
@@ -223,14 +201,9 @@
  * The component uses Vue 3 Composition API with modular sub-components
  * for better separation of concerns and maintainability.
  */
-<<<<<<< HEAD
-import { computed } from 'vue';
-import FeaturedPostHeader from './FeaturedPostHeader.vue';
-import FeaturedPostContent from './FeaturedPostContent.vue';
-=======
 import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '../components/common/AvatarAuthor.vue';
+import AvatarAuthor from '@/components/common/AvatarAuthor.vue';
 
 /**
  * Generates a hyphenated slug from a tag name.
@@ -241,7 +214,6 @@ import AvatarAuthor from '../components/common/AvatarAuthor.vue';
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
->>>>>>> parent of 9ca984a (refactor(blog): replace custom avatar section with AvatarAuthor component)
 
 interface Props {
   imageSrc: string;
@@ -277,8 +249,6 @@ const getImageUrl = (path: string) => {
   return new URL(path, import.meta.url).href;
 };
 
-<<<<<<< HEAD
-=======
 const processedImageSrc = computed(() => {
   // Pass the full path from the frontmatter directly to getImageUrl
   return props.imageSrc ? getImageUrl(props.imageSrc) : '';
@@ -289,14 +259,10 @@ const processedAuthorImageSrc = computed(() => {
   return props.authorImageSrc ? getImageUrl(props.authorImageSrc) : '';
 });
 
->>>>>>> parent of 9ca984a (refactor(blog): replace custom avatar section with AvatarAuthor component)
 /**
  * Computed property for processed image source.
  * Ensures proper image URL handling for the featured image.
  */
-const processedImageSrc = computed(() => {
-  return props.imageSrc ? getImageUrl(props.imageSrc) : '';
-});
 </script>
 
 <style scoped>

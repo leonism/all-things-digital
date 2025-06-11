@@ -1,53 +1,20 @@
 <template>
-  <section
-    class="mr-3 p-0.5 flex shrink-0 basis-auto items-center self-start rounded-full bg-gradient-to-br from-indigo-400 to-pink-600 transition hover:from-indigo-500 hover:to-pink-700 transition-colors duration-300 transform hover:scale-110"
-  >
-    <router-link :to="link">
-      <img
-        :src="processedImageSrc"
-        :alt="imageAlt"
-        class="h-12 w-12 rounded-full max-w-full border-2 border-white dark:border-slate-800"
-        itemprop="author"
-        itemscope
-        itemtype="https://schema.org/Person"
-      />
-</router-link>
-</section>
+  <div class="flex items-center space-x-2">
+    <img :src="author.avatar" alt="Avatar" class="w-8 h-8 rounded-full">
+    <span class="text-gray-600">{{ author.name }}</span>
+  </div>
 </template>
 
-<script setup lang="ts">
-import { RouterLink } from 'vue-router';
-import { computed } from 'vue';
-import { useCloudinary } from '@/composables/useCloudinary';
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
 
-const props = defineProps({
-  imageSrc: {
-    type: String,
-    required: true,
+export default defineComponent({
+  name: 'AvatarAuthor',
+  props: {
+    author: {
+      type: Object as PropType<{ name: string; avatar: string }>,
+      required: true,
+    },
   },
-  imageAlt: {
-    type: String,
-    default: 'Author profile picture',
-  },
-  link: {
-    type: String,
-    default: '/about', // Default link to about page
-  },
-});
-
-// Use Cloudinary for author avatar optimization
-const authorImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-
-const processedImageSrc = computed(() => {
-  // Generate optimized avatar with face detection and cropping
-  return authorImageCloudinary.thumbnail.value(48, {
-    c: 'thumb',
-    g: 'face',
-    r: 'max' // Make it circular
-  });
 });
 </script>
-
-<style scoped>
-/* Scoped styles for this component if any */
-</style>
