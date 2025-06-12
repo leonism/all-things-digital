@@ -30,7 +30,7 @@
  * computed property to handle the filtering logic.
  */
 import { computed } from 'vue';
-import BlogArticleCard from './BlogArticleCard.vue';
+import BlogArticleCard from '../common/BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 
 /**

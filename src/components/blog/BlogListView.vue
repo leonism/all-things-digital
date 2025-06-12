@@ -58,7 +58,7 @@ import { useHead } from '@unhead/vue';
 import { useRoute } from 'vue-router';
 import { usePagination } from '../../composables/usePagination';
 import HeaderBlog from '../heading/HeaderBlog.vue';
-import BlogArticleCard from '../home/BlogArticleCard.vue';
+import BlogArticleCard from '../common/BlogArticleCard.vue';
 import Pagination from '../../components/common/Pagination.vue';
 import postsData from '../../blog-data.json';
 
@@ -80,15 +80,18 @@ interface BlogPost {
   featuredImage?: {
     src: string;
     alt?: string;
+    caption?: string;
   };
-  contentHtml: string;
   seoTitle?: string;
   excerpt?: string;
   description?: string;
+  readingTime?: string;
   metaRobots?: string;
   canonicalUrl?: string;
   schema?: any;
   status?: 'published' | 'draft' | string;
+  featured?: boolean;
+  priority?: string;
 }
 
 // Reactive reference to store the current route information.

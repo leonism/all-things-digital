@@ -30,7 +30,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
+import BlogArticleCard from '../components/common/BlogArticleCard.vue';
 import ContentCategoryHeader from '../components/heading/ContentCategoryHeader.vue';
 import postsData from '../../blog-data.json';
 

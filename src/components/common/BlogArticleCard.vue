@@ -100,7 +100,7 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0121 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
                 />
               </svg>
               <time :datetime="date" itemprop="datePublished">
@@ -203,8 +203,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from '../common/AvatarAuthor.vue';
-import { useCloudinary } from '@/composables/useCloudinary';
+import AvatarAuthor from './AvatarAuthor.vue';
+import { useCloudinary } from '@/composables/useCloudinary.js';
 
 interface Props {
   imageSrc: string;
@@ -227,7 +227,7 @@ interface Props {
  * @param name The tag name.
  * @returns The hyphenated tag slug.
  */
-const getTagSlug = (name) => {
+const getTagSlug = (name: string) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
@@ -244,14 +244,16 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Use Cloudinary for image optimization
 const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-const authorImageCloudinary = useCloudinary(computed(() => props.authorImageSrc));
+const authorImageCloudinary = useCloudinary(
+  computed(() => props.authorImageSrc),
+);
 
 // Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
   // Use responsive image with card-appropriate dimensions
   return featuredImageCloudinary.responsive.value(400, 250, {
     c: 'fill',
-    g: 'auto'
+    g: 'auto',
   });
 });
 
@@ -259,13 +261,17 @@ const processedAuthorImageSrc = computed(() => {
   // Use thumbnail for author avatar
   return authorImageCloudinary.thumbnail.value(48, {
     c: 'thumb',
-    g: 'face'
+    g: 'face',
   });
 });
 
 const formattedDate = computed(() => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(props.date).toLocaleDateString('en-US', options);
+  return new Date(props.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  } as Intl.DateTimeFormatOptions);
 });
 </script>
 
