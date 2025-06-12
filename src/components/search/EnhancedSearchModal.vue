@@ -127,47 +127,12 @@
               </div>
             </div>
 
-            <!-- Quick Suggestions -->
-            <div>
-              <h3
-                class="text-sm font-medium text-gray-900 dark:text-white mb-3"
-              >
-                Browse by Category
-              </h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <button
-                  v-for="category in searchSuggestions.categories"
-                  :key="category"
-                  @click="searchQuery = category"
-                  class="p-2 sm:p-3 text-left bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                >
-                  <div
-                    class="text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    {{ category }}
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            <!-- Popular Tags -->
-            <div>
-              <h3
-                class="text-sm font-medium text-gray-900 dark:text-white mb-3"
-              >
-                Popular Tags
-              </h3>
-              <div class="flex flex-wrap gap-2">
-                <button
-                  v-for="tag in searchSuggestions.tags"
-                  :key="tag"
-                  @click="searchQuery = tag"
-                  class="px-3 py-1 text-sm bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors"
-                >
-                  #{{ tag }}
-                </button>
-              </div>
-            </div>
+            <!-- Enhanced Search Suggestions -->
+            <SearchSuggestions
+              :suggestions="suggestions"
+              :max-suggestions="12"
+              @suggestion-click="applySuggestion"
+            />
           </div>
 
           <!-- Search Results -->
@@ -286,7 +251,7 @@
               <img
                 src="../../assets/img/icons/logo-footer.png"
                 alt="Logo"
-                class="w-6 h-6 sm:w-6 sm:h-6 opacity-60 dark:opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                class="w-7 h-7 md:w-9 md:h-9 opacity-60 dark:opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
               />
               <span class="hidden sm:inline">Search powered by Vue</span>
               <span class="sm:hidden text-xs">Vue Search</span>
@@ -382,7 +347,45 @@ const filteredGroupedResults = computed(() => {
   });
   return grouped;
 });
-const suggestions = computed(() => searchSuggestions.value || []);
+const suggestions = computed(() => {
+  const rawSuggestions = searchSuggestions.value || {
+    categories: [],
+    tags: [],
+    authors: [],
+  };
+  const formattedSuggestions = [];
+
+  // Add categories
+  rawSuggestions.categories?.forEach((category) => {
+    formattedSuggestions.push({ type: 'category', value: category });
+  });
+
+  // Add tags
+  rawSuggestions.tags?.forEach((tag) => {
+    formattedSuggestions.push({ type: 'tag', value: tag });
+  });
+
+  // Add authors
+  rawSuggestions.authors?.forEach((author) => {
+    formattedSuggestions.push({ type: 'author', value: author });
+  });
+
+  // Add popular searches when no query
+  if (!searchQuery.value) {
+    const popularSearches = [
+      'Vue.js',
+      'JavaScript',
+      'Web Development',
+      'Frontend',
+      'CSS',
+    ];
+    popularSearches.forEach((search) => {
+      formattedSuggestions.push({ type: 'popular', value: search });
+    });
+  }
+
+  return formattedSuggestions;
+});
 
 // Get global index for grouped results
 function getGlobalIndex(post) {
@@ -415,8 +418,13 @@ function selectCurrentResult() {
 
 // Select suggestion with Tab
 function selectSuggestion() {
-  if (!searchQuery.value && searchSuggestions.value.categories.length > 0) {
-    searchQuery.value = searchSuggestions.value.categories[0];
+  if (!searchQuery.value && suggestions.value.length > 0) {
+    const firstSuggestion =
+      suggestions.value.find((s) => s.type === 'category') ||
+      suggestions.value[0];
+    if (firstSuggestion) {
+      searchQuery.value = firstSuggestion.value;
+    }
   }
 }
 
