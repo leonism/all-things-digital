@@ -3,7 +3,6 @@ import { ref } from 'vue';
 function useCloudinary() {
   const imageUrl = ref('');
   const cloudName = 'du61t1sey'; // Replace with your actual cloud name
-
   const getImageUrl = async (publicId) => {
     // Replace with your actual Cloudinary API call
     imageUrl.value = `https://res.cloudinary.com/${cloudName}/image/upload/${publicId}`;

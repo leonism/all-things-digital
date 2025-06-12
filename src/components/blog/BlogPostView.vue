@@ -4,27 +4,32 @@
     class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto mt-10 mb-20"
     role="main"
   >
+    <!-- Blog Post Content -->
     <article
       v-if="post"
-      class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
+      class="overflow-hidden md:flex-row md:my-6 rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
     >
       <HeaderBlogPost
         :title="post.title"
         :subtitle="post.subtitle"
-        :authorName="post.author?.name"
-        :authorAvatar="post.author?.image"
+        :authorName="post.author?.name || 'Unknown Author'"
+        :authorAvatar="post.author?.image || '/images/default-avatar.png'"
         :date="post.date"
-        :category="post.category"
+        :category="post.category || 'Uncategorized'"
         :featuredImage="processedFeaturedImageSrc"
       />
+
       <div class="p-6 md:p-8">
+        <!-- Main Content -->
         <div
           class="prose prose-lg dark:prose-invert max-w-none prose-blue dark:prose-blue"
         >
           <component :is="postContentComponent" v-if="postContentComponent" />
         </div>
+
+        <!-- Categories and Tags -->
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <div v-if="post.categories && post.categories.length" class="mb-4">
+          <div v-if="post.categories?.length" class="mb-4">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
               Categories:
             </span>
@@ -40,10 +45,11 @@
               {{ category }}
             </router-link>
           </div>
-          <div v-if="post.tags && post.tags.length">
-            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
-              >Tags:</span
-            >
+
+          <div v-if="post.tags?.length">
+            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
+              Tags:
+            </span>
             <router-link
               v-for="tag in post.tags"
               :key="tag"
@@ -54,6 +60,8 @@
             </router-link>
           </div>
         </div>
+
+        <!-- Comments Section -->
         <div
           id="comments-section"
           class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
@@ -65,6 +73,8 @@
         </div>
       </div>
     </article>
+
+    <!-- Post Not Found State -->
     <div v-else class="text-center py-16">
       <h2 class="text-2xl font-semibold dark:text-white">Post not found</h2>
       <p class="text-gray-500 dark:text-gray-400 mt-2">
@@ -77,33 +87,13 @@
         &larr; Back to Blog List
       </router-link>
     </div>
+
+    <!-- Post Navigation -->
     <BlogPostNavigation :previousPost="previousPost" :nextPost="nextPost" />
   </section>
 </template>
 
 <script setup lang="ts">
-/**
- * BlogPostView Component
- *
- * This component is responsible for fetching and displaying a single blog post
- * based on the 'slug' parameter from the route. It retrieves post data from
- * the `blog-data.json` file and dynamically updates the page's meta tags
- * (title, description, Open Graph, Twitter Card, etc.) using the `@unhead/vue`
- * library.
- *
- * The component uses Vue 3 Composition API with `<script setup>` for a
- * cleaner and more concise syntax.
- *
- * Data Flow:
- * 1. The component watches changes to the route's 'slug' parameter.
- * 2. When the slug changes, the `findPost` function is called to locate the
- *    corresponding post data in `blog-data.json`.
- * 3. The found post data is assigned to the `post` ref.
- * 4. A watcher on the `post` ref triggers the update of meta tags using `useHead`.
- * 5. Computed properties (`pageTitle`, `pageDescription`, etc.) derive meta
- *    tag values from the `post` data.
- * 6. The template conditionally renders the post content or a "not found" message.
- */
 import { ref, watch, computed, type Ref, markRaw } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
@@ -112,21 +102,10 @@ import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
 import { useCloudinary } from '../../composables/useCloudinary';
 
-// Define a type for the dynamically imported Markdown component
 interface MarkdownModule {
   default: any;
   frontmatter: Record<string, any>;
 }
-
-/**
- * Generates a hyphenated slug from a tag name.
- * Replaces spaces with hyphens and converts to lowercase.
- * @param name The tag name.
- * @returns The hyphenated tag slug.
- */
-const getTagSlug = (name: string): string => {
-  return name.toLowerCase().replace(/\s+/g, '-');
-};
 
 interface BlogPost {
   slug: string;
@@ -150,20 +129,20 @@ interface BlogPost {
   excerpt?: string;
   metaRobots?: string;
   canonicalUrl?: string;
-  schema?: any; // Use a more specific type if schema structure is known
-  status?: 'published' | 'draft' | string; // Allow string type based on data structure
+  schema?: any;
+  status?: 'published' | 'draft' | string;
 }
 
+// Router and State
 const route = useRoute();
 const post: Ref<BlogPost | null> = ref(null);
 const postContentComponent: Ref<any | null> = ref(null);
 
-/**
- * Finds a blog post by its slug in the imported posts data.
- * Only returns published posts (or posts without a status field).
- * @param slug The slug of the post to find.
- * @returns The found blog post object or null if not found or not published.
- */
+// Utility Functions
+const getTagSlug = (name: string): string => {
+  return name.toLowerCase().replace(/\s+/g, '-');
+};
+
 const findPost = (slug: string): BlogPost | null => {
   const foundPost = postsData.find((p) => p.slug === slug);
   return foundPost && (!foundPost.status || foundPost.status === 'published')
@@ -171,15 +150,14 @@ const findPost = (slug: string): BlogPost | null => {
     : null;
 };
 
-// Function to dynamically import the Markdown file
 const loadMarkdownComponent = async (slug: string) => {
   try {
-    // Dynamically import the Markdown file based on the slug
     const module = (await import(
       `../../data/posts/${slug}.md`
     )) as MarkdownModule;
+
     postContentComponent.value = markRaw(module.default);
-    // Extract frontmatter and update head
+
     if (module.frontmatter) {
       const { title, description, ...rest } = module.frontmatter;
       useHead({
@@ -202,41 +180,23 @@ const loadMarkdownComponent = async (slug: string) => {
   }
 };
 
-// Computed properties for meta tags
+// Computed Properties
 const pageTitle = computed(
   () => post.value?.seoTitle || post.value?.title || 'Blog Post',
 );
+
 const pageDescription = computed(
   () => post.value?.excerpt || 'Read this blog post.',
 );
+
 const ogImage = computed(
   () => post.value?.featuredImage?.src || '/images/default-og-image.png',
-); // Add a default OG image path
+);
+
 const canonicalUrl = computed(() => {
-  // Construct canonical URL - replace with your actual domain
-  const base = 'https://all-things-digital.pages.dev'; // <<<--- IMPORTANT: Replace with your actual domain
+  const base = 'https://all-things-digital.pages.dev';
   return post.value ? `${base}/blog/${post.value.slug}` : base;
 });
-
-// Watcher to update meta tags whenever the 'post' ref changes.
-// This ensures that meta tags are updated when a post is loaded.
-// Watcher to react to changes in the route's slug parameter.
-// This is triggered when navigating between blog posts.
-watch(
-  () => route.params.slug,
-  (newSlug) => {
-    if (newSlug) {
-      const slug = Array.isArray(newSlug) ? newSlug[0] : newSlug;
-      post.value = findPost(slug);
-      if (post.value) {
-        loadMarkdownComponent(slug);
-      } else {
-        postContentComponent.value = null;
-      }
-    }
-  },
-  { immediate: true },
-);
 
 const allPosts = postsData.filter(
   (post) => !post.status || post.status === 'published',
@@ -263,41 +223,58 @@ const nextPost = computed(() => {
   return allPosts[currentPostIndex.value + 1];
 });
 
-// Use Cloudinary for featured image optimization
-const featuredImageCloudinary = useCloudinary(
-  computed(() => post.value?.featuredImage?.src || ''),
-);
-
+const { getResponsiveUrl } = useCloudinary();
 const processedFeaturedImageSrc = computed(() => {
   if (!post.value?.featuredImage?.src) return '';
-
-  // Generate optimized hero image for blog post header
-  return featuredImageCloudinary.hero.value(1200, 600, {
-    c: 'fill',
-    g: 'auto',
-    q: 'auto:good',
+  return getResponsiveUrl(post.value.featuredImage.src, 1200, 600, {
+    crop: 'fill',
+    gravity: 'auto',
+    quality: 'auto:good',
   });
 });
+
+// Watchers
+watch(
+  () => route.params.slug,
+  (newSlug) => {
+    if (newSlug) {
+      const slug = Array.isArray(newSlug) ? newSlug[0] : newSlug;
+      post.value = findPost(slug);
+      if (post.value) {
+        loadMarkdownComponent(slug);
+      } else {
+        postContentComponent.value = null;
+      }
+    }
+  },
+  { immediate: true },
+);
 </script>
 
 <style>
-/* Styles for Tailwind Typography */
-.prose :where(code):not(:where([class~='not-prose'] *))::before,
-.prose :where(code):not(:where([class~='not-prose'] *))::after {
-  content: '';
+/* ===== BASE TYPOGRAPHY SETTINGS ===== */
+.prose {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Custom styles for better readability and aesthetics */
+/* ===== HEADINGS ===== */
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-weight: bold;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
   color: rgb(17, 24, 39);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
 }
 
 .dark .prose h1,
@@ -310,107 +287,163 @@ const processedFeaturedImageSrc = computed(() => {
 }
 
 .prose h1 {
-  font-size: 1.875rem; /* text-3xl */
-  line-height: 2.25rem;
-  @media (min-width: 768px) {
-    font-size: 2.25rem; /* md:text-4xl */
-    line-height: 2.5rem;
-  }
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .prose h2 {
-  font-size: 1.5rem; /* text-2xl */
-  line-height: 2rem;
-  @media (min-width: 768px) {
-    font-size: 1.875rem; /* md:text-3xl */
-    line-height: 2.25rem;
-  }
+  font-size: 1.75rem;
+  line-height: 1.25;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.prose h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 0.25rem;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.5), transparent);
+  border-radius: 0.125rem;
 }
 
 .prose h3 {
-  font-size: 1.25rem; /* text-xl */
-  line-height: 1.75rem;
-  @media (min-width: 768px) {
-    font-size: 1.5rem; /* md:text-2xl */
-    line-height: 2rem;
-  }
+  font-size: 1.375rem;
+  line-height: 1.3;
 }
 
+/* ===== PARAGRAPHS ===== */
 .prose p {
-  line-height: 1.625;
-  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
   color: rgb(55, 65, 81);
+  font-weight: 400;
 }
 
 .dark .prose p {
-  line-height: 1.625;
-  margin-bottom: 1rem;
   color: rgb(237, 228, 228);
 }
 
+/* ===== LINKS ===== */
 .prose a {
-  color: rgb(37, 99, 235); /* text-blue-600 */
+  color: rgb(37, 99, 235);
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .dark .prose a {
-  color: rgb(96, 165, 250); /* dark:text-blue-400 */
+  color: rgb(96, 165, 250);
 }
 
 .prose a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom-color: currentColor;
 }
 
+/* ===== LISTS ===== */
 .prose ul,
 .prose ol {
-  list-style-position: inside;
-  margin-bottom: 1rem;
-}
-
-.prose ul li {
-  list-style-type: disc;
-}
-
-.prose ol li {
-  list-style-type: decimal;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .prose li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
   color: rgb(55, 65, 81);
 }
+
 .dark .prose li {
   color: rgb(209, 213, 219);
 }
 
-.prose blockquote {
-  border-left: 4px solid rgb(59, 130, 246);
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-style: italic;
-  color: rgb(75, 85, 99);
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+.prose ul li {
+  position: relative;
+  list-style-type: none;
 }
 
+.prose ul li::before {
+  content: '•';
+  position: absolute;
+  left: -1.25rem;
+  color: rgb(59, 130, 246);
+}
+
+.dark .prose ul li::before {
+  color: rgb(96, 165, 250);
+}
+
+.prose ol {
+  counter-reset: item;
+}
+
+.prose ol li {
+  counter-increment: item;
+  list-style-type: none;
+}
+
+.prose ol li::before {
+  content: counter(item) '.';
+  position: absolute;
+  left: -1.25rem;
+  color: rgb(59, 130, 246);
+  font-weight: 600;
+}
+
+.dark .prose ol li::before {
+  color: rgb(96, 165, 250);
+}
+
+/* ===== BLOCKQUOTES ===== */
+.prose blockquote {
+  border-left: 4px solid rgb(59, 130, 246);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: rgb(75, 85, 99);
+  background-color: rgba(59, 130, 246, 0.05);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .prose blockquote {
+  color: rgb(209, 213, 219);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* ===== CODE ===== */
 .prose pre {
   background-color: rgb(243, 244, 246);
-  padding: 1rem;
-  border-radius: 0.375rem;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dark .prose pre {
   background-color: rgb(17, 24, 39);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .prose code {
+  font-family:
+    'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
   background-color: rgb(229, 231, 235);
-  padding: 0.125rem 0.25rem;
+  padding: 0.2em 0.4em;
   border-radius: 0.25rem;
   color: rgb(220, 38, 38);
+  font-size: 0.9375em;
 }
 
 .dark .prose code {
@@ -418,18 +451,18 @@ const processedFeaturedImageSrc = computed(() => {
   color: rgb(248, 113, 113);
 }
 
+/* ===== TABLES ===== */
 .prose table {
   width: 100%;
-  table-layout: auto;
   border-collapse: collapse;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
 }
 
 .prose th,
 .prose td {
+  padding: 0.75rem 1rem;
   border: 1px solid rgb(209, 213, 219);
-  padding: 1rem 1rem;
   text-align: left;
   color: rgb(31, 41, 55);
 }
@@ -441,19 +474,76 @@ const processedFeaturedImageSrc = computed(() => {
 }
 
 .prose th {
-  background-color: rgb(229, 231, 235); /* bg-gray-200 */
-  font-weight: 600; /* font-semibold */
+  background-color: rgb(229, 231, 235);
+  font-weight: 600;
 }
 
 .dark .prose th {
-  background-color: rgb(55, 65, 81); /* dark:bg-gray-700 */
+  background-color: rgb(55, 65, 81);
 }
 
+.prose tr:nth-child(even) {
+  background-color: rgba(243, 244, 246, 0.5);
+}
+
+.dark .prose tr:nth-child(even) {
+  background-color: rgba(17, 24, 39, 0.5);
+}
+
+/* ===== IMAGES ===== */
 .prose img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (min-width: 640px) {
+  .prose {
+    font-size: 1.0625rem;
+  }
+
+  .prose h1 {
+    font-size: 2.5rem;
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prose h1 {
+    font-size: 3rem;
+  }
+
+  .prose h2 {
+    font-size: 2.25rem;
+  }
+
+  .prose h3 {
+    font-size: 1.75rem;
+  }
+
+  .prose p {
+    font-size: 1.125rem;
+  }
+}
+
+/* ===== DARK MODE TRANSITIONS ===== */
+.prose,
+.prose * {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 </style>
