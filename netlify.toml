@@ -1,6 +1,0 @@
-[build.environment]
-  NODE_VERSION = "22.15.1"
-  NPM_VERSION = "11.4.1"
-
-[build]
-  command = "mise settings add idiomatic_version_file_enable_tools node && npm run build"
