@@ -1,6 +1,6 @@
 <template>
   <section id="blogArticles" class="flex flex-col">
-    <BlogPostCard
+    <BlogArticleCard
       v-for="post in publishedPosts"
       :key="post.slug"
       :imageSrc="post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'"
@@ -22,7 +22,7 @@
 /**
  * BlogGrid Component
  *
- * This component displays a grid of blog posts using the `BlogPostCard`
+ * This component displays a grid of blog posts using the `BlogArticleCard`
  * component. It fetches all posts from `blog-data.json` and filters them
  * to only show published posts.
  *
@@ -30,7 +30,7 @@
  * computed property to handle the filtering logic.
  */
 import { computed } from 'vue';
-import BlogPostCard from '../common/BlogPostCard.vue';
+import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 
 /**

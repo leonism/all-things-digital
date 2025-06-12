@@ -11,10 +11,10 @@
       <HeaderBlogPost
         :title="post.title"
         :subtitle="post.subtitle"
-        :authorName="post.author?.name"
-        :authorAvatar="post.author?.image"
+        :authorName="post.author?.name ?? ''"
+        :authorAvatar="post.author?.image ?? ''"
         :date="post.date"
-        :category="post.category"
+        :category="post.category ?? ''"
         :featuredImage="processedFeaturedImageSrc"
       />
       <div class="p-6 md:p-8">
@@ -110,7 +110,7 @@ import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
-import { useCloudinary } from '../../composables/useCloudinary';
+import { useCloudinary } from '@/composables/useCloudinary';
 
 // Define a type for the dynamically imported Markdown component
 interface MarkdownModule {

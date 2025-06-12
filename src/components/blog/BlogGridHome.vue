@@ -1,7 +1,7 @@
 <template>
   <section id="homeBlogArticles" class="flex flex-col">
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <BlogPostCard
+      <BlogArticleCard
         v-for="post in limitedPosts"
         :key="post.slug"
         :imageSrc="
@@ -32,7 +32,7 @@
  * BlogGridHome Component
  *
  * This component displays a limited grid of blog posts for the home page
- * using the `BlogPostCard` component. It fetches all posts from
+ * using the `BlogArticleCard` component. It fetches all posts from
  * `blog-data.json`, filters them to only show published posts, and then
  * limits the number of displayed posts.
  *
@@ -40,7 +40,7 @@
  * computed property to handle the filtering and limiting logic.
  */
 import { computed } from 'vue';
-import BlogPostCard from '../common/BlogPostCard.vue';
+import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 
 /**

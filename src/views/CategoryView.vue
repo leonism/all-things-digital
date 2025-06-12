@@ -152,7 +152,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouter } from 'vue-router';
 import HeaderCategory from '../components/heading/HeaderCategory.vue';
-import BlogPostCard from '../components/common/BlogPostCard.vue';
+import BlogPostCard from '../components/home/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
 
 interface BlogPost {

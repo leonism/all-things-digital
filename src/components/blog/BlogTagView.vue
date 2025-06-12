@@ -1,12 +1,13 @@
 <template>
-  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
+  <div id="mainWrapper" class="max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
-      <BlogPostCard
+      <BlogArticleCard
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
-          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+          post.featuredImage?.src ||
+          '/assets/img/thumbnail-01-comp.jpg'
         "
         :imageAlt="post.featuredImage?.alt || post.title"
         :title="post.title"
@@ -40,7 +41,7 @@
         </router-link>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -49,8 +50,8 @@ import type { Post } from '../../types/Post';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
-import BlogPostCard from '../common/BlogPostCard.vue';
-const posts = postsData as unknown as Post[];
+import BlogArticleCard from '../home/BlogArticleCard.vue';
+const posts = postsData as Post[];
 
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
@@ -111,7 +112,7 @@ onMounted(() => {
   const tag = route.params.tag;
   console.log('Current tag from route:', tag, typeof tag);
 
-  const filtered = posts.filter((post: Post) => {
+  const filtered = postsData.filter((post: Post) => {
     if (!post.status || post.status === 'published') {
       if (post.tags) {
         const lowerCaseTags = post.tags.map((t: string) => t.toLowerCase());
@@ -146,7 +147,7 @@ const formatDate = (dateString: string): string => {
 
 const allTags = computed(() => {
   const tags = new Set<string>();
-  posts.forEach((post) => {
+  postsData.forEach((post: Post) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => tags.add(tag));
     }

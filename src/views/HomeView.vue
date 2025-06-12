@@ -20,7 +20,7 @@
       :authorLink="authorLink"
     />
     <BlogLatestPost />
-    <BlogPostCard
+    <BlogArticleCard
       v-for="post in latestPosts"
       :key="post.slug"
       :imageSrc="post.featuredImage?.src || thumbnail01Comp"
@@ -45,7 +45,7 @@ import { useHead } from '@unhead/vue';
 import HeaderHome from '../components/heading/HeaderHome.vue';
 import BlogFeaturedPost from '../components/home/BlogFeaturedPost.vue';
 import BlogLatestPost from '../components/home/BlogLatestPost.vue';
-import BlogPostCard from '../components/common/BlogPostCard.vue';
+import BlogArticleCard from '../components/home/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
 
