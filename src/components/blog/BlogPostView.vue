@@ -9,12 +9,12 @@
       class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
     >
       <HeaderBlogPost
-        :title="post.title"
-        :subtitle="post.subtitle"
-        :authorName="post.author?.name"
-        :authorAvatar="post.author?.image"
-        :date="post.date"
-        :category="post.category"
+        :title="post.title ?? ''"
+        :subtitle="post.subtitle ?? ''"
+        :authorName="post.author?.name ?? 'Unknown Author'"
+        :authorAvatar="post.author?.image ?? '/images/default-avatar.png'"
+        :date="post.date ?? ''"
+        :category="post.category ?? 'Uncategorized'"
         :featuredImage="processedFeaturedImageSrc"
       />
       <div class="p-6 md:p-8">
