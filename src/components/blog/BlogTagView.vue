@@ -1,5 +1,5 @@
 <template>
-  <div id="mainWrapper" class="max-w-4xl mx-auto">
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
       <BlogArticleCard
@@ -40,7 +40,7 @@
         </router-link>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

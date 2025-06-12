@@ -1,6 +1,10 @@
 <template>
   <!-- Main wrapper with blog page styling -->
-  <section id="mainWrapper" class="max-w-4xl mx-auto" role="main">
+  <section
+    id="mainWrapper"
+    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
+    role="main"
+  >
     <!-- Blog-style Header Section -->
     <header class="py-12">
       <HeaderCategory :categoryName="displayCategoryName" />
@@ -16,7 +20,7 @@
           :imageSrc="post.featuredImage.src"
           :imageAlt="post.featuredImage.alt || post.title"
           :title="post.title"
-          :postLink="`/blog/${post.slug}`"
+          :postLink="`/category/${post.slug}`"
           :date="post.date"
           :excerpt="post.excerpt || post.description"
           :tags="post.tags"
@@ -71,7 +75,7 @@
                 class="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors"
               >
                 <h4
-                  class="text-slate-700 dark:text-white font-medium text-sm line-clamp-1"
+                  class="text-slate-700 dark:text-white font-medium text-xl line-clamp-1"
                 >
                   {{ post.title }}
                 </h4>
@@ -79,7 +83,7 @@
                   {{ formatDate(post.date) }}
                 </p>
                 <p
-                  class="text-slate-600 dark:text-gray-300 text-xs line-clamp-2 mt-1"
+                  class="text-slate-600 prose dark:text-gray-300 text-md line-clamp-2 mt-1"
                 >
                   {{ post.excerpt }}
                 </p>
@@ -235,7 +239,7 @@ const getLatestPosts = (category: string, limit: number): BlogPost[] => {
 };
 
 const navigateToCategory = (category: string) => {
-  router.push(`/category/${category.toLowerCase()}`);
+  router.push(`blog/category/${category.toLowerCase()}`);
 };
 
 const navigateToPost = (slug: string) => {
