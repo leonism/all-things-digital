@@ -281,23 +281,29 @@ const processedFeaturedImageSrc = computed(() => {
 </script>
 
 <style>
-/* Styles for Tailwind Typography */
-.prose :where(code):not(:where([class~='not-prose'] *))::before,
-.prose :where(code):not(:where([class~='not-prose'] *))::after {
-  content: '';
+/* ===== BASE TYPOGRAPHY SETTINGS ===== */
+.prose {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Custom styles for better readability and aesthetics */
+/* ===== HEADINGS ===== */
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4,
 .prose h5,
 .prose h6 {
-  font-weight: bold;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
   color: rgb(17, 24, 39);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
 }
 
 .dark .prose h1,
@@ -310,107 +316,163 @@ const processedFeaturedImageSrc = computed(() => {
 }
 
 .prose h1 {
-  font-size: 1.875rem; /* text-3xl */
-  line-height: 2.25rem;
-  @media (min-width: 768px) {
-    font-size: 2.25rem; /* md:text-4xl */
-    line-height: 2.5rem;
-  }
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .prose h2 {
-  font-size: 1.5rem; /* text-2xl */
-  line-height: 2rem;
-  @media (min-width: 768px) {
-    font-size: 1.875rem; /* md:text-3xl */
-    line-height: 2.25rem;
-  }
+  font-size: 1.75rem;
+  line-height: 1.25;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.prose h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 0.25rem;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.5), transparent);
+  border-radius: 0.125rem;
 }
 
 .prose h3 {
-  font-size: 1.25rem; /* text-xl */
-  line-height: 1.75rem;
-  @media (min-width: 768px) {
-    font-size: 1.5rem; /* md:text-2xl */
-    line-height: 2rem;
-  }
+  font-size: 1.375rem;
+  line-height: 1.3;
 }
 
+/* ===== PARAGRAPHS ===== */
 .prose p {
-  line-height: 1.625;
-  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
   color: rgb(55, 65, 81);
+  font-weight: 400;
 }
 
 .dark .prose p {
-  line-height: 1.625;
-  margin-bottom: 1rem;
   color: rgb(237, 228, 228);
 }
 
+/* ===== LINKS ===== */
 .prose a {
-  color: rgb(37, 99, 235); /* text-blue-600 */
+  color: rgb(37, 99, 235);
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .dark .prose a {
-  color: rgb(96, 165, 250); /* dark:text-blue-400 */
+  color: rgb(96, 165, 250);
 }
 
 .prose a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom-color: currentColor;
 }
 
+/* ===== LISTS ===== */
 .prose ul,
 .prose ol {
-  list-style-position: inside;
-  margin-bottom: 1rem;
-}
-
-.prose ul li {
-  list-style-type: disc;
-}
-
-.prose ol li {
-  list-style-type: decimal;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .prose li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
   color: rgb(55, 65, 81);
 }
+
 .dark .prose li {
   color: rgb(209, 213, 219);
 }
 
-.prose blockquote {
-  border-left: 4px solid rgb(59, 130, 246);
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-style: italic;
-  color: rgb(75, 85, 99);
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+.prose ul li {
+  position: relative;
+  list-style-type: none;
 }
 
+.prose ul li::before {
+  content: '•';
+  position: absolute;
+  left: -1.25rem;
+  color: rgb(59, 130, 246);
+}
+
+.dark .prose ul li::before {
+  color: rgb(96, 165, 250);
+}
+
+.prose ol {
+  counter-reset: item;
+}
+
+.prose ol li {
+  counter-increment: item;
+  list-style-type: none;
+}
+
+.prose ol li::before {
+  content: counter(item) '.';
+  position: absolute;
+  left: -1.25rem;
+  color: rgb(59, 130, 246);
+  font-weight: 600;
+}
+
+.dark .prose ol li::before {
+  color: rgb(96, 165, 250);
+}
+
+/* ===== BLOCKQUOTES ===== */
+.prose blockquote {
+  border-left: 4px solid rgb(59, 130, 246);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: rgb(75, 85, 99);
+  background-color: rgba(59, 130, 246, 0.05);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .prose blockquote {
+  color: rgb(209, 213, 219);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* ===== CODE ===== */
 .prose pre {
   background-color: rgb(243, 244, 246);
-  padding: 1rem;
-  border-radius: 0.375rem;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
   overflow-x: auto;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 2rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dark .prose pre {
   background-color: rgb(17, 24, 39);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .prose code {
+  font-family:
+    'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
   background-color: rgb(229, 231, 235);
-  padding: 0.125rem 0.25rem;
+  padding: 0.2em 0.4em;
   border-radius: 0.25rem;
   color: rgb(220, 38, 38);
+  font-size: 0.9375em;
 }
 
 .dark .prose code {
@@ -418,18 +480,18 @@ const processedFeaturedImageSrc = computed(() => {
   color: rgb(248, 113, 113);
 }
 
+/* ===== TABLES ===== */
 .prose table {
   width: 100%;
-  table-layout: auto;
   border-collapse: collapse;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
 }
 
 .prose th,
 .prose td {
+  padding: 0.75rem 1rem;
   border: 1px solid rgb(209, 213, 219);
-  padding: 1rem 1rem;
   text-align: left;
   color: rgb(31, 41, 55);
 }
@@ -441,19 +503,76 @@ const processedFeaturedImageSrc = computed(() => {
 }
 
 .prose th {
-  background-color: rgb(229, 231, 235); /* bg-gray-200 */
-  font-weight: 600; /* font-semibold */
+  background-color: rgb(229, 231, 235);
+  font-weight: 600;
 }
 
 .dark .prose th {
-  background-color: rgb(55, 65, 81); /* dark:bg-gray-700 */
+  background-color: rgb(55, 65, 81);
 }
 
+.prose tr:nth-child(even) {
+  background-color: rgba(243, 244, 246, 0.5);
+}
+
+.dark .prose tr:nth-child(even) {
+  background-color: rgba(17, 24, 39, 0.5);
+}
+
+/* ===== IMAGES ===== */
 .prose img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (min-width: 640px) {
+  .prose {
+    font-size: 1.0625rem;
+  }
+
+  .prose h1 {
+    font-size: 2.5rem;
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prose h1 {
+    font-size: 3rem;
+  }
+
+  .prose h2 {
+    font-size: 2.25rem;
+  }
+
+  .prose h3 {
+    font-size: 1.75rem;
+  }
+
+  .prose p {
+    font-size: 1.125rem;
+  }
+}
+
+/* ===== DARK MODE TRANSITIONS ===== */
+.prose,
+.prose * {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 </style>
