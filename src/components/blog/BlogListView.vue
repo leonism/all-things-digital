@@ -164,7 +164,7 @@ useHead({
 onMounted(() => {
   // Filter posts to include only those with status 'published'.
   const publishedPosts = postsData.filter(
-    (post) => post.status === 'published' && post.contentHtml !== undefined,
+    (post) => post.status === 'published' && 'contentHtml' in post,
   );
 
   // Sort posts by date in descending order.
@@ -175,7 +175,10 @@ onMounted(() => {
   });
 
   // Assign sorted posts to the reactive reference.
-  allPosts.value = publishedPosts;
+  allPosts.value = publishedPosts.map((post) => ({
+    ...(post as unknown as BlogPost),
+    contentHtml: (post as unknown as BlogPost).contentHtml || '',
+  })) as BlogPost[];
 
   // Determine the initial page from the route parameters.
   let initialPage = Number(route.params.page) || 1;
