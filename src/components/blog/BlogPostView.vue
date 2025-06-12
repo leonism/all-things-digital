@@ -29,6 +29,7 @@
 
         <!-- Categories and Tags -->
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <!-- Category Section -->
           <div v-if="post.categories?.length" class="mb-0">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
               Categories:
@@ -45,7 +46,7 @@
               {{ category }}
             </router-link>
           </div>
-
+          <!-- Tags Section -->
           <div v-if="post.tags?.length">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
               Tags:
@@ -62,15 +63,11 @@
         </div>
 
         <!-- Comments Section -->
-        <div
-          id="comments-section"
-          class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
-        >
-          <h2 class="text-2xl font-bold mb-4 dark:text-white">Comments</h2>
-          <p class="text-gray-500 dark:text-gray-400">
-            (Comment system integration pending user configuration)
-          </p>
-        </div>
+        <BlogPostComments
+          :postSlug="post.slug"
+          :postTitle="post.title"
+          :allowComments="true"
+        />
       </div>
     </article>
 
@@ -100,6 +97,7 @@ import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
+import BlogPostComments from './BlogPostComments.vue';
 import { useCloudinary } from '../../composables/useCloudinary';
 
 interface MarkdownModule {

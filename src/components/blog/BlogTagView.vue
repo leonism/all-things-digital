@@ -6,8 +6,7 @@
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
-          post.featuredImage?.src ||
-          '/assets/img/thumbnail-01-comp.jpg'
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
         "
         :imageAlt="post.featuredImage?.alt || post.title"
         :title="post.title"
@@ -82,7 +81,6 @@ interface BlogDataPost {
 }
 
 const posts = postsData as BlogDataPost[];
-
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
@@ -94,7 +92,6 @@ const tagName = ref(
 );
 
 const allPosts = ref<BlogDataPost[]>([]);
-
 // Computed properties for meta tags
 const pageTitle = computed(
   () => `Tag: #${tagName.value || 'Archive'} - All Things Digital`,
