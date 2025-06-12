@@ -243,26 +243,20 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // Use Cloudinary for image optimization
-const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-const authorImageCloudinary = useCloudinary(
-  computed(() => props.authorImageSrc),
-);
+const { imageUrl: featuredImageUrl, getImageUrl: getFeaturedImageUrl } = useCloudinary();
+const { imageUrl: authorImageUrl, getImageUrl: getAuthorImageUrl } = useCloudinary();
 
 // Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
-  // Use responsive image with card-appropriate dimensions
-  return featuredImageCloudinary.responsive.value(400, 250, {
-    c: 'fill',
-    g: 'auto',
-  });
+  // For now, return the original image src until Cloudinary is properly configured
+  // TODO: Implement proper Cloudinary transformation when API is set up
+  return props.imageSrc;
 });
 
 const processedAuthorImageSrc = computed(() => {
-  // Use thumbnail for author avatar
-  return authorImageCloudinary.thumbnail.value(48, {
-    c: 'thumb',
-    g: 'face',
-  });
+  // For now, return the original author image src until Cloudinary is properly configured
+  // TODO: Implement proper Cloudinary transformation when API is set up
+  return props.authorImageSrc;
 });
 
 const formattedDate = computed(() => {

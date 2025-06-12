@@ -36,15 +36,12 @@ const props = defineProps({
 });
 
 // Use Cloudinary for author avatar optimization
-const authorImageCloudinary = useCloudinary(computed(() => props.imageSrc));
+const { imageUrl, getImageUrl } = useCloudinary();
 
 const processedImageSrc = computed(() => {
-  // Generate optimized avatar with face detection and cropping
-  return authorImageCloudinary.thumbnail.value(48, {
-    c: 'thumb',
-    g: 'face',
-    r: 'max' // Make it circular
-  });
+  // For now, return the original image src until Cloudinary is properly configured
+  // TODO: Implement proper Cloudinary transformation when API is set up
+  return props.imageSrc;
 });
 </script>
 
