@@ -45,7 +45,7 @@ import { useHead } from '@unhead/vue';
 import HeaderHome from '../components/heading/HeaderHome.vue';
 import BlogFeaturedPost from '../components/home/BlogFeaturedPost.vue';
 import BlogLatestPost from '../components/home/BlogLatestPost.vue';
-import BlogArticleCard from '../components/common/BlogArticleCard.vue';
+import BlogArticleCard from '../components/home/BlogArticleCard.vue';
 import { useFeaturedPost } from '../composables/useFeaturedPost';
 import { useLatestPosts } from '../composables/useLatestPosts';
 

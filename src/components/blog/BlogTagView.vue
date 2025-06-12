@@ -46,42 +46,12 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue';
+import type { Post } from '../../types/Post';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
-import BlogArticleCard from '../common/BlogArticleCard.vue';
-
-// Define interface that matches the actual blog-data.json structure
-interface BlogDataPost {
-  slug: string;
-  title: string;
-  seoTitle: string;
-  date: string;
-  lastModified: string;
-  author: {
-    name: string;
-    role: string;
-    image: string;
-    link?: string;
-  };
-  category: string;
-  tags: string[];
-  featuredImage: {
-    src: string;
-    alt: string;
-    caption: string;
-  };
-  excerpt?: string;
-  description?: string;
-  readingTime?: string;
-  status?: string;
-  featured?: boolean;
-  priority?: string;
-  metaRobots?: string;
-  canonicalUrl?: string;
-}
-
-const posts = postsData as BlogDataPost[];
+import BlogArticleCard from '../home/BlogArticleCard.vue';
+const posts = postsData as Post[];
 
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
@@ -93,7 +63,7 @@ const tagName = ref(
   Array.isArray(route.params.tag) ? route.params.tag[0] : route.params.tag,
 );
 
-const allPosts = ref<BlogDataPost[]>([]);
+const allPosts = ref<Post[]>([]);
 
 // Computed properties for meta tags
 const pageTitle = computed(
@@ -142,7 +112,7 @@ onMounted(() => {
   const tag = route.params.tag;
   console.log('Current tag from route:', tag, typeof tag);
 
-  const filtered = posts.filter((post: BlogDataPost) => {
+  const filtered = postsData.filter((post: Post) => {
     if (!post.status || post.status === 'published') {
       if (post.tags) {
         const lowerCaseTags = post.tags.map((t: string) => t.toLowerCase());
@@ -177,7 +147,7 @@ const formatDate = (dateString: string): string => {
 
 const allTags = computed(() => {
   const tags = new Set<string>();
-  posts.forEach((post: BlogDataPost) => {
+  postsData.forEach((post: Post) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => tags.add(tag));
     }

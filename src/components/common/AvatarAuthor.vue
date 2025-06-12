@@ -36,13 +36,15 @@ const props = defineProps({
 });
 
 // Use Cloudinary for author avatar optimization
-const { getAvatarUrl } = useCloudinary();
+const authorImageCloudinary = useCloudinary(computed(() => props.imageSrc));
 
 const processedImageSrc = computed(() => {
   // Generate optimized avatar with face detection and cropping
-  // Size 48px matches the h-12 w-12 classes (12 * 4px = 48px)
-  // Using 96px for retina displays (2x resolution)
-  return getAvatarUrl(props.imageSrc, 96);
+  return authorImageCloudinary.thumbnail.value(48, {
+    c: 'thumb',
+    g: 'face',
+    r: 'max' // Make it circular
+  });
 });
 </script>
 

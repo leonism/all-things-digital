@@ -100,7 +100,7 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0121 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
                 />
               </svg>
               <time :datetime="date" itemprop="datePublished">
@@ -203,8 +203,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarAuthor from './AvatarAuthor.vue';
-import { useCloudinary } from '@/composables/useCloudinary.js';
+import AvatarAuthor from '../common/AvatarAuthor.vue';
+import { useCloudinary } from '@/composables/useCloudinary';
 
 interface Props {
   imageSrc: string;
@@ -227,7 +227,7 @@ interface Props {
  * @param name The tag name.
  * @returns The hyphenated tag slug.
  */
-const getTagSlug = (name: string) => {
+const getTagSlug = (name) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
@@ -243,29 +243,29 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // Use Cloudinary for image optimization
-const { imageUrl: featuredImageUrl, getImageUrl: getFeaturedImageUrl } = useCloudinary();
-const { imageUrl: authorImageUrl, getImageUrl: getAuthorImageUrl } = useCloudinary();
+const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
+const authorImageCloudinary = useCloudinary(computed(() => props.authorImageSrc));
 
 // Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
-  // For now, return the original image src until Cloudinary is properly configured
-  // TODO: Implement proper Cloudinary transformation when API is set up
-  return props.imageSrc;
+  // Use responsive image with card-appropriate dimensions
+  return featuredImageCloudinary.responsive.value(400, 250, {
+    c: 'fill',
+    g: 'auto'
+  });
 });
 
 const processedAuthorImageSrc = computed(() => {
-  // For now, return the original author image src until Cloudinary is properly configured
-  // TODO: Implement proper Cloudinary transformation when API is set up
-  return props.authorImageSrc;
+  // Use thumbnail for author avatar
+  return authorImageCloudinary.thumbnail.value(48, {
+    c: 'thumb',
+    g: 'face'
+  });
 });
 
 const formattedDate = computed(() => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(props.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  } as Intl.DateTimeFormatOptions);
+  return new Date(props.date).toLocaleDateString('en-US', options);
 });
 </script>
 

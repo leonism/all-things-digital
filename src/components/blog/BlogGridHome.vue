@@ -40,7 +40,7 @@
  * computed property to handle the filtering and limiting logic.
  */
 import { computed } from 'vue';
-import BlogArticleCard from '../common/BlogArticleCard.vue';
+import BlogArticleCard from './BlogArticleCard.vue';
 import postsData from '../../blog-data.json';
 
 /**
