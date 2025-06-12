@@ -227,7 +227,7 @@ interface Props {
  * @param name The tag name.
  * @returns The hyphenated tag slug.
  */
-const getTagSlug = (name) => {
+const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
@@ -244,14 +244,16 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Use Cloudinary for image optimization
 const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-const authorImageCloudinary = useCloudinary(computed(() => props.authorImageSrc));
+const authorImageCloudinary = useCloudinary(
+  computed(() => props.authorImageSrc),
+);
 
 // Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
   // Use responsive image with card-appropriate dimensions
   return featuredImageCloudinary.responsive.value(400, 250, {
     c: 'fill',
-    g: 'auto'
+    g: 'auto',
   });
 });
 
@@ -259,13 +261,17 @@ const processedAuthorImageSrc = computed(() => {
   // Use thumbnail for author avatar
   return authorImageCloudinary.thumbnail.value(48, {
     c: 'thumb',
-    g: 'face'
+    g: 'face',
   });
 });
 
 const formattedDate = computed(() => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(props.date).toLocaleDateString('en-US', options);
+  return new Date(props.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  } as Intl.DateTimeFormatOptions);
 });
 </script>
 
