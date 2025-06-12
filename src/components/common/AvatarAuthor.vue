@@ -11,13 +11,13 @@
         itemscope
         itemtype="https://schema.org/Person"
       />
-    </router-link>
-  </section>
+</router-link>
+</section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
+import { computed } from 'vue';
 import { useCloudinary } from '@/composables/useCloudinary';
 
 const props = defineProps({
@@ -37,6 +37,7 @@ const props = defineProps({
 
 // Use Cloudinary for author avatar optimization
 const { getAvatarUrl } = useCloudinary();
+
 const processedImageSrc = computed(() => {
   // Generate optimized avatar with face detection and cropping
   // Size 48px matches the h-12 w-12 classes (12 * 4px = 48px)

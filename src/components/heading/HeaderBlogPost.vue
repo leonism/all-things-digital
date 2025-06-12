@@ -19,9 +19,9 @@
 
       <!-- Animated gradient overlay -->
       <div
-        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 dark:opacity-60"
+        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 dark:opacity-90"
         :class="{
-          'group-hover:via-black/90 transition-all duration-700': true,
+          'group-hover:via-black/60 transition-all duration-700': true,
         }"
       ></div>
 
@@ -122,16 +122,14 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // Use Cloudinary for hero image optimization
-const { getResponsiveUrl } = useCloudinary();
+const featuredImageCloudinary = useCloudinary(computed(() => props.featuredImage));
 
 // Generate optimized hero image with appropriate dimensions
 const processedFeaturedImage = computed(() => {
-  if (!props.featuredImage) return '/assets/img/featured-blog.jpg';
-
-  return getResponsiveUrl(props.featuredImage, 1200, 600, {
-    crop: 'fill',
-    gravity: 'auto',
-    quality: 'auto:good',
+  return featuredImageCloudinary.hero.value(1200, 600, {
+    c: 'fill',
+    g: 'auto',
+    q: 'auto:good'
   });
 });
 
