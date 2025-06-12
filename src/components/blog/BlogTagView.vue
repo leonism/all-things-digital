@@ -6,8 +6,7 @@
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
-          post.featuredImage?.src ||
-          '/assets/img/thumbnail-01-comp.jpg'
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
         "
         :imageAlt="post.featuredImage?.alt || post.title"
         :title="post.title"
@@ -51,7 +50,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
 import BlogArticleCard from '../home/BlogArticleCard.vue';
-const posts = postsData as Post[];
+const posts = postsData as unknown as Post[];
 
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
@@ -112,7 +111,7 @@ onMounted(() => {
   const tag = route.params.tag;
   console.log('Current tag from route:', tag, typeof tag);
 
-  const filtered = postsData.filter((post: Post) => {
+  const filtered = posts.filter((post: Post) => {
     if (!post.status || post.status === 'published') {
       if (post.tags) {
         const lowerCaseTags = post.tags.map((t: string) => t.toLowerCase());
@@ -147,7 +146,7 @@ const formatDate = (dateString: string): string => {
 
 const allTags = computed(() => {
   const tags = new Set<string>();
-  postsData.forEach((post: Post) => {
+  posts.forEach((post) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => tags.add(tag));
     }

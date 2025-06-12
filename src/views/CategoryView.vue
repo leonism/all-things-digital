@@ -1,148 +1,141 @@
 <template>
   <!-- Main wrapper with blog page styling -->
-  <section id="mainWrapper" class="max-w-4xl mx-0 mx-auto" role="main">
+  <section id="mainWrapper" class="max-w-4xl mx-auto" role="main">
     <!-- Blog-style Header Section -->
-    <section class="py-12 px-4 sm:px-6 lg:px-8">
+    <header class="py-12">
       <HeaderCategory :categoryName="displayCategoryName" />
-    </section>
+    </header>
+
     <!-- Blog-style Content Section -->
-    <section class="py-8 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <!-- Category Posts Display -->
-        <div v-if="categoryParam && categoryPosts.length > 0" class="space-y-6">
-          <BlogArticleCard
-            v-for="post in categoryPosts"
-            :key="post.slug"
-            :imageSrc="post.featuredImage.src"
-            :imageAlt="post.featuredImage.alt || post.title"
-            :title="post.title"
-            :postLink="`/blog/${post.slug}`"
-            :date="post.date"
-            :excerpt="post.excerpt || post.description"
-            :tags="post.tags"
-            :authorImageSrc="post.author.image"
-            :authorImageAlt="post.author.name"
-            :authorLink="post.author.link"
-            :authorName="post.author.name"
-            :category="post.category"
-          />
-        </div>
+    <section class="pb-8">
+      <!-- Category Posts Display -->
+      <div v-if="categoryParam && categoryPosts.length > 0" class="space-y-8">
+        <BlogArticleCard
+          v-for="post in categoryPosts"
+          :key="post.slug"
+          :imageSrc="post.featuredImage.src"
+          :imageAlt="post.featuredImage.alt || post.title"
+          :title="post.title"
+          :postLink="`/blog/${post.slug}`"
+          :date="post.date"
+          :excerpt="post.excerpt || post.description"
+          :tags="post.tags"
+          :authorImageSrc="post.author.image"
+          :authorImageAlt="post.author.name"
+          :authorLink="post.author.link"
+          :authorName="post.author.name"
+          :category="post.category"
+        />
+      </div>
 
-        <!-- All Categories Display -->
-        <div
-          v-else-if="!categoryParam"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      <!-- All Categories Display -->
+      <div v-else-if="!categoryParam" class="space-y-8">
+        <article
+          v-for="(category, index) in sortedCategories"
+          :key="category"
+          class="group overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transition-all duration-500 hover:shadow-2xl cursor-pointer"
+          @click="navigateToCategory(category)"
         >
-          <article
-            v-for="(category, index) in sortedCategories"
-            :key="category"
-            class="group relative overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl cursor-pointer"
-            @click="navigateToCategory(category)"
-          >
-            <!-- Category Header -->
-            <header class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <div
-                  class="bg-indigo-100 dark:bg-indigo-900/50 rounded-full p-3"
+          <!-- Category Header -->
+          <header class="p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="bg-indigo-100 dark:bg-indigo-900/50 rounded-full p-3">
+                <svg
+                  class="w-8 h-8 text-indigo-600 dark:text-indigo-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
                 >
-                  <svg
-                    class="w-8 h-8 text-indigo-600 dark:text-indigo-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"
-                    ></path>
-                  </svg>
-                </div>
-                <span
-                  class="text-slate-500 dark:text-gray-400 text-sm font-medium"
-                  >{{ getPostsByCategory(category).length }} posts</span
-                >
+                  <path
+                    d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"
+                  ></path>
+                </svg>
               </div>
-              <h3 class="text-xl font-bold text-slate-700 dark:text-white mb-2">
-                {{ category }}
-              </h3>
-            </header>
-
-            <!-- Featured Posts Preview -->
-            <section class="px-6 pb-4">
-              <div class="space-y-3">
-                <div
-                  v-for="post in getLatestPosts(category, 2)"
-                  :key="post.slug"
-                  class="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors"
-                >
-                  <h4
-                    class="text-slate-700 dark:text-white font-medium text-sm line-clamp-1"
-                  >
-                    {{ post.title }}
-                  </h4>
-                  <p class="text-slate-500 dark:text-gray-400 text-xs mt-1">
-                    {{ formatDate(post.date) }}
-                  </p>
-                  <p
-                    class="text-slate-600 dark:text-gray-300 text-xs line-clamp-2 mt-1"
-                  >
-                    {{ post.excerpt }}
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <!-- Show More Indicator -->
-            <div
-              v-if="getPostsByCategory(category).length > 2"
-              class="px-6 pb-4"
-            >
-              <div
-                class="text-slate-500 dark:text-gray-400 text-xs text-center"
+              <span
+                class="text-slate-500 dark:text-gray-400 text-sm font-medium"
               >
-                +{{ getPostsByCategory(category).length - 2 }} more posts
-              </div>
+                {{ getPostsByCategory(category).length }} posts
+              </span>
             </div>
-
-            <!-- View All Button -->
-            <footer class="p-6 pt-0">
-              <button
-                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300"
-              >
-                Explore Category
-              </button>
-            </footer>
-          </article>
-        </div>
-
-        <!-- Empty State -->
-        <div v-else class="text-center py-16">
-          <div class="max-w-md mx-auto">
-            <svg
-              class="mx-auto h-12 w-12 text-slate-400 dark:text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            <h3 class="mt-4 text-lg font-medium text-slate-900 dark:text-white">
-              No articles found
+            <h3 class="text-xl font-bold text-slate-700 dark:text-white mb-2">
+              {{ category }}
             </h3>
-            <p class="mt-2 text-slate-500 dark:text-gray-400">
-              No articles found in the {{ categoryParam }} category.
-            </p>
-            <div class="mt-6">
-              <router-link
-                to="/blog"
-                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+          </header>
+
+          <!-- Featured Posts Preview -->
+          <section class="px-6 pb-4">
+            <div class="space-y-3">
+              <div
+                v-for="post in getLatestPosts(category, 2)"
+                :key="post.slug"
+                class="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-3 hover:bg-slate-100 dark:hover:bg-gray-700 transition-colors"
               >
-                Browse all articles
-              </router-link>
+                <h4
+                  class="text-slate-700 dark:text-white font-medium text-sm line-clamp-1"
+                >
+                  {{ post.title }}
+                </h4>
+                <p class="text-slate-500 dark:text-gray-400 text-xs mt-1">
+                  {{ formatDate(post.date) }}
+                </p>
+                <p
+                  class="text-slate-600 dark:text-gray-300 text-xs line-clamp-2 mt-1"
+                >
+                  {{ post.excerpt }}
+                </p>
+              </div>
             </div>
+          </section>
+
+          <!-- Show More Indicator -->
+          <div v-if="getPostsByCategory(category).length > 2" class="px-6 pb-4">
+            <div class="text-slate-500 dark:text-gray-400 text-xs text-center">
+              +{{ getPostsByCategory(category).length - 2 }} more posts
+            </div>
+          </div>
+
+          <!-- View All Button -->
+          <footer class="p-6 pt-0">
+            <button
+              class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300"
+              aria-label="Explore category"
+            >
+              Explore Category
+            </button>
+          </footer>
+        </article>
+      </div>
+
+      <!-- Empty State -->
+      <div v-else class="text-center py-16">
+        <div class="max-w-md mx-auto">
+          <svg
+            class="mx-auto h-12 w-12 text-slate-400 dark:text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          <h3 class="mt-4 text-lg font-medium text-slate-900 dark:text-white">
+            No articles found
+          </h3>
+          <p class="mt-2 text-slate-500 dark:text-gray-400">
+            No articles found in the {{ categoryParam }} category.
+          </p>
+          <div class="mt-6">
+            <router-link
+              to="/blog"
+              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+            >
+              Browse all articles
+            </router-link>
           </div>
         </div>
       </div>
