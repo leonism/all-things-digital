@@ -60,8 +60,6 @@ Protecting your digital identity is crucial. In today's interconnected world, cy
 4. [Protecting Personal Data](#protecting-personal-data)
 5. [Additional Resources](#additional-resources)
 
----
-
 ## Strong Passwords
 
 One of the simplest yet most effective ways to protect your digital life is by using strong, unique passwords for every account. Here’s how:
@@ -75,8 +73,6 @@ One of the simplest yet most effective ways to protect your digital life is by u
 ![Password Security](https://images.pexels.com/photos/414860/pexels-photo-414860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 _Caption: A secure password is your first line of defense against unauthorized access._
 
----
-
 ## Recognize Phishing
 
 Phishing attacks trick users into revealing sensitive information like passwords or credit card details. Here’s how to spot and avoid them:
@@ -89,8 +85,6 @@ Phishing attacks trick users into revealing sensitive information like passwords
 
 For more tips, check out our related post on [Spotting Phishing Emails](#).
 
----
-
 ## Securing Your Devices
 
 Your devices are gateways to your digital life. Keep them safe with these measures:
@@ -101,8 +95,6 @@ Your devices are gateways to your digital life. Keep them safe with these measur
 
 ![Device Security](https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 _Caption: Keeping your devices updated and protected is essential for maintaining cybersecurity._
-
----
 
 ## Protecting Personal Data
 
@@ -117,8 +109,6 @@ Data privacy is about controlling who has access to your information. Follow the
 - [ ] Review app permissions regularly.
 - [ ] Delete unused accounts.
 - [ ] Use a Virtual Private Network (VPN) when browsing public Wi-Fi.
-
----
 
 ## Additional Resources
 
