@@ -47,7 +47,7 @@ relatedPosts:
   - 'meal-prepping-for-beginners'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/health/healthy-eating-habits'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind'
 ---
 
 A balanced diet is not just about eating less or avoiding certain foods; it's about nourishing your body with the right nutrients. Here are some essential components: Good nutrition is the foundation of a healthy life.

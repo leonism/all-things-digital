@@ -47,7 +47,7 @@ relatedPosts:
   - 'creating-ergonomic-home-office'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/career/mastering-remote-work'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being'
 ---
 
 Remote work offers flexibility but requires discipline. Here’s how to succeed: Creating a structured routine is the foundation of effective remote work. Without the physical separation of an office, it’s easy to blur the lines between personal and professional life.

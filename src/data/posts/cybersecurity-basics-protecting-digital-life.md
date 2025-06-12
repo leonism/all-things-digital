@@ -47,7 +47,7 @@ relatedPosts:
   - 'securing-your-home-wifi'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/security/cybersecurity-basics'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life'
 ---
 
 Protecting your digital identity is crucial. In today's interconnected world, cybercriminals are constantly finding new ways to exploit vulnerabilities. By understanding and implementing basic cybersecurity practices, you can significantly reduce your risk of falling victim to online threats.

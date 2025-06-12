@@ -47,7 +47,7 @@ relatedPosts:
   - 'gardening-for-biodiversity'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/lifestyle/sustainable-living-eco-friendly-home'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home'
 ---
 
 Adopting the mantra of "reduce, reuse, recycle" is one of the simplest ways to create a more eco-friendly home. These practices help minimize waste and conserve natural resources. Creating a sustainable home is easier than you think. Here are some actionable tips:

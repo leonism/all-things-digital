@@ -24,7 +24,7 @@ status: 'published' # Possible values: "published", "draft"
 featured: false # Set to true if this post should be featured
 priority: 'low' # Sitemap priority (e.g., "high", "medium", "low")
 metaRobots: 'index, follow' # SEO robots directive
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post' # Replace with the actual canonical URL
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
 ---
 
 Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.

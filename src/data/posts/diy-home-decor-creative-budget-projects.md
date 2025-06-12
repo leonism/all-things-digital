@@ -47,7 +47,7 @@ relatedPosts:
   - 'budget-decorating-tips'
 toc: false
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/diy/home-decor-budget-projects'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects'
 ---
 
 Decorating your home doesn’t have to come with a hefty price tag. With a little creativity and some basic materials, you can craft unique pieces that reflect your personality. DIY home decor allows you to: Add personal touches to your home affordably.

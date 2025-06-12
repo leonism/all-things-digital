@@ -7,7 +7,7 @@ lastModified: '2025-05-26'
 author:
   name: 'Alex Johnson'
   role: 'Lead Developer'
-  image: 'https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar' # Placeholder author image 
+  image: 'https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar' # Placeholder author image
 category: 'Technology'
 tags:
   - 'web-development'
@@ -47,7 +47,7 @@ relatedPosts:
   - 'serverless-architecture-guide'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/news/future-web-development-2025'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/future-web-development-2025'
 ---
 
 The world of web development moves at lightning speed. Staying ahead requires understanding the trends that will define the next year. As we approach 2025, developers must adapt to new paradigms, tools, and methodologies that will reshape how we build the web.

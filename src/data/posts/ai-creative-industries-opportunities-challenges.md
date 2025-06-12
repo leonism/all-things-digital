@@ -47,7 +47,7 @@ relatedPosts:
   - 'future-skills-for-creatives'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/tech/ai-creative-industries'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges'
 ---
 
 AI is emerging as a powerful collaborator for creatives. By analyzing vast datasets, AI tools can generate ideas, suggest variations, and even propose entirely new concepts. For instance, platforms like DALL·E and MidJourney allow artists to experiment with visual styles they might not have considered otherwise. This collaboration between human intuition and machine precision opens doors to unprecedented levels of innovation.

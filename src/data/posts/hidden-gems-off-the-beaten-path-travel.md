@@ -47,7 +47,7 @@ relatedPosts:
   - 'cultural-immersion-experiences'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/travel/hidden-gems-off-beaten-path'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel'
 ---
 
 Seek experiences beyond the typical tourist trail. Nestled between Iceland and Norway, the Faroe Islands boast dramatic landscapes, including cascading waterfalls, rugged cliffs, and quaint villages. Hike to the iconic Múlafossur Waterfall or explore the bird cliffs of Mykines for unforgettable encounters with puffins and other wildlife.

@@ -47,7 +47,7 @@ relatedPosts:
   - 'retirement-planning-strategies'
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/finance/millennial-financial-planning'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future'
 ---
 
 Navigating finances can be challenging. Here’s a roadmap for millennials: Budgeting is the cornerstone of financial stability. Without a clear understanding of your income and expenses, it’s easy to fall into debt or live paycheck to paycheck.

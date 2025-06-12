@@ -47,7 +47,7 @@ relatedPosts:
   - 'managing-anxiety-naturally'
 toc: false
 metaRobots: 'index, follow'
-canonicalUrl: 'https://example.com/wellness/mindfulness-meditation-calm'
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm'
 ---
 
 In today’s fast-paced world, mindfulness has emerged as a powerful tool for reclaiming our mental space. At its core, **mindfulness** is about being fully present in the moment, without judgment. It encourages us to step away from the constant chatter of our minds and focus on what’s happening right now.
