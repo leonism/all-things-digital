@@ -5,7 +5,7 @@
 
     <!-- Conditional Blog Posts Grid -->
     <div v-if="paginatedPosts.length" class="flex flex-col">
-      <BlogArticleCard
+      <BlogPostCard
         v-for="post in paginatedPosts"
         :key="post.slug"
         :imageSrc="
@@ -47,7 +47,7 @@
 /**
  * BlogListView Component
  *
- * This component displays a list of blog posts using the `BlogArticleCard`
+ * This component displays a list of blog posts using the `BlogPostCard`
  * component. It fetches all published posts from `blog-data.json` when the
  * component is mounted and updates the page's meta tags using `@unhead/vue`.
  *
@@ -58,7 +58,7 @@ import { useHead } from '@unhead/vue';
 import { useRoute } from 'vue-router';
 import { usePagination } from '../../composables/usePagination';
 import HeaderBlog from '../heading/HeaderBlog.vue';
-import BlogArticleCard from '../home/BlogArticleCard.vue';
+import BlogPostCard from '../common/BlogPostCard.vue';
 import Pagination from '../../components/common/Pagination.vue';
 import postsData from '../../blog-data.json';
 
@@ -164,7 +164,7 @@ useHead({
 onMounted(() => {
   // Filter posts to include only those with status 'published'.
   const publishedPosts = postsData.filter(
-    (post) => post.status === 'published',
+    (post) => post.status === 'published' && post.contentHtml !== undefined,
   );
 
   // Sort posts by date in descending order.

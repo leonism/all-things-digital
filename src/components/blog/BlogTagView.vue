@@ -2,7 +2,7 @@
   <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
-      <BlogArticleCard
+      <BlogPostCard
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
@@ -49,7 +49,7 @@ import type { Post } from '../../types/Post';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
-import BlogArticleCard from '../home/BlogArticleCard.vue';
+import BlogPostCard from '../common/BlogPostCard.vue';
 const posts = postsData as unknown as Post[];
 
 const getTagSlug = (name: string): string => {

@@ -4,7 +4,7 @@
       Category: {{ displayCategoryName }}
     </h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
-      <BlogArticleCard
+      <BlogPostCard
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
@@ -39,7 +39,7 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
-import BlogArticleCard from '../home/BlogArticleCard.vue';
+import BlogPostCard from '../common/BlogPostCard.vue';
 import postsData from '../../blog-data.json';
 
 // Define interface that matches the actual blog-data.json structure

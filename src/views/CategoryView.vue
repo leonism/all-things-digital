@@ -14,7 +14,7 @@
     <section class="pb-8">
       <!-- Category Posts Display -->
       <div v-if="categoryParam && categoryPosts.length > 0" class="space-y-8">
-        <BlogArticleCard
+        <BlogPostCard
           v-for="post in categoryPosts"
           :key="post.slug"
           :imageSrc="post.featuredImage.src"
@@ -152,7 +152,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouter } from 'vue-router';
 import HeaderCategory from '../components/heading/HeaderCategory.vue';
-import BlogArticleCard from '../components/home/BlogArticleCard.vue';
+import BlogPostCard from '../components/common/BlogPostCard.vue';
 import postsData from '../blog-data.json';
 
 interface BlogPost {
