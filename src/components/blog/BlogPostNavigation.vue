@@ -3,15 +3,14 @@
     <router-link
       v-if="previousPost"
       :to="`/blog/${previousPost.slug}`"
-      class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium py-2 px-4 rounded-md"
+      class="bg-gray-100 border border-gray-300 dark:border-gray-700 dark:bg-gray-700 dark:drop-shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium py-2 px-4 rounded-xl"
     >
-      &larr; Previous
+      &larr; Prev
     </router-link>
-    <div v-else class="py-2 px-4"></div>
     <router-link
       v-if="nextPost"
       :to="`/blog/${nextPost.slug}`"
-      class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium py-2 px-4 rounded-md"
+      class="bg-gray-100 border border-gray-300 dark:border-gray-700 dark:bg-gray-700 dark:drop-shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-medium py-2 px-4 rounded-xl"
     >
       Next &rarr;
     </router-link>

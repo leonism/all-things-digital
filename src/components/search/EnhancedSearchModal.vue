@@ -286,7 +286,7 @@
               <img
                 src="../../assets/img/icons/logo-footer.png"
                 alt="Logo"
-                class="w-6 h-6 sm:w-6 sm:h-6 border-gray-300 dark:border-gray-600 rounded-full opacity-40 dark:opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                class="w-8 h-8 md:w-10 md:h-10 border dark:border-none rounded-full dark:opacity-40 dark:grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
               />
               <span class="hidden sm:inline">Search powered by Vue</span>
               <span class="sm:hidden text-xs">Vue Search</span>

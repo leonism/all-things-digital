@@ -29,7 +29,7 @@
 
         <!-- Categories and Tags -->
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <div v-if="post.categories?.length" class="mb-4">
+          <div v-if="post.categories?.length" class="mb-0">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
               Categories:
             </span>
