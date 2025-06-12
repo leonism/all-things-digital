@@ -1,0 +1,238 @@
+@import 'tailwindcss';
+@import 'highlight.js/styles/github.css'; /* Import highlight.js theme */
+
+/* start the tailwind dark-mode targeting */
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* start the viewport breakpoints */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+  --breakpoint-xl: 1440px;
+
+  /* start the fonts collection */
+  --font-*: initial;
+  /* --font-navigation: Poppins, sans-serif; */
+
+  /* start the animation collection */
+  --animate-blob: blob 7s infinite;
+
+  /* start the custom color collection */
+  --color-savory-white: hsl(0, 36%, 95%);
+  --color-broken-white: hsl(210, 20%, 98%);
+  --color-muted-white: hsl(224, 16%, 54%);
+  --color-white-hover: hsl(0, 36%, 95%);
+  --color-pink-heading: hsl(279, 48%, 54%);
+  --color-pink-sub-heading: hsl(293, 43%, 55%);
+  --color-black-sub-heading: hsl(221, 39%, 11%);
+  --color-deep-blue-sub-heading: hsl(229, 38%, 40%);
+
+  /* start the custom color fuchsia collection */
+  --color-fuchsia-50: #fdf4ff;
+  --color-fuchsia-100: #fae8ff;
+  --color-fuchsia-200: #f5d0fe;
+  --color-fuchsia-300: #f0abfc;
+  --color-fuchsia-400: #e879f9;
+  --color-fuchsia-500: #d946ef;
+  --color-fuchsia-600: #c026d3;
+  --color-fuchsia-700: #a21caf;
+  --color-fuchsia-800: #86198f;
+  --color-fuchsia-900: #701a75;
+  --color-fuchsia-950: #4a044e;
+
+  /* start the background-color-postcard, so may call them with `bg-postcard` in your html class */
+  --background-color-postcard: hsl(215, 45%, 14%);
+  /* start the background-color-main, so may call them with `bg-main` in your html class */
+  --background-color-main: hsl(212, 48%, 11%);
+
+  /* apply to any element you wish to animate hover:animate-[var(--animate-blob)] */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  :root {
+    --font-navigation: 'Poppins', sans-serif;
+    --font-weight-black: 1200;
+    /* Colors */
+    --bkg: 222 47.4% 11.2%;
+    --bkg-alt: 226 58.3% 18.8%;
+    --text: 226 100% 93.9%;
+    --text-alt: 226 22.1% 73.3%;
+    --muted: 230 39% 67.8%;
+    --white: 255 100% 100%;
+    --accent1: 241 76.8% 62.7%;
+    --accent2: 330 85.2% 60.4%;
+    --accent3: 0 90.6% 70.8%;
+    --gradient: linear-gradient(
+      94.55deg,
+      hsl(var(--accent2)) -4.6%,
+      hsl(var(--accent3)) 99.9%
+    );
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/assets/fonts/poppins/poppins-v23-latin-900.woff2') format('woff2');
+    font-weight: var(--font-weight-black);
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+/*
+Custom Styles
+ */
+
+.display-none {
+  @apply hidden;
+}
+
+.gradient-headers {
+  margin-top: 1.25rem; /* mt-5 */
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 1.15; /* leading-[1.15] */
+  font-weight: 800; /* font-bold + font-extrabold */
+  font-family: var(--font-navigation); /* font-navigation */
+  letter-spacing: -0.025em; /* tracking-tight */
+  color: transparent; /* text-transparent */
+  background-clip: text; /* bg-clip-text */
+  -webkit-background-clip: text; /* For Safari */
+  @apply drop-shadow-lg; /* drop-shadow-lg */
+  background-image: linear-gradient(
+    to bottom right,
+    #818cf8,
+    #ec4899
+  ); /* bg-gradient-to-br from-indigo-400 to-pink-600 */
+  -webkit-font-smoothing: subpixel-antialiased; /* subpixel-antialiased */
+  /* Responsive font sizes */
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  } /* sm:text-5xl */
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  } /* md:text-6xl */
+  @media (min-width: 1024px) {
+    font-size: 3.5rem;
+  } /* lg:text-7xl */
+  @media (min-width: 1280px) {
+    font-size: 4rem;
+  } /* xl:text-8xl */
+}
+
+/* Here's the main background gradient effects */
+.blurGrad {
+  position: relative;
+}
+
+.blurGrad::after,
+.blurGrad::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -30;
+  filter: blur(45px);
+  border-radius: 10% 10% 10%;
+}
+
+.blurGrad::after {
+  background-color: hsl(var(--accent1) / 0.2);
+  transform: rotate(-20deg);
+}
+
+.blurGrad::before {
+  background-color: hsl(var(--accent2) / 0.2);
+  transform: rotate(20deg);
+}
+
+@media screen (max-width: 480px) {
+  .blurGrad::after,
+  .blurGrad::before {
+    filter: blur(20px);
+  }
+}
+
+/* Hamburger Mobile Menu */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  color: hsl(279, 48%, 54%);
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  color: hsl(279, 48%, 54%);
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+.hamburger-middle {
+  transform: translateY(7px);
+}
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+.open .hamburger-middle {
+  display: none;
+}
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+/* Optional: Add some basic styling for code blocks */
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
