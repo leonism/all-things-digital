@@ -83,7 +83,7 @@ const __dirname = dirname(__filename);
 // Configuration constants
 const CONFIG = {
   FOLDER_PREFIX: 'all-things-digital', // be sure to have created through the cloudflare interface
-  SUPPORTED_FORMATS: /\.(jpg|jpeg|png|gif|webp|svg)$/i,
+  SUPPORTED_FORMATS: /\.(jpg|jpeg|png|gif|webp|avif|svg)$/i,
   API_DELAY: 300, // ms between API calls
   MAX_RETRIES: 3,
   BATCH_SIZE: 50, // for cloud resource fetching
