@@ -248,11 +248,15 @@
               </span>
             </div>
             <div class="flex items-center space-x-1 sm:space-x-2">
-              <img
-                src="../../assets/img/icons/logo-footer.png"
-                alt="Logo"
-                class="w-7 h-7 md:w-9 md:h-9 border border-gray-300 dark:border-none rounded-full opacity-90 dark:grayscale dark:opacity-40 border-gray-300 hover:opacity-80 hover:grayscale-0 transition-all duration-300"
-              />
+              <picture>
+                <source :srcset="avifSrc" type="image/avif" />
+                <source :srcset="webpSrc" type="image/webp" />
+                <img
+                  :src="pngSrc"
+                  alt="Logo"
+                  class="w-7 h-7 md:w-9 md:h-9 border border-gray-300 dark:border-none rounded-full opacity-90 dark:grayscale dark:opacity-40 border-gray-300 hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                />
+              </picture>
               <span class="hidden sm:inline">Search powered by Vue</span>
               <span class="sm:hidden text-xs">Vue Search</span>
             </div>
@@ -264,12 +268,22 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
+import { computed, ref, watch, nextTick, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { useSearch } from '@/composables/useSearch';
 import SearchResultItem from './SearchResultItem.vue';
-import SearchSuggestions from './SearchSuggestions.vue';
 import SearchStats from './SearchStats.vue';
+import SearchSuggestions from './SearchSuggestions.vue';
+import { useSearch } from '../../composables/useSearch.js';
+
+// Import logo assets
+import pngLogo from '../../assets/img/icons/logo-footer.png';
+import webpLogo from '../../assets/img/icons/logo-footer.webp';
+import avifLogo from '../../assets/img/icons/logo-footer.avif';
+
+// Use the imported assets directly
+const pngSrc = computed(() => pngLogo);
+const webpSrc = computed(() => webpLogo);
+const avifSrc = computed(() => avifLogo);
 
 const props = defineProps({
   showModal: {

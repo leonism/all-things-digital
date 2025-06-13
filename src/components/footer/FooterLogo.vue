@@ -11,18 +11,34 @@
       class="hover:opacity-100 transition-opacity duration-300"
       aria-label="Scroll to top of page"
     >
-      <img
-        src="../../assets/img/icons/logo-footer.png"
-        width="35"
-        height="35"
-        alt="Company logo"
-        class="animate-bounce-infinite border border-gray-300 dark:border-none rounded-full"
-      />
+      <picture>
+        <source :srcset="avifSrc" type="image/avif" />
+        <source :srcset="webpSrc" type="image/webp" />
+        <img
+          :src="pngSrc"
+          width="35"
+          height="35"
+          alt="Company logo"
+          class="animate-bounce-infinite border border-gray-300 dark:border-none rounded-full"
+        />
+      </picture>
     </a>
   </figure>
 </template>
 
 <script setup>
+import { computed } from 'vue';
+
+// Import all three formats explicitly
+import pngLogo from '../../assets/img/icons/logo-footer.png';
+import webpLogo from '../../assets/img/icons/logo-footer.webp';
+import avifLogo from '../../assets/img/icons/logo-footer.avif';
+
+// Use the imported assets directly
+const pngSrc = computed(() => pngLogo);
+const webpSrc = computed(() => webpLogo);
+const avifSrc = computed(() => avifLogo);
+
 // Smooth scroll to top functionality
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
