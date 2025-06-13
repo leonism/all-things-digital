@@ -47,7 +47,7 @@ const processedImageSrc = computed(() => {
   return authorImageCloudinary.thumbnail.value(48, {
     c: 'thumb',
     g: 'face',
-    r: 'max' // Make it circular
+    r: 'max', // Make it circular
   });
 });
 </script>

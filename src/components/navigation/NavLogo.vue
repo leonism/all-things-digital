@@ -2,14 +2,8 @@
   <div id="logo" class="z-40 drop-shadow-sm overflow-x-hidden">
     <router-link to="/">
       <picture>
-        <source
-          :srcset="avifSrc"
-          type="image/avif"
-        />
-        <source
-          :srcset="webpSrc"
-          type="image/webp"
-        />
+        <source :srcset="avifSrc" type="image/avif" />
+        <source :srcset="webpSrc" type="image/webp" />
         <img
           :src="pngSrc"
           alt="Logo"
@@ -27,18 +21,13 @@
 <script setup>
 import { computed } from 'vue';
 
-// Import the base PNG image
+// Import all three formats explicitly
 import pngLogo from '../../assets/img/icons/icon-dgpondcom.png';
+import webpLogo from '../../assets/img/icons/icon-dgpondcom.webp';
+import avifLogo from '../../assets/img/icons/icon-dgpondcom.avif';
 
-// Create computed properties for different formats
+// Use the imported assets directly
 const pngSrc = computed(() => pngLogo);
-
-// For WebP and AVIF, we'll use the same base name but with different extensions
-const webpSrc = computed(() => {
-  return pngLogo.replace('.png', '.webp');
-});
-
-const avifSrc = computed(() => {
-  return pngLogo.replace('.png', '.avif');
-});
+const webpSrc = computed(() => webpLogo);
+const avifSrc = computed(() => avifLogo);
 </script>

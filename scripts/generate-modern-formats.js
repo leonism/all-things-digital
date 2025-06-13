@@ -7,16 +7,20 @@ import imageminAvif from 'imagemin-avif';
 export function imageFormatsPlugin() {
   const plugin = {
     name: 'image-formats',
+
     async buildStart() {
-      // Generate WebP and AVIF versions of images during build
+      // Generate WebP and AVIF versions during buildStart
       const srcDir = path.resolve('src/assets/img');
       await plugin.generateImageFormats(srcDir);
     },
+
     async generateImageFormats(dir) {
       try {
         const files = await fs.readdir(dir, { recursive: true });
 
         for (const file of files) {
+          if (typeof file !== 'string') continue;
+
           const filePath = path.join(dir, file);
           const stat = await fs.stat(filePath);
 
@@ -32,6 +36,7 @@ export function imageFormatsPlugin() {
                 plugins: [imageminWebp({ quality: 75 })]
               });
               await fs.writeFile(webpPath, webpBuffer);
+              console.log(`Generated: ${webpPath}`);
             }
 
             // Generate AVIF
@@ -41,6 +46,7 @@ export function imageFormatsPlugin() {
                 plugins: [imageminAvif({ quality: 50 })]
               });
               await fs.writeFile(avifPath, avifBuffer);
+              console.log(`Generated: ${avifPath}`);
             }
           }
         }
@@ -48,6 +54,7 @@ export function imageFormatsPlugin() {
         console.warn('Image format generation failed:', error);
       }
     },
+
     async fileExists(filePath) {
       try {
         await fs.access(filePath);

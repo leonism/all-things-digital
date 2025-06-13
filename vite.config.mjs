@@ -13,15 +13,17 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 // Import for markdown parsing
 import Markdown from 'unplugin-vue-markdown/vite';
-// Import imagemin plugins for WebP and AVIF generation
+// Import imagemin plugins for WebP generation
 import imageminWebp from 'imagemin-webp';
+// Import imagemin plugins for AVIF generation
 import imageminAvif from 'imagemin-avif';
-import { imageFormatsPlugin } from './scripts/vite-plugin-image-formats.js';
+// Import the viteCompression plugin for Vite.
+import viteCompression from 'vite-plugin-compression';
+// Import custom plugins for AVIF/webp generation
+import { imageFormatsPlugin } from './scripts/generate-modern-formats.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-// Import the viteCompression plugin for Vite.
-import viteCompression from 'vite-plugin-compression';
 
 /**
  * Vite configuration for the project.
@@ -64,7 +66,7 @@ export default defineConfig({
     postcss: {},
   },
   plugins: [
-    imageFormatsPlugin(), // Add this first
+    imageFormatsPlugin(), // Keep this first
     vue({
       include: [/\.vue$/, /\.md$/],
       template: {
