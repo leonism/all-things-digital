@@ -459,15 +459,12 @@ function generateResponsiveVariants(publicId) {
         gravity: 'auto',
       }),
       auto: cloudinary.url(publicId, {
-        transformation: [
-          {
-            width: width,
-            crop: 'fill',
-            gravity: 'auto',
-            quality: 'auto:good',
-            fetch_format: 'auto'
-          }
-        ]
+        // Remove format: 'auto' - this was causing .auto extension
+        quality: 'auto:good',
+        width: width,
+        crop: 'fill',
+        gravity: 'auto',
+        fetch_format: 'auto', // Use this instead for automatic format selection
       }),
     };
   });
