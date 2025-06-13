@@ -27,7 +27,6 @@
         :category="post.category"
         role="article"
       />
-
       <!-- Pagination Controls -->
       <Pagination
         :currentPage="currentPage"
@@ -35,7 +34,6 @@
         @page-change="handlePageChange"
       />
     </template>
-
     <!-- Empty State, backfall if no markdown populated  -->
     <div
       v-else
@@ -66,8 +64,8 @@ import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
 import BlogArticleCard from '../components/home/BlogArticleCard.vue';
 import Pagination from '../components/common/Pagination.vue';
-import postsData from '../blog-data.json';
 import { usePagination } from '../composables/usePagination';
+import postsData from '../blog-data.json';
 
 interface BlogPost {
   slug: string;

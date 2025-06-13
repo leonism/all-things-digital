@@ -1,13 +1,16 @@
 <template>
-  <div id="mainWrapper" class="max-w-4xl mx-auto">
+  <section
+    id="mainWrapper"
+    class="max-w-4xl sm:mx-5 md:mx-10 lg:mx-auto"
+    role="main"
+  >
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
       <BlogArticleCard
         v-for="post in allPosts"
         :key="post.slug"
         :imageSrc="
-          post.featuredImage?.src ||
-          '/assets/img/thumbnail-01-comp.jpg'
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
         "
         :imageAlt="post.featuredImage?.alt || post.title"
         :title="post.title"
@@ -41,7 +44,7 @@
         </router-link>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -51,7 +54,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
 import BlogArticleCard from '../home/BlogArticleCard.vue';
-const posts = postsData as Post[];
+const posts = postsData as unknown as Post[];
 
 const getTagSlug = (name: string): string => {
   return name.toLowerCase().replace(/\s+/g, '-');
@@ -112,7 +115,7 @@ onMounted(() => {
   const tag = route.params.tag;
   console.log('Current tag from route:', tag, typeof tag);
 
-  const filtered = postsData.filter((post: Post) => {
+  const filtered = postsData.filter((post: (typeof postsData)[0]) => {
     if (!post.status || post.status === 'published') {
       if (post.tags) {
         const lowerCaseTags = post.tags.map((t: string) => t.toLowerCase());
@@ -130,7 +133,7 @@ onMounted(() => {
   });
   console.log('Filtered posts for tag:', filtered);
 
-  allPosts.value = filtered;
+  allPosts.value = filtered as unknown as Post[];
 });
 
 const formatDate = (dateString: string): string => {
@@ -147,7 +150,7 @@ const formatDate = (dateString: string): string => {
 
 const allTags = computed(() => {
   const tags = new Set<string>();
-  postsData.forEach((post: Post) => {
+  postsData.forEach((post: (typeof postsData)[0]) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => tags.add(tag));
     }

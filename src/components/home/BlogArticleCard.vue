@@ -1,7 +1,7 @@
 <template>
   <!-- Blog Post Card Component - Enhanced with semantic HTML and ARIA -->
   <article
-    class="flex flex-col mt-5 mb-5 min-h-60 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row hover:scale-[1.02] hover:shadow-2xl"
+    class="flex flex-col my-10 min-h-60 overflow-hidden rounded-2xl shadow-xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500 md:flex-row hover:scale-[1.02] hover:shadow-2xl"
     aria-labelledby="article-title article-excerpt"
     itemtype="https://schema.org/BlogPosting"
   >
