@@ -8,27 +8,25 @@
     <HeaderBlog />
     <!-- Conditional Blog Posts Grid -->
     <template v-if="paginatedPosts.length">
-      <section class="" aria-label="Blog Articles - Horizontal Scroll">
-        <BlogPostCard
-          v-for="post in paginatedPosts"
-          :key="post.slug"
-          :imageSrc="
-            post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
-          "
-          :imageAlt="post.featuredImage?.alt || post.title"
-          :title="post.title"
-          :postLink="`/blog/${post.slug}`"
-          :date="post.date"
-          :excerpt="post.excerpt || post.description"
-          :tags="post.tags"
-          :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
-          :authorImageAlt="post.author?.name || 'Author profile picture'"
-          :authorLink="post.author?.link || '/about'"
-          :authorName="post.author?.name || 'Unknown Author'"
-          :category="post.category"
-          role="article"
-        />
-      </section>
+      <BlogArticleCard
+        v-for="post in paginatedPosts"
+        :key="post.slug"
+        :imageSrc="
+          post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
+        "
+        :imageAlt="post.featuredImage?.alt || post.title"
+        :title="post.title"
+        :postLink="`/blog/${post.slug}`"
+        :date="post.date"
+        :excerpt="post.excerpt || post.description"
+        :tags="post.tags"
+        :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
+        :authorImageAlt="post.author?.name || 'Author profile picture'"
+        :authorLink="post.author?.link || '/about'"
+        :authorName="post.author?.name || 'Unknown Author'"
+        :category="post.category"
+        role="article"
+      />
 
       <!-- Pagination Controls -->
       <Pagination
@@ -57,7 +55,7 @@
 /**
  * BlogView Component
  *
- * This component displays a list of blog posts using the `BlogPostCard`
+ * This component displays a list of blog posts using the `BlogArticleCard`
  * component. It fetches all published posts from `blog-data.json` when the
  * component is mounted and updates the page's meta tags using `@unhead/vue`.
  *
@@ -66,7 +64,8 @@
 import { ref, onMounted, computed, type Ref } from 'vue';
 import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
-import BlogPostCard from '../components/common/BlogPostCard.vue';
+import BlogArticleCard from '../components/home/BlogArticleCard.vue';
+import Pagination from '../components/common/Pagination.vue';
 import postsData from '../blog-data.json';
 import { usePagination } from '../composables/usePagination';
 
