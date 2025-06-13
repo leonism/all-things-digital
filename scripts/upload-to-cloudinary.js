@@ -459,11 +459,15 @@ function generateResponsiveVariants(publicId) {
         gravity: 'auto',
       }),
       auto: cloudinary.url(publicId, {
-        format: 'auto',
-        quality: 'auto:good',
-        width: width,
-        crop: 'fill',
-        gravity: 'auto',
+        transformation: [
+          {
+            width: width,
+            crop: 'fill',
+            gravity: 'auto',
+            quality: 'auto:good',
+            fetch_format: 'auto'
+          }
+        ]
       }),
     };
   });
