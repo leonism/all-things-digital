@@ -6,7 +6,6 @@
   >
     <!-- Blog Header Section -->
     <HeaderBlog />
-
     <!-- Conditional Blog Posts Grid -->
     <template v-if="paginatedPosts.length">
       <section class="" aria-label="Blog Articles - Horizontal Scroll">
@@ -45,7 +44,7 @@
       class="text-center text-gray-500 dark:text-gray-400 py-10"
       role="alert"
     >
-      <p>No blog posts found.</p>
+      <h2>No blog posts found.</h2>
       <p>
         Make sure you have Markdown files in `/src/content/posts/` and run `node
         scripts/generate-blog-data.js`.

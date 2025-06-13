@@ -2,7 +2,7 @@
   <!-- Featured blog post card with hover effects and schema.org markup -->
   <article
     id="featuredPost"
-    class="my-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
+    class="mt-10 mb-10 my-10 rounded-xl shadow-xl transition-all duration-500 hover:scale-[1.02] bg-broken-white dark:bg-postcard hover:shadow-2xl"
     itemscope
     itemtype="https://schema.org/BlogPosting"
     aria-labelledby="featuredPostTitle"
