@@ -1,43 +1,111 @@
 {
-  "_featured-blog.jpg": {
-    "publicId": "all-things-digital/_featured-blog",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535910/all-things-digital/_featured-blog.jpg",
-    "width": 1472,
-    "height": 832,
+  "icons/favicon.png": {
+    "publicId": "all-things-digital/icons/favicon",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828045/all-things-digital/icons/favicon.jpg",
+    "width": 96,
+    "height": 96,
     "format": "jpg",
-    "bytes": 791987,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_featured-blog.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_featured-blog.avif?_a=BAMClqXy0"
+    "bytes": 1252,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/favicon.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/favicon.avif?_a=BAMClqXy0",
+    "checksum": "4f2214b206ffb4c865c029b5c619843d",
+    "lastSync": "2025-06-13T15:20:45.715Z"
   },
-  "_thumbnail-01.jpg": {
-    "publicId": "all-things-digital/_thumbnail-01",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535911/all-things-digital/_thumbnail-01.jpg",
-    "width": 1472,
-    "height": 832,
-    "format": "jpg",
-    "bytes": 845009,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_thumbnail-01.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_thumbnail-01.avif?_a=BAMClqXy0"
+  "icons/icon-brightmode.svg": {
+    "publicId": "all-things-digital/icons/icon-brightmode",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828046/all-things-digital/icons/icon-brightmode.png",
+    "width": 32,
+    "height": 32,
+    "format": "png",
+    "bytes": 283,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-brightmode.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-brightmode.avif?_a=BAMClqXy0",
+    "checksum": "f48a33cde3c428db6c98932e90538a45",
+    "lastSync": "2025-06-13T15:20:48.176Z"
   },
-  "_thumbnail-02.jpg": {
-    "publicId": "all-things-digital/_thumbnail-02",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535912/all-things-digital/_thumbnail-02.jpg",
-    "width": 1280,
-    "height": 720,
-    "format": "jpg",
-    "bytes": 615219,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_thumbnail-02.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_thumbnail-02.avif?_a=BAMClqXy0"
+  "icons/icon-darkmode.svg": {
+    "publicId": "all-things-digital/icons/icon-darkmode",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828049/all-things-digital/icons/icon-darkmode.png",
+    "width": 32,
+    "height": 32,
+    "format": "png",
+    "bytes": 279,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-darkmode.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-darkmode.avif?_a=BAMClqXy0",
+    "checksum": "4a96734af9f4a5821d3e9c3360d129ac",
+    "lastSync": "2025-06-13T15:20:51.640Z"
   },
-  "_thumbnail-03.jpg": {
-    "publicId": "all-things-digital/_thumbnail-03",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535913/all-things-digital/_thumbnail-03.jpg",
-    "width": 1368,
-    "height": 768,
-    "format": "jpg",
-    "bytes": 600850,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_thumbnail-03.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/_thumbnail-03.avif?_a=BAMClqXy0"
+  "icons/icon-dgpondcom.png": {
+    "publicId": "all-things-digital/icons/icon-dgpondcom",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828052/all-things-digital/icons/icon-dgpondcom.png",
+    "width": 171,
+    "height": 53,
+    "format": "png",
+    "bytes": 3074,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-dgpondcom.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-dgpondcom.avif?_a=BAMClqXy0",
+    "checksum": "f11bbf7ac2be01f50ccb2dd508a91269",
+    "lastSync": "2025-06-13T15:20:53.012Z"
+  },
+  "icons/icon-dgpondcom.svg": {
+    "publicId": "all-things-digital/icons/icon-dgpondcom",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828054/all-things-digital/icons/icon-dgpondcom.png",
+    "width": 151,
+    "height": 47,
+    "format": "png",
+    "bytes": 2247,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-dgpondcom.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/icon-dgpondcom.avif?_a=BAMClqXy0",
+    "checksum": "ec71d943855a33fb35cd1f151d760508",
+    "lastSync": "2025-06-13T15:20:55.483Z"
+  },
+  "icons/logo-dgpondcom.svg": {
+    "publicId": "all-things-digital/icons/logo-dgpondcom",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828056/all-things-digital/icons/logo-dgpondcom.png",
+    "width": 68,
+    "height": 67,
+    "format": "png",
+    "bytes": 2155,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/logo-dgpondcom.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/logo-dgpondcom.avif?_a=BAMClqXy0",
+    "checksum": "bd39aaa546672da4f403d594909d14e0",
+    "lastSync": "2025-06-13T15:20:58.842Z"
+  },
+  "icons/logo-footer.png": {
+    "publicId": "all-things-digital/icons/logo-footer",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828059/all-things-digital/icons/logo-footer.png",
+    "width": 55,
+    "height": 53,
+    "format": "png",
+    "bytes": 1603,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/logo-footer.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/logo-footer.avif?_a=BAMClqXy0",
+    "checksum": "6db22b5b6e9476f13eb1cf7ad074faec",
+    "lastSync": "2025-06-13T15:21:00.506Z"
+  },
+  "icons/logo.png": {
+    "publicId": "all-things-digital/icons/logo",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828061/all-things-digital/icons/logo.png",
+    "width": 225,
+    "height": 67,
+    "format": "png",
+    "bytes": 4097,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/logo.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/logo.avif?_a=BAMClqXy0",
+    "checksum": "c73592175903daf0430b409f9d560a38",
+    "lastSync": "2025-06-13T15:21:01.776Z"
+  },
+  "icons/night-icon.svg": {
+    "publicId": "all-things-digital/icons/night-icon",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749828063/all-things-digital/icons/night-icon.png",
+    "width": 122,
+    "height": 122,
+    "format": "png",
+    "bytes": 849,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/night-icon.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/icons/night-icon.avif?_a=BAMClqXy0",
+    "checksum": "cc6b4ca030bfdd04a3f0a11d3797ad57",
+    "lastSync": "2025-06-13T15:21:04.824Z"
   },
   "avatar.png": {
     "publicId": "all-things-digital/avatar",
@@ -47,7 +115,9 @@
     "format": "png",
     "bytes": 8875,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/avatar.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/avatar.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/avatar.avif?_a=BAMClqXy0",
+    "checksum": "dcb7b5733f146a0af6b1ee1db52d8077",
+    "lastSync": "2025-06-13T15:22:39.802Z"
   },
   "blog-image.png": {
     "publicId": "all-things-digital/blog-image",
@@ -57,7 +127,9 @@
     "format": "png",
     "bytes": 424512,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/blog-image.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/blog-image.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/blog-image.avif?_a=BAMClqXy0",
+    "checksum": "e3a7f79d44c5d197ab1b05169cac2c11",
+    "lastSync": "2025-06-13T15:22:39.803Z"
   },
   "featured-blog-comp.jpg": {
     "publicId": "all-things-digital/featured-blog-comp",
@@ -67,17 +139,9 @@
     "format": "jpg",
     "bytes": 86336,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/featured-blog-comp.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/featured-blog-comp.avif?_a=BAMClqXy0"
-  },
-  "featured-blog.jpg": {
-    "publicId": "all-things-digital/featured-blog",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535917/all-things-digital/featured-blog.jpg",
-    "width": 1472,
-    "height": 832,
-    "format": "jpg",
-    "bytes": 209157,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/featured-blog.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/featured-blog.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/featured-blog-comp.avif?_a=BAMClqXy0",
+    "checksum": "92fed013753a76b18ec61d5fe2995404",
+    "lastSync": "2025-06-13T15:22:39.804Z"
   },
   "thumbnail-01-comp.jpg": {
     "publicId": "all-things-digital/thumbnail-01-comp",
@@ -87,17 +151,9 @@
     "format": "jpg",
     "bytes": 93351,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-01-comp.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-01-comp.avif?_a=BAMClqXy0"
-  },
-  "thumbnail-01.jpg": {
-    "publicId": "all-things-digital/thumbnail-01",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535920/all-things-digital/thumbnail-01.jpg",
-    "width": 1472,
-    "height": 832,
-    "format": "jpg",
-    "bytes": 280174,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-01.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-01.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-01-comp.avif?_a=BAMClqXy0",
+    "checksum": "c6dd66d9ab1f32d489a1651600317a4c",
+    "lastSync": "2025-06-13T15:22:39.804Z"
   },
   "thumbnail-02-comp.jpg": {
     "publicId": "all-things-digital/thumbnail-02-comp",
@@ -107,17 +163,9 @@
     "format": "jpg",
     "bytes": 51750,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-02-comp.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-02-comp.avif?_a=BAMClqXy0"
-  },
-  "thumbnail-02.jpg": {
-    "publicId": "all-things-digital/thumbnail-02",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535922/all-things-digital/thumbnail-02.jpg",
-    "width": 1280,
-    "height": 720,
-    "format": "jpg",
-    "bytes": 162479,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-02.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-02.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-02-comp.avif?_a=BAMClqXy0",
+    "checksum": "1c7a75692dc5d3d03480fd441718b1d4",
+    "lastSync": "2025-06-13T15:22:39.805Z"
   },
   "thumbnail-03-comp.jpg": {
     "publicId": "all-things-digital/thumbnail-03-comp",
@@ -127,17 +175,9 @@
     "format": "jpg",
     "bytes": 38236,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-03-comp.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-03-comp.avif?_a=BAMClqXy0"
-  },
-  "thumbnail-03.jpg": {
-    "publicId": "all-things-digital/thumbnail-03",
-    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535924/all-things-digital/thumbnail-03.jpg",
-    "width": 1368,
-    "height": 768,
-    "format": "jpg",
-    "bytes": 83530,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-03.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-03.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-03-comp.avif?_a=BAMClqXy0",
+    "checksum": "054b2971edd3d0b018a8b152d2b89483",
+    "lastSync": "2025-06-13T15:22:39.806Z"
   },
   "thumbnail-1.png": {
     "publicId": "all-things-digital/thumbnail-1",
@@ -147,7 +187,9 @@
     "format": "png",
     "bytes": 154854,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-1.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-1.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-1.avif?_a=BAMClqXy0",
+    "checksum": "a121466ce0ebdc852edca466305aacc7",
+    "lastSync": "2025-06-13T15:22:39.807Z"
   },
   "thumbnail-2.png": {
     "publicId": "all-things-digital/thumbnail-2",
@@ -157,7 +199,9 @@
     "format": "png",
     "bytes": 139114,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-2.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-2.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-2.avif?_a=BAMClqXy0",
+    "checksum": "4b1b363e08d46fbd2edce02d5a03b30a",
+    "lastSync": "2025-06-13T15:22:39.807Z"
   },
   "thumbnail-3.png": {
     "publicId": "all-things-digital/thumbnail-3",
@@ -167,6 +211,8 @@
     "format": "png",
     "bytes": 112176,
     "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-3.webp?_a=BAMClqXy0",
-    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-3.avif?_a=BAMClqXy0"
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/q_auto/v1/all-things-digital/thumbnail-3.avif?_a=BAMClqXy0",
+    "checksum": "ad0636aabf110bd98c471b7df6f97628",
+    "lastSync": "2025-06-13T15:22:39.808Z"
   }
 }
