@@ -87,7 +87,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/news/future-web-development-2025"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/future-web-development-2025"
   },
   {
     "slug": "sustainable-living-eco-friendly-home",
@@ -146,7 +146,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/lifestyle/sustainable-living-eco-friendly-home"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home"
   },
   {
     "slug": "mastering-remote-work-productivity-well-being",
@@ -205,7 +205,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/career/mastering-remote-work"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being"
   },
   {
     "slug": "ai-creative-industries-opportunities-challenges",
@@ -264,7 +264,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/tech/ai-creative-industries"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges"
   },
   {
     "slug": "financial-planning-millennials-secure-future",
@@ -323,7 +323,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/finance/millennial-financial-planning"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future"
   },
   {
     "slug": "healthy-eating-habits-body-mind",
@@ -382,7 +382,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/health/healthy-eating-habits"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind"
   },
   {
     "slug": "hidden-gems-off-the-beaten-path-travel",
@@ -441,7 +441,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/travel/hidden-gems-off-beaten-path"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel"
   },
   {
     "slug": "diy-home-decor-creative-budget-projects",
@@ -500,7 +500,7 @@
     ],
     "toc": false,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/diy/home-decor-budget-projects"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects"
   },
   {
     "slug": "cybersecurity-basics-protecting-digital-life",
@@ -559,7 +559,7 @@
     ],
     "toc": true,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/security/cybersecurity-basics"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life"
   },
   {
     "slug": "mindfulness-meditation-finding-calm",
@@ -618,6 +618,6 @@
     ],
     "toc": false,
     "metaRobots": "index, follow",
-    "canonicalUrl": "https://example.com/wellness/mindfulness-meditation-calm"
+    "canonicalUrl": "https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm"
   }
 ]

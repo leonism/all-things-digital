@@ -10,7 +10,7 @@
     <!-- Conditional Blog Posts Grid -->
     <template v-if="paginatedPosts.length">
       <section class="" aria-label="Blog Articles - Horizontal Scroll">
-        <BlogArticleCard
+        <BlogPostCard
           v-for="post in paginatedPosts"
           :key="post.slug"
           :imageSrc="
@@ -58,7 +58,7 @@
 /**
  * BlogView Component
  *
- * This component displays a list of blog posts using the `BlogArticleCard`
+ * This component displays a list of blog posts using the `BlogPostCard`
  * component. It fetches all published posts from `blog-data.json` when the
  * component is mounted and updates the page's meta tags using `@unhead/vue`.
  *
@@ -67,7 +67,7 @@
 import { ref, onMounted, computed, type Ref } from 'vue';
 import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
-import BlogArticleCard from '../components/blog/BlogArticleCard.vue';
+import BlogPostCard from '../components/common/BlogPostCard.vue';
 import postsData from '../blog-data.json';
 import { usePagination } from '../composables/usePagination';
 

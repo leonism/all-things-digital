@@ -1,68 +1,68 @@
 /**
  * Cloudinary Utility Functions
- * 
+ *
  * This utility module provides a comprehensive set of functions for generating
  * optimized Cloudinary image URLs with various transformations and optimizations.
  * It serves as the foundation for image optimization throughout the blog application.
- * 
+ *
  * CURRENT FLOW LOGIC:
- * 
+ *
  * 1. CORE URL GENERATION:
  *    - Builds Cloudinary URLs with proper cloud name and transformation parameters
  *    - Handles URL encoding and parameter serialization automatically
  *    - Provides fallback handling for invalid or missing public IDs
  *    - Supports both simple and complex transformation chains
- * 
+ *
  * 2. AUTOMATIC OPTIMIZATIONS:
  *    - Auto format selection (f_auto): Delivers WebP, AVIF when browser supports
  *    - Auto quality (q_auto): Applies optimal compression based on content analysis
  *    - Progressive JPEG encoding for faster perceived loading
  *    - Intelligent compression algorithms that preserve visual quality
- * 
+ *
  * 3. RESPONSIVE IMAGE SUPPORT:
  *    - Generates multiple image sizes for different screen densities
  *    - Creates srcset attributes for responsive image implementation
  *    - Supports custom breakpoints and device-specific optimizations
  *    - Handles retina/high-DPI displays with appropriate scaling
- * 
+ *
  * 4. SPECIALIZED TRANSFORMATIONS:
  *    - Thumbnail generation with smart cropping and face detection
  *    - Hero image optimization with aspect ratio preservation
  *    - Custom transformation chains for specific use cases
  *    - Overlay and text rendering capabilities for dynamic content
- * 
+ *
  * 5. PERFORMANCE OPTIMIZATIONS:
  *    - Lazy loading support with low-quality placeholder generation
  *    - Progressive enhancement strategies for slow connections
  *    - Bandwidth-aware delivery based on connection speed
  *    - Cache-friendly URL structures for CDN optimization
- * 
+ *
  * 6. VALIDATION AND ERROR HANDLING:
  *    - Public ID validation and sanitization
  *    - Graceful fallback for non-Cloudinary images
  *    - Comprehensive error logging for debugging
  *    - Type checking and parameter validation
- * 
+ *
  * TRANSFORMATION FEATURES:
  * - Smart cropping with face and object detection
  * - Automatic color enhancement and contrast adjustment
  * - Format conversion and compression optimization
  * - Responsive breakpoint generation
  * - Custom overlay and watermark support
- * 
+ *
  * INTEGRATION POINTS:
  * - Used by useCloudinary composable for Vue component integration
  * - Consumed by blog components for image rendering
  * - Utilized by build scripts for static image optimization
  * - Supports both runtime and build-time image processing
- * 
+ *
  * CLOUDINARY FEATURES UTILIZED:
  * - Advanced image analysis and optimization algorithms
  * - Global CDN distribution for fast delivery
  * - Real-time image transformations
  * - Bandwidth and device-aware delivery
  * - SEO-friendly URL structures
- * 
+ *
  * This utility module is essential for delivering optimized images across
  * the blog application, ensuring fast loading times and excellent user
  * experience while maintaining high visual quality.
@@ -233,4 +233,41 @@ export function getOptimizedImageUrl(src, options = {}) {
 
   // Otherwise, return the original URL
   return src;
+}
+
+/**
+ * Generate picture element sources for modern formats
+ * @param {string} publicId - The Cloudinary public ID
+ * @param {Array} breakpoints - Array of widths for responsive images
+ * @param {Object} options - Additional transformation options
+ * @returns {Object} - Object with AVIF, WebP, and fallback sources
+ */
+export function getPictureElementSources(publicId, breakpoints = [400, 800, 1200], options = {}) {
+  if (!isCloudinaryPublicId(publicId)) {
+    return {
+      avif: null,
+      webp: null,
+      fallback: publicId
+    };
+  }
+
+  const generateSrcSet = (format) => {
+    return breakpoints
+      .map((width) => {
+        const url = getCloudinaryUrl(publicId, {
+          w: width,
+          f: format,
+          q_auto: true,
+          ...options,
+        });
+        return `${url} ${width}w`;
+      })
+      .join(', ');
+  };
+
+  return {
+    avif: generateSrcSet('avif'),
+    webp: generateSrcSet('webp'),
+    fallback: generateSrcSet('auto')
+  };
 }

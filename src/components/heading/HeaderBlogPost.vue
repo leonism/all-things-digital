@@ -5,15 +5,14 @@
       class="relative w-full h-80 md:h-[28rem] overflow-hidden rounded-t-[1rem] shadow-2xl group isolate"
     >
       <!-- Dynamic image with conditional masking and parallax -->
-      <img
+      <OptimizedPicture
         :src="processedFeaturedImage"
         alt=""
         aria-hidden="true"
-        class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-[1.02] transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
-        :class="{
-          'mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_50%,transparent_80%)] dark:mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_30%,transparent_70%)]': true,
-          'backdrop-blur-[1px]': true,
-        }"
+        img-class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-[1.02] transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_50%,transparent_80%)] dark:mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_30%,transparent_70%)] backdrop-blur-[1px]"
+        :transform-options="{ c: 'fill', g: 'auto' }"
+        :breakpoints="[800, 1200, 1600, 2000]"
+        sizes="100vw"
         style="view-transition-name: featured-image"
       />
 
@@ -105,6 +104,7 @@
 import { computed } from 'vue';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
 import { useCloudinary } from '@/composables/useCloudinary';
+import OptimizedPicture from '../common/OptimizedPicture.vue';
 
 interface Props {
   title: string;

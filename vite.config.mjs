@@ -1,4 +1,3 @@
-// Import the 'defineConfig' function from Vite to provide type-safe configuration.
 import { defineConfig } from 'vite';
 // Import the Vue plugin for Vite
 import vue from '@vitejs/plugin-vue';
@@ -14,6 +13,10 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 // Import for markdown parsing
 import Markdown from 'unplugin-vue-markdown/vite';
+// Import imagemin plugins for WebP and AVIF generation
+import imageminWebp from 'imagemin-webp';
+import imageminAvif from 'imagemin-avif';
+import { imageFormatsPlugin } from './scripts/vite-plugin-image-formats.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -61,6 +64,7 @@ export default defineConfig({
     postcss: {},
   },
   plugins: [
+    imageFormatsPlugin(), // Add this first
     vue({
       include: [/\.vue$/, /\.md$/],
       template: {
@@ -101,8 +105,13 @@ export default defineConfig({
           { name: 'removeEmptyAttrs', active: false },
         ],
       },
+      // Generate WebP versions
       webp: {
         quality: 75,
+      },
+      // Generate AVIF versions
+      avif: {
+        quality: 50,
       },
     }),
     tailwindcss(),

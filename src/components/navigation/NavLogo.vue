@@ -1,24 +1,44 @@
 <template>
   <div id="logo" class="z-40 drop-shadow-sm overflow-x-hidden">
-    <!-- Use router-link for internal navigation -->
     <router-link to="/">
-      <img
-        src="../../assets/img/icons/icon-dgpondcom.png"
-        alt="Logo"
-        id="DGPond"
-        itemprop="logo"
-        width="100"
-        height="100"
-        class="w-auto h-auto mt-1"
-      />
+      <picture>
+        <source
+          :srcset="avifSrc"
+          type="image/avif"
+        />
+        <source
+          :srcset="webpSrc"
+          type="image/webp"
+        />
+        <img
+          :src="pngSrc"
+          alt="Logo"
+          id="DGPond"
+          itemprop="logo"
+          width="100"
+          height="100"
+          class="w-auto h-auto mt-1"
+        />
+      </picture>
     </router-link>
   </div>
 </template>
 
 <script setup>
-// No specific script logic needed for this simple component yet
-</script>
+import { computed } from 'vue';
 
-<style scoped>
-/* Add component-specific styles if necessary */
-</style>
+// Import the base PNG image
+import pngLogo from '../../assets/img/icons/icon-dgpondcom.png';
+
+// Create computed properties for different formats
+const pngSrc = computed(() => pngLogo);
+
+// For WebP and AVIF, we'll use the same base name but with different extensions
+const webpSrc = computed(() => {
+  return pngLogo.replace('.png', '.webp');
+});
+
+const avifSrc = computed(() => {
+  return pngLogo.replace('.png', '.avif');
+});
+</script>

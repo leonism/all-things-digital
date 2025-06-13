@@ -15,12 +15,15 @@
       itemtype="https://schema.org/ImageObject"
     >
       <router-link :to="postLink" itemprop="url" aria-label="Read full post">
-        <img
+        <OptimizedPicture
           :src="imageSrc"
           :alt="imageAlt"
-          width="1000"
-          height="600"
-          class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
+          :width="1000"
+          :height="600"
+          img-class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
+          :transform-options="{ c: 'fill', g: 'auto' }"
+          :breakpoints="[400, 800, 1200, 1600]"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1200px"
           itemprop="url"
           decoding="async"
         />
@@ -207,4 +210,5 @@ const formattedDate = computed(() => {
   };
   return new Date(props.date).toLocaleDateString('en-US', options);
 });
+import OptimizedPicture from '../common/OptimizedPicture.vue';
 </script>

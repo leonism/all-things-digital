@@ -12,12 +12,15 @@
       itemscope
       itemtype="https://schema.org/ImageObject"
     >
-      <img
+      <OptimizedPicture
         :src="processedImageSrc"
         :alt="imageAlt"
-        class="w-full h-full object-cover aspect-video"
-        width="1000"
-        height="600"
+        :width="1000"
+        :height="600"
+        img-class="w-full h-full object-cover aspect-video"
+        :transform-options="{ c: 'fill', g: 'auto' }"
+        :breakpoints="[400, 800, 1200]"
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         itemprop="url"
         loading="lazy"
         decoding="async"
@@ -204,6 +207,7 @@
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
+import OptimizedPicture from '../common/OptimizedPicture.vue';
 import { useCloudinary } from '@/composables/useCloudinary';
 
 interface Props {
@@ -227,7 +231,7 @@ interface Props {
  * @param name The tag name.
  * @returns The hyphenated tag slug.
  */
-const getTagSlug = (name) => {
+const getTagSlug = (name: string) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
 
@@ -244,14 +248,16 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Use Cloudinary for image optimization
 const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-const authorImageCloudinary = useCloudinary(computed(() => props.authorImageSrc));
+const authorImageCloudinary = useCloudinary(
+  computed(() => props.authorImageSrc),
+);
 
 // Generate optimized image URLs for blog card display
 const processedImageSrc = computed(() => {
   // Use responsive image with card-appropriate dimensions
   return featuredImageCloudinary.responsive.value(400, 250, {
     c: 'fill',
-    g: 'auto'
+    g: 'auto',
   });
 });
 
@@ -259,13 +265,18 @@ const processedAuthorImageSrc = computed(() => {
   // Use thumbnail for author avatar
   return authorImageCloudinary.thumbnail.value(48, {
     c: 'thumb',
-    g: 'face'
+    g: 'face',
   });
 });
 
 const formattedDate = computed(() => {
+  const dateFormatOptions: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(props.date).toLocaleDateString('en-US', options);
+  return new Date(props.date).toLocaleDateString('en-US', dateFormatOptions);
 });
 </script>
 
