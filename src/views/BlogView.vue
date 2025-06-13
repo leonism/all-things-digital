@@ -137,8 +137,10 @@ useHead({
     {
       property: 'og:url',
       content: 'https://all-things-digital.pages.dev/blog',
-    }, // <<<--- IMPORTANT: Replace with your actual domain
-    { property: 'og:image', content: '/images/default-og-image.png' }, // <<<--- IMPORTANT: Replace with your default OG image path
+    }, // <<<--- IMPORTANT: Replace with yourown domain
+    {
+      property: 'og:image', content: '/images/default-og-image.png'
+    }, // <<<--- IMPORTANT: Replace with your default OG image path
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: 'Blog | DGPond.COM' },
     {

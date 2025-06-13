@@ -7,7 +7,7 @@ lastModified: '2025-05-27' # Add or update this date if the post content is modi
 author:
   name: 'Mike Smith'
   role: 'Developer'
-  image: 'all-things-digital/avatar/c_fill,f_auto,q_auto:good' # Placeholder author image
+  image: 'all-things-digital/avatar' # Placeholder author image
 category: 'Technology'
 tags:
   - 'vite'
