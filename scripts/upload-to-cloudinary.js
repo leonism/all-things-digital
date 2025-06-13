@@ -4,6 +4,12 @@
  * This script provides comprehensive synchronization between local images and Cloudinary,
  * ensuring optimal image management with bidirectional sync capabilities.
  *
+ * ENHANCED FEATURES:
+ * - PublicId values now represent shortcuts for responsive compressed images
+ * - Automatic generation of AVIF and WebP variants with optimized quality
+ * - Smart format selection based on browser support
+ * - Responsive breakpoint generation for different screen sizes
+ *
  * ENHANCED SYNC FLOW LOGIC:
  *
  * 1. ENVIRONMENT SETUP:
@@ -35,6 +41,7 @@
  *    - Skips images that already exist and are unchanged
  *    - Handles upload failures with retry mechanisms
  *    - Generates secure URLs for immediate use
+ *    - Creates responsive variants and compressed formats
  *
  * 6. CLEANUP PHASE:
  *    - Removes orphaned images from Cloudinary
@@ -44,6 +51,7 @@
  *
  * 7. MAPPING FILE GENERATION:
  *    - Creates src/data/cloudinary-mapping.json with current state
+ *    - PublicId values now point to optimized responsive variants
  *    - Enables efficient URL resolution in generate-blog-data.js
  *    - Supports both exact matches and filename-based fallbacks
  *    - Maintains backward compatibility with existing image references
@@ -61,6 +69,8 @@
  * - Incremental sync for efficiency
  * - Comprehensive error handling and recovery
  * - Detailed progress tracking and reporting
+ * - Responsive image generation with multiple breakpoints
+ * - Modern format optimization (AVIF, WebP)
  *
  * This enhanced script ensures perfect synchronization between local and cloud images,
  * optimizing storage costs and maintaining clean, efficient image delivery.
@@ -87,6 +97,15 @@ const CONFIG = {
   API_DELAY: 300, // ms between API calls
   MAX_RETRIES: 3,
   BATCH_SIZE: 50, // for cloud resource fetching
+  // Responsive breakpoints for different screen sizes
+  RESPONSIVE_BREAKPOINTS: [400, 800, 1200, 1600, 2000],
+  // Quality settings for different formats
+  QUALITY_SETTINGS: {
+    webp: 'auto:good',
+    avif: 'auto:best',
+    jpg: 'auto:good',
+    png: 'auto',
+  },
 };
 
 // Configure Cloudinary
@@ -316,7 +335,7 @@ function analyzeSyncRequirements(
  * Handles uploading new and modified images
  */
 
-// Function to upload a single image with retry logic
+// Function to upload a single image with responsive variants and modern formats
 async function uploadImageWithRetry(fileInfo, index, total, retryCount = 0) {
   try {
     console.log(
@@ -327,34 +346,51 @@ async function uploadImageWithRetry(fileInfo, index, total, retryCount = 0) {
       public_id: fileInfo.publicId,
       resource_type: 'auto',
       overwrite: true,
-      quality: 'auto',
+      quality: 'auto:good',
       fetch_format: 'auto',
+      // Enable responsive breakpoints
+      responsive_breakpoints: {
+        create_derived: true,
+        bytes_step: 20000,
+        min_width: 200,
+        max_width: 2000,
+        transformation: {
+          quality: 'auto:good',
+        },
+      },
     });
 
-    // Generate modern format URLs
-    const webpUrl = cloudinary.url(result.public_id, {
-      format: 'webp',
-      quality: 'auto',
-    });
-    const avifUrl = cloudinary.url(result.public_id, {
-      format: 'avif',
-      quality: 'auto',
-    });
+    // Generate enhanced responsive URLs with modern formats
+    const responsiveVariants = generateResponsiveVariants(result.public_id);
+
+    // Create optimized publicId shortcuts for responsive compressed versions
+    const optimizedPublicIds = {
+      // AVIF variant (best compression, modern browsers)
+      avif: `${result.public_id}/c_fill,f_avif,q_auto:best`,
+      // WebP variant (good compression, wide support)
+      webp: `${result.public_id}/c_fill,f_webp,q_auto:good`,
+      // Auto format (Cloudinary chooses best format)
+      auto: `${result.public_id}/c_fill,f_auto,q_auto:good`,
+    };
 
     console.log(
       `   ✅ Success: ${result.public_id} (${(result.bytes / 1024).toFixed(1)}KB)`,
     );
+    console.log(`   🎯 Generated responsive variants: AVIF, WebP, Auto-format`);
 
     return {
       originalPath: fileInfo.relativePath,
-      publicId: result.public_id,
+      publicId: optimizedPublicIds.auto, // Use auto-format as default publicId
+      originalPublicId: result.public_id, // Keep original for reference
       secureUrl: result.secure_url,
       width: result.width,
       height: result.height,
       format: result.format,
       bytes: result.bytes,
-      webpUrl,
-      avifUrl,
+      // Enhanced responsive URLs
+      ...responsiveVariants,
+      // Optimized format shortcuts
+      optimizedPublicIds,
       checksum: fileInfo.checksum,
       uploadedAt: new Date().toISOString(),
     };
@@ -379,6 +415,174 @@ async function uploadImageWithRetry(fileInfo, index, total, retryCount = 0) {
       failed: true,
     };
   }
+}
+
+/**
+ * Generate responsive variants for different screen sizes and formats
+ */
+function generateResponsiveVariants(publicId) {
+  const variants = {
+    // Modern format URLs with responsive breakpoints
+    avifUrl: cloudinary.url(publicId, {
+      format: 'avif',
+      quality: CONFIG.QUALITY_SETTINGS.avif,
+      crop: 'fill',
+      gravity: 'auto',
+    }),
+    webpUrl: cloudinary.url(publicId, {
+      format: 'webp',
+      quality: CONFIG.QUALITY_SETTINGS.webp,
+      crop: 'fill',
+      gravity: 'auto',
+    }),
+    // Responsive breakpoint URLs
+    responsiveUrls: {},
+    // Srcset strings for different formats
+    srcsets: {},
+  };
+
+  // Generate responsive URLs for each breakpoint
+  CONFIG.RESPONSIVE_BREAKPOINTS.forEach((width) => {
+    variants.responsiveUrls[`w_${width}`] = {
+      avif: cloudinary.url(publicId, {
+        format: 'avif',
+        quality: CONFIG.QUALITY_SETTINGS.avif,
+        width: width,
+        crop: 'fill',
+        gravity: 'auto',
+      }),
+      webp: cloudinary.url(publicId, {
+        format: 'webp',
+        quality: CONFIG.QUALITY_SETTINGS.webp,
+        width: width,
+        crop: 'fill',
+        gravity: 'auto',
+      }),
+      auto: cloudinary.url(publicId, {
+        format: 'auto',
+        quality: 'auto:good',
+        width: width,
+        crop: 'fill',
+        gravity: 'auto',
+      }),
+    };
+  });
+
+  // Generate srcset strings for responsive images
+  variants.srcsets.avif = CONFIG.RESPONSIVE_BREAKPOINTS.map(
+    (width) => `${variants.responsiveUrls[`w_${width}`].avif} ${width}w`,
+  ).join(', ');
+
+  variants.srcsets.webp = CONFIG.RESPONSIVE_BREAKPOINTS.map(
+    (width) => `${variants.responsiveUrls[`w_${width}`].webp} ${width}w`,
+  ).join(', ');
+
+  variants.srcsets.auto = CONFIG.RESPONSIVE_BREAKPOINTS.map(
+    (width) => `${variants.responsiveUrls[`w_${width}`].auto} ${width}w`,
+  ).join(', ');
+
+  return variants;
+}
+
+/**
+ * ENHANCED MAPPING GENERATION
+ * Creates mapping with optimized publicId shortcuts
+ */
+
+// Function to generate comprehensive mapping with responsive shortcuts
+function generateMapping(uploadResults, skippedFiles, unchangedFiles) {
+  const mapping = {};
+
+  // Add uploaded files with enhanced responsive data
+  uploadResults.forEach((result) => {
+    if (!result.failed) {
+      mapping[result.originalPath] = {
+        // Use optimized auto-format publicId as the main shortcut
+        publicId: result.publicId,
+        originalPublicId: result.originalPublicId,
+        secureUrl: result.secureUrl,
+        width: result.width,
+        height: result.height,
+        format: result.format,
+        bytes: result.bytes,
+        // Enhanced responsive URLs
+        webpUrl: result.webpUrl,
+        avifUrl: result.avifUrl,
+        responsiveUrls: result.responsiveUrls,
+        srcsets: result.srcsets,
+        // Optimized format shortcuts for easy access
+        optimizedPublicIds: result.optimizedPublicIds,
+        checksum: result.checksum,
+        lastSync: result.uploadedAt,
+      };
+    }
+  });
+
+  // Add skipped files (existing in cloud) with enhanced responsive variants
+  skippedFiles.forEach((file) => {
+    const cloudResource = file.cloudResource;
+    const responsiveVariants = generateResponsiveVariants(
+      cloudResource.publicId,
+    );
+
+    // Create optimized publicId shortcuts
+    const optimizedPublicIds = {
+      avif: `${cloudResource.publicId}/c_fill,f_avif,q_auto:best`,
+      webp: `${cloudResource.publicId}/c_fill,f_webp,q_auto:good`,
+      auto: `${cloudResource.publicId}/c_fill,f_auto,q_auto:good`,
+    };
+
+    mapping[file.relativePath] = {
+      // Use auto-format as the main publicId shortcut
+      publicId: optimizedPublicIds.auto,
+      originalPublicId: cloudResource.publicId,
+      secureUrl: cloudResource.secureUrl,
+      width: cloudResource.width,
+      height: cloudResource.height,
+      format: cloudResource.format,
+      bytes: cloudResource.bytes,
+      // Enhanced responsive URLs
+      ...responsiveVariants,
+      // Optimized format shortcuts
+      optimizedPublicIds,
+      checksum: file.checksum,
+      lastSync: new Date().toISOString(),
+    };
+  });
+
+  // Add unchanged files with enhanced responsive variants
+  unchangedFiles.forEach((file) => {
+    const cloudResource = file.cloudResource;
+    const responsiveVariants = generateResponsiveVariants(
+      cloudResource.publicId,
+    );
+
+    // Create optimized publicId shortcuts
+    const optimizedPublicIds = {
+      avif: `${cloudResource.publicId}/c_fill,f_avif,q_auto:best`,
+      webp: `${cloudResource.publicId}/c_fill,f_webp,q_auto:good`,
+      auto: `${cloudResource.publicId}/c_fill,f_auto,q_auto:good`,
+    };
+
+    mapping[file.relativePath] = {
+      // Use auto-format as the main publicId shortcut
+      publicId: optimizedPublicIds.auto,
+      originalPublicId: cloudResource.publicId,
+      secureUrl: cloudResource.secureUrl,
+      width: cloudResource.width,
+      height: cloudResource.height,
+      format: cloudResource.format,
+      bytes: cloudResource.bytes,
+      // Enhanced responsive URLs
+      ...responsiveVariants,
+      // Optimized format shortcuts
+      optimizedPublicIds,
+      checksum: file.checksum,
+      lastSync: new Date().toISOString(),
+    };
+  });
+
+  return mapping;
 }
 
 /**
@@ -427,76 +631,8 @@ async function deleteOrphanedResources(toDelete) {
  * Creates and saves the mapping file with current state
  */
 
-// Function to generate comprehensive mapping
-function generateMapping(uploadResults, skippedFiles, unchangedFiles) {
-  const mapping = {};
-
-  // Add uploaded files
-  uploadResults.forEach((result) => {
-    if (!result.failed) {
-      mapping[result.originalPath] = {
-        publicId: result.publicId,
-        secureUrl: result.secureUrl,
-        width: result.width,
-        height: result.height,
-        format: result.format,
-        bytes: result.bytes,
-        webpUrl: result.webpUrl,
-        avifUrl: result.avifUrl,
-        checksum: result.checksum,
-        lastSync: result.uploadedAt,
-      };
-    }
-  });
-
-  // Add skipped files (existing in cloud)
-  skippedFiles.forEach((file) => {
-    const cloudResource = file.cloudResource;
-    mapping[file.relativePath] = {
-      publicId: cloudResource.publicId,
-      secureUrl: cloudResource.secureUrl,
-      width: cloudResource.width,
-      height: cloudResource.height,
-      format: cloudResource.format,
-      bytes: cloudResource.bytes,
-      webpUrl: cloudinary.url(cloudResource.publicId, {
-        format: 'webp',
-        quality: 'auto',
-      }),
-      avifUrl: cloudinary.url(cloudResource.publicId, {
-        format: 'avif',
-        quality: 'auto',
-      }),
-      checksum: file.checksum,
-      lastSync: new Date().toISOString(),
-    };
-  });
-
-  // Add unchanged files
-  unchangedFiles.forEach((file) => {
-    const cloudResource = file.cloudResource;
-    mapping[file.relativePath] = {
-      publicId: cloudResource.publicId,
-      secureUrl: cloudResource.secureUrl,
-      width: cloudResource.width,
-      height: cloudResource.height,
-      format: cloudResource.format,
-      bytes: cloudResource.bytes,
-      webpUrl: cloudinary.url(cloudResource.publicId, {
-        format: 'webp',
-        quality: 'auto',
-      }),
-      avifUrl: cloudinary.url(cloudResource.publicId, {
-        format: 'avif',
-        quality: 'auto',
-      }),
-      checksum: file.checksum,
-      lastSync: new Date().toISOString(),
-    };
-  });
-
-  return mapping;
-}
+// Remove this duplicate function declaration (lines 633-700)
+// The enhanced version at line 495 should be kept instead
 
 /**
  * MAIN SYNC ORCHESTRATION

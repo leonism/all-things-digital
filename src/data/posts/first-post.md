@@ -7,15 +7,15 @@ lastModified: '2025-05-27' # Add or update this date if the post content is modi
 author:
   name: 'Mike Smith'
   role: 'Developer'
-  image: 'all-things-digital/avatar' # Placeholder author image
+  image: 'all-things-digital/avatar/c_fill,f_auto,q_auto:good' # Placeholder author image
 category: 'Technology'
 tags:
   - 'vite'
   - 'vue3'
   - 'markdown'
-  - 'Vite'
+  - 'tailwindcss'
 featuredImage:
-  src: 'all-things-digital/thumbnail-03-comp'
+  src: 'all-things-digital/thumbnail-03-comp/c_fill,f_auto,q_auto:good'
   alt: 'Code example screenshot' # Alt text for the image
   caption: 'An example image for the first post.' # Optional caption
 excerpt: 'This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.' # A brief summary
