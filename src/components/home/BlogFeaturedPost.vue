@@ -21,8 +21,6 @@
           :width="1000"
           :height="600"
           img-class="object-cover w-full h-full aspect-video rounded-2xl rounded-b-none dark:mask-b-from-10% dark:mask-b-to-90%"
-          :transform-options="{ c: 'fill', g: 'auto' }"
-          :breakpoints="[400, 800, 1200, 1600]"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1200px"
           itemprop="url"
           decoding="async"

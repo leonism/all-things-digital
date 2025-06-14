@@ -13,7 +13,7 @@
       itemtype="https://schema.org/ImageObject"
     >
       <OptimizedPicture
-        :src="processedImageSrc"
+        :src="imageSrc"
         :alt="imageAlt"
         :width="1000"
         :height="600"
@@ -36,7 +36,7 @@
       <!-- Article Header with author and metadata -->
       <header class="mb-3 flex items-center">
         <AvatarAuthor
-          :imageSrc="processedAuthorImageSrc"
+          :imageSrc="authorImageSrc"
           :imageAlt="authorImageAlt"
           :link="authorLink"
           itemprop="author"
@@ -208,7 +208,6 @@ import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
 import OptimizedPicture from '../common/OptimizedPicture.vue';
-import { useCloudinary } from '@/composables/useCloudinary';
 
 interface Props {
   imageSrc: string;
@@ -221,16 +220,10 @@ interface Props {
   authorImageSrc?: string;
   authorImageAlt?: string;
   authorLink?: string;
-  authorName?: string; // Add authorName prop
-  category?: string; // Add category prop
+  authorName?: string;
+  category?: string;
 }
 
-/**
- * Generates a hyphenated slug from a tag name.
- * Replaces spaces with hyphens and converts to lowercase.
- * @param name The tag name.
- * @returns The hyphenated tag slug.
- */
 const getTagSlug = (name: string) => {
   return name.toLowerCase().replace(/\s+/g, '-');
 };
@@ -242,32 +235,15 @@ const props = withDefaults(defineProps<Props>(), {
   authorImageSrc: '/assets/img/avatar.png',
   authorImageAlt: 'Author profile picture',
   authorLink: '/about',
-  authorName: 'Unknown Author', // Default for authorName
-  category: '', // Default for category
+  authorName: 'Unknown Author',
+  category: '',
 });
 
-// Use Cloudinary for image optimization
-const featuredImageCloudinary = useCloudinary(computed(() => props.imageSrc));
-const authorImageCloudinary = useCloudinary(
-  computed(() => props.authorImageSrc),
-);
-
-// Generate optimized image URLs for blog card display
-const processedImageSrc = computed(() => {
-  // Use responsive image with card-appropriate dimensions
-  return featuredImageCloudinary.responsive.value(400, 250, {
-    c: 'fill',
-    g: 'auto',
-  });
-});
-
-const processedAuthorImageSrc = computed(() => {
-  // Use thumbnail for author avatar
-  return authorImageCloudinary.thumbnail.value(48, {
-    c: 'thumb',
-    g: 'face',
-  });
-});
+// Remove the useCloudinary imports and computed properties:
+// - featuredImageCloudinary
+// - authorImageCloudinary
+// - processedImageSrc
+// - processedAuthorImageSrc
 
 const formattedDate = computed(() => {
   const dateFormatOptions: Intl.DateTimeFormatOptions = {
@@ -275,7 +251,6 @@ const formattedDate = computed(() => {
     month: 'long',
     day: 'numeric',
   };
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(props.date).toLocaleDateString('en-US', dateFormatOptions);
 });
 </script>
