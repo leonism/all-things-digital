@@ -72,16 +72,28 @@ const props = defineProps({
 const imageData = computed(() => {
   if (!props.src) return null;
 
+  console.log('Looking for mapping with src:', props.src);
+  console.log('Available mappings:', Object.keys(cloudinaryMapping));
+
   // Find any mapping entry where originalPublicId matches the src
-  // Since multiple entries can have the same originalPublicId, we'll take the first one
-  const mappingEntry = Object.values(cloudinaryMapping).find(entry =>
-    entry.originalPublicId === props.src
-  );
+  const mappingEntry = Object.values(cloudinaryMapping).find((entry) => {
+    console.log(
+      'Checking entry:',
+      entry.originalPublicId,
+      'against:',
+      props.src,
+    );
+    return entry.originalPublicId === props.src;
+  });
 
   if (mappingEntry) {
     console.log('Found mapping for:', props.src, mappingEntry);
   } else {
     console.warn('No mapping found for:', props.src);
+    console.log(
+      'All originalPublicIds:',
+      Object.values(cloudinaryMapping).map((e) => e.originalPublicId),
+    );
   }
 
   return mappingEntry || null;

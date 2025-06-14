@@ -6,12 +6,10 @@
     >
       <!-- Dynamic image with conditional masking and parallax -->
       <OptimizedPicture
-        :src="processedFeaturedImage"
+        :src="featuredImage"
         alt=""
         aria-hidden="true"
         img-class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-[1.02] transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_50%,transparent_80%)] dark:mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_30%,transparent_70%)] backdrop-blur-[1px]"
-        :transform-options="{ c: 'fill', g: 'auto' }"
-        :breakpoints="[800, 1200, 1600, 2000]"
         sizes="100vw"
         style="view-transition-name: featured-image"
       />
@@ -120,10 +118,7 @@ const props = withDefaults(defineProps<Props>(), {
   featuredImage: '/assets/img/featured-blog.jpg',
 });
 
-// Use the raw featuredImage directly - let OptimizedPicture handle the processing
-const processedFeaturedImage = computed(() => {
-  return props.featuredImage;
-});
+// Remove the processedFeaturedImage computed property since we're passing the raw prop directly
 
 const formattedDate = computed(() => {
   return new Date(props.date).toLocaleDateString('en-US', {
