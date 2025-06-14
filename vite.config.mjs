@@ -107,11 +107,9 @@ export default defineConfig({
           { name: 'removeEmptyAttrs', active: false },
         ],
       },
-      // Generate WebP versions
       webp: {
-        quality: 75,
+        quality: 55,
       },
-      // Generate AVIF versions
       avif: {
         quality: 50,
       },
