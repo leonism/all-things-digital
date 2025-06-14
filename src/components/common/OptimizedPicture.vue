@@ -2,19 +2,19 @@
   <picture>
     <!-- AVIF format for modern browsers -->
     <source
-      v-if="avifSrc"
-      :srcset="avifSrcSet || avifSrc"
+      v-if="avifSrcSet"
+      :srcset="avifSrcSet"
       :sizes="sizes"
       type="image/avif"
     />
     <!-- WebP format for most modern browsers -->
     <source
-      v-if="webpSrc"
-      :srcset="webpSrcSet || webpSrc"
+      v-if="webpSrcSet"
+      :srcset="webpSrcSet"
       :sizes="sizes"
       type="image/webp"
     />
-    <!-- Fallback to original format -->
+    <!-- Fallback image -->
     <img
       :src="fallbackSrc"
       :srcset="fallbackSrcSet"
@@ -31,7 +31,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useCloudinary } from '@/composables/useCloudinary';
+import cloudinaryMapping from '@/data/cloudinary-mapping.json';
 
 const props = defineProps({
   src: {
@@ -66,95 +66,61 @@ const props = defineProps({
     type: String,
     default: 'async',
   },
-  // Responsive breakpoints for srcset
-  breakpoints: {
-    type: Array,
-    default: () => [400, 800, 1200],
-  },
-  // Cloudinary transformation options
-  transformOptions: {
-    type: Object,
-    default: () => ({}),
-  },
 });
 
-// Use Cloudinary composable for optimization
-const cloudinary = useCloudinary(computed(() => props.src));
+// Get image data from cloudinary mapping based on public ID
+const imageData = computed(() => {
+  if (!props.src) return null;
 
-// Generate AVIF sources
-const avifSrc = computed(() => {
-  if (!cloudinary.isPublicId.value) return null;
-  return cloudinary.withTransformations.value({
-    f_avif: true,
-    q_auto: true,
-    ...props.transformOptions,
-  });
-});
+  // Find any mapping entry where originalPublicId matches the src
+  // Since multiple entries can have the same originalPublicId, we'll take the first one
+  const mappingEntry = Object.values(cloudinaryMapping).find(entry =>
+    entry.originalPublicId === props.src
+  );
 
-const avifSrcSet = computed(() => {
-  if (!cloudinary.isPublicId.value) return null;
-  return props.breakpoints
-    .map((width) => {
-      const url = cloudinary.withTransformations.value({
-        f_avif: true,
-        q_auto: true,
-        w: width,
-        ...props.transformOptions,
-      });
-      return `${url} ${width}w`;
-    })
-    .join(', ');
-});
-
-// Generate WebP sources
-const webpSrc = computed(() => {
-  if (!cloudinary.isPublicId.value) return null;
-  return cloudinary.withTransformations.value({
-    f_webp: true,
-    q_auto: true,
-    ...props.transformOptions,
-  });
-});
-
-const webpSrcSet = computed(() => {
-  if (!cloudinary.isPublicId.value) return null;
-  return props.breakpoints
-    .map((width) => {
-      const url = cloudinary.withTransformations.value({
-        f_webp: true,
-        q_auto: true,
-        w: width,
-        ...props.transformOptions,
-      });
-      return `${url} ${width}w`;
-    })
-    .join(', ');
-});
-
-// Fallback source (original format or optimized)
-const fallbackSrc = computed(() => {
-  if (cloudinary.isPublicId.value) {
-    return cloudinary.withTransformations.value({
-      f_auto: true,
-      q_auto: true,
-      ...props.transformOptions,
-    });
+  if (mappingEntry) {
+    console.log('Found mapping for:', props.src, mappingEntry);
+  } else {
+    console.warn('No mapping found for:', props.src);
   }
-  return props.src;
+
+  return mappingEntry || null;
 });
 
+// AVIF srcset from mapping
+const avifSrcSet = computed(() => {
+  const srcset = imageData.value?.srcsets?.avif;
+  if (srcset) {
+    console.log('AVIF srcset:', srcset);
+  }
+  return srcset || null;
+});
+
+// WebP srcset from mapping
+const webpSrcSet = computed(() => {
+  const srcset = imageData.value?.srcsets?.webp;
+  if (srcset) {
+    console.log('WebP srcset:', srcset);
+  }
+  return srcset || null;
+});
+
+// Fallback srcset from mapping
 const fallbackSrcSet = computed(() => {
-  if (!cloudinary.isPublicId.value) return null;
-  return props.breakpoints
-    .map((width) => {
-      const url = cloudinary.withTransformations.value({
-        f_auto: true,
-        q_auto: true,
-        w: width,
-        ...props.transformOptions,
-      });
-      return `${url} ${width}w`;
-    })
-    .join(', ');
+  const srcset = imageData.value?.srcsets?.auto;
+  if (srcset) {
+    console.log('Fallback srcset:', srcset);
+  }
+  return srcset || null;
+});
+
+// Fallback src (single image)
+const fallbackSrc = computed(() => {
+  if (imageData.value) {
+    console.log('Using secure URL:', imageData.value.secureUrl);
+    return imageData.value.secureUrl;
+  }
+  console.warn('No image data, using original src:', props.src);
+  return props.src;
 });
 </script>

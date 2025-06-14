@@ -103,7 +103,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
-import { useCloudinary } from '@/composables/useCloudinary';
 import OptimizedPicture from '../common/OptimizedPicture.vue';
 
 interface Props {
@@ -121,16 +120,9 @@ const props = withDefaults(defineProps<Props>(), {
   featuredImage: '/assets/img/featured-blog.jpg',
 });
 
-// Use Cloudinary for hero image optimization
-const featuredImageCloudinary = useCloudinary(computed(() => props.featuredImage));
-
-// Generate optimized hero image with appropriate dimensions
+// Use the raw featuredImage directly - let OptimizedPicture handle the processing
 const processedFeaturedImage = computed(() => {
-  return featuredImageCloudinary.hero.value(1200, 600, {
-    c: 'fill',
-    g: 'auto',
-    q: 'auto:good'
-  });
+  return props.featuredImage;
 });
 
 const formattedDate = computed(() => {

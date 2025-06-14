@@ -19,7 +19,7 @@
         :height="600"
         img-class="w-full h-full object-cover aspect-video"
         :transform-options="{ c: 'fill', g: 'auto' }"
-        :breakpoints="[400, 800, 1200]"
+        :breakpoints="[400, 800, 1200, 1600]"
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         itemprop="url"
         loading="lazy"

@@ -8,7 +8,7 @@
     "author": {
       "name": "Mike Smith",
       "role": "Developer",
-      "image": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535914/all-things-digital/avatar.png"
+      "image": "https://res.cloudinary.com/du61t1sey/image/upload/f_auto,q_auto/v1/all-things-digital/avatar"
     },
     "category": "Technology",
     "tags": [
@@ -18,7 +18,7 @@
       "tailwindcss"
     ],
     "featuredImage": {
-      "src": "https://res.cloudinary.com/du61t1sey/image/upload/v1749535923/all-things-digital/thumbnail-03-comp.jpg",
+      "src": "all-things-digital/thumbnail-03-comp",
       "alt": "Code example screenshot",
       "caption": "An example image for the first post."
     },
