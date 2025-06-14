@@ -7,7 +7,7 @@ lastModified: '2025-05-25'
 author:
   name: 'Sophia Green'
   role: 'Environmental Consultant'
-  image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  image: 'all-things-digital/sophia-green'
 category: 'Lifestyle'
 tags:
   - 'sustainable-living'
@@ -16,7 +16,7 @@ tags:
   - 'environment'
   - 'conservation'
 featuredImage:
-  src: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  src: 'all-things-digital/greenery-view'
   alt: 'Lush green landscape with mountains and a lake'
   caption: 'Embracing sustainability starts at home.'
 excerpt: 'Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small changes can make a big impact. Creating a sustainable home is easier than you think. Here are some actionable tips:'
