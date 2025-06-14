@@ -15,7 +15,7 @@
         :authorAvatar="post.author?.image ?? ''"
         :date="post.date"
         :category="post.category ?? ''"
-        :featuredImage="processedFeaturedImageSrc"
+        :featuredImage="post.featuredImage?.src"
       />
       <div class="p-6 md:p-8">
         <div
@@ -264,20 +264,21 @@ const nextPost = computed(() => {
 });
 
 // Use Cloudinary for featured image optimization
-const featuredImageCloudinary = useCloudinary(
-  computed(() => post.value?.featuredImage?.src || ''),
-);
+// Remove these lines (around lines 267-279):
+// const featuredImageCloudinary = useCloudinary(
+//   computed(() => post.value?.featuredImage?.src || ''),
+// );
 
-const processedFeaturedImageSrc = computed(() => {
-  if (!post.value?.featuredImage?.src) return '';
+// const processedFeaturedImageSrc = computed(() => {
+//   if (!post.value?.featuredImage?.src) return '';
 
-  // Generate optimized hero image for blog post header
-  return featuredImageCloudinary.hero.value(1200, 600, {
-    c: 'fill',
-    g: 'auto',
-    q: 'auto:good',
-  });
-});
+//   // Generate optimized hero image for blog post header
+//   return featuredImageCloudinary.hero.value(1200, 600, {
+//     c: 'fill',
+//     g: 'auto',
+//     q: 'auto:good',
+//   });
+// });
 </script>
 
 <style>
