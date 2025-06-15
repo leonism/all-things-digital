@@ -4,3 +4,8 @@
 
 [build]
   command = "mise settings add idiomatic_version_file_enable_tools node && npm run build"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
