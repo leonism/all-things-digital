@@ -1,9 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
   repo: leonism/all-things-digital
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  # base_url: https://api.netlify.com
+  # auth_endpoint: auth
 
 media_folder: 'src/assets/img/uploads'
 public_folder: '/assets/img/uploads'
