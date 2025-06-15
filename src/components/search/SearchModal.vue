@@ -37,12 +37,32 @@
               class="block p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
               @click="closeModal"
             >
-              <h3 class="font-semibold text-gray-800 dark:text-white">
-                {{ post.title }}
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                {{ post.description }}
-              </p>
+              <div class="flex items-start space-x-3">
+                <!-- Post Thumbnail -->
+                <div class="flex-shrink-0">
+                  <img
+                    :src="post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'"
+                    :alt="post.featuredImage?.alt || post.title"
+                    class="w-12 h-12 rounded-lg object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <!-- Post Content -->
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-semibold text-gray-800 dark:text-white line-clamp-1">
+                    {{ post.title }}
+                  </h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mt-1">
+                    {{ post.excerpt || post.description }}
+                  </p>
+                  <div class="mt-2 flex items-center text-xs text-gray-500 dark:text-gray-400">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+                      {{ post.category }}
+                    </span>
+                    <span class="ml-2">{{ formatDate(post.date) }}</span>
+                  </div>
+                </div>
+              </div>
             </router-link>
           </li>
         </ul>
@@ -87,12 +107,20 @@ import { useRouter } from 'vue-router';
 interface Post {
   slug: string;
   title: string;
-  description?: string; // Made description optional
-  contentHtml?: string; // Added contentHtml for search
+  description?: string;
+  excerpt?: string;
+  category: string;
+  date: string;
+  featuredImage?: {
+    src: string;
+    alt: string;
+  };
+  contentHtml?: string;
 }
+
 import postsData from '../../blog-data.json';
 
-const posts: Post[] = postsData as Post[]; // Explicitly type postsData
+const posts: Post[] = postsData as Post[];
 
 const props = defineProps<{
   showModal: boolean;
@@ -102,7 +130,7 @@ const emit = defineEmits(['close']);
 
 const searchQuery = ref('');
 const searchResults = ref<Post[]>([]);
-const searchInput = ref<HTMLInputElement | null>(null); // Added type annotation
+const searchInput = ref<HTMLInputElement | null>(null);
 const router = useRouter();
 
 const performSearch = () => {
@@ -112,20 +140,32 @@ const performSearch = () => {
   }
 
   const query = searchQuery.value.toLowerCase();
-  searchResults.value = posts // Use the typed posts array
-    .filter((post: Post) => { // Explicitly type post
+  searchResults.value = posts
+    .filter((post: Post) => {
       const titleMatch = post.title?.toLowerCase().includes(query);
       const descriptionMatch = post.description?.toLowerCase().includes(query);
-      // Basic content search (might be slow for large content, consider indexing later)
+      const excerptMatch = post.excerpt?.toLowerCase().includes(query);
       const contentMatch = typeof post.contentHtml === 'string' && post.contentHtml.toLowerCase().includes(query);
-      return titleMatch || descriptionMatch || contentMatch;
+      return titleMatch || descriptionMatch || excerptMatch || contentMatch;
     })
-    .map((post: Post) => ({ // Explicitly type post
-      // Map to the Post interface
+    .map((post: Post) => ({
       slug: post.slug,
       title: post.title,
-      description: post.description, // description is optional in the interface
+      description: post.description,
+      excerpt: post.excerpt,
+      category: post.category,
+      date: post.date,
+      featuredImage: post.featuredImage,
     }));
+};
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
 };
 
 watch(searchQuery, performSearch);
@@ -134,7 +174,6 @@ watch(
   () => props.showModal,
   (newValue) => {
     if (newValue) {
-      // Focus the input when the modal opens
       nextTick(() => {
         searchInput.value?.focus();
       });
@@ -143,7 +182,7 @@ watch(
 );
 
 const closeModal = () => {
-  searchQuery.value = ''; // Clear search on close
+  searchQuery.value = '';
   searchResults.value = [];
   emit('close');
 };
