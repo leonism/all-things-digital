@@ -10,7 +10,7 @@ import postsData from '../blog-data.json'; // Importing blog data from a JSON fi
 export function useFeaturedPost() {
   return computed(() => {
     const publishedPosts = postsData.filter(
-      (post) => post.published === true || post.status === 'published' || !post.status
+      (post) => post.status === 'published' || !post.status
     );
     // Return the first published post as featured, or find one marked as featured
     return publishedPosts.find(post => post.featured) || publishedPosts[0] || null;

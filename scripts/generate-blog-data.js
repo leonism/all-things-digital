@@ -101,7 +101,7 @@ const processMarkdownFile = (filename, postsDir) => {
       excerpt: data.excerpt || '',
       description: data.description || '',
       content: content,
-      published: data.published !== false // Default to published unless explicitly set to false
+      status: data.status || (data.published !== false ? 'published' : 'draft') // Use status field consistently
     };
   } catch (error) {
     console.error(
@@ -166,8 +166,8 @@ const generateBlogData = () => {
     posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     // Filter only published posts
-    const publishedPosts = posts.filter(post => post.published);
-    const draftPosts = posts.filter(post => !post.published);
+    const publishedPosts = posts.filter(post => post.status === 'published');
+    const draftPosts = posts.filter(post => post.status === 'draft');
 
     // Write the processed blog data to JSON file
     writeBlogData(OUTPUT_FILE, publishedPosts);
