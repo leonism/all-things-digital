@@ -9,7 +9,6 @@
         img-class="object-cover w-full h-full" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         loading-type="skeleton" itemprop="url" decoding="async" />
     </figure>
-
     <!-- Main content container with proper landmark roles -->
     <section class="flex grow flex-col p-4 md:p-5 md:ml-0" role="region" aria-labelledby="article-title">
       <!-- Article Header with author and metadata -->
@@ -67,7 +66,6 @@
           </section>
         </section>
       </header>
-
       <!-- Article Excerpt with accessible description -->
       <p id="article-excerpt" itemprop="description"
         class="text-left text-slate-90 font-navigation tracking-wide text-slate-700 line-clamp-4 dark:text-white">
