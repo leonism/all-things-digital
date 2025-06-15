@@ -8,12 +8,11 @@ import postsData from '../blog-data.json'; // Importing blog data from a JSON fi
  * or `null` if no valid featured post exists.
  */
 export function useFeaturedPost() {
-  // Computed property to dynamically find and return the featured post.
-  return computed(() =>
-    postsData.find(
-      (post) =>
-        post.featured && // Check if the post is marked as featured.
-        (post.status === 'published' || !post.status), // Ensure the post is published or has no status.
-    ),
-  );
+  return computed(() => {
+    const publishedPosts = postsData.filter(
+      (post) => post.published === true || post.status === 'published' || !post.status
+    );
+    // Return the first published post as featured, or find one marked as featured
+    return publishedPosts.find(post => post.featured) || publishedPosts[0] || null;
+  });
 }

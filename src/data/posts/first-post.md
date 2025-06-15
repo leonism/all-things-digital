@@ -23,6 +23,28 @@ readingTime: '5 minutes' # Estimated reading time
 status: 'published' # Possible values: "published", "draft"
 featured: false # Set to true if this post should be featured
 priority: 'low' # Sitemap priority (e.g., "high", "medium", "low")
+schema:
+  '@type': 'Article'
+  headline: 'Exploring the Future of Web Development in 2025'
+  description: 'An overview of upcoming trends and technologies in the web development industry for 2025.'
+  author:
+    '@type': 'Person'
+    name: 'Mike Smith'
+    jobTitle: 'Lead Developer'
+  datePublished: '2025-05-26'
+  dateModified: '2025-05-26'
+  image: '../assets/img/featured-blog.jpg'
+  publisher:
+    '@type': 'Organization'
+    name: 'Tech Insights Blog'
+    logo:
+      '@type': 'ImageObject'
+      url: '..assets/img/icons/logo-footer.png'
+relatedPosts:
+  - 'ai-in-web-development'
+  - 'top-javascript-frameworks'
+  - 'serverless-architecture-guide'
+toc: true
 metaRobots: 'index, follow' # SEO robots directive
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
 ---
