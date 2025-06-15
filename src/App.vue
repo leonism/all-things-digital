@@ -4,10 +4,10 @@
       <router-view />
     </main>
     <!-- Only loads when first opened -->
-    <EnhancedSearchModal
+    <EnhancedSearchModal 
       v-if="isSearchModalVisible"
-      :show-modal="isSearchModalVisible"
-      @close="closeSearchModal"
+      :show-modal="isSearchModalVisible" 
+      @close="closeSearchModal" 
     />
   </BaseLayout>
 </template>
@@ -17,7 +17,7 @@ import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue';
 import BaseLayout from './layouts/BaseLayout.vue';
 
 // Lazy load the heavy search modal
-const EnhancedSearchModal = defineAsyncComponent(() =>
+const EnhancedSearchModal = defineAsyncComponent(() => 
   import('./components/search/EnhancedSearchModal.vue')
 );
 
