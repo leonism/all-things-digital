@@ -9,6 +9,7 @@
 - [Features](#-features)
 - [Advanced Search System](#-advanced-search-system)
 - [Cloudinary Integration](#-cloudinary-integration)
+- [Decap CMS Integration](#-decap-cms-integration)
 - [Todos](#-todos)
 - [How To](#-how-to)
 - [Credits](#-credits)
@@ -69,13 +70,16 @@ The application features a comprehensive search system that provides instant, in
 ### 🎯 Core Search Features
 
 #### **Instant Search**
+
 - Real-time search results as you type
 - Debounced input for optimal performance
 - Sub-100ms search response times
 - No page refreshes or loading states
 
 #### **Intelligent Scoring Algorithm**
+
 Our search uses a sophisticated scoring system that prioritizes results based on:
+
 - **Title matches** (highest priority - 100 points for exact start match, 80 for partial)
 - **Exact tag matches** (90 points)
 - **Category matches** (70 points)
@@ -84,6 +88,7 @@ Our search uses a sophisticated scoring system that prioritizes results based on
 - **Fuzzy similarity matching** using Levenshtein distance algorithm
 
 #### **Advanced Text Processing**
+
 - **Fuzzy matching** with configurable similarity threshold (60% default)
 - **Smart highlighting** of matching terms in results
 - **Intelligent snippet extraction** showing relevant content context
@@ -92,6 +97,7 @@ Our search uses a sophisticated scoring system that prioritizes results based on
 ### 🎨 User Interface Features
 
 #### **Enhanced Search Modal**
+
 - Beautiful, responsive modal design with backdrop blur
 - Keyboard navigation support (↑/↓ arrows, Enter, ESC, Tab)
 - Mobile-optimized interface with touch-friendly controls
@@ -99,6 +105,7 @@ Our search uses a sophisticated scoring system that prioritizes results based on
 - Recent searches history with localStorage persistence
 
 #### **Search Results Display**
+
 - **Highlighted matching text** with customizable styling
 - **Categorized results** with grouping options
 - **Rich result cards** showing title, excerpt, category, tags, and author
@@ -106,6 +113,7 @@ Our search uses a sophisticated scoring system that prioritizes results based on
 - **Category filtering** for refined search results
 
 #### **Smart Suggestions**
+
 - **Dynamic suggestions** based on available content
 - **Category suggestions** from existing blog categories
 - **Tag suggestions** from all available tags
@@ -115,29 +123,31 @@ Our search uses a sophisticated scoring system that prioritizes results based on
 ### 🔧 Technical Implementation
 
 #### **Search Composable (`useSearch.js`)**
+
 The search functionality is built using Vue 3 Composition API with the following capabilities:
 
 ```javascript
 // Core search features
 const {
-  searchQuery,        // Reactive search input
-  searchResults,      // Filtered and scored results
-  isSearching,        // Loading state
-  searchStats,        // Performance metrics
-  groupedResults,     // Results grouped by category
-  searchSuggestions,  // Dynamic suggestions
-  recentSearches,     // Search history
-  
+  searchQuery, // Reactive search input
+  searchResults, // Filtered and scored results
+  isSearching, // Loading state
+  searchStats, // Performance metrics
+  groupedResults, // Results grouped by category
+  searchSuggestions, // Dynamic suggestions
+  recentSearches, // Search history
+
   // Methods
-  performSearch,      // Execute search with scoring
-  clearSearch,        // Reset search state
-  navigateResults,    // Keyboard navigation
-  selectResult,       // Select highlighted result
-  addToRecentSearches // Manage search history
+  performSearch, // Execute search with scoring
+  clearSearch, // Reset search state
+  navigateResults, // Keyboard navigation
+  selectResult, // Select highlighted result
+  addToRecentSearches, // Manage search history
 } = useSearch();
 ```
 
 #### **Search Components**
+
 - **`EnhancedSearchModal.vue`** - Main search interface with modal overlay
 - **`SearchInput.vue`** - Reusable search input component
 - **`SearchModal.vue`** - Basic search modal implementation
@@ -148,12 +158,14 @@ const {
 ### ⚡ Performance Optimizations
 
 #### **Efficient Algorithms**
+
 - **Levenshtein distance** calculation for fuzzy matching
 - **Optimized scoring** with early termination for irrelevant content
 - **Result limiting** (50 results max) to prevent UI lag
 - **Debounced search** to reduce unnecessary computations
 
 #### **Memory Management**
+
 - **Computed properties** for reactive result grouping
 - **Efficient filtering** without data duplication
 - **localStorage integration** for persistent recent searches
@@ -163,11 +175,11 @@ const {
 
 ```javascript
 const searchConfig = {
-  minQueryLength: 1,     // Minimum characters to trigger search
-  maxResults: 50,        // Maximum results to display
-  fuzzyThreshold: 0.6,   // Similarity threshold (0-1)
+  minQueryLength: 1, // Minimum characters to trigger search
+  maxResults: 50, // Maximum results to display
+  fuzzyThreshold: 0.6, // Similarity threshold (0-1)
   highlightPreTag: '<mark class="bg-yellow-200">', // Highlight styling
-  highlightPostTag: '</mark>'
+  highlightPostTag: '</mark>',
 };
 ```
 
@@ -182,6 +194,7 @@ const searchConfig = {
 ### 🔍 Search Capabilities
 
 The search system can find content across:
+
 - **Blog post titles** with exact and partial matching
 - **Post categories** for topic-based filtering
 - **Tags and keywords** for detailed content discovery
@@ -192,44 +205,43 @@ The search system can find content across:
 ### 🚀 Usage Examples
 
 #### **Basic Search Integration**
+
 ```vue
 <template>
-  <EnhancedSearchModal 
-    v-model:show="showSearch" 
+  <EnhancedSearchModal
+    v-model:show="showSearch"
     @result-selected="handleResultSelection"
   />
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import EnhancedSearchModal from '@/components/search/EnhancedSearchModal.vue'
+import { ref } from 'vue';
+import EnhancedSearchModal from '@/components/search/EnhancedSearchModal.vue';
 
-const showSearch = ref(false)
+const showSearch = ref(false);
 
 function handleResultSelection(result) {
   // Navigate to selected post
-  router.push(`/blog/${result.slug}`)
+  router.push(`/blog/${result.slug}`);
 }
 </script>
 ```
 
 #### **Custom Search Implementation**
+
 ```vue
 <script setup>
-import { useSearch } from '@/composables/useSearch'
+import { useSearch } from '@/composables/useSearch';
 
-const {
-  searchQuery,
-  searchResults,
-  searchStats,
-  performSearch
-} = useSearch()
+const { searchQuery, searchResults, searchStats, performSearch } = useSearch();
 
 // Trigger search
-performSearch('vue.js')
+performSearch('vue.js');
 
 // Access results
-console.log(`Found ${searchStats.value.total} results in ${searchStats.value.time}ms`)
+console.log(
+  `Found ${searchStats.value.total} results in ${searchStats.value.time}ms`,
+);
 </script>
 ```
 
@@ -281,6 +293,7 @@ node scripts/upload-to-cloudinary.js
 ```
 
 This script will:
+
 - Upload all images from `src/assets/img/` to Cloudinary
 - Generate optimized public IDs based on file paths
 - Create a mapping file at `src/data/cloudinary-mapping.json`
@@ -291,15 +304,17 @@ This script will:
 Update your Markdown files and blog data to use Cloudinary public IDs:
 
 **Before:**
+
 ```yaml
 featuredImage:
-  src: "/assets/img/featured-blog.jpg"
+  src: '/assets/img/featured-blog.jpg'
 ```
 
 **After:**
+
 ```yaml
 featuredImage:
-  src: "blog/featured-blog"
+  src: 'blog/featured-blog'
 ```
 
 ### Usage in Components
@@ -312,17 +327,17 @@ The integration provides Vue composables for easy image optimization:
 </template>
 
 <script setup>
-import { useCloudinary } from '@/composables/useCloudinary'
+import { useCloudinary } from '@/composables/useCloudinary';
 
-const props = defineProps(['imageSrc'])
-const imageCloudinary = useCloudinary(computed(() => props.imageSrc))
+const props = defineProps(['imageSrc']);
+const imageCloudinary = useCloudinary(computed(() => props.imageSrc));
 
 const optimizedImageUrl = computed(() => {
   return imageCloudinary.responsive(800, 600, {
     c: 'fill',
-    g: 'auto'
-  })
-})
+    g: 'auto',
+  });
+});
 </script>
 ```
 
@@ -368,12 +383,14 @@ The integration includes several utility functions in `src/utils/cloudinary.js`:
 ### Troubleshooting
 
 **Common Issues:**
+
 1. **Images not loading**: Verify public IDs match uploaded images
 2. **Upload failures**: Check environment variables are correct
 3. **Build errors**: Ensure all imports are properly configured
 
 **Debugging:**
 Enable debug mode by adding to your `.env`:
+
 ```env
 CLOUDINARY_DEBUG=true
 ```
@@ -390,6 +407,52 @@ The system automatically falls back to original URLs if Cloudinary is unavailabl
 5. **Lazy Loading**: Enable lazy loading for better performance
 
 For detailed documentation, refer to the [Cloudinary documentation](https://cloudinary.com/documentation) and check the generated `cloudinary-mapping.json` file for image mappings.
+
+
+## 📝 Decap CMS Integration
+
+This project includes comprehensive Decap CMS integration for content management, allowing you to create, edit, and manage blog posts through a user-friendly admin interface. The integration supports both Netlify and Cloudflare Pages deployments with different authentication strategies.
+
+### 🌟 Key Features
+
+- **Git-based Workflow**: All content changes are committed directly to your repository
+- **Rich Text Editor**: WYSIWYG editor with markdown support
+- **Media Management**: Upload and manage images through the CMS interface
+- **Preview Mode**: Live preview of content before publishing
+- **Multi-format Support**: Supports markdown files with frontmatter
+- **Responsive Admin Interface**: Works seamlessly on desktop and mobile devices
+- **Version Control**: Full version history through Git integration
+
+### 🚀 Quick Setup
+
+#### Prerequisites
+
+1. **Git Repository**: Your project must be in a Git repository (GitHub, GitLab, or Bitbucket)
+2. **Node.js**: Ensure you have Node.js installed for running build scripts
+3. **Deployment Platform**: Either Netlify or Cloudflare Pages account
+
+#### 1. Install Decap CMS
+
+```bash
+npm install decap-cms-app gray-matter
+```
+
+2. Enable Netlify Identity
+- Go to your Netlify site dashboard
+- Navigate to Identity tab
+- Click Enable Identity
+- Under Registration preferences , select "Invite only" or "Open"
+- Under External providers , enable GitHub, Google, or other providers as needed
+3. Configure Git Gateway
+- In Netlify Identity settings, go to Services
+- Enable Git Gateway
+- This allows the CMS to commit directly to your repository
+4. Deploy and Access
+- Deploy your site to Netlify
+- Access the CMS at: https://your-site.netlify.app/admin/
+- Create your first user account through Netlify Identity
+
+
 
 ## 😏 Todos
 
