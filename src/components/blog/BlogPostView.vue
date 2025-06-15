@@ -180,6 +180,37 @@ const canonicalUrl = computed( () =>
   return post.value ? `${base}/blog/${post.value.slug}` : base;
 } );
 
+// Add this useHead call to actually set the meta tags
+useHead({
+  title: pageTitle,
+  meta: [
+    { name: 'description', content: pageDescription },
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: canonicalUrl },
+    { property: 'og:image', content: ogImage },
+    { property: 'og:site_name', content: 'DGPond.COM' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: pageTitle },
+    { name: 'twitter:description', content: pageDescription },
+    { name: 'twitter:image', content: ogImage },
+    // Add article-specific meta tags
+    { property: 'article:author', content: () => post.value?.author?.name || '' },
+    { property: 'article:published_time', content: () => post.value?.date || '' },
+    { property: 'article:modified_time', content: () => post.value?.lastModified || post.value?.date || '' },
+    { property: 'article:section', content: () => post.value?.category || '' },
+    // Add article tags
+    ...(post.value?.tags?.map(tag => ({ property: 'article:tag', content: tag })) || [])
+  ],
+  link: [
+    { rel: 'canonical', href: canonicalUrl }
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  }
+});
+
 // Watcher to update meta tags whenever the 'post' ref changes.
 // This ensures that meta tags are updated when a post is loaded.
 // Watcher to react to changes in the route's slug parameter.
