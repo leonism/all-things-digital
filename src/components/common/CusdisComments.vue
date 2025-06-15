@@ -49,6 +49,7 @@
           :data-page-id="pageId"
           :data-page-url="pageUrl"
           :data-page-title="pageTitle"
+          data-theme="auto"
           :key="`cusdis-${pageId}`"
           class="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3 sm:p-4 border border-gray-200 dark:border-gray-700 overflow-hidden"
         >
