@@ -5,11 +5,11 @@
 <script setup>
 import { useHead } from '@unhead/vue';
 import ContentAbout from '../content/ContentAbout.vue';
-import AboutHeader from '../components/heading/HeaderAbout.vue';
+// import AboutHeader from '../components/heading/HeaderAbout.vue';
 
-useHead({
+useHead( {
   title: 'About | DGPond.COM',
-});
+} );
 </script>
 
 <style scoped>
