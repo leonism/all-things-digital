@@ -1,44 +1,23 @@
 <template>
-  <section
-    id="mainWrapper"
-    class="max-w-4xl sm:mx-5 md:mx-10 lg:mx-auto"
-    role="main"
-  >
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto" role="main">
     <h1 class="text-3xl font-bold mb-8 dark:text-white">Tag: #{{ tagName }}</h1>
     <div v-if="allPosts.length" aria-label="Blog articles">
-      <BlogArticleCard
-        v-for="post in allPosts"
-        :key="post.slug"
-        :imageSrc="
+      <BlogArticleCard v-for="post in allPosts" :key="post.slug" :imageSrc="
           post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'
-        "
-        :imageAlt="post.featuredImage?.alt || post.title"
-        :title="post.title"
-        :postLink="`/blog/${post.slug}`"
-        :date="post.date"
-        :excerpt="post.excerpt || post.description"
-        :tags="post.tags"
+        " :imageAlt="post.featuredImage?.alt || post.title" :title="post.title" :postLink="`/blog/${post.slug}`"
+        :date="post.date" :excerpt="post.excerpt || post.description" :tags="post.tags"
         :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
-        :authorImageAlt="post.author?.name || 'Author profile picture'"
-        :authorLink="post.author?.link || '/about'"
-        :authorName="post.author?.name || 'Unknown Author'"
-        role="article"
-      />
+        :authorImageAlt="post.author?.name || 'Author profile picture'" :authorLink="post.author?.link || '/about'"
+        :authorName="post.author?.name || 'Unknown Author'" role="article" />
     </div>
     <div v-else class="text-center text-gray-500 dark:text-gray-400 py-10">
       <p>No posts found with the tag "#{{ tagName }}".</p>
-      <router-link
-        to="/blog"
-        class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
-        >Back to Blog List</router-link
-      >
+      <router-link to="/blog" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block">Back to
+        Blog List</router-link>
     </div>
     <div v-if="!tagName" class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <div
-        v-for="tag in allTags"
-        :key="String(tag)"
-        class="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
-      >
+      <div v-for="tag in allTags" :key="String(tag)"
+        class="p-4 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
         <router-link :to="`/blog/tag/${getTagSlug(tag)}`">
           #{{ tag }}
         </router-link>

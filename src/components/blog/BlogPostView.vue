@@ -1,68 +1,38 @@
 <template>
-  <section
-    id="mainWrapper"
-    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto mt-10 mb-20"
-    role="main"
-  >
-    <article
-      v-if="post"
-      class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500"
-    >
-      <HeaderBlogPost
-        :title="post.title"
-        :subtitle="post.subtitle"
-        :authorName="post.author?.name ?? ''"
-        :authorAvatar="post.author?.image ?? ''"
-        :date="post.date"
-        :category="post.category ?? ''"
-        :featuredImage="post.featuredImage?.src"
-      />
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto mt-10 mb-20" role="main">
+    <article v-if="post"
+      class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500">
+      <HeaderBlogPost :title="post.title" :subtitle="post.subtitle" :authorName="post.author?.name ?? ''"
+        :authorAvatar="post.author?.image ?? ''" :date="post.date" :category="post.category ?? ''"
+        :featuredImage="post.featuredImage?.src" />
       <div class="p-6 md:p-8">
-        <div
-          class="prose prose-lg dark:prose-invert max-w-none prose-blue dark:prose-blue"
-        >
-          <component :is="postContentComponent" v-if="postContentComponent" />
+        <div class="prose prose-lg dark:prose-invert max-w-none prose-blue dark:prose-blue">
+          <component :is="postContentComponent" v-if=" postContentComponent " />
         </div>
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <div v-if="post.categories && post.categories.length" class="mb-4">
+          <div v-if=" post.categories && post.categories.length " class="mb-4">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
               Categories:
             </span>
-            <router-link
-              v-for="category in post.categories"
-              :key="category"
-              :to="{
-                name: 'category-archive',
-                params: { category: getTagSlug(category) },
-              }"
-              class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-            >
+            <router-link v-for=" category in post.categories " :key="category" :to="{
+              name: 'category-archive',
+              params: { category: getTagSlug( category ) },
+            }"
+              class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
               {{ category }}
             </router-link>
           </div>
-          <div v-if="post.tags && post.tags.length">
-            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300"
-              >Tags:</span
-            >
-            <router-link
-              v-for="tag in post.tags"
-              :key="tag"
-              :to="{ name: 'tag-archive', params: { tag: getTagSlug(tag) } }"
-              class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-            >
+          <div v-if=" post.tags && post.tags.length ">
+            <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">Tags:</span>
+            <router-link v-for=" tag in post.tags " :key="tag"
+              :to="{ name: 'tag-archive', params: { tag: getTagSlug( tag ) } }"
+              class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
               #{{ tag }}
             </router-link>
           </div>
         </div>
-        <div
-          id="comments-section"
-          class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
-        >
-          <h2 class="text-2xl font-bold mb-4 dark:text-white">Comments</h2>
-          <p class="text-gray-500 dark:text-gray-400">
-            (Comment system integration pending user configuration)
-          </p>
-        </div>
+        <!-- Use the new CusdisComments component -->
+        <CusdisComments v-if="post?.slug && post?.title" :page-id="post.slug" :page-title="post.title" />
       </div>
     </article>
     <div v-else class="text-center py-16">
@@ -70,10 +40,7 @@
       <p class="text-gray-500 dark:text-gray-400 mt-2">
         The requested blog post could not be found.
       </p>
-      <router-link
-        to="/blog"
-        class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block"
-      >
+      <router-link to="/blog" class="text-indigo-600 dark:text-indigo-400 hover:underline mt-4 inline-block">
         &larr; Back to Blog List
       </router-link>
     </div>
@@ -106,14 +73,16 @@
  */
 import { ref, watch, computed, type Ref, markRaw } from 'vue';
 import { useRoute } from 'vue-router';
-import { useHead } from '@unhead/vue';
+import { useHead } from '@unhead/vue'; // useScript is no longer needed here
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
 import { useCloudinary } from '@/composables/useCloudinary';
+import CusdisComments from '../common/CusdisComments.vue'; // Adjust path if you placed it elsewhere
 
 // Define a type for the dynamically imported Markdown component
-interface MarkdownModule {
+interface MarkdownModule
+{
   default: any;
   frontmatter: Record<string, any>;
 }
@@ -124,11 +93,13 @@ interface MarkdownModule {
  * @param name The tag name.
  * @returns The hyphenated tag slug.
  */
-const getTagSlug = (name: string): string => {
-  return name.toLowerCase().replace(/\s+/g, '-');
+const getTagSlug = ( name: string ): string =>
+{
+  return name.toLowerCase().replace( /\s+/g, '-' );
 };
 
-interface BlogPost {
+interface BlogPost
+{
   slug: string;
   title: string;
   subtitle?: string;
@@ -155,8 +126,8 @@ interface BlogPost {
 }
 
 const route = useRoute();
-const post: Ref<BlogPost | null> = ref(null);
-const postContentComponent: Ref<any | null> = ref(null);
+const post: Ref<BlogPost | null> = ref( null );
+const postContentComponent: Ref<any | null> = ref( null );
 
 /**
  * Finds a blog post by its slug in the imported posts data.
@@ -164,40 +135,30 @@ const postContentComponent: Ref<any | null> = ref(null);
  * @param slug The slug of the post to find.
  * @returns The found blog post object or null if not found or not published.
  */
-const findPost = (slug: string): BlogPost | null => {
-  const foundPost = postsData.find((p) => p.slug === slug);
-  return foundPost && (!foundPost.status || foundPost.status === 'published')
-    ? (foundPost as BlogPost)
+const findPost = ( slug: string ): BlogPost | null =>
+{
+  const foundPost = postsData.find( ( p ) => p.slug === slug );
+  return foundPost && ( !foundPost.status || foundPost.status === 'published' )
+    ? ( foundPost as BlogPost )
     : null;
 };
 
 // Function to dynamically import the Markdown file
-const loadMarkdownComponent = async (slug: string) => {
-  try {
+const loadMarkdownComponent = async ( slug: string ) =>
+{
+  try
+  {
     // Dynamically import the Markdown file based on the slug
-    const module = (await import(
+    const module = ( await import(
       `../../data/posts/${slug}.md`
-    )) as MarkdownModule;
-    postContentComponent.value = markRaw(module.default);
-    // Extract frontmatter and update head
-    if (module.frontmatter) {
-      const { title, description, ...rest } = module.frontmatter;
-      useHead({
-        title: title || pageTitle.value,
-        meta: [
-          {
-            name: 'description',
-            content: description || pageDescription.value,
-          },
-          ...Object.entries(rest).map(([key, value]) => ({
-            property: `og:${key}`,
-            content: value,
-          })),
-        ],
-      });
-    }
-  } catch (error) {
-    console.error(`Failed to load Markdown for slug: ${slug}`, error);
+    ) ) as MarkdownModule;
+    postContentComponent.value = markRaw( module.default );
+
+    // Update head with SEO data from the current post
+    // The 'post' ref should be populated by the watchEffect below before this runs
+  } catch ( error )
+  {
+    console.error( `Failed to load Markdown for slug: ${slug}`, error );
     postContentComponent.value = null;
   }
 };
@@ -212,11 +173,12 @@ const pageDescription = computed(
 const ogImage = computed(
   () => post.value?.featuredImage?.src || '/images/default-og-image.png',
 ); // Add a default OG image path
-const canonicalUrl = computed(() => {
+const canonicalUrl = computed( () =>
+{
   // Construct canonical URL - replace with your actual domain
   const base = 'https://all-things-digital.pages.dev'; // <<<--- IMPORTANT: Replace with your actual domain
   return post.value ? `${base}/blog/${post.value.slug}` : base;
-});
+} );
 
 // Watcher to update meta tags whenever the 'post' ref changes.
 // This ensures that meta tags are updated when a post is loaded.
@@ -224,13 +186,17 @@ const canonicalUrl = computed(() => {
 // This is triggered when navigating between blog posts.
 watch(
   () => route.params.slug,
-  (newSlug) => {
-    if (newSlug) {
-      const slug = Array.isArray(newSlug) ? newSlug[0] : newSlug;
-      post.value = findPost(slug);
-      if (post.value) {
-        loadMarkdownComponent(slug);
-      } else {
+  ( newSlug ) =>
+  {
+    if ( newSlug )
+    {
+      const slug = Array.isArray( newSlug ) ? newSlug[ 0 ] : newSlug;
+      post.value = findPost( slug );
+      if ( post.value )
+      {
+        loadMarkdownComponent( slug );
+      } else
+      {
         postContentComponent.value = null;
       }
     }
@@ -239,46 +205,44 @@ watch(
 );
 
 const allPosts = postsData.filter(
-  (post) => !post.status || post.status === 'published',
+  ( post ) => !post.status || post.status === 'published',
 );
 
-const currentPostIndex = computed(() => {
-  return allPosts.findIndex((p) => p.slug === route.params.slug);
-});
+const currentPostIndex = computed( () =>
+{
+  return allPosts.findIndex( ( p ) => p.slug === route.params.slug );
+} );
 
-const previousPost = computed(() => {
-  if (currentPostIndex.value === -1 || currentPostIndex.value === 0) {
+const previousPost = computed( () =>
+{
+  if ( currentPostIndex.value === -1 || currentPostIndex.value === 0 )
+  {
     return null;
   }
-  return allPosts[currentPostIndex.value - 1];
-});
+  return allPosts[ currentPostIndex.value - 1 ];
+} );
 
-const nextPost = computed(() => {
+const nextPost = computed( () =>
+{
   if (
     currentPostIndex.value === -1 ||
     currentPostIndex.value === allPosts.length - 1
-  ) {
+  )
+  {
     return null;
   }
-  return allPosts[currentPostIndex.value + 1];
-});
+  return allPosts[ currentPostIndex.value + 1 ];
+} );
 
-// Use Cloudinary for featured image optimization
-// Remove these lines (around lines 267-279):
-// const featuredImageCloudinary = useCloudinary(
-//   computed(() => post.value?.featuredImage?.src || ''),
-// );
+const pageUrl = computed( () =>
+{
+  if ( typeof window !== 'undefined' )
+  {
+    return window.location.href;
+  }
+  return '';
+} );
 
-// const processedFeaturedImageSrc = computed(() => {
-//   if (!post.value?.featuredImage?.src) return '';
-
-//   // Generate optimized hero image for blog post header
-//   return featuredImageCloudinary.hero.value(1200, 600, {
-//     c: 'fill',
-//     g: 'auto',
-//     q: 'auto:good',
-//   });
-// });
 </script>
 
 <style>

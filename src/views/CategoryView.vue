@@ -148,9 +148,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouter } from 'vue-router';
+import { useHead } from '@unhead/vue'; // Import useHead
 import HeaderCategory from '../components/heading/HeaderCategory.vue';
 import BlogPostCard from '../components/home/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
@@ -194,40 +195,119 @@ const router = useRouter();
 const blogDataRef = ref<BlogPost[]>(postsData as BlogPost[]);
 const allPosts = ref<BlogPost[]>([]);
 const categoryParam = computed(() => route.params.category as string);
+const siteName = 'DGPond.COM'; // Replace with your site name
+const baseUrl = 'https://www.dgpond.com'; // Replace with your base URL
 
 // Computed properties
 const publishedPosts = computed(() =>
   allPosts.value.filter((post) => !post.status || post.status === 'published'),
 );
 
-const allCategories = computed(() => {
-  const categories = publishedPosts.value.map((post) => post.category);
-  return [...new Set(categories)].sort();
-});
-
-const sortedCategories = computed(() => {
-  return allCategories.value.sort((a, b) => {
-    const aCount = getPostsByCategory(a).length;
-    const bCount = getPostsByCategory(b).length;
-    return bCount - aCount; // Sort by post count descending
-  });
-});
-
 const displayCategoryName = computed(() => {
-  if (!categoryParam.value) return 'All Categories';
-  return (
-    categoryParam.value.charAt(0).toUpperCase() + categoryParam.value.slice(1)
-  );
+  if (categoryParam.value) {
+    // Capitalize first letter of each word for display
+    return categoryParam.value
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+  return 'All Categories';
 });
 
 const categoryPosts = computed(() => {
-  if (!categoryParam.value) return [];
-  return publishedPosts.value.filter(
-    (post) => post.category.toLowerCase() === categoryParam.value.toLowerCase(),
-  );
+  if (categoryParam.value) {
+    return publishedPosts.value.filter(
+      (post) => post.category?.toLowerCase() === categoryParam.value.toLowerCase(),
+    );
+  }
+  return [];
 });
 
-// Functions
+const allCategories = computed(() => {
+  const categories = new Set<string>();
+  publishedPosts.value.forEach((post) => {
+    if (post.category) {
+      categories.add(post.category);
+    }
+  });
+  return Array.from(categories);
+});
+
+const sortedCategories = computed(() => {
+  return [...allCategories.value].sort((a, b) => a.localeCompare(b));
+});
+
+// SEO Meta Data
+watch(
+  () => route.params.category,
+  (newCategory) => {
+    const categorySlug = newCategory as string | undefined;
+    if (categorySlug) {
+      // Individual Category Page SEO
+      const currentCategoryName = displayCategoryName.value;
+      const pageTitle = `Category: ${currentCategoryName} | ${siteName}`;
+      const pageDescription = `Explore all articles and posts in the ${currentCategoryName} category on ${siteName}.`;
+      const canonicalUrlPath = `/category/${categorySlug}`;
+
+      useHead({
+        title: pageTitle,
+        meta: [
+          { name: 'description', content: pageDescription },
+          { name: 'keywords', content: `${currentCategoryName}, blog, articles, ${siteName}` },
+          { property: 'og:title', content: pageTitle },
+          { property: 'og:description', content: pageDescription },
+          { property: 'og:type', content: 'website' },
+          { property: 'og:url', content: `${baseUrl}${canonicalUrlPath}` },
+          { property: 'og:site_name', content: siteName },
+          // Add a relevant OG image if available, otherwise a default one
+          { property: 'og:image', content: `${baseUrl}/all-things-digital.png` },
+          { name: 'twitter:card', content: 'summary_large_image' },
+          { name: 'twitter:title', content: pageTitle },
+          { name: 'twitter:description', content: pageDescription },
+          { name: 'twitter:image', content: `${baseUrl}/all-things-digital.png` },
+        ],
+        link: [
+          {
+            rel: 'canonical',
+            href: `${baseUrl}${canonicalUrlPath}`,
+          },
+        ],
+      });
+    } else {
+      // Main Category Listing Page SEO
+      const pageTitle = `Browse Articles by Category | ${siteName}`;
+      const pageDescription = `Explore a wide range of topics and articles, neatly organized by category on ${siteName}. Find content relevant to your interests.`;
+      const canonicalUrlPath = '/category';
+
+      useHead({
+        title: pageTitle,
+        meta: [
+          { name: 'description', content: pageDescription },
+          { name: 'keywords', content: `categories, blog, articles, topics, ${siteName}` },
+          { property: 'og:title', content: pageTitle },
+          { property: 'og:description', content: pageDescription },
+          { property: 'og:type', content: 'website' },
+          { property: 'og:url', content: `${baseUrl}${canonicalUrlPath}` },
+          { property: 'og:site_name', content: siteName },
+          { property: 'og:image', content: `${baseUrl}/all-things-digital.png` },
+          { name: 'twitter:card', content: 'summary_large_image' },
+          { name: 'twitter:title', content: pageTitle },
+          { name: 'twitter:description', content: pageDescription },
+          { name: 'twitter:image', content: `${baseUrl}/all-things-digital.png` },
+        ],
+        link: [
+          {
+            rel: 'canonical',
+            href: `${baseUrl}${canonicalUrlPath}`,
+          },
+        ],
+      });
+    }
+  },
+  { immediate: true }, // Run on component mount as well
+);
+
+// Helper functions
 const getPostsByCategory = (category: string): BlogPost[] => {
   return publishedPosts.value.filter((post) => post.category === category);
 };
