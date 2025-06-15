@@ -19,14 +19,15 @@
 </template>
 
 <script setup>
+import { defineAsyncComponent } from 'vue';
 import NavLogo from './NavLogo.vue';
 import NavDesktop from './NavDesktop.vue';
 import NavDarkMode from './NavDarkMode.vue';
 import NavSearchButton from './NavSearchButton.vue';
 import NavContactButton from './NavContactButton.vue';
-import NavMobile from './NavMobile.vue';
+// Lazy load mobile navigation (only needed on mobile)
+const NavMobile = defineAsyncComponent(() => import('./NavMobile.vue'));
 
-// Define the emits for the component
 defineEmits(['open-search']);
 </script>
 

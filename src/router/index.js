@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// Import Views
-import HomeView from '../views/HomeView.vue';
-import AboutView from '../views/AboutView.vue';
-import ContactView from '../views/ContactView.vue';
-import CreditsView from '../views/CreditsView.vue';
-import CategoryView from '../views/CategoryView.vue';
-import NotFoundView from '../views/NotFoundView.vue';
-import BlogListView from '../components/blog/BlogListView.vue';
-import BlogPostView from '../components/blog/BlogPostView.vue';
-import BlogTagView from '../components/blog/BlogTagView.vue';
-import BlogCategoryView from '../components/blog/BlogCategoryView.vue';
+const HomeView = () => import('../views/HomeView.vue');
+const AboutView = () => import('../views/AboutView.vue');
+const ContactView = () => import('../views/ContactView.vue');
+const CreditsView = () => import('../views/CreditsView.vue');
+const CategoryView = () => import('../views/CategoryView.vue');
+const NotFoundView = () => import('../views/NotFoundView.vue');
+const BlogListView = () => import('../components/blog/BlogListView.vue');
+const BlogPostView = () => import('../components/blog/BlogPostView.vue');
+const BlogTagView = () => import('../components/blog/BlogTagView.vue');
+const BlogCategoryView = () =>
+  import('../components/blog/BlogCategoryView.vue');
 
 const routes = [
   {
@@ -80,7 +80,7 @@ const routes = [
     component: BlogTagView,
     props: true,
   },
-   {
+  {
     path: '/blog/tag/:tag/page/:page',
     name: 'tag-archive-pagination',
     component: BlogTagView,

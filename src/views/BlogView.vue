@@ -28,11 +28,22 @@
         role="article"
       />
       <!-- Pagination Controls -->
-      <Pagination
-        :currentPage="currentPage"
-        :totalPages="totalPages"
-        @page-change="handlePageChange"
-      />
+      <Suspense v-if="totalPages > 1">
+        <template #default>
+          <LazyPagination
+            :currentPage="currentPage"
+            :totalPages="totalPages"
+            @page-change="handlePageChange"
+          />
+        </template>
+        <template #fallback>
+          <div class="flex justify-center py-4">
+            <div
+              class="animate-pulse bg-gray-200 dark:bg-gray-700 h-10 w-64 rounded"
+            ></div>
+          </div>
+        </template>
+      </Suspense>
     </template>
     <!-- Empty State, backfall if no markdown populated  -->
     <div
@@ -139,7 +150,8 @@ useHead({
       content: 'https://all-things-digital.pages.dev/blog',
     }, // <<<--- IMPORTANT: Replace with yourown domain
     {
-      property: 'og:image', content: '/images/default-og-image.png'
+      property: 'og:image',
+      content: '/images/default-og-image.png',
     }, // <<<--- IMPORTANT: Replace with your default OG image path
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: 'Blog | DGPond.COM' },
@@ -167,3 +179,9 @@ onMounted(() => {
 <style scoped>
 /* Add component-specific styles if necessary */
 </style>
+
+<script setup>
+const LazyPagination = defineAsyncComponent(
+  () => import('../components/common/Pagination.vue'),
+);
+</script>

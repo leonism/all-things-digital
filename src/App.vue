@@ -3,17 +3,23 @@
     <main class="flex-grow">
       <router-view />
     </main>
-    <EnhancedSearchModal 
-      :show-modal="isSearchModalVisible" 
-      @close="closeSearchModal" 
+    <!-- Only loads when first opened -->
+    <EnhancedSearchModal
+      v-if="isSearchModalVisible"
+      :show-modal="isSearchModalVisible"
+      @close="closeSearchModal"
     />
   </BaseLayout>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue';
 import BaseLayout from './layouts/BaseLayout.vue';
-import EnhancedSearchModal from './components/search/EnhancedSearchModal.vue';
+
+// Lazy load the heavy search modal
+const EnhancedSearchModal = defineAsyncComponent(() =>
+  import('./components/search/EnhancedSearchModal.vue')
+);
 
 const isSearchModalVisible = ref(false);
 const openSearchModal = () => {
