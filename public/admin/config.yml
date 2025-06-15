@@ -1,9 +1,9 @@
 backend:
-  name: git-getway # or gitlab/bitbucket
+  name: github
   repo: leonism/all-things-digital
-  branch: main # or master
-  # base_url: https://api.github.com # for GitHub
-  # auth_endpoint: auth
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: 'src/assets/img/uploads'
 public_folder: '/assets/img/uploads'
