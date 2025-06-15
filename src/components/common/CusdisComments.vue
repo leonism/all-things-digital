@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, nextTick } from 'vue';
+import { ref, computed, watch, nextTick, onMounted } from 'vue'; // Import onMounted
 import { useScript } from '@unhead/vue';
 
-const props = defineProps( {
+const props = defineProps({
   appId: {
     type: String,
     default: '900c1d23-f0c4-474b-b2e2-9717eb5c22cd', // Your default App ID
@@ -33,78 +33,65 @@ const props = defineProps( {
     type: String,
     required: true,
   },
-} );
+});
 
-const showComments = ref( false );
-const cusdisContainer = ref<HTMLElement | null>( null );
+const showComments = ref(false);
+const cusdisContainer = ref<HTMLElement | null>(null);
 
-const pageUrl = computed( () =>
-{
+const pageUrl = computed(() => {
   // Ensure this generates the correct, full URL for the current page
   return typeof window !== 'undefined' ? window.location.href : '';
-} );
+});
 
 // Load Cusdis script
-useScript( {
+useScript({
   src: 'https://cusdis.com/js/cusdis.es.js',
   async: true,
   defer: true,
-} );
+});
 
-const toggleComments = () =>
-{
+const toggleComments = () => {
   showComments.value = !showComments.value;
-  if ( showComments.value )
-  {
-    // If Cusdis needs to be re-initialized or re-rendered after being shown,
-    // you might need to call a Cusdis-specific function here.
-    // For simple show/hide, this might not be necessary if Cusdis handles it.
-    // However, if issues arise, ensure Cusdis re-renders correctly.
-    nextTick( () =>
-    {
-      if ( ( window as any ).CUSDIS )
-      {
-        // window.CUSDIS.render(); // Or similar function if available and needed
+  if (showComments.value) {
+    nextTick(() => {
+      if ((window as any).CUSDIS && typeof (window as any).CUSDIS.render === 'function') {
+        // (window as any).CUSDIS.render(); // Or similar function if available and needed
       }
-    } );
-    mounted() {
-      const checkCusdis = () =>
-      {
-        if ( ( window as any ).CUSDIS )
-        {
-          // window.CUSDIS.render(); // Or similar function if available and needed
-        } else
-        {
-          setTimeout( checkCusdis, 100 ); // Retry after 100ms
-        }
-      };
-      checkCusdis();
-    };
+    });
+  }
+};
 
-    // Watch for pageId changes to potentially re-render Cusdis if it's already visible
-    // This is important if navigating between posts without a full page reload
-    watch( () => props.pageId, ( newPageId, oldPageId ) =>
-    {
-      if ( showComments.value && newPageId !== oldPageId )
-      {
-        nextTick( () =>
-        {
-          // This forces Vue to re-render the #cusdis_thread div by changing its key
-          // Cusdis should pick up the new attributes automatically.
-          // If Cusdis has a specific API to update/reload, use that instead.
-          if ( ( window as any ).CUSDIS && typeof ( window as any ).CUSDIS.render === 'function' )
-          {
-            // window.CUSDIS.render(); // Or specific update function
-          }
-        } );
-      }
-    } );
+onMounted(() => { // Use onMounted
+  const checkCusdis = () => {
+    if ((window as any).CUSDIS && typeof (window as any).CUSDIS.render === 'function') {
+      // (window as any).CUSDIS.render(); // Or similar function if available and needed
+    } else {
+      setTimeout(checkCusdis, 100); // Retry after 100ms
+    }
+  };
+  // Only check Cusdis if comments are initially shown or when toggled on.
+  // This might be better placed inside toggleComments or a watcher on showComments.
+  if (showComments.value) { 
+    checkCusdis();
+  }
+});
 
-    export default {
-      components: {
-        CusdisComments
+// Watch for pageId changes to potentially re-render Cusdis if it's already visible
+// This is important if navigating between posts without a full page reload
+watch(() => props.pageId, (newPageId, oldPageId) => {
+  if (showComments.value && newPageId !== oldPageId) {
+    nextTick(() => {
+      // This forces Vue to re-render the #cusdis_thread div by changing its key
+      // Cusdis should pick up the new attributes automatically.
+      // If Cusdis has a specific API to update/reload, use that instead.
+      if ((window as any).CUSDIS && typeof (window as any).CUSDIS.render === 'function') {
+        // (window as any).CUSDIS.render(); // Or specific update function
       }
-    };
+    });
+  }
+});
+
+// Removed export default block as it's not used with <script setup>
 </script>
 
 <style scoped>
