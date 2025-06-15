@@ -1,43 +1,31 @@
 <template>
+
   <header class="space-y-6">
     <!-- Image container with dynamic masking and parallax effect -->
-    <figure
-      class="relative w-full h-80 md:h-[28rem] overflow-hidden rounded-t-[1rem] shadow-2xl group isolate"
-    >
+    <figure class="relative w-full h-80 md:h-[28rem] overflow-hidden rounded-t-[1rem] shadow-2xl group isolate">
       <!-- Dynamic image with conditional masking and parallax -->
-      <OptimizedPicture
-        :src="featuredImage"
-        alt=""
-        aria-hidden="true"
+      <OptimizedPicture :src="featuredImage" alt="" aria-hidden="true"
         img-class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-[1.02] transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_50%,transparent_80%)] dark:mask-image-[radial-gradient(ellipse_80%_70%_at_50%_30%,black_30%,transparent_70%)] backdrop-blur-[1px]"
-        sizes="100vw"
-        style="view-transition-name: featured-image"
-      />
+        sizes="100vw" style="view-transition-name: featured-image" />
 
       <!-- Animated gradient overlay -->
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 dark:opacity-90"
         :class="{
           'group-hover:via-black/60 transition-all duration-700': true,
-        }"
-      ></div>
+        }"></div>
 
       <!-- Floating particles effect (purely decorative) -->
-      <div
-        aria-hidden="true"
-        class="absolute inset-0 opacity-20 dark:opacity-30 mix-blend-overlay pointer-events-none"
+      <div aria-hidden="true" class="absolute inset-0 opacity-20 dark:opacity-30 mix-blend-overlay pointer-events-none"
         :style="{
           'background-image': 'radial-gradient(white 1px, transparent 1px)',
           'background-size': '20px 20px',
           'mask-image':
             'linear-gradient(to bottom, transparent 10%, black 40%)',
-        }"
-      ></div>
+        }"></div>
 
       <!-- Author info - right aligned with fancy border effect -->
-      <figcaption
-        class="absolute bottom-6 right-6 z-10 flex items-center gap-3 text-white text-end"
-      >
+      <figcaption class="absolute bottom-6 right-6 z-10 flex items-center gap-3 text-white text-end">
         <div class="flex flex-col items-end">
           <div class="flex items-center gap-3">
             <div class="flex flex-col items-end">
@@ -45,10 +33,7 @@
                 {{ authorName }}
               </p>
               <div class="flex items-center gap-2 text-sm text-white/80">
-                <time
-                  :datetime="date"
-                  class="flex items-center justify-end gap-1"
-                >
+                <time :datetime="date" class="flex items-center justify-end gap-1">
                   <ClockIcon class="w-3.5 h-3.5" />
                   {{ formattedDate }}
                 </time>
@@ -59,20 +44,16 @@
                 </span>
               </div>
             </div>
-            <AvatarAuthor
-              :imageSrc="authorAvatar"
-              :imageAlt="`${authorName}'s avatar`"
-              class="ring-2 ring-white/30 hover:ring-white/80 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            />
+            <AvatarAuthor :imageSrc="authorAvatar" :imageAlt="`${authorName}'s avatar`"
+              class="ring-2 ring-white/30 hover:ring-white/80 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl" />
           </div>
 
           <!-- Decorative slash effect with animation -->
           <div
-            class="w-full mt-3 h-px bg-gradient-to-l from-transparent via-white/50 to-transparent relative overflow-hidden"
-          >
+            class="w-full mt-3 h-px bg-gradient-to-l from-transparent via-white/50 to-transparent relative overflow-hidden">
             <div
-              class="absolute inset-0 bg-[length:20px_2px] bg-repeat-space bg-[linear-gradient(45deg,transparent_45%,white_50%,transparent_55%)] animate-slash-pattern"
-            ></div>
+              class="absolute inset-0 bg-[length:20px_2px] bg-repeat-space bg-[linear-gradient(45deg,transparent_45%,white_50%,transparent_55%)] animate-slash-pattern">
+            </div>
           </div>
         </div>
       </figcaption>
@@ -82,16 +63,13 @@
     <div class="px-4 space-y-3 max-w-4xl mx-auto">
       <h1
         class="text-4xl md:text-6xl font-bold text-center leading-tight text-balance bg-clip-text text-transparent bg-[length:200%_200%] bg-gradient-to-r from-slate-800 via-slate-600 to-slate-500 dark:from-slate-100 dark:via-slate-300 dark:to-slate-200 animate-gradient-shift"
-        style="view-transition-name: article-title"
-      >
+        style="view-transition-name: article-title">
         {{ title }}
       </h1>
 
-      <h2
-        v-if="subtitle"
+      <h2 v-if=" subtitle "
         class="text-xl md:text-2xl font-medium text-center text-slate-600 dark:text-slate-300/90 text-pretty leading-snug"
-        style="view-transition-name: article-subtitle"
-      >
+        style="view-transition-name: article-subtitle">
         {{ subtitle }}
       </h2>
     </div>
@@ -103,7 +81,8 @@ import { computed } from 'vue';
 import AvatarAuthor from '../common/AvatarAuthor.vue';
 import OptimizedPicture from '../common/OptimizedPicture.vue';
 
-interface Props {
+interface Props
+{
   title: string;
   subtitle?: string;
   authorName: string;
@@ -113,20 +92,21 @@ interface Props {
   featuredImage?: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults( defineProps<Props>(), {
   subtitle: '',
   featuredImage: '/assets/img/featured-blog.jpg',
-});
+} );
 
 // Remove the processedFeaturedImage computed property since we're passing the raw prop directly
 
-const formattedDate = computed(() => {
-  return new Date(props.date).toLocaleDateString('en-US', {
+const formattedDate = computed( () =>
+{
+  return new Date( props.date ).toLocaleDateString( 'en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  });
-});
+  } );
+} );
 
 const ClockIcon = {
   template: `
