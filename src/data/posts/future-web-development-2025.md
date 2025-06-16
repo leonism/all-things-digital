@@ -46,7 +46,6 @@ relatedPosts:
   - 'top-javascript-frameworks'
   - 'serverless-architecture-guide'
 toc: true
-metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/future-web-development-2025'
 ---
 
