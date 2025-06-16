@@ -9,14 +9,60 @@ media_folder: 'src/assets/img/uploads'
 public_folder: '/assets/img/uploads'
 
 collections:
+  # Authors Collection
+  - name: 'authors'
+    label: 'Authors'
+    folder: 'src/data/authors'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
+      - { label: 'Email', name: 'email', widget: 'string', required: false }
+      - { label: 'Bio', name: 'bio', widget: 'text' }
+      - { label: 'Avatar', name: 'avatar', widget: 'image', required: false }
+      - { label: 'Role/Title', name: 'role', widget: 'string', default: 'Author' }
+      - {
+          label: 'Social Links',
+          name: 'social',
+          widget: 'object',
+          required: false,
+          fields:
+            [
+              { label: 'Website', name: 'website', widget: 'string', required: false },
+              { label: 'Twitter', name: 'twitter', widget: 'string', required: false },
+              { label: 'LinkedIn', name: 'linkedin', widget: 'string', required: false },
+              { label: 'GitHub', name: 'github', widget: 'string', required: false },
+            ],
+        }
+      - { label: 'Active', name: 'active', widget: 'boolean', default: true }
+
+  # Categories Collection
+  - name: 'categories'
+    label: 'Categories'
+    folder: 'src/data/categories'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
+      - { label: 'Featured Image', name: 'featuredImage', widget: 'image', required: false }
+      - { label: 'Color', name: 'color', widget: 'color', default: '#3B82F6' }
+      - { label: 'Parent Category', name: 'parent', widget: 'relation', collection: 'categories', search_fields: ['name'], value_field: 'slug', display_fields: ['name'], required: false }
+      - { label: 'SEO Title', name: 'seoTitle', widget: 'string', required: false }
+      - { label: 'Meta Description', name: 'metaDescription', widget: 'text', required: false }
+
+  # Enhanced Blog Collection
   - name: 'blog'
-    label: 'Blog'
+    label: 'Blog Posts'
     folder: 'src/data/posts'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
       - {
           label: 'Subtitle',
           name: 'subtitle',
@@ -24,6 +70,15 @@ collections:
           required: false,
         }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Last Modified', name: 'lastModified', widget: 'datetime', required: false }
+      - {
+          label: 'Status',
+          name: 'status',
+          widget: 'select',
+          options: ['draft', 'review', 'published', 'archived'],
+          default: 'draft',
+        }
+      - { label: 'Featured Post', name: 'featured', widget: 'boolean', default: false }
       - {
           label: 'Featured Image',
           name: 'featuredImage',
@@ -32,86 +87,386 @@ collections:
             [
               { label: 'Source', name: 'src', widget: 'string' },
               { label: 'Alt Text', name: 'alt', widget: 'string' },
+              { label: 'Caption', name: 'caption', widget: 'string', required: false },
+              { label: 'Credit', name: 'credit', widget: 'string', required: false },
             ],
         }
-      - { label: 'Category', name: 'category', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
       - {
-          label: 'Author',
-          name: 'author',
-          widget: 'object',
+          label: 'Gallery',
+          name: 'gallery',
+          widget: 'list',
+          required: false,
           fields:
             [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Image', name: 'image', widget: 'string' },
-              {
-                label: 'Link',
-                name: 'link',
-                widget: 'string',
-                default: '/about',
-              },
+              { label: 'Image', name: 'image', widget: 'image' },
+              { label: 'Alt Text', name: 'alt', widget: 'string' },
+              { label: 'Caption', name: 'caption', widget: 'string', required: false },
+            ],
+        }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['name'], value_field: 'name', display_fields: ['name'] }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
+      - { label: 'Series', name: 'series', widget: 'string', required: false }
+      - { label: 'Part Number', name: 'partNumber', widget: 'number', required: false }
+      - { label: 'Author', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['name'], value_field: 'name', display_fields: ['name'] }
+      - {
+          label: 'Co-Authors',
+          name: 'coAuthors',
+          widget: 'list',
+          required: false,
+          field: { label: 'Author', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['name'], value_field: 'name', display_fields: ['name'] },
+        }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
+      - { label: 'Reading Time', name: 'readingTime', widget: 'string', required: false, hint: 'e.g., "5 minutes"' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Related Posts',
+          name: 'relatedPosts',
+          widget: 'list',
+          required: false,
+          field: { label: 'Post', name: 'post', widget: 'relation', collection: 'blog', search_fields: ['title'], value_field: 'slug', display_fields: ['title'] },
+        }
+      - {
+          label: 'SEO',
+          name: 'seo',
+          widget: 'object',
+          collapsed: true,
+          fields:
+            [
+              { label: 'SEO Title', name: 'title', widget: 'string', required: false },
+              { label: 'Meta Description', name: 'description', widget: 'text', required: false },
+              { label: 'Keywords', name: 'keywords', widget: 'list', required: false },
+              { label: 'Canonical URL', name: 'canonical', widget: 'string', required: false },
+              { label: 'No Index', name: 'noindex', widget: 'boolean', default: false },
+            ],
+        }
+      - {
+          label: 'Social Media',
+          name: 'social',
+          widget: 'object',
+          collapsed: true,
+          required: false,
+          fields:
+            [
+              { label: 'Twitter Title', name: 'twitterTitle', widget: 'string', required: false },
+              { label: 'Twitter Description', name: 'twitterDescription', widget: 'text', required: false },
+              { label: 'Twitter Image', name: 'twitterImage', widget: 'image', required: false },
+              { label: 'Facebook Title', name: 'facebookTitle', widget: 'string', required: false },
+              { label: 'Facebook Description', name: 'facebookDescription', widget: 'text', required: false },
+              { label: 'Facebook Image', name: 'facebookImage', widget: 'image', required: false },
+            ],
+        }
+      - {
+          label: 'Advanced',
+          name: 'advanced',
+          widget: 'object',
+          collapsed: true,
+          required: false,
+          fields:
+            [
+              { label: 'Custom CSS', name: 'customCSS', widget: 'code', default_language: 'css', required: false },
+              { label: 'Custom JavaScript', name: 'customJS', widget: 'code', default_language: 'javascript', required: false },
+              { label: 'Schema Markup', name: 'schema', widget: 'code', default_language: 'json', required: false },
+            ],
+        }
+
+  # Testimonials Collection
+  - name: 'testimonials'
+    label: 'Testimonials'
+    folder: 'src/data/testimonials'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
+      - { label: 'Company', name: 'company', widget: 'string', required: false }
+      - { label: 'Position', name: 'position', widget: 'string', required: false }
+      - { label: 'Avatar', name: 'avatar', widget: 'image', required: false }
+      - { label: 'Testimonial', name: 'content', widget: 'text' }
+      - { label: 'Rating', name: 'rating', widget: 'number', value_type: 'int', min: 1, max: 5, default: 5 }
+      - { label: 'Featured', name: 'featured', widget: 'boolean', default: false }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Approved', name: 'approved', widget: 'boolean', default: false }
+
+  # Navigation Collection
+  - name: 'navigation'
+    label: 'Navigation'
+    files:
+      - label: 'Main Navigation'
+        name: 'main'
+        file: 'src/data/navigation/main.json'
+        fields:
+          - {
+              label: 'Navigation Items',
+              name: 'items',
+              widget: 'list',
+              fields:
+                [
+                  { label: 'Label', name: 'label', widget: 'string' },
+                  { label: 'URL', name: 'url', widget: 'string' },
+                  { label: 'External Link', name: 'external', widget: 'boolean', default: false },
+                  { label: 'Icon', name: 'icon', widget: 'string', required: false },
+                  {
+                    label: 'Submenu',
+                    name: 'submenu',
+                    widget: 'list',
+                    required: false,
+                    fields:
+                      [
+                        { label: 'Label', name: 'label', widget: 'string' },
+                        { label: 'URL', name: 'url', widget: 'string' },
+                        { label: 'External Link', name: 'external', widget: 'boolean', default: false },
+                      ],
+                  },
+                ],
+            }
+      - label: 'Footer Navigation'
+        name: 'footer'
+        file: 'src/data/navigation/footer.json'
+        fields:
+          - {
+              label: 'Footer Sections',
+              name: 'sections',
+              widget: 'list',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  {
+                    label: 'Links',
+                    name: 'links',
+                    widget: 'list',
+                    fields:
+                      [
+                        { label: 'Label', name: 'label', widget: 'string' },
+                        { label: 'URL', name: 'url', widget: 'string' },
+                        { label: 'External Link', name: 'external', widget: 'boolean', default: false },
+                      ],
+                  },
+                ],
+            }
+
+  # Enhanced Pages Collection
+  - name: 'pages'
+    label: 'Pages'
+    folder: 'src/data/pages'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'page' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Last Modified', name: 'lastModified', widget: 'datetime', required: false }
+      - {
+          label: 'Status',
+          name: 'status',
+          widget: 'select',
+          options: ['draft', 'review', 'published', 'archived'],
+          default: 'draft',
+        }
+      - {
+          label: 'Page Type',
+          name: 'pageType',
+          widget: 'select',
+          options: ['standard', 'landing', 'contact', 'about', 'services', 'portfolio'],
+          default: 'standard',
+        }
+      - {
+          label: 'Featured Image',
+          name: 'featuredImage',
+          widget: 'object',
+          required: false,
+          fields:
+            [
+              { label: 'Source', name: 'src', widget: 'string' },
+              { label: 'Alt Text', name: 'alt', widget: 'string' },
+              { label: 'Caption', name: 'caption', widget: 'string', required: false },
             ],
         }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
-      - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - {
-          label: 'Published',
-          name: 'published',
-          widget: 'boolean',
-          default: true,
+          label: 'Page Sections',
+          name: 'sections',
+          widget: 'list',
+          required: false,
+          types:
+            [
+              {
+                label: 'Hero Section',
+                name: 'hero',
+                widget: 'object',
+                fields:
+                  [
+                    { label: 'Title', name: 'title', widget: 'string' },
+                    { label: 'Subtitle', name: 'subtitle', widget: 'string', required: false },
+                    { label: 'Background Image', name: 'backgroundImage', widget: 'image', required: false },
+                    { label: 'CTA Text', name: 'ctaText', widget: 'string', required: false },
+                    { label: 'CTA Link', name: 'ctaLink', widget: 'string', required: false },
+                  ],
+              },
+              {
+                label: 'Text Section',
+                name: 'text',
+                widget: 'object',
+                fields:
+                  [
+                    { label: 'Title', name: 'title', widget: 'string', required: false },
+                    { label: 'Content', name: 'content', widget: 'markdown' },
+                  ],
+              },
+              {
+                label: 'Image Gallery',
+                name: 'gallery',
+                widget: 'object',
+                fields:
+                  [
+                    { label: 'Title', name: 'title', widget: 'string', required: false },
+                    {
+                      label: 'Images',
+                      name: 'images',
+                      widget: 'list',
+                      fields:
+                        [
+                          { label: 'Image', name: 'image', widget: 'image' },
+                          { label: 'Alt Text', name: 'alt', widget: 'string' },
+                          { label: 'Caption', name: 'caption', widget: 'string', required: false },
+                        ],
+                    },
+                  ],
+              },
+            ],
+        }
+      - {
+          label: 'SEO',
+          name: 'seo',
+          widget: 'object',
+          collapsed: true,
+          required: false,
+          fields:
+            [
+              { label: 'SEO Title', name: 'title', widget: 'string', required: false },
+              { label: 'Meta Description', name: 'description', widget: 'text', required: false },
+              { label: 'Keywords', name: 'keywords', widget: 'list', required: false },
+              { label: 'Canonical URL', name: 'canonical', widget: 'string', required: false },
+              { label: 'No Index', name: 'noindex', widget: 'boolean', default: false },
+            ],
+        }
+      - {
+          label: 'Advanced',
+          name: 'advanced',
+          widget: 'object',
+          collapsed: true,
+          required: false,
+          fields:
+            [
+              { label: 'Custom CSS', name: 'customCSS', widget: 'code', default_language: 'css', required: false },
+              { label: 'Custom JavaScript', name: 'customJS', widget: 'code', default_language: 'javascript', required: false },
+              { label: 'Template Override', name: 'template', widget: 'string', required: false },
+            ],
         }
 
-  - name: 'pages'
-    label: 'Pages'
-    files:
-      - label: 'About Page'
-        name: 'about'
-        file: 'src/content/about.md'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-      - label: 'Contact Page'
-        name: 'contact'
-        file: 'src/content/contact.md'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-
+  # Enhanced Site Settings
   - name: 'settings'
-    label: 'Settings'
+    label: 'Site Settings'
     files:
-      - label: 'Site Settings'
-        name: 'site'
-        file: 'src/data/site.json'
+      - label: 'General Settings'
+        name: 'general'
+        file: 'src/data/settings/general.json'
         fields:
           - { label: 'Site Title', name: 'title', widget: 'string' }
+          - { label: 'Site Tagline', name: 'tagline', widget: 'string', required: false }
           - { label: 'Site Description', name: 'description', widget: 'text' }
           - { label: 'Site URL', name: 'url', widget: 'string' }
-          - { label: 'Author Name', name: 'author', widget: 'string' }
+          - { label: 'Site Logo', name: 'logo', widget: 'image', required: false }
+          - { label: 'Favicon', name: 'favicon', widget: 'image', required: false }
+          - { label: 'Default Author', name: 'author', widget: 'string' }
+          - { label: 'Contact Email', name: 'email', widget: 'string' }
+          - { label: 'Phone Number', name: 'phone', widget: 'string', required: false }
+          - { label: 'Address', name: 'address', widget: 'text', required: false }
+          - { label: 'Timezone', name: 'timezone', widget: 'string', default: 'UTC' }
+          - { label: 'Language', name: 'language', widget: 'string', default: 'en' }
           - {
               label: 'Social Media',
               name: 'social',
               widget: 'object',
               fields:
                 [
-                  {
-                    label: 'Twitter',
-                    name: 'twitter',
-                    widget: 'string',
-                    required: false,
-                  },
-                  {
-                    label: 'GitHub',
-                    name: 'github',
-                    widget: 'string',
-                    required: false,
-                  },
-                  {
-                    label: 'LinkedIn',
-                    name: 'linkedin',
-                    widget: 'string',
-                    required: false,
-                  },
+                  { label: 'Twitter', name: 'twitter', widget: 'string', required: false },
+                  { label: 'Facebook', name: 'facebook', widget: 'string', required: false },
+                  { label: 'Instagram', name: 'instagram', widget: 'string', required: false },
+                  { label: 'LinkedIn', name: 'linkedin', widget: 'string', required: false },
+                  { label: 'YouTube', name: 'youtube', widget: 'string', required: false },
+                  { label: 'GitHub', name: 'github', widget: 'string', required: false },
+                  { label: 'TikTok', name: 'tiktok', widget: 'string', required: false },
                 ],
             }
+      - label: 'SEO Settings'
+        name: 'seo'
+        file: 'src/data/settings/seo.json'
+        fields:
+          - { label: 'Default Meta Title', name: 'defaultTitle', widget: 'string' }
+          - { label: 'Title Template', name: 'titleTemplate', widget: 'string', default: '%s | Site Name' }
+          - { label: 'Default Meta Description', name: 'defaultDescription', widget: 'text' }
+          - { label: 'Default Keywords', name: 'defaultKeywords', widget: 'list' }
+          - { label: 'Default Open Graph Image', name: 'defaultOgImage', widget: 'image', required: false }
+          - { label: 'Twitter Card Type', name: 'twitterCardType', widget: 'select', options: ['summary', 'summary_large_image'], default: 'summary_large_image' }
+          - { label: 'Google Analytics ID', name: 'googleAnalyticsId', widget: 'string', required: false }
+          - { label: 'Google Tag Manager ID', name: 'googleTagManagerId', widget: 'string', required: false }
+          - { label: 'Facebook Pixel ID', name: 'facebookPixelId', widget: 'string', required: false }
+          - { label: 'Robots.txt Content', name: 'robotsTxt', widget: 'text', required: false }
+          - { label: 'Sitemap Enabled', name: 'sitemapEnabled', widget: 'boolean', default: true }
+      - label: 'Theme Settings'
+        name: 'theme'
+        file: 'src/data/settings/theme.json'
+        fields:
+          - { label: 'Primary Color', name: 'primaryColor', widget: 'color', default: '#3B82F6' }
+          - { label: 'Secondary Color', name: 'secondaryColor', widget: 'color', default: '#10B981' }
+          - { label: 'Accent Color', name: 'accentColor', widget: 'color', default: '#F59E0B' }
+          - { label: 'Background Color', name: 'backgroundColor', widget: 'color', default: '#FFFFFF' }
+          - { label: 'Text Color', name: 'textColor', widget: 'color', default: '#1F2937' }
+          - { label: 'Font Family', name: 'fontFamily', widget: 'select', options: ['Inter', 'Roboto', 'Open Sans', 'Lato', 'Montserrat'], default: 'Inter' }
+          - { label: 'Header Style', name: 'headerStyle', widget: 'select', options: ['fixed', 'static', 'sticky'], default: 'sticky' }
+          - { label: 'Footer Style', name: 'footerStyle', widget: 'select', options: ['simple', 'detailed', 'minimal'], default: 'detailed' }
+          - { label: 'Dark Mode Enabled', name: 'darkModeEnabled', widget: 'boolean', default: false }
+      - label: 'Blog Settings'
+        name: 'blog'
+        file: 'src/data/settings/blog.json'
+        fields:
+          - { label: 'Posts Per Page', name: 'postsPerPage', widget: 'number', default: 10, value_type: 'int', min: 1, max: 50 }
+          - { label: 'Show Reading Time', name: 'showReadingTime', widget: 'boolean', default: true }
+          - { label: 'Show Author Bio', name: 'showAuthorBio', widget: 'boolean', default: true }
+          - { label: 'Show Related Posts', name: 'showRelatedPosts', widget: 'boolean', default: true }
+          - { label: 'Enable Comments', name: 'enableComments', widget: 'boolean', default: false }
+          - { label: 'Comment System', name: 'commentSystem', widget: 'select', options: ['disqus', 'giscus', 'utterances', 'none'], default: 'none' }
+          - { label: 'Show Social Sharing', name: 'showSocialSharing', widget: 'boolean', default: true }
+          - { label: 'Enable Newsletter Signup', name: 'enableNewsletter', widget: 'boolean', default: false }
+      - label: 'Performance Settings'
+        name: 'performance'
+        file: 'src/data/settings/performance.json'
+        fields:
+          - { label: 'Enable Image Optimization', name: 'imageOptimization', widget: 'boolean', default: true }
+          - { label: 'Enable Lazy Loading', name: 'lazyLoading', widget: 'boolean', default: true }
+          - { label: 'Enable Service Worker', name: 'serviceWorker', widget: 'boolean', default: false }
+          - { label: 'Cache Duration (hours)', name: 'cacheDuration', widget: 'number', default: 24, value_type: 'int', min: 1, max: 168 }
+          - { label: 'Enable Compression', name: 'compression', widget: 'boolean', default: true }
+          - { label: 'Minify CSS', name: 'minifyCSS', widget: 'boolean', default: true }
+          - { label: 'Minify JavaScript', name: 'minifyJS', widget: 'boolean', default: true }
+
+  # Media Library Collection
+  - name: 'media'
+    label: 'Media Library'
+    folder: 'src/data/media'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
+      - { label: 'File', name: 'file', widget: 'file' }
+      - { label: 'Alt Text', name: 'alt', widget: 'string' }
+      - { label: 'Caption', name: 'caption', widget: 'string', required: false }
+      - { label: 'Description', name: 'description', widget: 'text', required: false }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
+      - { label: 'Category', name: 'category', widget: 'select', options: ['image', 'video', 'audio', 'document', 'other'], default: 'image' }
+      - { label: 'Copyright', name: 'copyright', widget: 'string', required: false }
+      - { label: 'Credit', name: 'credit', widget: 'string', required: false }
+      - { label: 'Upload Date', name: 'uploadDate', widget: 'datetime', default: '' }
