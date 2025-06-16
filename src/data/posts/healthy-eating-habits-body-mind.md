@@ -3,7 +3,7 @@ title: "Healthy Eating Habits: Fueling Your Body and Mind"
 seoTitle: Healthy Eating Guide | Nutrition Tips for Body & Mind
 slug: healthy-eating-habits-body-mind
 date: "2025-05-21"
-lastModified: "2025-06-16T16:34:03.558Z"
+lastModified: "2025-06-16T16:41:09.044Z"
 author:
   name: Dr. Olivia Martinez
   role: Nutritionist
@@ -24,6 +24,27 @@ readingTime: 9 minutes
 status: published
 featured: true
 priority: medium
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind
+seo:
+  description: Learn about the importance of healthy eating habits for both physical and mental well-being. This guide provides practical tips on balanced diets, mindful ea...
+  canonical: https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind
+  keywords:
+    - healthy-eating
+    - nutrition
+    - wellness
+    - diet
+    - mental-health
+    - healthy
+    - eating
+    - "habits:"
+    - fueling
+    - your
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 schema:
   "@type": Article
   headline: "Healthy Eating Habits: Fueling Your Body and Mind"
@@ -46,27 +67,6 @@ relatedPosts:
   - mindful-eating-techniques
   - meal-prepping-for-beginners
 toc: true
-metaRobots: index, follow
-canonicalUrl: https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind
-seo:
-  description: Learn about the importance of healthy eating habits for both physical and mental well-being. This guide provides practical tips on balanced diets, mindful ea...
-  canonical: https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind
-  keywords:
-    - healthy-eating
-    - nutrition
-    - wellness
-    - diet
-    - mental-health
-    - healthy
-    - eating
-    - "habits:"
-    - fueling
-    - your
-contentSettings:
-  toc: true
-  comments: true
-  shareButtons: true
-  contentWarning: null
 ---
 
 A balanced diet is not just about eating less or avoiding certain foods; it's about nourishing your body with the right nutrients. Here are some essential components: Good nutrition is the foundation of a healthy life.

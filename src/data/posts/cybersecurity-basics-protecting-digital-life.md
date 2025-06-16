@@ -3,7 +3,7 @@ title: "Cybersecurity Basics: Protecting Your Digital Life"
 seoTitle: Cybersecurity Guide | Protect Your Digital Life Online
 slug: cybersecurity-basics-protecting-digital-life
 date: "2025-05-18"
-lastModified: "2025-06-16T16:34:03.537Z"
+lastModified: "2025-06-16T16:41:09.006Z"
 author:
   name: Ken Adams
   role: Security Expert
@@ -24,6 +24,27 @@ readingTime: 10 minutes
 status: published
 featured: true
 priority: high
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
+seo:
+  description: Learn fundamental cybersecurity practices to protect yourself from online threats. This guide covers strong passwords, recognizing phishing scams, securing y...
+  canonical: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
+  keywords:
+    - cybersecurity
+    - online-safety
+    - passwords
+    - phishing
+    - data-privacy
+    - "basics:"
+    - protecting
+    - your
+    - digital
+    - life
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 schema:
   "@type": Article
   headline: "Cybersecurity Basics: Protecting Your Digital Life"
@@ -46,27 +67,6 @@ relatedPosts:
   - spotting-phishing-emails
   - securing-your-home-wifi
 toc: true
-metaRobots: index, follow
-canonicalUrl: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
-seo:
-  description: Learn fundamental cybersecurity practices to protect yourself from online threats. This guide covers strong passwords, recognizing phishing scams, securing y...
-  canonical: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
-  keywords:
-    - cybersecurity
-    - online-safety
-    - passwords
-    - phishing
-    - data-privacy
-    - "basics:"
-    - protecting
-    - your
-    - digital
-    - life
-contentSettings:
-  toc: true
-  comments: true
-  shareButtons: true
-  contentWarning: null
 ---
 
 Protecting your digital identity is crucial. In today's interconnected world, cybercriminals are constantly finding new ways to exploit vulnerabilities. By understanding and implementing basic cybersecurity practices, you can significantly reduce your risk of falling victim to online threats.

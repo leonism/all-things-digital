@@ -3,7 +3,7 @@ title: "DIY Home Decor: Creative Projects on a Budget"
 seoTitle: Budget DIY Home Decor Ideas | Creative & Affordable Projects
 slug: diy-home-decor-creative-budget-projects
 date: "2025-05-19"
-lastModified: "2025-06-16T16:34:03.540Z"
+lastModified: "2025-06-16T16:41:09.012Z"
 author:
   name: Jessica Miller
   role: DIY Blogger
@@ -24,6 +24,27 @@ readingTime: 7 minutes
 status: published
 featured: false
 priority: low
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects
+seo:
+  description: Transform your living space without breaking the bank! Explore creative and budget-friendly DIY home decor projects, from upcycled furniture ideas to simple ...
+  canonical: https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects
+  keywords:
+    - diy
+    - home-decor
+    - crafts
+    - budget-friendly
+    - upcycling
+    - home
+    - "decor:"
+    - creative
+    - projects
+    - budget
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 schema:
   "@type": Article
   headline: "DIY Home Decor: Creative Projects on a Budget"
@@ -46,27 +67,6 @@ relatedPosts:
   - easy-wall-art-projects
   - budget-decorating-tips
 toc: false
-metaRobots: index, follow
-canonicalUrl: https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects
-seo:
-  description: Transform your living space without breaking the bank! Explore creative and budget-friendly DIY home decor projects, from upcycled furniture ideas to simple ...
-  canonical: https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects
-  keywords:
-    - diy
-    - home-decor
-    - crafts
-    - budget-friendly
-    - upcycling
-    - home
-    - "decor:"
-    - creative
-    - projects
-    - budget
-contentSettings:
-  toc: true
-  comments: true
-  shareButtons: true
-  contentWarning: null
 ---
 
 Decorating your home doesn’t have to come with a hefty price tag. With a little creativity and some basic materials, you can craft unique pieces that reflect your personality. DIY home decor allows you to: Add personal touches to your home affordably.

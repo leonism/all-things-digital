@@ -3,7 +3,7 @@ title: "Sustainable Living: Tips for an Eco-Friendly Home"
 seoTitle: Eco-Friendly Home Guide | Sustainable Living Tips & Ideas
 slug: sustainable-living-eco-friendly-home
 date: "2025-05-25"
-lastModified: "2025-06-16T16:34:03.575Z"
+lastModified: "2025-06-16T16:41:09.062Z"
 author:
   name: Sophia Green
   role: Environmental Consultant
@@ -24,6 +24,21 @@ readingTime: 8 minutes
 status: published
 featured: false
 priority: medium
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home
+seo:
+  description: Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small things could make a huge impact.
+  canonical: https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home
+  keywords:
+    - sustainable-living
+    - eco-friendly
+    - green-home
+    - environment
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 schema:
   "@type": Article
   headline: "Sustainable Living: Tips for an Eco-Friendly Home"
@@ -46,21 +61,6 @@ relatedPosts:
   - energy-saving-hacks
   - gardening-for-biodiversity
 toc: true
-metaRobots: index, follow
-canonicalUrl: https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home
-seo:
-  description: Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small things could make a huge impact.
-  canonical: https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home
-  keywords:
-    - sustainable-living
-    - eco-friendly
-    - green-home
-    - environment
-contentSettings:
-  toc: true
-  comments: true
-  shareButtons: true
-  contentWarning: null
 ---
 
 Adopting the mantra of "reduce, reuse, recycle" is one of the simplest ways to create a more eco-friendly home. These practices help minimize waste and conserve natural resources. Creating a sustainable home is easier than you think. Here are some actionable tips:

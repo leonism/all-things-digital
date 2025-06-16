@@ -3,7 +3,7 @@ title: "Mindfulness and Meditation: Finding Calm in a Busy World"
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
 date: "2025-05-17"
-lastModified: "2025-06-16T16:34:03.573Z"
+lastModified: "2025-06-16T16:41:09.058Z"
 author:
   name: Aisha Khan
   role: Wellness Coach
@@ -24,6 +24,27 @@ readingTime: 6 minutes
 status: published
 featured: false
 priority: medium
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
+seo:
+  description: Discover the benefits of mindfulness and meditation for reducing stress and enhancing mental clarity. Learn simple techniques to incorporate these practices ...
+  canonical: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
+  keywords:
+    - mindfulness
+    - meditation
+    - stress-relief
+    - mental-health
+    - well-being
+    - "meditation:"
+    - finding
+    - calm
+    - busy
+    - world
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 schema:
   "@type": Article
   headline: "Mindfulness and Meditation: Finding Calm in a Busy World"
@@ -46,27 +67,6 @@ relatedPosts:
   - mindfulness-exercises-for-beginners
   - managing-anxiety-naturally
 toc: false
-metaRobots: index, follow
-canonicalUrl: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
-seo:
-  description: Discover the benefits of mindfulness and meditation for reducing stress and enhancing mental clarity. Learn simple techniques to incorporate these practices ...
-  canonical: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
-  keywords:
-    - mindfulness
-    - meditation
-    - stress-relief
-    - mental-health
-    - well-being
-    - "meditation:"
-    - finding
-    - calm
-    - busy
-    - world
-contentSettings:
-  toc: true
-  comments: true
-  shareButtons: true
-  contentWarning: null
 ---
 
 In today’s fast-paced world, mindfulness has emerged as a powerful tool for reclaiming our mental space. At its core, **mindfulness** is about being fully present in the moment, without judgment. It encourages us to step away from the constant chatter of our minds and focus on what’s happening right now.
