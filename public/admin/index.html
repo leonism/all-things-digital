@@ -9,25 +9,5 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    
-    <!-- Cloudinary Media Library Extension -->
-    <script src="https://unpkg.com/decap-cms-media-library-cloudinary@^3.0.0/dist/decap-cms-media-library-cloudinary.js"></script>
-    
-    <!-- Custom Cloudinary Mapping Extension -->
-    <script src="./cloudinary-media-extension.js"></script>
-    
-    <script>
-      // Initialize Cloudinary media library
-      if (window.CMS && window.cloudinaryMediaLibrary) {
-        window.CMS.registerMediaLibrary(window.cloudinaryMediaLibrary);
-      }
-      
-      // Custom initialization for cloudinary mapping
-      window.CMS.init({
-        config: {
-          load_config_file: true
-        }
-      });
-    </script>
   </body>
 </html>

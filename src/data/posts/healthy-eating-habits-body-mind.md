@@ -3,7 +3,7 @@ title: 'Healthy Eating Habits: Fueling Your Body and Mind'
 seoTitle: Healthy Eating Guide | Nutrition Tips for Body & Mind
 slug: healthy-eating-habits-body-mind
 date: '2025-05-21'
-lastModified: '2025-06-16T14:36:36.871Z'
+lastModified: '2025-06-16T15:55:32.843Z'
 author:
   name: Dr. Olivia Martinez
   role: Nutritionist
@@ -45,21 +45,22 @@ schema:
     https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: All Things Digital
+    name: Wellness Insights
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - benefits-of-mediterranean-diet
-  - meal-prep-strategies
-  - nutrition-myths-debunked
+  - mindful-eating-techniques
+  - meal-prepping-for-beginners
 toc: true
+metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind'
 seo:
   description: >-
     Learn about the importance of healthy eating habits for both physical and
     mental well-being. This guide provides practical tips on balanced diets,
-    mindful eating, and making sustainable food choices.
+    mindful ea...
   canonical: 'https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind'
   keywords:
     - healthy-eating
@@ -69,7 +70,9 @@ seo:
     - mental-health
     - healthy
     - eating
-    - habits
+    - 'habits:'
+    - fueling
+    - your
 contentSettings:
   toc: true
   comments: true

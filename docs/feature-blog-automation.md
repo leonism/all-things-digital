@@ -127,7 +127,7 @@ npm run dev
 npm run test-blog-data
 
 # Check current blog data
-cat src/data/blog-data.json | head -20
+cat src/blog-data.json | head -20
 
 # Validate Markdown files
 npm run validate-frontmatter
@@ -181,7 +181,7 @@ Edit `scripts/generate-blog-data.js`:
 ```javascript
 // Configuration section
 const POSTS_DIRECTORY = path.join(process.cwd(), 'src/data/posts');
-const OUTPUT_FILE = path.join(process.cwd(), 'src/data/blog-data.json');
+const OUTPUT_FILE = path.join(process.cwd(), 'src/blog-data.json');
 const DEFAULT_AUTHOR = {
   name: 'DGPond',
   image: '/assets/img/avatar.png',

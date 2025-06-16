@@ -28,13 +28,13 @@ import matter from 'gray-matter';
 
 // --- Configuration (User should update these) ---
 const POSTS_DIRECTORY = path.join(process.cwd(), 'src/data/posts'); // <<<--- Directory containing Markdown files
-const OUTPUT_FILE = path.join(process.cwd(), 'src/data/blog-data.json'); // <<<--- Output JSON file path
+const OUTPUT_FILE = path.join(process.cwd(), 'src/blog-data.json'); // <<<--- Output JSON file path
 const DEFAULT_AUTHOR = {
-  // <<<--- Default author information
   name: 'DGPond',
   image: '/assets/img/avatar.png',
-  link: '/about',
-};
+  link: '/about'
+}; // <<<--- Default author information
+// -------------------------------------------------
 
 /**
  * Reads and validates a directory path.
@@ -50,9 +50,7 @@ const readDirectory = (dirPath) => {
     }
 
     // Read directory contents and filter for Markdown files
-    const filenames = fs
-      .readdirSync(dirPath)
-      .filter((name) => name.endsWith('.md'));
+    const filenames = fs.readdirSync(dirPath).filter(name => name.endsWith('.md'));
 
     if (filenames.length === 0) {
       console.warn(`⚠️  No Markdown files found in ${dirPath}`);
@@ -60,7 +58,10 @@ const readDirectory = (dirPath) => {
 
     return filenames;
   } catch (error) {
-    console.error(`❌ Error reading directory at ${dirPath}:`, error.message);
+    console.error(
+      `❌ Error reading directory at ${dirPath}:`,
+      error.message,
+    );
     // Exit the process with a non-zero code to indicate failure
     process.exit(1);
   }
@@ -84,8 +85,10 @@ const processMarkdownFile = (filename, postsDir) => {
     // Parse frontmatter and content using gray-matter
     const { data, content } = matter(fileContents);
 
-    // Generate slug from filename (remove .md extension)
-    const slug = filename.replace(/\.md$/, '');
+    // Generate slug from frontmatter if available, otherwise use filename (remove .md extension)
+    const slug = data.slug || filename.replace(/\.md$/, '');
+
+
 
     // Structure the post data with proper defaults
     return {
@@ -100,10 +103,13 @@ const processMarkdownFile = (filename, postsDir) => {
       excerpt: data.excerpt || '',
       description: data.description || '',
       content: content,
-      status: data.status || (data.published !== false ? 'published' : 'draft'), // Use status field consistently
+      status: data.status || (data.published !== false ? 'published' : 'draft') // Use status field consistently
     };
   } catch (error) {
-    console.error(`❌ Error processing file ${filename}:`, error.message);
+    console.error(
+      `❌ Error processing file ${filename}:`,
+      error.message,
+    );
     // Exit the process with a non-zero code to indicate failure
     process.exit(1);
   }
@@ -146,9 +152,7 @@ const generateBlogData = () => {
     const filenames = readDirectory(POSTS_DIRECTORY);
 
     if (filenames.length === 0) {
-      console.log(
-        '📝 No posts to process. Blog data file will contain an empty array.',
-      );
+      console.log('📝 No posts to process. Blog data file will contain an empty array.');
       writeBlogData(OUTPUT_FILE, []);
       return;
     }
@@ -156,18 +160,16 @@ const generateBlogData = () => {
     console.log(`📖 Processing ${filenames.length} Markdown file(s)...`);
 
     // Process each Markdown file to extract post data
-    const posts = filenames.map((filename) =>
-      processMarkdownFile(filename, POSTS_DIRECTORY),
+    const posts = filenames.map(filename =>
+      processMarkdownFile(filename, POSTS_DIRECTORY)
     );
 
     // Sort posts by date (newest first)
-    posts.sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
+    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     // Filter only published posts
-    const publishedPosts = posts.filter((post) => post.status === 'published');
-    const draftPosts = posts.filter((post) => post.status === 'draft');
+    const publishedPosts = posts.filter(post => post.status === 'published');
+    const draftPosts = posts.filter(post => post.status === 'draft');
 
     // Write the processed blog data to JSON file
     writeBlogData(OUTPUT_FILE, publishedPosts);
@@ -181,15 +183,13 @@ const generateBlogData = () => {
 
     if (draftPosts.length > 0) {
       console.log(`📝 Draft posts (not included in output):`);
-      draftPosts.forEach((post) => {
+      draftPosts.forEach(post => {
         console.log(`   • ${post.title} (${post.slug})`);
       });
     }
+
   } catch (error) {
-    console.error(
-      '❌ Unexpected error during blog data generation:',
-      error.message,
-    );
+    console.error('❌ Unexpected error during blog data generation:', error.message);
     // Exit the process with a non-zero code to indicate failure
     process.exit(1);
   }

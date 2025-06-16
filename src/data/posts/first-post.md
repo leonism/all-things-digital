@@ -1,9 +1,9 @@
 ---
 title: My First Blog Post
-seoTitle: My First Blog Post | All Things Digital
+seoTitle: My First Blog Post | Example Article
 slug: first-post
-date: '2025-05-26T12:54:05.047Z'
-lastModified: '2025-06-16T12:54:05.047Z'
+date: '2025-05-26'
+lastModified: '2025-06-16T15:55:32.815Z'
 author:
   name: Mike Smith
   role: Developer
@@ -18,7 +18,7 @@ featuredImage:
   src: all-things-digital/thumbnail-03-comp
   alt: Code example screenshot
   caption: An example image for the first post.
-excerpt:
+excerpt: >-
   This is the first example blog post generated for testing the Markdown
   processing and frontmatter structure. Welcome to the first blog post on this
   newly integrated Vue 3 blog! This post serves as an example to test the
@@ -27,61 +27,10 @@ readingTime: 5 minutes
 status: published
 featured: false
 priority: low
-schema:
-  '@type': Article
-  headline: My First Blog Post
-  description:
-    An example blog post for testing the Markdown processing and frontmatter
-    structure.
-  author:
-    '@type': Person
-    name: Mike Smith
-    jobTitle: Developer
-  datePublished: '2025-05-26'
-  dateModified: '2025-05-26'
-  image: ../assets/img/featured-blog.jpg
-  publisher:
-    '@type': Organization
-    name: Tech Insights Blog
-    logo:
-      '@type': ImageObject
-      url: ..assets/img/icons/logo-footer.png
-relatedPosts:
-  - ai-in-web-development
-  - top-javascript-frameworks
-  - serverless-architecture-guide
-toc: true
+metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
 seo:
-  description:
-    This is the first example blog post generated for testing the Markdown
-    processing and frontmatter structure.
-  canonical: 'https://all-things-digital.pages.dev/blog/first-post'
-  keywords:
-    - vite
-    - vue3
-    - markdown
-    - tailwindcss
-    - first
-    - blog
-    - post
-contentSettings:
-  toc: true
-  comments: true
-  shareButtons: true
-  contentWarning: null
-status: published
-readingTime: 5 minutes
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
-seoTitle: My First Blog Post | Example Article
-category: Technology
-description:
-  Welcome to the first blog post on this newly integrated Vue 3 blog! This post
-  serves as an example to test the Markdown rendering and frontmatter
-  extraction.
-lastModified: '2025-06-16T12:54:05.040Z'
-seo:
-  description:
+  description: >-
     This is the first example blog post generated for testing the Markdown
     processing and frontmatter structure. Welcome to the first blog post on this
     newly int...
@@ -101,7 +50,7 @@ contentSettings:
   contentWarning: null
 ---
 
-This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
+Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
 
 ## Features
 
@@ -124,56 +73,7 @@ Each of these tools brings its own unique advantages:
 ## Code Example
 
 ```javascript
-<template>
-  <section id="blogArticles" class="flex flex-col">
-    <BlogArticleCard
-      v-for="post in publishedPosts"
-      :key="post.slug"
-      :imageSrc="post.featuredImage?.src || '/assets/img/thumbnail-01-comp.jpg'"
-      :imageAlt="post.featuredImage?.alt || post.title"
-      :title="post.title"
-      :postLink="`/blog/${post.slug}`"
-      :date="post.date"
-      :excerpt="post.excerpt"
-      :tags="post.tags"
-      :authorImageSrc="post.author?.image || '/assets/img/avatar.png'"
-      :authorImageAlt="post.author?.name || 'Author profile picture'"
-      :authorName="post.author?.name || 'Unknown Author'"
-      :category="post.category"
-    />
-  </section>
-</template>
-
-<script setup>
-/**
- * BlogGrid Component
- *
- * This component displays a grid of blog posts using the `BlogArticleCard`
- * component. It fetches all posts from `blog-data.json` and filters them
- * to only show published posts.
- *
- * The component uses Vue 3 Composition API with `<script setup>` and a
- * computed property to handle the filtering logic.
- */
-import { computed } from 'vue';
-import BlogArticleCard from './BlogArticleCard.vue';
-import postsData from '../../blog-data.json';
-
-/**
- * Computed property that filters the imported `postsData` array
- * to include only posts where the `status` is 'published' or
- * where the `status` field is not present (assuming it's published by default).
- */
-const publishedPosts = computed(() => {
-  return postsData.filter(
-    (post) => post.status === 'published' || !post.status,
-  );
-});
-</script>
-
-<style scoped>
-/* Scoped styles for this component if any */
-</style>
+console.log('Hello from the blog post!');
 ```
 
 This demonstrates how code blocks are rendered. They can be used to include snippets of code in various programming languages, making it easy to share technical knowledge.
@@ -209,12 +109,10 @@ Markdown supports both **unordered** and **ordered** lists:
 
 - Unordered list item 1
 - Unordered list item 2
-
   - Nested unordered list item
 
 1. Ordered list item 1
 2. Ordered list item 2
-
    1. Nested ordered list item
 
 ### Links and Images

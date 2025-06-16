@@ -173,7 +173,7 @@ npm run build
 
 ```bash
 # Check current blog data
-cat src/data/blog-data.json | jq .
+cat src/blog-data.json | jq .
 
 # Validate Markdown files
 npm run validate-frontmatter

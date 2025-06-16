@@ -3,7 +3,7 @@ title: 'Mindfulness and Meditation: Finding Calm in a Busy World'
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
 date: '2025-05-17'
-lastModified: '2025-06-16T14:36:36.888Z'
+lastModified: '2025-06-16T15:55:32.870Z'
 author:
   name: Aisha Khan
   role: Wellness Coach
@@ -45,21 +45,22 @@ schema:
     https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: All Things Digital
+    name: Calm Mind Collective
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - benefits-of-daily-meditation
-  - stress-management-techniques
-  - breathing-exercises-for-anxiety
-toc: true
+  - mindfulness-exercises-for-beginners
+  - managing-anxiety-naturally
+toc: false
+metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm'
 seo:
   description: >-
     Discover the benefits of mindfulness and meditation for reducing stress and
     enhancing mental clarity. Learn simple techniques to incorporate these
-    practices into your daily life.
+    practices ...
   canonical: >-
     https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
   keywords:
@@ -68,9 +69,11 @@ seo:
     - stress-relief
     - mental-health
     - well-being
+    - 'meditation:'
+    - finding
     - calm
-    - techniques
-    - practices
+    - busy
+    - world
 contentSettings:
   toc: true
   comments: true

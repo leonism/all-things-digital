@@ -5,26 +5,8 @@ backend:
   base_url: https://all-things-digital.pages.dev
   auth_endpoint: /api/auth
 
-# Frontmatter formatting configuration
-format_frontmatter: yaml
-yaml_quote_type: '"'
-
-media_folder: 'src/assets/img'
-public_folder: '/assets/img'
-
-# Cloudinary Media Library Integration
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: du61t1sey
-    api_key: '919425673847264'
-    output_filename_only: false
-    use_transformations: true
-    use_secure_url: true
-    default_transformations:
-      - - fetch_format: auto
-          quality: auto
-          crop: scale
+media_folder: 'src/assets/img/uploads'
+public_folder: '/assets/img/uploads'
 
 collections:
   # Authors Collection
@@ -150,18 +132,9 @@ collections:
     create: true
     slug: '{{slug}}'
     preview_path: 'blog/{{slug}}'
-    format: 'frontmatter'
-    frontmatter_delimiter: '---'
     fields:
-      # Core Content Fields (matching future-web-development-2025.md sequence)
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - {
-          label: 'SEO Title',
-          name: 'seoTitle',
-          widget: 'string',
-          required: false,
-          hint: 'Optimized title for search engines. Leave empty to use main title.',
-        }
       - {
           label: 'Slug',
           name: 'slug',
@@ -173,6 +146,19 @@ collections:
             ],
           hint: 'URL-friendly version of the title. Leave empty to auto-generate from title.',
         }
+      - {
+          label: 'SEO Title',
+          name: 'seoTitle',
+          widget: 'string',
+          required: false,
+          hint: 'Optimized title for search engines. Leave empty to use main title.',
+        }
+      - {
+          label: 'Subtitle',
+          name: 'subtitle',
+          widget: 'string',
+          required: false,
+        }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - {
           label: 'Last Modified',
@@ -180,53 +166,6 @@ collections:
           widget: 'datetime',
           required: false,
         }
-
-      # Author Information
-      - {
-          label: 'Author',
-          name: 'author',
-          widget: 'object',
-          fields:
-            [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Role', name: 'role', widget: 'string' },
-              { label: 'Image', name: 'image', widget: 'string' },
-            ],
-        }
-
-      # Categorization
-      - { label: 'Category', name: 'category', widget: 'string' }
-      - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
-
-      # Featured Image
-      - {
-          label: 'Featured Image',
-          name: 'featuredImage',
-          widget: 'object',
-          fields:
-            [
-              { label: 'Source', name: 'src', widget: 'string' },
-              { label: 'Alt Text', name: 'alt', widget: 'string' },
-              {
-                label: 'Caption',
-                name: 'caption',
-                widget: 'string',
-                required: false,
-              },
-            ],
-        }
-
-      # Content Description
-      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
-      - {
-          label: 'Reading Time',
-          name: 'readingTime',
-          widget: 'string',
-          required: false,
-          hint: 'e.g., "10 minutes"',
-        }
-
-      # Publication Settings
       - {
           label: 'Status',
           name: 'status',
@@ -241,150 +180,134 @@ collections:
           default: false,
         }
       - {
-          label: 'Priority',
-          name: 'priority',
-          widget: 'select',
-          options: ['low', 'medium', 'high'],
-          default: 'medium',
-          required: false,
-        }
-
-      # Schema Markup
-      - {
-          label: 'Schema',
-          name: 'schema',
+          label: 'Featured Image',
+          name: 'featuredImage',
           widget: 'object',
-          collapsed: true,
-          required: false,
           fields:
             [
+              { label: 'Source', name: 'src', widget: 'string' },
+              { label: 'Alt Text', name: 'alt', widget: 'string' },
               {
-                label: 'Type',
-                name: '@type',
-                widget: 'string',
-                default: 'Article',
-              },
-              {
-                label: 'Headline',
-                name: 'headline',
+                label: 'Caption',
+                name: 'caption',
                 widget: 'string',
                 required: false,
               },
               {
-                label: 'Description',
-                name: 'description',
-                widget: 'text',
-                required: false,
-              },
-              {
-                label: 'Author',
-                name: 'author',
-                widget: 'object',
-                required: false,
-                fields:
-                  [
-                    {
-                      label: 'Type',
-                      name: '@type',
-                      widget: 'string',
-                      default: 'Person',
-                    },
-                    { label: 'Name', name: 'name', widget: 'string' },
-                    { label: 'Job Title', name: 'jobTitle', widget: 'string' },
-                  ],
-              },
-              {
-                label: 'Date Published',
-                name: 'datePublished',
+                label: 'Credit',
+                name: 'credit',
                 widget: 'string',
                 required: false,
-              },
-              {
-                label: 'Date Modified',
-                name: 'dateModified',
-                widget: 'string',
-                required: false,
-              },
-              {
-                label: 'Image',
-                name: 'image',
-                widget: 'string',
-                required: false,
-              },
-              {
-                label: 'Publisher',
-                name: 'publisher',
-                widget: 'object',
-                required: false,
-                fields:
-                  [
-                    {
-                      label: 'Type',
-                      name: '@type',
-                      widget: 'string',
-                      default: 'Organization',
-                    },
-                    { label: 'Name', name: 'name', widget: 'string' },
-                    {
-                      label: 'Logo',
-                      name: 'logo',
-                      widget: 'object',
-                      required: false,
-                      fields:
-                        [
-                          {
-                            label: 'Type',
-                            name: '@type',
-                            widget: 'string',
-                            default: 'ImageObject',
-                          },
-                          { label: 'URL', name: 'url', widget: 'string' },
-                        ],
-                    },
-                  ],
               },
             ],
         }
-
-      # Related Content
+      - {
+          label: 'Gallery',
+          name: 'gallery',
+          widget: 'list',
+          required: false,
+          fields:
+            [
+              { label: 'Image', name: 'image', widget: 'image' },
+              { label: 'Alt Text', name: 'alt', widget: 'string' },
+              {
+                label: 'Caption',
+                name: 'caption',
+                widget: 'string',
+                required: false,
+              },
+            ],
+        }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'relation',
+          collection: 'categories',
+          search_fields: ['name'],
+          value_field: 'name',
+          display_fields: ['name'],
+        }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
+      - { label: 'Series', name: 'series', widget: 'string', required: false }
+      - {
+          label: 'Part Number',
+          name: 'partNumber',
+          widget: 'number',
+          required: false,
+        }
+      - {
+          label: 'Author',
+          name: 'author',
+          widget: 'relation',
+          collection: 'authors',
+          search_fields: ['name'],
+          value_field: 'name',
+          display_fields: ['name'],
+        }
+      - {
+          label: 'Co-Authors',
+          name: 'coAuthors',
+          widget: 'list',
+          required: false,
+          field:
+            {
+              label: 'Author',
+              name: 'author',
+              widget: 'relation',
+              collection: 'authors',
+              search_fields: ['name'],
+              value_field: 'name',
+              display_fields: ['name'],
+            },
+        }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
+      - {
+          label: 'Reading Time',
+          name: 'readingTime',
+          widget: 'string',
+          required: false,
+          hint: 'e.g., "5 minutes"',
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
       - {
           label: 'Related Posts',
           name: 'relatedPosts',
           widget: 'list',
           required: false,
-          field: { label: 'Post Slug', name: 'post', widget: 'string' },
+          field:
+            {
+              label: 'Post',
+              name: 'post',
+              widget: 'relation',
+              collection: 'blog',
+              search_fields: ['title'],
+              value_field: 'slug',
+              display_fields: ['title'],
+            },
         }
-
-      # Table of Contents
-      - {
-          label: 'Table of Contents',
-          name: 'toc',
-          widget: 'boolean',
-          default: true,
-          required: false,
-        }
-
-      # Canonical URL
-      - {
-          label: 'Canonical URL',
-          name: 'canonicalUrl',
-          widget: 'string',
-          required: false,
-        }
-
-      # SEO Settings
       - {
           label: 'SEO',
           name: 'seo',
           widget: 'object',
           collapsed: true,
-          required: false,
           fields:
             [
+              {
+                label: 'SEO Title',
+                name: 'title',
+                widget: 'string',
+                required: false,
+              },
               {
                 label: 'Meta Description',
                 name: 'description',
                 widget: 'text',
+                required: false,
+              },
+              {
+                label: 'Keywords',
+                name: 'keywords',
+                widget: 'list',
                 required: false,
               },
               {
@@ -394,52 +317,90 @@ collections:
                 required: false,
               },
               {
-                label: 'Keywords',
-                name: 'keywords',
-                widget: 'list',
-                required: false,
+                label: 'No Index',
+                name: 'noindex',
+                widget: 'boolean',
+                default: false,
               },
             ],
         }
-
-      # Content Settings
       - {
-          label: 'Content Settings',
-          name: 'contentSettings',
+          label: 'Social Media',
+          name: 'social',
           widget: 'object',
           collapsed: true,
           required: false,
           fields:
             [
               {
-                label: 'Table of Contents',
-                name: 'toc',
-                widget: 'boolean',
-                default: true,
-              },
-              {
-                label: 'Comments',
-                name: 'comments',
-                widget: 'boolean',
-                default: true,
-              },
-              {
-                label: 'Share Buttons',
-                name: 'shareButtons',
-                widget: 'boolean',
-                default: true,
-              },
-              {
-                label: 'Content Warning',
-                name: 'contentWarning',
+                label: 'Twitter Title',
+                name: 'twitterTitle',
                 widget: 'string',
+                required: false,
+              },
+              {
+                label: 'Twitter Description',
+                name: 'twitterDescription',
+                widget: 'text',
+                required: false,
+              },
+              {
+                label: 'Twitter Image',
+                name: 'twitterImage',
+                widget: 'image',
+                required: false,
+              },
+              {
+                label: 'Facebook Title',
+                name: 'facebookTitle',
+                widget: 'string',
+                required: false,
+              },
+              {
+                label: 'Facebook Description',
+                name: 'facebookDescription',
+                widget: 'text',
+                required: false,
+              },
+              {
+                label: 'Facebook Image',
+                name: 'facebookImage',
+                widget: 'image',
                 required: false,
               },
             ],
         }
-
-      # Main Content
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: 'Advanced',
+          name: 'advanced',
+          widget: 'object',
+          collapsed: true,
+          required: false,
+          fields:
+            [
+              {
+                label: 'Custom CSS',
+                name: 'customCSS',
+                widget: 'code',
+                default_language: 'css',
+                required: false,
+              },
+              {
+                label: 'Custom JavaScript',
+                name: 'customJS',
+                widget: 'code',
+                default_language: 'javascript',
+                required: false,
+              },
+              {
+                label: 'Schema Markup',
+                name: 'schema',
+                widget: 'code',
+                default_language: 'json',
+                required: false,
+              },
+            ],
+        }
 
   # Testimonials Collection
   - name: 'testimonials'

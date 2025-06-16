@@ -1,19 +1,31 @@
 {
   "totalPosts": 11,
-  "publishedPosts": 8,
-  "draftPosts": 3,
+  "publishedPosts": 11,
+  "draftPosts": 0,
   "categories": [],
   "tags": [
+    "artificial-intelligence",
+    "creative-industries",
+    "design",
+    "cybersecurity",
+    "online-safety",
+    "passwords",
+    "phishing",
+    "data-privacy",
     "diy",
     "home-decor",
-    "budget",
     "crafts",
-    "interior-design",
+    "budget-friendly",
+    "upcycling",
     "financial-planning",
     "millennials",
     "investing",
-    "budgeting",
     "retirement",
+    "budgeting",
+    "vite",
+    "vue3",
+    "markdown",
+    "tailwindcss",
     "web-development",
     "frontend",
     "backend",
@@ -37,22 +49,37 @@
     "mindfulness",
     "meditation",
     "stress-relief",
-    "artificial-intelligence",
-    "creative-industries",
-    "technology",
-    "innovation",
-    "future-of-work"
+    "sustainable-living",
+    "eco-friendly",
+    "green-home",
+    "environment",
+    "conservation"
   ],
   "authors": [
     {
-      "name": "Sarah Johnson",
-      "role": "Interior Design Enthusiast",
-      "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "name": "Chloe Davis",
+      "role": "Technology Analyst",
+      "image": "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
-      "name": "Michael Rodriguez",
+      "name": "Ken Adams",
+      "role": "Security Expert",
+      "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Jessica Miller",
+      "role": "DIY Blogger",
+      "image": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Ethan Clark",
       "role": "Financial Advisor",
-      "image": "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "image": "https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Mike Smith",
+      "role": "Developer",
+      "image": "all-things-digital/avatar"
     },
     {
       "name": "Alex Johnson",
@@ -80,12 +107,12 @@
       "image": "https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
-      "name": "Alex Chen",
-      "role": "Tech Journalist",
-      "image": "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "name": "Sophia Green",
+      "role": "Environmental Consultant",
+      "image": "all-things-digital/sophia-green"
     }
   ],
-  "totalReadingTime": 85,
-  "lastUpdated": "2025-06-16T14:21:23.078Z",
-  "averageReadingTime": 8
+  "totalReadingTime": 107,
+  "lastUpdated": "2025-06-16T15:54:44.623Z",
+  "averageReadingTime": 10
 }
