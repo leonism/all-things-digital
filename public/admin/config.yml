@@ -8,6 +8,20 @@ backend:
 media_folder: 'src/assets/img/uploads'
 public_folder: '/assets/img/uploads'
 
+# Cloudinary Media Library Integration
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: du61t1sey
+    api_key: '919425673847264'
+    output_filename_only: false
+    use_transformations: true
+    use_secure_url: true
+    default_transformations:
+      - - fetch_format: auto
+          quality: auto
+          crop: scale
+
 collections:
   # Authors Collection
   - name: 'authors'
