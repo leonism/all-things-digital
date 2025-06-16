@@ -134,6 +134,9 @@ Summary of scripts:
 - `watch` : Watch and compile Tailwind CSS during development.
 - `compress` : Minify Tailwind CSS for production.
 - `start` : Serve the dist folder with Live Server.
+- `standardize-frontmatter` : Standardize frontmatter field order across all posts.
+- `process-frontmatter` : Process and enhance frontmatter in markdown files.
+- `generate-blog-data` : Generate blog data JSON from markdown files.
 
 ## 🔗 Credits
 

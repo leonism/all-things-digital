@@ -109,6 +109,7 @@ npm run dev
 | `npm run webhook:dev` | Start webhook server (development) |
 | `npm run process-frontmatter` | Process frontmatter for all posts |
 | `npm run validate-frontmatter` | Validate frontmatter syntax |
+| `npm run standardize-frontmatter` | Standardize frontmatter field order |
 | `npm run build-hooks` | Run all build hooks |
 
 ## 📊 Monitoring and Debugging
