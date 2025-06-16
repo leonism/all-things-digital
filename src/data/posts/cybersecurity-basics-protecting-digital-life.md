@@ -3,7 +3,7 @@ title: "Cybersecurity Basics: Protecting Your Digital Life"
 seoTitle: Cybersecurity Guide | Protect Your Digital Life Online
 slug: cybersecurity-basics-protecting-digital-life
 date: "2025-05-18"
-lastModified: "2025-06-16T16:30:22.068Z"
+lastModified: "2025-06-16T16:34:03.537Z"
 author:
   name: Ken Adams
   role: Security Expert

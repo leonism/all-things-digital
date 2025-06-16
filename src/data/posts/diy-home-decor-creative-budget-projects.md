@@ -3,7 +3,7 @@ title: "DIY Home Decor: Creative Projects on a Budget"
 seoTitle: Budget DIY Home Decor Ideas | Creative & Affordable Projects
 slug: diy-home-decor-creative-budget-projects
 date: "2025-05-19"
-lastModified: "2025-06-16T16:30:22.081Z"
+lastModified: "2025-06-16T16:34:03.540Z"
 author:
   name: Jessica Miller
   role: DIY Blogger

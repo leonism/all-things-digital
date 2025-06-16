@@ -3,7 +3,7 @@ title: "Hidden Gems: Exploring Off-the-Beaten-Path Travel Destinations"
 seoTitle: Unique Travel Destinations | Off-the-Beaten-Path Guide
 slug: hidden-gems-off-the-beaten-path-travel
 date: "2025-05-20"
-lastModified: "2025-06-16T16:30:22.167Z"
+lastModified: "2025-06-16T16:34:03.562Z"
 author:
   name: Maya Rodriguez
   role: Travel Blogger

@@ -3,7 +3,7 @@ title: "Sustainable Living: Tips for an Eco-Friendly Home"
 seoTitle: Eco-Friendly Home Guide | Sustainable Living Tips & Ideas
 slug: sustainable-living-eco-friendly-home
 date: "2025-05-25"
-lastModified: "2025-06-16T16:30:22.230Z"
+lastModified: "2025-06-16T16:34:03.575Z"
 author:
   name: Sophia Green
   role: Environmental Consultant

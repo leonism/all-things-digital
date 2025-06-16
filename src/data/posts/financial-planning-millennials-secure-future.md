@@ -3,7 +3,7 @@ title: "Financial Planning for Millennials: Building a Secure Future"
 seoTitle: Millennial Financial Planning Guide | Secure Your Future
 slug: financial-planning-millennials-secure-future
 date: "2025-05-22"
-lastModified: "2025-06-16T16:30:22.109Z"
+lastModified: "2025-06-16T16:34:03.546Z"
 author:
   name: Ethan Clark
   role: Financial Advisor

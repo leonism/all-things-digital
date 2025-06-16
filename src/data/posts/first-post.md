@@ -3,7 +3,7 @@ title: My First Blog Post
 seoTitle: My First Blog Post | Example Article
 slug: first-post
 date: "2025-05-26T15:55:32.815Z"
-lastModified: "2025-06-16T16:30:22.129Z"
+lastModified: "2025-06-16T16:34:03.552Z"
 author:
   name: Mike Smith
   role: Developer

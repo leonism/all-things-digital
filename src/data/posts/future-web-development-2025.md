@@ -3,7 +3,7 @@ title: Exploring the Future of Web Development in 2025
 seoTitle: Future of Web Development 2025 | Trends & Technologies Guide
 slug: future-web-development-2025
 date: "2025-05-26"
-lastModified: "2025-06-16T16:30:22.149Z"
+lastModified: "2025-06-16T16:34:03.556Z"
 author:
   name: Alex Johnson
   role: Lead Developer

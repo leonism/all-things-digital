@@ -3,7 +3,7 @@ title: "The Rise of AI in Creative Industries: Opportunities and Challenges"
 seoTitle: AI in Creative Industries | Opportunities & Challenges 2025
 slug: ai-creative-industries-opportunities-challenges
 date: "2025-05-23"
-lastModified: "2025-06-16T16:30:21.898Z"
+lastModified: "2025-06-16T16:34:03.524Z"
 author:
   name: Chloe Davis
   role: Technology Analyst
