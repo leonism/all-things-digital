@@ -58,27 +58,78 @@ collections:
     label: 'Blog Posts'
     folder: 'src/data/posts'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
+    preview_path: 'blog/{{slug}}'
     fields:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Slug', name: 'slug', widget: 'string', pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'] }
+      - { 
+          label: 'Slug', 
+          name: 'slug', 
+          widget: 'string', 
+          pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'A slug can have no spaces or special characters'],
+          hint: 'URL-friendly version of the title. Leave empty to auto-generate from title.'
+        }
+      - { 
+          label: 'SEO Title', 
+          name: 'seoTitle', 
+          widget: 'string', 
+          required: false,
+          hint: 'Optimized title for search engines. Leave empty to use main title.'
+        }
       - {
           label: 'Subtitle',
           name: 'subtitle',
           widget: 'string',
           required: false,
         }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Last Modified', name: 'lastModified', widget: 'datetime', required: false }
+      - { 
+          label: 'Publish Date', 
+          name: 'date', 
+          widget: 'datetime',
+          default: '',
+          hint: 'When this post should be published. Leave empty for current date/time.'
+        }
+      - { 
+          label: 'Last Modified', 
+          name: 'lastModified', 
+          widget: 'datetime', 
+          required: false,
+          hint: 'Automatically updated when content changes'
+        }
       - {
           label: 'Status',
           name: 'status',
           widget: 'select',
-          options: ['draft', 'review', 'published', 'archived'],
+          options: [
+            { label: 'Draft', value: 'draft' },
+            { label: 'In Review', value: 'review' },
+            { label: 'Published', value: 'published' },
+            { label: 'Archived', value: 'archived' }
+          ],
           default: 'draft',
+          hint: 'Current publication status of the post'
         }
-      - { label: 'Featured Post', name: 'featured', widget: 'boolean', default: false }
+      - { 
+          label: 'Featured Post', 
+          name: 'featured', 
+          widget: 'boolean', 
+          default: false,
+          hint: 'Mark as featured to highlight on homepage'
+        }
+      - {
+          label: 'Priority',
+          name: 'priority',
+          widget: 'select',
+          options: [
+            { label: 'Low', value: 'low' },
+            { label: 'Medium', value: 'medium' },
+            { label: 'High', value: 'high' }
+          ],
+          default: 'medium',
+          required: false,
+          hint: 'Content priority for sitemap and SEO'
+        }
       - {
           label: 'Featured Image',
           name: 'featuredImage',
@@ -104,10 +155,37 @@ collections:
             ],
         }
       - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['name'], value_field: 'name', display_fields: ['name'] }
-      - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
-      - { label: 'Series', name: 'series', widget: 'string', required: false }
-      - { label: 'Part Number', name: 'partNumber', widget: 'number', required: false }
-      - { label: 'Author', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['name'], value_field: 'name', display_fields: ['name'] }
+      - { 
+          label: 'Tags', 
+          name: 'tags', 
+          widget: 'list', 
+          default: [],
+          hint: 'Add relevant tags for better content discovery'
+        }
+      - { 
+          label: 'Series', 
+          name: 'series', 
+          widget: 'string', 
+          required: false,
+          hint: 'If this post is part of a series, enter the series name'
+        }
+      - { 
+          label: 'Part Number', 
+          name: 'partNumber', 
+          widget: 'number', 
+          required: false,
+          hint: 'If part of a series, specify the part number'
+        }
+      - { 
+          label: 'Author', 
+          name: 'author', 
+          widget: 'relation', 
+          collection: 'authors', 
+          search_fields: ['name', 'slug'], 
+          value_field: 'slug', 
+          display_fields: ['name', 'role'],
+          hint: 'Select the primary author from the authors collection'
+        }
       - {
           label: 'Co-Authors',
           name: 'coAuthors',
@@ -115,8 +193,56 @@ collections:
           required: false,
           field: { label: 'Author', name: 'author', widget: 'relation', collection: 'authors', search_fields: ['name'], value_field: 'name', display_fields: ['name'] },
         }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
-      - { label: 'Reading Time', name: 'readingTime', widget: 'string', required: false, hint: 'e.g., "5 minutes"' }
+      - { 
+          label: 'Excerpt', 
+          name: 'excerpt', 
+          widget: 'text',
+          hint: 'Brief summary of the post content (150-160 characters recommended for SEO)'
+        }
+      - { 
+          label: 'Reading Time', 
+          name: 'readingTime', 
+          widget: 'string', 
+          required: false, 
+          hint: 'Estimated reading time (e.g., "5 minutes"). Leave empty for auto-calculation.'
+        }
+      - {
+          label: 'Content Settings',
+          name: 'contentSettings',
+          widget: 'object',
+          collapsed: true,
+          required: false,
+          fields: [
+            { 
+              label: 'Table of Contents', 
+              name: 'toc', 
+              widget: 'boolean', 
+              default: true,
+              hint: 'Generate automatic table of contents from headings'
+            },
+            { 
+              label: 'Comments Enabled', 
+              name: 'comments', 
+              widget: 'boolean', 
+              default: true,
+              hint: 'Allow comments on this post'
+            },
+            { 
+              label: 'Share Buttons', 
+              name: 'shareButtons', 
+              widget: 'boolean', 
+              default: true,
+              hint: 'Show social media share buttons'
+            },
+            {
+              label: 'Content Warning',
+              name: 'contentWarning',
+              widget: 'string',
+              required: false,
+              hint: 'Add content warning if needed'
+            }
+          ]
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - {
           label: 'Related Posts',

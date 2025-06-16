@@ -27,8 +27,8 @@
     "vite-plugin-webp-generator": "^0.1.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && npm run generate-modern-formats && npm run generate-rss && npm run generate-sitemap && npm run generate-blog-data",
+    "dev": "npm run process-frontmatter && vite",
+    "build": "npm run build-hooks && vite build && npm run generate-modern-formats && npm run generate-rss && npm run generate-sitemap && npm run generate-blog-data",
     "preview": "vite preview",
     "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
     "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
@@ -42,6 +42,11 @@
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "generate-blog-data": "node scripts/generate-blog-data.js",
     "generate-modern-formats": "node scripts/generate-modern-formats.js",
+    "process-frontmatter": "node scripts/process-frontmatter.js process",
+    "process-frontmatter:dry-run": "node scripts/process-frontmatter.js process --dry-run",
+    "validate-frontmatter": "node scripts/process-frontmatter.js validate",
+    "build-hooks": "node scripts/build-hooks.js all",
+    "generate-data": "node scripts/build-hooks.js generate-data",
     "prepare": "npx lightningcss || echo 'lightningcss not required locally'"
   },
   "dependencies": {
