@@ -3,12 +3,11 @@ title: 'Healthy Eating Habits: Fueling Your Body and Mind'
 seoTitle: Healthy Eating Guide | Nutrition Tips for Body & Mind
 slug: healthy-eating-habits-body-mind
 date: '2025-05-21'
-lastModified: '2025-06-16T10:02:12.091Z'
+lastModified: '2025-06-16T12:54:05.052Z'
 author:
   name: Dr. Olivia Martinez
   role: Nutritionist
-  image: >-
-    https://images.pexels.com/photos/762080/pexels-photo-762080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/762080/pexels-photo-762080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Health
 tags:
   - healthy-eating
@@ -17,11 +16,10 @@ tags:
   - diet
   - mental-health
 featuredImage:
-  src: >-
-    https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Colorful salad bowl with fresh vegetables and fruits
   caption: Nourishing your body with wholesome foods is key to overall health.
-excerpt: >-
+excerpt:
   Learn about the importance of healthy eating habits for both physical and
   mental well-being. This guide provides practical tips on balanced diets,
   mindful eating, and making sustainable food choices.
@@ -32,7 +30,7 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Healthy Eating Habits: Fueling Your Body and Mind'
-  description: >-
+  description:
     A guide to adopting healthy eating habits for improved physical and mental
     health.
   author:
@@ -41,8 +39,7 @@ schema:
     jobTitle: Nutritionist
   datePublished: '2025-05-21'
   dateModified: '2025-05-21'
-  image: >-
-    https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: Wellness Insights
@@ -57,7 +54,7 @@ toc: true
 metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind'
 seo:
-  description: >-
+  description:
     Learn about the importance of healthy eating habits for both physical and
     mental well-being. This guide provides practical tips on balanced diets,
     mindful ea...

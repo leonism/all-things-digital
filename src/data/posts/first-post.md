@@ -1,13 +1,12 @@
 ---
-excerpt: >-
-  This is the first example blog post generated for testing the Markdown
+excerpt: This is the first example blog post generated for testing the Markdown
   processing and frontmatter structure. Welcome to the first blog post on this
   newly integrated Vue 3 blog! This post serves as an example to test the
   Markdown rendering and frontmatter extraction.
 schema:
   '@type': Article
   headline: Exploring the Future of Web Development in 2025
-  description: >-
+  description:
     An overview of upcoming trends and technologies in the web development
     industry for 2025.
   author:
@@ -54,13 +53,13 @@ readingTime: 5 minutes
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
 seoTitle: My First Blog Post | Example Article
 category: Technology
-description: >-
+description:
   Welcome to the first blog post on this newly integrated Vue 3 blog! This post
   serves as an example to test the Markdown rendering and frontmatter
   extraction.
-lastModified: '2025-06-16T10:02:12.027Z'
+lastModified: '2025-06-16T12:54:05.040Z'
 seo:
-  description: >-
+  description:
     This is the first example blog post generated for testing the Markdown
     processing and frontmatter structure. Welcome to the first blog post on this
     newly int...
@@ -79,25 +78,26 @@ contentSettings:
   shareButtons: true
   contentWarning: null
 ---
+
 This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
 
 ## Features
 
 We are using:
 
-* **Vite:** For fast development and builds.
-* **Vue 3:** The progressive JavaScript framework.
-* **TailwindCSS:** For utility-first styling.
-* **Markdown:** For writing content.
+- **Vite:** For fast development and builds.
+- **Vue 3:** The progressive JavaScript framework.
+- **TailwindCSS:** For utility-first styling.
+- **Markdown:** For writing content.
 
 ### Why Use These Tools?
 
 Each of these tools brings its own unique advantages:
 
-* **Vite** allows us to take advantage of modern JavaScript features like ES modules while offering near-instantaneous hot module replacement (HMR) for a faster development experience.
-* **Vue 3** introduces the Composition API, which provides more flexibility when structuring complex components, making it easier to scale applications.
-* **TailwindCSS** gives developers the ability to style directly within their HTML, avoiding long CSS files and promoting reusability through utility classes.
-* **Markdown** makes writing content simpler and cleaner by focusing on readability without losing the ability to add rich formatting.
+- **Vite** allows us to take advantage of modern JavaScript features like ES modules while offering near-instantaneous hot module replacement (HMR) for a faster development experience.
+- **Vue 3** introduces the Composition API, which provides more flexibility when structuring complex components, making it easier to scale applications.
+- **TailwindCSS** gives developers the ability to style directly within their HTML, avoiding long CSS files and promoting reusability through utility classes.
+- **Markdown** makes writing content simpler and cleaner by focusing on readability without losing the ability to add rich formatting.
 
 ## Code Example
 
@@ -174,8 +174,8 @@ You can create headings of different levels like this:
 
 Use double asterisks (`**`) for bold text and single asterisks (`*`) for italics. For example:
 
-* **This is bold text.**
-* *This is italicized text.*
+- **This is bold text.**
+- _This is italicized text._
 
 #### Blockquotes
 
@@ -185,10 +185,10 @@ Use double asterisks (`**`) for bold text and single asterisks (`*`) for italics
 
 Markdown supports both **unordered** and **ordered** lists:
 
-* Unordered list item 1
-* Unordered list item 2
+- Unordered list item 1
+- Unordered list item 2
 
-  * Nested unordered list item
+  - Nested unordered list item
 
 1. Ordered list item 1
 2. Ordered list item 2
@@ -208,7 +208,7 @@ Check out [Pexels](https://www.pexels.com/) for free stock photos.
 Here’s an image sourced from Pexels:
 
 ![Beautiful Landscape](https://images.pexels.com/photos/19928140/pexels-photo-19928140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
-*Caption: A serene landscape captured during sunrise.*
+_Caption: A serene landscape captured during sunrise._
 
 ### Conclusion
 

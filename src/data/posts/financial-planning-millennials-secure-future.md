@@ -3,12 +3,11 @@ title: 'Financial Planning for Millennials: Building a Secure Future'
 seoTitle: Millennial Financial Planning Guide | Secure Your Future
 slug: financial-planning-millennials-secure-future
 date: '2025-05-22'
-lastModified: '2025-06-16T10:02:12.024Z'
+lastModified: '2025-06-16T12:54:05.030Z'
 author:
   name: Ethan Clark
   role: Financial Advisor
-  image: >-
-    https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Finance
 tags:
   - financial-planning
@@ -17,12 +16,10 @@ tags:
   - retirement
   - budgeting
 featuredImage:
-  src: >-
-    https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Person reviewing financial charts and graphs on a tablet
   caption: Strategic financial planning is crucial for long-term security.
-excerpt: >-
-  A comprehensive guide for millennials on financial planning, covering
+excerpt: A comprehensive guide for millennials on financial planning, covering
   budgeting, saving, investing, and preparing for retirement in today's economic
   landscape.
 readingTime: 14 minutes
@@ -32,7 +29,7 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Financial Planning for Millennials: Building a Secure Future'
-  description: >-
+  description:
     Essential financial planning strategies tailored for the millennial
     generation.
   author:
@@ -41,8 +38,7 @@ schema:
     jobTitle: Financial Advisor
   datePublished: '2025-05-22'
   dateModified: '2025-05-22'
-  image: >-
-    https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: Modern Finance Hub
@@ -55,15 +51,13 @@ relatedPosts:
   - retirement-planning-strategies
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: >-
-  https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
+canonicalUrl: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
 seo:
-  description: >-
+  description:
     A comprehensive guide for millennials on financial planning, covering
     budgeting, saving, investing, and preparing for retirement in today's
     economic landscape.
-  canonical: >-
-    https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
+  canonical: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
   keywords:
     - financial-planning
     - millennials

@@ -3,7 +3,7 @@ title: 'Sustainable Living: Tips for an Eco-Friendly Home'
 seoTitle: Eco-Friendly Home Guide | Sustainable Living Tips & Ideas
 slug: sustainable-living-eco-friendly-home
 date: '2025-05-25'
-lastModified: '2025-06-16T10:02:12.137Z'
+lastModified: '2025-06-16T12:54:05.070Z'
 author:
   name: Sophia Green
   role: Environmental Consultant
@@ -19,7 +19,7 @@ featuredImage:
   src: all-things-digital/greenery-view
   alt: Lush green landscape with mountains and a lake
   caption: Embracing sustainability starts at home.
-excerpt: >-
+excerpt:
   Discover practical tips and ideas for creating a more sustainable and
   eco-friendly home environment. From reducing waste to conserving energy, learn
   how small changes can make a big impact. Creating a sustainable home is easier
@@ -31,7 +31,7 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Sustainable Living: Tips for an Eco-Friendly Home'
-  description: >-
+  description:
     A practical guide to making your home more sustainable and environmentally
     friendly.
   author:
@@ -40,7 +40,7 @@ schema:
     jobTitle: Environmental Consultant
   datePublished: '2025-05-25'
   dateModified: '2025-05-25'
-  image: >-
+  image:
     https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
@@ -56,11 +56,11 @@ toc: true
 metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home'
 seo:
-  description: >-
+  description:
     Discover practical tips and ideas for creating a more sustainable and
     eco-friendly home environment. From reducing waste to conserving energy,
     learn how smal...
-  canonical: >-
+  canonical:
     https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home
   keywords:
     - sustainable-living

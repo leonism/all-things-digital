@@ -3,12 +3,11 @@ title: 'Mastering Remote Work: Productivity and Well-being'
 seoTitle: Remote Work Guide 2025 | Productivity & Well-being Tips
 slug: mastering-remote-work-productivity-well-being
 date: '2025-05-24'
-lastModified: '2025-06-16T10:02:12.117Z'
+lastModified: '2025-06-16T12:54:05.063Z'
 author:
   name: David Lee
   role: Productivity Coach
-  image: >-
-    https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Lifestyle
 tags:
   - remote-work
@@ -17,12 +16,10 @@ tags:
   - well-being
   - career-advice
 featuredImage:
-  src: >-
-    https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Team collaborating remotely via video call
   caption: Effective strategies for thriving in a remote work environment.
-excerpt: >-
-  Learn essential strategies for maximizing productivity and maintaining
+excerpt: Learn essential strategies for maximizing productivity and maintaining
   well-being while working remotely. From setting boundaries to leveraging
   technology, this guide covers key aspects of successful remote work.
 readingTime: 12 minutes
@@ -32,7 +29,7 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Mastering Remote Work: Productivity and Well-being'
-  description: >-
+  description:
     A guide to enhancing productivity and maintaining mental health in a remote
     work setting.
   author:
@@ -41,8 +38,7 @@ schema:
     jobTitle: Productivity Coach
   datePublished: '2025-05-24'
   dateModified: '2025-05-24'
-  image: >-
-    https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: WorkLife Balance Hub
@@ -55,15 +51,13 @@ relatedPosts:
   - creating-ergonomic-home-office
 toc: true
 metaRobots: 'index, follow'
-canonicalUrl: >-
-  https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
+canonicalUrl: https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
 seo:
-  description: >-
+  description:
     Learn essential strategies for maximizing productivity and maintaining
     well-being while working remotely. From setting boundaries to leveraging
     technology, t...
-  canonical: >-
-    https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
+  canonical: https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
   keywords:
     - remote-work
     - productivity

@@ -3,7 +3,7 @@ title: Exploring the Future of Web Development in 2025
 seoTitle: Future of Web Development 2025 | Trends & Technologies Guide
 slug: future-web-development-2025
 date: '2025-05-26'
-lastModified: '2025-06-16T10:02:12.042Z'
+lastModified: '2025-06-16T12:54:05.047Z'
 author:
   name: Alex Johnson
   role: Lead Developer
@@ -19,7 +19,7 @@ featuredImage:
   src: all-things-digital/featured-blog-comp
   alt: Developer coding on a laptop with multiple monitors
   caption: The landscape of web development is constantly evolving.
-excerpt: >-
+excerpt:
   Dive into the key trends shaping web development in 2025, from advancements in
   JavaScript frameworks to the rise of AI-powered coding assistants and
   serverless architectures.
@@ -30,7 +30,7 @@ priority: medium
 schema:
   '@type': Article
   headline: Exploring the Future of Web Development in 2025
-  description: >-
+  description:
     An overview of upcoming trends and technologies in the web development
     industry for 2025.
   author:
@@ -53,10 +53,10 @@ relatedPosts:
 toc: true
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/future-web-development-2025'
 seo:
-  description: >-
+  description:
     Dive into the key trends shaping web development in 2025, from advancements
     in JavaScript frameworks to the rise of AI-powered coding assistants and
-    serverle...
+    serverless.
   canonical: 'https://all-things-digital.pages.dev/blog/future-web-development-2025'
   keywords:
     - web-development

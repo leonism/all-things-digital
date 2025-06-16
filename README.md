@@ -50,12 +50,14 @@ Together, these plugins provide a complete solution for styling your website's c
 ## 🚀 Features
 
 - ✅ **Responsive mobile-friendly design**
-- ✅ **Using the latest Tailwind 3.2.4**
+- ✅ **Using the latest Tailwind ~~3.2.4~~ 4.1.7**
+- ✅ **Cloudinary Integration for Optimized Image Delivery**
+- ✅ **DECAP CMS API Integrated**
+- ✅ **Advanced Search System**
 - ✅ **Tested on various devices with different viewports**
 - ✅ **Dark Mode**
 - ✅ **Contact Form**
 - ✅ **Utilize Tailwind Plugins (Typography & Form)**
-- ✅ **Cloudinary Integration for Optimized Image Delivery**
 - ✅ **Automatic Image Optimization (WebP/AVIF, Quality, Compression)**
 - ✅ **Responsive Image Generation with CDN Delivery**
 - ✅ **Vue Composables for Seamless Image Management**
