@@ -5,6 +5,7 @@ This guide explains how to integrate and customize frontmatter values in your ma
 ## Overview
 
 The enhanced configuration provides advanced frontmatter integration with:
+
 - Automatic slug generation
 - Author dropdown selection
 - Dynamic field relationships
@@ -17,18 +18,21 @@ The enhanced configuration provides advanced frontmatter integration with:
 ### 1. Automatic Slug Generation
 
 **Configuration:**
+
 ```yaml
 slug: '{{slug}}'
 preview_path: 'blog/{{slug}}'
 ```
 
 **Features:**
+
 - Clean URL structure without date prefixes
 - Auto-generation from title if left empty
 - Pattern validation for URL-friendly format
 - Live preview integration
 
 **Usage:**
+
 - Leave slug field empty for auto-generation from title
 - Manual override available for custom URLs
 - Validates against pattern: `^[a-z0-9]+(?:-[a-z0-9]+)*$`
@@ -36,6 +40,7 @@ preview_path: 'blog/{{slug}}'
 ### 2. Author Dropdown Integration
 
 **Configuration:**
+
 ```yaml
 widget: 'relation'
 collection: 'authors'
@@ -45,12 +50,14 @@ display_fields: ['name', 'role']
 ```
 
 **Features:**
+
 - Dropdown selection from authors collection
 - Search by name or slug
 - Display name and role for easy identification
 - Stores author slug for consistent referencing
 
 **Benefits:**
+
 - Consistent author data across posts
 - Easy author management
 - Prevents typos in author names
@@ -59,6 +66,7 @@ display_fields: ['name', 'role']
 ### 3. Enhanced Date Handling
 
 **Configuration:**
+
 ```yaml
 date:
   widget: 'datetime'
@@ -72,6 +80,7 @@ lastModified:
 ```
 
 **Features:**
+
 - Flexible publish date setting
 - Automatic last modified tracking
 - Timezone support
@@ -80,6 +89,7 @@ lastModified:
 ### 4. Content Status Workflow
 
 **Configuration:**
+
 ```yaml
 status:
   widget: 'select'
@@ -92,6 +102,7 @@ status:
 ```
 
 **Workflow:**
+
 1. **Draft** - Initial content creation
 2. **In Review** - Ready for editorial review
 3. **Published** - Live on the website
@@ -100,6 +111,7 @@ status:
 ### 5. Category and Tag Management
 
 **Category Configuration:**
+
 ```yaml
 category:
   widget: 'relation'
@@ -110,6 +122,7 @@ category:
 ```
 
 **Tag Configuration:**
+
 ```yaml
 tags:
   widget: 'list'
@@ -118,6 +131,7 @@ tags:
 ```
 
 **Features:**
+
 - Consistent category selection
 - Hierarchical category support
 - Free-form tag entry
@@ -126,6 +140,7 @@ tags:
 ### 6. Advanced Content Settings
 
 **Configuration:**
+
 ```yaml
 contentSettings:
   widget: 'object'
@@ -138,6 +153,7 @@ contentSettings:
 ```
 
 **Features:**
+
 - Per-post content controls
 - Accessibility options
 - Social media integration
@@ -146,6 +162,7 @@ contentSettings:
 ### 7. SEO Optimization
 
 **Configuration:**
+
 ```yaml
 seo:
   widget: 'object'
@@ -159,6 +176,7 @@ seo:
 ```
 
 **Features:**
+
 - Search engine optimization
 - Social media previews
 - Canonical URL management
@@ -167,6 +185,7 @@ seo:
 ### 8. Priority and Featured Content
 
 **Priority Configuration:**
+
 ```yaml
 priority:
   widget: 'select'
@@ -178,6 +197,7 @@ priority:
 ```
 
 **Featured Configuration:**
+
 ```yaml
 featured:
   widget: 'boolean'
@@ -227,30 +247,35 @@ seo:
 ## Best Practices
 
 ### 1. Slug Management
+
 - Use descriptive, keyword-rich slugs
 - Keep slugs under 60 characters
 - Avoid special characters and spaces
 - Consider SEO implications
 
 ### 2. Author Management
+
 - Create author profiles before writing posts
 - Use consistent author information
 - Include author bios and social links
 - Maintain author image consistency
 
 ### 3. Content Organization
+
 - Use hierarchical categories
 - Apply relevant tags consistently
 - Set appropriate priority levels
 - Maintain content status workflow
 
 ### 4. SEO Optimization
+
 - Write unique meta descriptions
 - Use targeted keywords naturally
 - Set canonical URLs for duplicate content
 - Optimize for social media sharing
 
 ### 5. Content Settings
+
 - Enable TOC for long-form content
 - Consider comment policies
 - Use content warnings appropriately
@@ -314,7 +339,11 @@ email:
 # URL validation for external links
 url:
   widget: 'string'
-  pattern: ['^https?://.+', 'Please enter a valid URL starting with http:// or https://']
+  pattern:
+    [
+      '^https?://.+',
+      'Please enter a valid URL starting with http:// or https://',
+    ]
 ```
 
 ## Integration with Build Process
@@ -337,15 +366,15 @@ const processMarkdown = (content, frontmatter) => {
   if (!frontmatter.slug && frontmatter.title) {
     frontmatter.slug = generateSlug(frontmatter.title);
   }
-  
+
   // Calculate reading time if empty
   if (!frontmatter.readingTime) {
     frontmatter.readingTime = calculateReadingTime(content);
   }
-  
+
   // Update last modified
   frontmatter.lastModified = new Date().toISOString();
-  
+
   return { content, frontmatter };
 };
 ```
