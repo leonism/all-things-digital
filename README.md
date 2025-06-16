@@ -36,9 +36,7 @@ Tailwind CSS is a utility-first CSS framework, which means that it provides a se
 
 In addition to the sleek dark mode and mobile first focus, our Tailwind CSS theme also includes powerful plugins for typography and forms. The typography plugin allows you to easily add beautiful and highly customizable headings, paragraphs, and other text elements to your website. And the forms plugin makes it easy to create clean and user-friendly forms for gathering information from your visitors.
 
-Together, these plugins provide a complete solution for styling your website's content and gathering information from your users. They're built to work seamlessly with the rest of the theme, so you can easily create a professional and cohesive look for your website.
-
-Whether you're a seasoned web developer or a beginner, this theme is sure to provide a professional and modern look for your website. Try it out today!
+Together, these plugins provide a complete solution for styling your website's content and gathering information from your users. They're built to work seamlessly with the rest of the theme, so you can easily create a professional and cohesive look for your website. Whether you're a seasoned web developer or a beginner, this theme is sure to provide a professional and modern look for your website. Try it out today!
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
@@ -47,7 +45,7 @@ Whether you're a seasoned web developer or a beginner, this theme is sure to pro
 
 ## 📷 Mock-up & Visualization
 
-![Alt text](/all-things-digital.png?raw=true)
+![Alt text](/docs/all-things-digital.png?raw=true)
 
 ## 🚀 Features
 
@@ -505,7 +503,7 @@ Summary of scripts:
 
 ## 💻 Splash Screen
 
-![Alt text](/all-things-digital-splash.png?raw=true)
+![Alt text](/docs/all-things-digital-splash.png?raw=true)
 
 ## 🖊️ License
 
