@@ -130,7 +130,6 @@ const publishedPosts = computed(() => {
 <style scoped>
 /* Scoped styles for this component if any */
 </style>
-
 ```
 
 This demonstrates how code blocks are rendered. They can be used to include snippets of code in various programming languages, making it easy to share technical knowledge.
