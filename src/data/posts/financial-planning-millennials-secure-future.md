@@ -3,11 +3,12 @@ title: 'Financial Planning for Millennials: Securing Your Future'
 seoTitle: Financial Planning for Millennials | Secure Your Future
 slug: financial-planning-millennials-secure-future
 date: '2025-05-22'
-lastModified: '2025-06-16T14:28:38.338Z'
+lastModified: '2025-06-16T14:36:36.850Z'
 author:
   name: Michael Rodriguez
   role: Financial Advisor
-  image: https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Finance
 tags:
   - financial-planning
@@ -16,10 +17,11 @@ tags:
   - budgeting
   - retirement
 featuredImage:
-  src: https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: >-
+    https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Young professional reviewing financial documents
   caption: Start your financial journey with smart planning strategies.
-excerpt:
+excerpt: >-
   Learn essential financial planning strategies tailored for millennials. From
   budgeting basics to investment tips, discover how to build wealth and secure
   your financial future in today's economy.
@@ -30,7 +32,7 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Financial Planning for Millennials: Securing Your Future'
-  description:
+  description: >-
     Learn essential financial planning strategies tailored for millennials. From
     budgeting basics to investment tips.
   author:
@@ -39,7 +41,8 @@ schema:
     jobTitle: Financial Advisor
   datePublished: '2025-05-22'
   dateModified: '2025-05-22'
-  image: https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: All Things Digital
@@ -48,13 +51,15 @@ schema:
       url: /images/logo-placeholder.png
 relatedPosts: []
 toc: true
-canonicalUrl: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
+canonicalUrl: >-
+  https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
 seo:
-  description:
+  description: >-
     Learn essential financial planning strategies tailored for millennials. From
     budgeting basics to investment tips, discover how to build wealth and secure
     your financial future in today's economy.
-  canonical: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
+  canonical: >-
+    https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
   keywords:
     - financial planning
     - millennials

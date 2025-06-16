@@ -3,11 +3,12 @@ title: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
 seoTitle: AI in Creative Industries | Opportunities and Challenges
 slug: the-rise-of-ai-in-creative-industries-opportunities-and-challenges
 date: '2025-06-16'
-lastModified: '2025-06-16T14:28:38.400Z'
+lastModified: '2025-06-16T14:36:36.906Z'
 author:
   name: Alex Chen
   role: Tech Journalist
-  image: https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Technology
 tags:
   - artificial-intelligence
@@ -16,10 +17,11 @@ tags:
   - innovation
   - future-of-work
 featuredImage:
-  src: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: >-
+    https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: AI-generated artwork displayed on digital screens
   caption: Exploring how artificial intelligence is reshaping creative industries.
-excerpt:
+excerpt: >-
   Explore how artificial intelligence is transforming creative industries, from
   graphic design to music production. Discover the opportunities for innovation
   and the challenges facing creative professionals in the AI era.
@@ -30,7 +32,7 @@ priority: high
 schema:
   '@type': Article
   headline: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
-  description:
+  description: >-
     Explore how artificial intelligence is transforming creative industries,
     from graphic design to music production.
   author:
@@ -39,7 +41,8 @@ schema:
     jobTitle: Tech Journalist
   datePublished: '2025-06-16'
   dateModified: '2025-06-16'
-  image: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: All Things Digital
@@ -48,13 +51,15 @@ schema:
       url: /images/logo-placeholder.png
 relatedPosts: []
 toc: true
-canonicalUrl: https://all-things-digital.pages.dev/blog/the-rise-of-ai-in-creative-industries-opportunities-and-challenges
+canonicalUrl: >-
+  https://all-things-digital.pages.dev/blog/the-rise-of-ai-in-creative-industries-opportunities-and-challenges
 seo:
-  description:
+  description: >-
     Explore how artificial intelligence is transforming creative industries,
     from graphic design to music production. Discover the opportunities for
     innovation and the challenges facing creative professionals in the AI era.
-  canonical: https://all-things-digital.pages.dev/blog/the-rise-of-ai-in-creative-industries-opportunities-and-challenges
+  canonical: >-
+    https://all-things-digital.pages.dev/blog/the-rise-of-ai-in-creative-industries-opportunities-and-challenges
   keywords:
     - artificial intelligence
     - creative industries

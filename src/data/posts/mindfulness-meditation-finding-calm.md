@@ -3,11 +3,12 @@ title: 'Mindfulness and Meditation: Finding Calm in a Busy World'
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
 date: '2025-05-17'
-lastModified: '2025-06-16T14:28:38.388Z'
+lastModified: '2025-06-16T14:36:36.888Z'
 author:
   name: Aisha Khan
   role: Wellness Coach
-  image: https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Health
 tags:
   - mindfulness
@@ -16,10 +17,11 @@ tags:
   - mental-health
   - well-being
 featuredImage:
-  src: https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: >-
+    https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Person meditating peacefully outdoors near water
   caption: Cultivating inner peace through mindfulness and meditation practices.
-excerpt:
+excerpt: >-
   Discover the benefits of mindfulness and meditation for reducing stress and
   enhancing mental clarity. Learn simple techniques to incorporate these
   practices into your daily life.
@@ -30,7 +32,7 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Mindfulness and Meditation: Finding Calm in a Busy World'
-  description:
+  description: >-
     An introduction to mindfulness and meditation techniques for stress
     reduction and improved well-being.
   author:
@@ -39,7 +41,8 @@ schema:
     jobTitle: Wellness Coach
   datePublished: '2025-05-17'
   dateModified: '2025-05-17'
-  image: https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: All Things Digital
@@ -53,11 +56,12 @@ relatedPosts:
 toc: true
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm'
 seo:
-  description:
+  description: >-
     Discover the benefits of mindfulness and meditation for reducing stress and
     enhancing mental clarity. Learn simple techniques to incorporate these
     practices into your daily life.
-  canonical: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
+  canonical: >-
+    https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
   keywords:
     - mindfulness
     - meditation

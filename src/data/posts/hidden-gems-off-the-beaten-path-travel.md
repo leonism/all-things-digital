@@ -3,11 +3,12 @@ title: 'Hidden Gems: Exploring Off-the-Beaten-Path Travel Destinations'
 seoTitle: Unique Travel Destinations | Off-the-Beaten-Path Guide
 slug: hidden-gems-off-the-beaten-path-travel
 date: '2025-05-20'
-lastModified: '2025-06-16T14:28:38.374Z'
+lastModified: '2025-06-16T14:36:36.878Z'
 author:
   name: Maya Rodriguez
   role: Travel Blogger
-  image: https://images.pexels.com/photos/724547/pexels-photo-724547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/724547/pexels-photo-724547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Travel
 tags:
   - travel
@@ -16,10 +17,12 @@ tags:
   - off-the-beaten-path
   - explore
 featuredImage:
-  src: https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: >-
+    https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Scenic view of a remote village nestled in mountains
   caption: Discovering unique destinations away from the crowds.
-excerpt: Escape the tourist traps and discover breathtaking, lesser-known travel
+excerpt: >-
+  Escape the tourist traps and discover breathtaking, lesser-known travel
   destinations around the world. This guide highlights hidden gems perfect for
   adventurous travelers seeking authentic experiences.
 readingTime: 11 minutes
@@ -36,7 +39,8 @@ schema:
     jobTitle: Travel Blogger
   datePublished: '2025-05-20'
   dateModified: '2025-05-20'
-  image: https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: >-
+    https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
     name: All Things Digital
@@ -48,13 +52,15 @@ relatedPosts:
   - solo-travel-guide
   - cultural-immersion-experiences
 toc: true
-canonicalUrl: https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
+canonicalUrl: >-
+  https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
 seo:
-  description:
+  description: >-
     Escape the tourist traps and discover breathtaking, lesser-known travel
     destinations around the world. This guide highlights hidden gems perfect for
     adventurous travelers seeking authentic experiences.
-  canonical: https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
+  canonical: >-
+    https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
   keywords:
     - travel
     - adventure
