@@ -2,8 +2,8 @@
 title: "Hidden Gems: Exploring Off-the-Beaten-Path Travel Destinations"
 seoTitle: Unique Travel Destinations | Off-the-Beaten-Path Guide
 slug: hidden-gems-off-the-beaten-path-travel
-date: "2025-05-20"
-lastModified: "2025-06-16T16:41:09.048Z"
+datePublished: "2025-05-20T00:00:00.000Z"
+dateModified: "2025-06-16T17:24:50.938Z"
 author:
   name: Maya Rodriguez
   role: Travel Blogger
@@ -40,10 +40,14 @@ seo:
     - exploring
     - destinations
 contentSettings:
-  toc: true
   comments: true
   shareButtons: true
   contentWarning: null
+toc: true
+relatedPosts:
+  - budget-travel-tips
+  - solo-travel-guide
+  - cultural-immersion-experiences
 schema:
   "@type": Article
   headline: "Hidden Gems: Exploring Off-the-Beaten-Path Travel Destinations"
@@ -61,11 +65,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-relatedPosts:
-  - budget-travel-tips
-  - solo-travel-guide
-  - cultural-immersion-experiences
-toc: true
+lastModified: "2025-06-16T17:47:37.798Z"
 ---
 
 Seek experiences beyond the typical tourist trail. Nestled between Iceland and Norway, the Faroe Islands boast dramatic landscapes, including cascading waterfalls, rugged cliffs, and quaint villages. Hike to the iconic Múlafossur Waterfall or explore the bird cliffs of Mykines for unforgettable encounters with puffins and other wildlife.

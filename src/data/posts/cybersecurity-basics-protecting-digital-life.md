@@ -2,8 +2,8 @@
 title: "Cybersecurity Basics: Protecting Your Digital Life"
 seoTitle: Cybersecurity Guide | Protect Your Digital Life Online
 slug: cybersecurity-basics-protecting-digital-life
-date: "2025-05-18"
-lastModified: "2025-06-16T16:41:09.006Z"
+datePublished: "2025-05-18T00:00:00.000Z"
+dateModified: "2025-06-16T17:24:50.853Z"
 author:
   name: Ken Adams
   role: Security Expert
@@ -27,7 +27,7 @@ priority: high
 metaRobots: index, follow
 canonicalUrl: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
 seo:
-  description: Learn fundamental cybersecurity practices to protect yourself from online threats. This guide covers strong passwords, recognizing phishing scams, securing y...
+  description: Learn fundamental cybersecurity practices to protect yourself from online threats. This guide covers strong passwords, recognizing phishing scams, securing
   canonical: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
   keywords:
     - cybersecurity
@@ -35,16 +35,19 @@ seo:
     - passwords
     - phishing
     - data-privacy
-    - "basics:"
     - protecting
     - your
     - digital
     - life
 contentSettings:
-  toc: true
   comments: true
   shareButtons: true
   contentWarning: null
+toc: true
+relatedPosts:
+  - how-to-create-strong-passwords
+  - spotting-phishing-emails
+  - securing-your-home-wifi
 schema:
   "@type": Article
   headline: "Cybersecurity Basics: Protecting Your Digital Life"
@@ -62,11 +65,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-relatedPosts:
-  - how-to-create-strong-passwords
-  - spotting-phishing-emails
-  - securing-your-home-wifi
-toc: true
+lastModified: "2025-06-16T17:47:37.681Z"
 ---
 
 Protecting your digital identity is crucial. In today's interconnected world, cybercriminals are constantly finding new ways to exploit vulnerabilities. By understanding and implementing basic cybersecurity practices, you can significantly reduce your risk of falling victim to online threats.

@@ -1,6 +1,6 @@
 /**
  * Frontmatter Processing Utility
- * 
+ *
  * This script processes markdown frontmatter to automatically generate
  * missing values like slugs, reading time, and SEO fields.
  */
@@ -42,10 +42,10 @@ function calculateReadingTime(content) {
     .replace(/\n+/g, ' ') // Replace newlines with spaces
     .trim();
 
-  const words = plainText.split(/\s+/).filter(word => word.length > 0);
+  const words = plainText.split(/\s+/).filter((word) => word.length > 0);
   const wordsPerMinute = 200; // Average reading speed
   const minutes = Math.ceil(words.length / wordsPerMinute);
-  
+
   return minutes === 1 ? '1 minute' : `${minutes} minutes`;
 }
 
@@ -58,13 +58,14 @@ function calculateReadingTime(content) {
  */
 function generateSEOTitle(title, seoTitle, siteName = 'All Things Digital') {
   if (seoTitle) return seoTitle;
-  
+
   // Truncate title if too long and append site name
   const maxLength = 60 - siteName.length - 3; // Account for " | "
-  const truncatedTitle = title.length > maxLength 
-    ? title.substring(0, maxLength).trim() + '...'
-    : title;
-  
+  const truncatedTitle =
+    title.length > maxLength
+      ? title.substring(0, maxLength).trim() + '...'
+      : title;
+
   return `${truncatedTitle} | ${siteName}`;
 }
 
@@ -78,11 +79,9 @@ function generateSEOTitle(title, seoTitle, siteName = 'All Things Digital') {
 function generateMetaDescription(excerpt, content, metaDescription) {
   if (metaDescription) return metaDescription;
   if (excerpt) {
-    return excerpt.length > 160 
-      ? excerpt.substring(0, 157) + '...'
-      : excerpt;
+    return excerpt.length > 160 ? excerpt.substring(0, 157) + '...' : excerpt;
   }
-  
+
   // Extract first paragraph from content
   const firstParagraph = content
     .replace(/#{1,6}\s+.*?\n/g, '') // Remove headers
@@ -92,8 +91,8 @@ function generateMetaDescription(excerpt, content, metaDescription) {
     .replace(/\*(.*?)\*/g, '$1') // Remove italic
     .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links
     .trim();
-  
-  return firstParagraph.length > 160 
+
+  return firstParagraph.length > 160
     ? firstParagraph.substring(0, 157) + '...'
     : firstParagraph;
 }
@@ -104,7 +103,10 @@ function generateMetaDescription(excerpt, content, metaDescription) {
  * @param {string} baseUrl - Site base URL
  * @returns {string} - Canonical URL
  */
-function generateCanonicalUrl(slug, baseUrl = 'https://all-things-digital.pages.dev') {
+function generateCanonicalUrl(
+  slug,
+  baseUrl = 'https://all-things-digital.pages.dev',
+) {
   return `${baseUrl}/blog/${slug}`;
 }
 
@@ -117,19 +119,26 @@ function generateCanonicalUrl(slug, baseUrl = 'https://all-things-digital.pages.
  */
 function generateKeywords(title, content, tags = []) {
   const keywords = new Set();
-  
+
   // Add tags as keywords
-  tags.forEach(tag => keywords.add(tag.toLowerCase()));
-  
+  tags.forEach((tag) => keywords.add(tag.toLowerCase()));
+
   // Extract keywords from title
-  const titleWords = title.toLowerCase()
+  const titleWords = title
+    .toLowerCase()
     .split(/\s+/)
-    .filter(word => word.length > 3 && !/^(the|and|for|are|but|not|you|all|can|had|her|was|one|our|out|day|get|has|him|his|how|its|may|new|now|old|see|two|way|who|boy|did|man|men|put|say|she|too|use)$/.test(word));
-  
-  titleWords.forEach(word => keywords.add(word));
-  
+    .filter(
+      (word) =>
+        word.length > 3 &&
+        !/^(the|and|for|are|but|not|you|all|can|had|her|was|one|our|out|day|get|has|him|his|how|its|may|new|now|old|see|two|way|who|boy|did|man|men|put|say|she|too|use)$/.test(
+          word,
+        ),
+    );
+
+  titleWords.forEach((word) => keywords.add(word));
+
   // Limit to 10 keywords
-  return Array.from(keywords).slice(0, 10);
+  return Array.from(keywords).slice(0, 4);
 }
 
 /**
@@ -142,86 +151,91 @@ function processMarkdownFile(filePath, options = {}) {
     const fileContent = fs.readFileSync(filePath, 'utf8');
     const { data: frontmatter, content } = matter(fileContent);
     let modified = false;
-    
+
     // Generate slug if missing
     if (!frontmatter.slug && frontmatter.title) {
       frontmatter.slug = generateSlug(frontmatter.title);
       modified = true;
       console.log(`Generated slug: ${frontmatter.slug}`);
     }
-    
+
     // Generate SEO title if missing
     if (!frontmatter.seoTitle && frontmatter.title) {
-      frontmatter.seoTitle = generateSEOTitle(frontmatter.title, frontmatter.seoTitle);
+      frontmatter.seoTitle = generateSEOTitle(
+        frontmatter.title,
+        frontmatter.seoTitle,
+      );
       modified = true;
       console.log(`Generated SEO title: ${frontmatter.seoTitle}`);
     }
-    
+
     // Calculate reading time if missing
     if (!frontmatter.readingTime) {
       frontmatter.readingTime = calculateReadingTime(content);
       modified = true;
       console.log(`Calculated reading time: ${frontmatter.readingTime}`);
     }
-    
+
     // Update last modified date
     if (options.updateLastModified !== false) {
       frontmatter.lastModified = new Date().toISOString();
       modified = true;
     }
-    
+
     // Initialize SEO object if missing
     if (!frontmatter.seo) {
       frontmatter.seo = {};
       modified = true;
     }
-    
+
     // Generate SEO meta description
     if (!frontmatter.seo.description) {
       frontmatter.seo.description = generateMetaDescription(
-        frontmatter.excerpt, 
-        content, 
-        frontmatter.seo.description
+        frontmatter.excerpt,
+        content,
+        frontmatter.seo.description,
       );
       modified = true;
-      console.log(`Generated meta description: ${frontmatter.seo.description.substring(0, 50)}...`);
+      console.log(
+        `Generated meta description: ${frontmatter.seo.description.substring(0, 50)}...`,
+      );
     }
-    
+
     // Generate canonical URL
     if (!frontmatter.seo.canonical && frontmatter.slug) {
       frontmatter.seo.canonical = generateCanonicalUrl(frontmatter.slug);
       modified = true;
       console.log(`Generated canonical URL: ${frontmatter.seo.canonical}`);
     }
-    
+
     // Generate keywords
     if (!frontmatter.seo.keywords || frontmatter.seo.keywords.length === 0) {
       frontmatter.seo.keywords = generateKeywords(
-        frontmatter.title, 
-        content, 
-        frontmatter.tags
+        frontmatter.title,
+        content,
+        frontmatter.tags,
       );
       modified = true;
       console.log(`Generated keywords: ${frontmatter.seo.keywords.join(', ')}`);
     }
-    
+
     // Set default priority if missing
     if (!frontmatter.priority) {
       frontmatter.priority = 'medium';
       modified = true;
     }
-    
+
     // Initialize content settings if missing
     if (!frontmatter.contentSettings) {
       frontmatter.contentSettings = {
         toc: true,
         comments: true,
         shareButtons: true,
-        contentWarning: null
+        contentWarning: null,
       };
       modified = true;
     }
-    
+
     // Write back to file if modified
     if (modified && !options.dryRun) {
       const updatedContent = matter.stringify(content, frontmatter, {
@@ -234,11 +248,11 @@ function processMarkdownFile(filePath, options = {}) {
                 noRefs: true,
                 quotingType: '"',
                 forceQuotes: false,
-                flowLevel: -1
+                flowLevel: -1,
               });
-            }
-          }
-        }
+            },
+          },
+        },
       });
       fs.writeFileSync(filePath, updatedContent, 'utf8');
       console.log(`✅ Updated: ${path.basename(filePath)}`);
@@ -247,9 +261,8 @@ function processMarkdownFile(filePath, options = {}) {
     } else {
       console.log(`✨ No changes needed: ${path.basename(filePath)}`);
     }
-    
+
     return { frontmatter, content, modified };
-    
   } catch (error) {
     console.error(`❌ Error processing ${filePath}:`, error.message);
     return null;
@@ -263,19 +276,20 @@ function processMarkdownFile(filePath, options = {}) {
  */
 function processMarkdownDirectory(directory, options = {}) {
   try {
-    const files = fs.readdirSync(directory)
-      .filter(file => file.endsWith('.md'))
-      .map(file => path.join(directory, file));
-    
+    const files = fs
+      .readdirSync(directory)
+      .filter((file) => file.endsWith('.md'))
+      .map((file) => path.join(directory, file));
+
     console.log(`📁 Processing ${files.length} markdown files in ${directory}`);
-    
+
     let processedCount = 0;
     let modifiedCount = 0;
-    
-    files.forEach(filePath => {
+
+    files.forEach((filePath) => {
       console.log(`\n📄 Processing: ${path.basename(filePath)}`);
       const result = processMarkdownFile(filePath, options);
-      
+
       if (result) {
         processedCount++;
         if (result.modified) {
@@ -283,12 +297,11 @@ function processMarkdownDirectory(directory, options = {}) {
         }
       }
     });
-    
+
     console.log(`\n📊 Summary:`);
     console.log(`   Processed: ${processedCount} files`);
     console.log(`   Modified: ${modifiedCount} files`);
     console.log(`   Skipped: ${files.length - processedCount} files`);
-    
   } catch (error) {
     console.error(`❌ Error processing directory ${directory}:`, error.message);
   }
@@ -301,34 +314,41 @@ function processMarkdownDirectory(directory, options = {}) {
  */
 function validateFrontmatter(frontmatter) {
   const errors = [];
-  
+
   // Required fields
   if (!frontmatter.title) errors.push('Missing required field: title');
   if (!frontmatter.date) errors.push('Missing required field: date');
   if (!frontmatter.author) errors.push('Missing required field: author');
-  
+
   // Slug validation
-  if (frontmatter.slug && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(frontmatter.slug)) {
-    errors.push('Invalid slug format: must be lowercase letters, numbers, and hyphens only');
+  if (
+    frontmatter.slug &&
+    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(frontmatter.slug)
+  ) {
+    errors.push(
+      'Invalid slug format: must be lowercase letters, numbers, and hyphens only',
+    );
   }
-  
+
   // Date validation
   if (frontmatter.date && isNaN(Date.parse(frontmatter.date))) {
     errors.push('Invalid date format');
   }
-  
+
   // Status validation
   const validStatuses = ['draft', 'review', 'published', 'archived'];
   if (frontmatter.status && !validStatuses.includes(frontmatter.status)) {
     errors.push(`Invalid status: must be one of ${validStatuses.join(', ')}`);
   }
-  
+
   // Priority validation
   const validPriorities = ['low', 'medium', 'high'];
   if (frontmatter.priority && !validPriorities.includes(frontmatter.priority)) {
-    errors.push(`Invalid priority: must be one of ${validPriorities.join(', ')}`);
+    errors.push(
+      `Invalid priority: must be one of ${validPriorities.join(', ')}`,
+    );
   }
-  
+
   return errors;
 }
 
@@ -336,22 +356,22 @@ function validateFrontmatter(frontmatter) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
   const command = args[0];
-  
+
   switch (command) {
     case 'process':
       const directory = args[1] || 'src/data/posts';
       const dryRun = args.includes('--dry-run');
       const updateLastModified = !args.includes('--no-update-modified');
-      
+
       processMarkdownDirectory(directory, { dryRun, updateLastModified });
       break;
-      
+
     case 'validate':
       const validateDir = args[1] || 'src/data/posts';
       // Implementation for validation command
       console.log(`Validating markdown files in ${validateDir}`);
       break;
-      
+
     default:
       console.log(`
 Frontmatter Processing Utility
@@ -377,5 +397,5 @@ export {
   generateKeywords,
   processMarkdownFile,
   processMarkdownDirectory,
-  validateFrontmatter
+  validateFrontmatter,
 };

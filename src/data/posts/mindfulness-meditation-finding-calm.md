@@ -2,8 +2,8 @@
 title: "Mindfulness and Meditation: Finding Calm in a Busy World"
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
-date: "2025-05-17"
-lastModified: "2025-06-16T16:41:09.058Z"
+datePublished: "2025-05-17T00:00:00.000Z"
+dateModified: "2025-06-16T17:24:50.956Z"
 author:
   name: Aisha Khan
   role: Wellness Coach
@@ -41,10 +41,14 @@ seo:
     - busy
     - world
 contentSettings:
-  toc: true
   comments: true
   shareButtons: true
   contentWarning: null
+toc: true
+relatedPosts:
+  - benefits-of-daily-meditation
+  - mindfulness-exercises-for-beginners
+  - managing-anxiety-naturally
 schema:
   "@type": Article
   headline: "Mindfulness and Meditation: Finding Calm in a Busy World"
@@ -62,11 +66,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-relatedPosts:
-  - benefits-of-daily-meditation
-  - mindfulness-exercises-for-beginners
-  - managing-anxiety-naturally
-toc: false
+lastModified: "2025-06-16T17:47:37.907Z"
 ---
 
 In today’s fast-paced world, mindfulness has emerged as a powerful tool for reclaiming our mental space. At its core, **mindfulness** is about being fully present in the moment, without judgment. It encourages us to step away from the constant chatter of our minds and focus on what’s happening right now.

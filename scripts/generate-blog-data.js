@@ -95,7 +95,7 @@ const processMarkdownFile = (filename, postsDir) => {
       slug,
       title: data.title || 'Untitled Post', // Provide default title
       subtitle: data.subtitle || '',
-      date: data.date || new Date().toISOString().split('T')[0], // Default to today's date
+      date: data.datePublished || data.date || new Date().toISOString().split('T')[0], // Default to today's date, fallback for old 'date' field
       featuredImage: data.featuredImage || null,
       category: data.category || 'Uncategorized', // Provide default category
       tags: data.tags || [],
@@ -165,7 +165,7 @@ const generateBlogData = () => {
     );
 
     // Sort posts by date (newest first)
-    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    posts.sort((a, b) => new Date(b.datePublished || b.date).getTime() - new Date(a.datePublished || a.date).getTime());
 
     // Filter only published posts
     const publishedPosts = posts.filter(post => post.status === 'published');

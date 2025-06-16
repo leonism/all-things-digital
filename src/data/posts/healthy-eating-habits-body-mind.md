@@ -2,8 +2,8 @@
 title: "Healthy Eating Habits: Fueling Your Body and Mind"
 seoTitle: Healthy Eating Guide | Nutrition Tips for Body & Mind
 slug: healthy-eating-habits-body-mind
-date: "2025-05-21"
-lastModified: "2025-06-16T16:41:09.044Z"
+datePublished: "2025-05-21T00:00:00.000Z"
+dateModified: "2025-06-16T17:24:50.929Z"
 author:
   name: Dr. Olivia Martinez
   role: Nutritionist
@@ -41,10 +41,14 @@ seo:
     - fueling
     - your
 contentSettings:
-  toc: true
   comments: true
   shareButtons: true
   contentWarning: null
+toc: true
+relatedPosts:
+  - benefits-of-mediterranean-diet
+  - mindful-eating-techniques
+  - meal-prepping-for-beginners
 schema:
   "@type": Article
   headline: "Healthy Eating Habits: Fueling Your Body and Mind"
@@ -62,11 +66,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-relatedPosts:
-  - benefits-of-mediterranean-diet
-  - mindful-eating-techniques
-  - meal-prepping-for-beginners
-toc: true
+lastModified: "2025-06-16T17:47:37.790Z"
 ---
 
 A balanced diet is not just about eating less or avoiding certain foods; it's about nourishing your body with the right nutrients. Here are some essential components: Good nutrition is the foundation of a healthy life.
