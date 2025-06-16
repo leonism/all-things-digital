@@ -5,8 +5,8 @@ backend:
   base_url: https://all-things-digital.pages.dev
   auth_endpoint: /api/auth
 
-media_folder: 'src/assets/img/uploads'
-public_folder: '/assets/img/uploads'
+media_folder: 'src/assets/img'
+public_folder: '/assets/img'
 
 # Cloudinary Media Library Integration
 media_library:
@@ -174,7 +174,7 @@ collections:
           widget: 'datetime',
           required: false,
         }
-      
+
       # Author Information
       - {
           label: 'Author',
@@ -187,15 +187,11 @@ collections:
               { label: 'Image', name: 'image', widget: 'string' },
             ],
         }
-      
+
       # Categorization
-      - {
-          label: 'Category',
-          name: 'category',
-          widget: 'string',
-        }
+      - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
-      
+
       # Featured Image
       - {
           label: 'Featured Image',
@@ -213,7 +209,7 @@ collections:
               },
             ],
         }
-      
+
       # Content Description
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - {
@@ -223,7 +219,7 @@ collections:
           required: false,
           hint: 'e.g., "10 minutes"',
         }
-      
+
       # Publication Settings
       - {
           label: 'Status',
@@ -246,7 +242,7 @@ collections:
           default: 'medium',
           required: false,
         }
-      
+
       # Schema Markup
       - {
           label: 'Schema',
@@ -343,7 +339,7 @@ collections:
               },
             ],
         }
-      
+
       # Related Content
       - {
           label: 'Related Posts',
@@ -352,7 +348,7 @@ collections:
           required: false,
           field: { label: 'Post Slug', name: 'post', widget: 'string' },
         }
-      
+
       # Table of Contents
       - {
           label: 'Table of Contents',
@@ -361,7 +357,7 @@ collections:
           default: true,
           required: false,
         }
-      
+
       # Canonical URL
       - {
           label: 'Canonical URL',
@@ -369,7 +365,7 @@ collections:
           widget: 'string',
           required: false,
         }
-      
+
       # SEO Settings
       - {
           label: 'SEO',
@@ -399,7 +395,7 @@ collections:
               },
             ],
         }
-      
+
       # Content Settings
       - {
           label: 'Content Settings',
@@ -435,7 +431,7 @@ collections:
               },
             ],
         }
-      
+
       # Main Content
       - { label: 'Body', name: 'body', widget: 'markdown' }
 
