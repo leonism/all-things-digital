@@ -39,7 +39,7 @@ schema:
   image: https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: Wanderlust Chronicles
+    name: All Things Digital
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
@@ -48,14 +48,10 @@ relatedPosts:
   - solo-travel-guide
   - cultural-immersion-experiences
 toc: true
-metaRobots: 'index, follow'
-canonicalUrl: https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel'
 seo:
-  description:
-    Escape the tourist traps and discover breathtaking, lesser-known travel
-    destinations around the world. This guide highlights hidden gems perfect for
-    adventur...
-  canonical: https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
+  description: Escape the tourist traps and discover breathtaking, lesser-known travel destinations around the world. This guide highlights hidden gems perfect for adventurous travelers seeking authentic experiences.
+  canonical: 'https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel'
   keywords:
     - travel
     - adventure
@@ -63,8 +59,7 @@ seo:
     - off-the-beaten-path
     - explore
     - hidden
-    - 'gems:'
-    - exploring
+    - gems
     - destinations
 contentSettings:
   toc: true

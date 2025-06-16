@@ -1,74 +1,61 @@
 ---
-title: 'Financial Planning for Millennials: Building a Secure Future'
-seoTitle: Millennial Financial Planning Guide | Secure Your Future
+title: 'Financial Planning for Millennials: Securing Your Future'
+seoTitle: Financial Planning for Millennials | Secure Your Future
 slug: financial-planning-millennials-secure-future
 date: '2025-05-22'
-lastModified: '2025-06-16T12:54:05.030Z'
+lastModified: '2025-06-16T12:54:05.047Z'
 author:
-  name: Ethan Clark
+  name: Michael Rodriguez
   role: Financial Advisor
-  image: https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Finance
 tags:
   - financial-planning
   - millennials
   - investing
-  - retirement
   - budgeting
+  - retirement
 featuredImage:
-  src: https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-  alt: Person reviewing financial charts and graphs on a tablet
-  caption: Strategic financial planning is crucial for long-term security.
-excerpt: A comprehensive guide for millennials on financial planning, covering
-  budgeting, saving, investing, and preparing for retirement in today's economic
-  landscape.
-readingTime: 14 minutes
+  src: https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  alt: Young professional reviewing financial documents
+  caption: Start your financial journey with smart planning strategies.
+excerpt: Learn essential financial planning strategies tailored for millennials. From budgeting basics to investment tips, discover how to build wealth and secure your financial future in today's economy.
+readingTime: 8 minutes
 status: published
 featured: false
 priority: medium
 schema:
   '@type': Article
-  headline: 'Financial Planning for Millennials: Building a Secure Future'
-  description:
-    Essential financial planning strategies tailored for the millennial
-    generation.
+  headline: 'Financial Planning for Millennials: Securing Your Future'
+  description: Learn essential financial planning strategies tailored for millennials. From budgeting basics to investment tips.
   author:
     '@type': Person
-    name: Ethan Clark
+    name: Michael Rodriguez
     jobTitle: Financial Advisor
   datePublished: '2025-05-22'
   dateModified: '2025-05-22'
-  image: https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: Modern Finance Hub
+    name: All Things Digital
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
-relatedPosts:
-  - beginner-guide-to-investing
-  - managing-student-loan-debt
-  - retirement-planning-strategies
+relatedPosts: []
 toc: true
-metaRobots: 'index, follow'
-canonicalUrl: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future'
 seo:
-  description:
-    A comprehensive guide for millennials on financial planning, covering
-    budgeting, saving, investing, and preparing for retirement in today's
-    economic landscape.
-  canonical: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
+  description: Learn essential financial planning strategies tailored for millennials. From budgeting basics to investment tips, discover how to build wealth and secure your financial future in today's economy.
+  canonical: 'https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future'
   keywords:
-    - financial-planning
+    - financial planning
     - millennials
     - investing
-    - retirement
     - budgeting
-    - financial
-    - planning
-    - 'millennials:'
-    - building
-    - secure
+    - retirement planning
+    - finance
+    - money
+    - wealth
 contentSettings:
   toc: true
   comments: true

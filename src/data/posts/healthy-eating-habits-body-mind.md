@@ -42,22 +42,21 @@ schema:
   image: https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: Wellness Insights
+    name: All Things Digital
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - benefits-of-mediterranean-diet
-  - mindful-eating-techniques
-  - meal-prepping-for-beginners
+  - meal-prep-strategies
+  - nutrition-myths-debunked
 toc: true
-metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind'
 seo:
   description:
     Learn about the importance of healthy eating habits for both physical and
     mental well-being. This guide provides practical tips on balanced diets,
-    mindful ea...
+    mindful eating, and making sustainable food choices.
   canonical: 'https://all-things-digital.pages.dev/blog/healthy-eating-habits-body-mind'
   keywords:
     - healthy-eating
@@ -67,9 +66,7 @@ seo:
     - mental-health
     - healthy
     - eating
-    - 'habits:'
-    - fueling
-    - your
+    - habits
 contentSettings:
   toc: true
   comments: true

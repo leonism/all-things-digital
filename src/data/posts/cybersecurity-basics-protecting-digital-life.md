@@ -1,8 +1,32 @@
 ---
+title: 'Cybersecurity Basics: Protecting Your Digital Life'
+seoTitle: Cybersecurity Basics | Protecting Your Digital Life Guide
+slug: cybersecurity-basics-protecting-digital-life
+date: '2025-05-18'
+lastModified: '2025-06-16T12:54:05.047Z'
+author:
+  name: Ken Adams
+  role: Security Expert
+  image: https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+category: Technology
+tags:
+  - cybersecurity
+  - online-safety
+  - passwords
+  - phishing
+  - data-privacy
+featuredImage:
+  src: https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  alt: Abstract image of digital code and security locks
+  caption: Essential steps to safeguard your information in the digital age.
 excerpt:
   Learn fundamental cybersecurity practices to protect yourself from online
   threats. This guide covers strong passwords, recognizing phishing scams,
   securing your devices, and protecting your personal data.
+readingTime: 8 minutes
+status: published
+featured: true
+priority: high
 schema:
   '@type': Article
   headline: 'Cybersecurity Basics: Protecting Your Digital Life'
@@ -13,8 +37,8 @@ schema:
     '@type': Person
     name: Ken Adams
     jobTitle: Security Expert
-  datePublished: 2025-05-18T00:00:00.000Z
-  dateModified: 2025-05-18T00:00:00.000Z
+  datePublished: '2025-05-18'
+  dateModified: '2025-05-18'
   image: https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
@@ -22,32 +46,32 @@ schema:
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
-priority: high
-toc: true
 relatedPosts:
   - how-to-create-strong-passwords
   - spotting-phishing-emails
   - securing-your-home-wifi
-title: 'Cybersecurity Basics: Protecting Your Digital Life'
-date: 2025-05-18T00:00:00.000Z
-tags:
-  - cybersecurity
-  - online-safety
-  - passwords
-  - phishing
-  - data-privacy
-author:
-  name: Ken Adams
-  role: Security Expert
-  image: https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-  link: /about
-slug: cybersecurity-basics-protecting-digital-life
-featuredImage:
-  src: https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-  alt: Abstract image of digital code and security locks
-  caption: Essential steps to safeguard your information in the digital age.
-featured: true
-metaRobots: 'index, follow'
+toc: true
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life'
+seo:
+  description:
+    Learn fundamental cybersecurity practices to protect yourself from online
+    threats. This guide covers strong passwords, recognizing phishing scams,
+    securing your devices, and protecting your personal data.
+  canonical: 'https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life'
+  keywords:
+    - cybersecurity
+    - online-safety
+    - passwords
+    - phishing
+    - data-privacy
+    - digital
+    - security
+    - protection
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 published: true
 status: published
 readingTime: 10 minutes

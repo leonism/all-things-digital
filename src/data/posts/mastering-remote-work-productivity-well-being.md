@@ -41,23 +41,19 @@ schema:
   image: https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: WorkLife Balance Hub
+    name: All Things Digital
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - best-remote-work-tools
   - avoiding-burnout-wfh
-  - creating-ergonomic-home-office
+  - creating-home-office-space
 toc: true
-metaRobots: 'index, follow'
-canonicalUrl: https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being'
 seo:
-  description:
-    Learn essential strategies for maximizing productivity and maintaining
-    well-being while working remotely. From setting boundaries to leveraging
-    technology, t...
-  canonical: https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
+  description: Learn essential strategies for maximizing productivity and maintaining well-being while working remotely. From setting boundaries to leveraging technology, this guide covers key aspects of successful remote work.
+  canonical: 'https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being'
   keywords:
     - remote-work
     - productivity
@@ -66,7 +62,7 @@ seo:
     - career-advice
     - mastering
     - remote
-    - 'work:'
+    - work
 contentSettings:
   toc: true
   comments: true

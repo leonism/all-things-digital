@@ -7,7 +7,7 @@ lastModified: '2025-06-16T12:54:05.070Z'
 author:
   name: Sophia Green
   role: Environmental Consultant
-  image: all-things-digital/sophia-green
+  image: https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Lifestyle
 tags:
   - sustainable-living
@@ -16,7 +16,7 @@ tags:
   - environment
   - conservation
 featuredImage:
-  src: all-things-digital/greenery-view
+  src: https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Lush green landscape with mountains and a lake
   caption: Embracing sustainability starts at home.
 excerpt:
@@ -44,24 +44,22 @@ schema:
     https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: Green Living Today
+    name: All Things Digital
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
-  - zero-waste-kitchen
-  - energy-saving-hacks
-  - gardening-for-biodiversity
+  - zero-waste-lifestyle-tips
+  - energy-saving-home-improvements
+  - composting-for-beginners
 toc: true
-metaRobots: 'index, follow'
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home'
 seo:
   description:
     Discover practical tips and ideas for creating a more sustainable and
     eco-friendly home environment. From reducing waste to conserving energy,
-    learn how smal...
-  canonical:
-    https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home
+    learn how small changes can make a big impact.
+  canonical: 'https://all-things-digital.pages.dev/blog/sustainable-living-eco-friendly-home'
   keywords:
     - sustainable-living
     - eco-friendly
@@ -69,7 +67,7 @@ seo:
     - environment
     - conservation
     - sustainable
-    - 'living:'
+    - living
     - tips
     - home
 contentSettings:

@@ -42,34 +42,31 @@ schema:
   image: https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
     '@type': Organization
-    name: Calm Mind Collective
+    name: All Things Digital
     logo:
       '@type': ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - benefits-of-daily-meditation
-  - mindfulness-exercises-for-beginners
-  - managing-anxiety-naturally
-toc: false
-metaRobots: 'index, follow'
+  - stress-management-techniques
+  - breathing-exercises-for-anxiety
+toc: true
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm'
 seo:
   description:
     Discover the benefits of mindfulness and meditation for reducing stress and
     enhancing mental clarity. Learn simple techniques to incorporate these
-    practices ...
-  canonical: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
+    practices into your daily life.
+  canonical: 'https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm'
   keywords:
     - mindfulness
     - meditation
     - stress-relief
     - mental-health
     - well-being
-    - 'meditation:'
-    - finding
     - calm
-    - busy
-    - world
+    - techniques
+    - practices
 contentSettings:
   toc: true
   comments: true

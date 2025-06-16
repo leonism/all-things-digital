@@ -1,51 +1,61 @@
 ---
-layout: blog
 title: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
-slug: ai-creative-industries-opportunities-challenges
-date: 2025-06-16T16:19:00.000Z
-lastModified: '2025-06-16T12:54:04.985Z'
-status: published
-featured: false
-featuredImage:
-  src:
-    https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-  alt: Abstract image representing artificial intelligence and creativity
-  caption: AI is transforming how creative work is done.
+seoTitle: AI in Creative Industries | Opportunities and Challenges
+slug: the-rise-of-ai-in-creative-industries-opportunities-and-challenges
+date: '2025-06-16'
+lastModified: '2025-06-16T12:54:05.047Z'
+author:
+  name: Alex Chen
+  role: Tech Journalist
+  image: https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Technology
 tags:
-  -
-    - artificial-intelligence   - creative-industries   - design   - art   -
-    future-of-work
-author: Chloe Davis
-coAuthors: []
-excerpt:
-  Explore how Artificial Intelligence is impacting creative fields like design,
-  music, and writing. Understand the potential benefits, ethical considerations,
-  and challenges as AI tools become more prevalent.
-readingTime: 10 minutes
+  - artificial-intelligence
+  - creative-industries
+  - technology
+  - innovation
+  - future-of-work
+featuredImage:
+  src: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  alt: AI-generated artwork displayed on digital screens
+  caption: Exploring how artificial intelligence is reshaping creative industries.
+excerpt: Explore how artificial intelligence is transforming creative industries, from graphic design to music production. Discover the opportunities for innovation and the challenges facing creative professionals in the AI era.
+readingTime: 9 minutes
+status: published
+featured: true
+priority: high
+schema:
+  '@type': Article
+  headline: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
+  description: Explore how artificial intelligence is transforming creative industries, from graphic design to music production.
+  author:
+    '@type': Person
+    name: Alex Chen
+    jobTitle: Tech Journalist
+  datePublished: '2025-06-16'
+  dateModified: '2025-06-16'
+  image: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  publisher:
+    '@type': Organization
+    name: All Things Digital
+    logo:
+      '@type': ImageObject
+      url: /images/logo-placeholder.png
+relatedPosts: []
+toc: true
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/the-rise-of-ai-in-creative-industries-opportunities-and-challenges'
 seo:
-  noindex: false
-  title: AI in Creative Industries | Opportunities & Challenges 2025
-  canonical:
-    https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges
-  description:
-    Explore how Artificial Intelligence is impacting creative fields like
-    design, music, and writing. Understand the potential benefits, ethical
-    considerations, ...
+  description: Explore how artificial intelligence is transforming creative industries, from graphic design to music production. Discover the opportunities for innovation and the challenges facing creative professionals in the AI era.
+  canonical: 'https://all-things-digital.pages.dev/blog/the-rise-of-ai-in-creative-industries-opportunities-and-challenges'
   keywords:
-    -
-      - artificial-intelligence   - creative-industries   - design   - art   -
-      future-of-work
-    - rise
+    - artificial intelligence
+    - creative industries
+    - AI art
+    - technology
+    - innovation
+    - ai
     - creative
-    - 'industries:'
-    - opportunities
-    - challenges
-advanced:
-  schema:
-    lang: en
-seoTitle: 'The Rise of AI in Creative Industries:... | All Things Digital'
-priority: medium
+    - industries
 contentSettings:
   toc: true
   comments: true

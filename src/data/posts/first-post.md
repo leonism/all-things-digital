@@ -1,20 +1,44 @@
 ---
-excerpt: This is the first example blog post generated for testing the Markdown
+title: My First Blog Post
+seoTitle: My First Blog Post | All Things Digital
+slug: first-post
+date: '2025-05-26T12:54:05.047Z'
+lastModified: '2025-06-16T12:54:05.047Z'
+author:
+  name: Mike Smith
+  role: Developer
+  image: all-things-digital/avatar
+category: Technology
+tags:
+  - vite
+  - vue3
+  - markdown
+  - tailwindcss
+featuredImage:
+  src: all-things-digital/thumbnail-03-comp
+  alt: Code example screenshot
+  caption: An example image for the first post.
+excerpt:
+  This is the first example blog post generated for testing the Markdown
   processing and frontmatter structure. Welcome to the first blog post on this
   newly integrated Vue 3 blog! This post serves as an example to test the
   Markdown rendering and frontmatter extraction.
+readingTime: 5 minutes
+status: published
+featured: false
+priority: low
 schema:
   '@type': Article
-  headline: Exploring the Future of Web Development in 2025
+  headline: My First Blog Post
   description:
-    An overview of upcoming trends and technologies in the web development
-    industry for 2025.
+    An example blog post for testing the Markdown processing and frontmatter
+    structure.
   author:
     '@type': Person
     name: Mike Smith
-    jobTitle: Lead Developer
-  datePublished: 2025-05-26T00:00:00.000Z
-  dateModified: 2025-05-26T00:00:00.000Z
+    jobTitle: Developer
+  datePublished: '2025-05-26'
+  dateModified: '2025-05-26'
   image: ../assets/img/featured-blog.jpg
   publisher:
     '@type': Organization
@@ -22,32 +46,30 @@ schema:
     logo:
       '@type': ImageObject
       url: ..assets/img/icons/logo-footer.png
-priority: low
-toc: true
 relatedPosts:
   - ai-in-web-development
   - top-javascript-frameworks
   - serverless-architecture-guide
-title: My First Blog Post
-date: 2025-05-26T00:00:00.000Z
-tags:
-  - vite
-  - vue3
-  - markdown
-  - tailwindcss
-author:
-  name: Mike Smith
-  role: Developer
-  image: all-things-digital/avatar
-  link: /about
-slug: first-post
-featuredImage:
-  src: all-things-digital/thumbnail-03-comp
-  alt: Code example screenshot
-  caption: An example image for the first post.
-featured: false
-metaRobots: 'index, follow'
-published: true
+toc: true
+canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
+seo:
+  description:
+    This is the first example blog post generated for testing the Markdown
+    processing and frontmatter structure.
+  canonical: 'https://all-things-digital.pages.dev/blog/first-post'
+  keywords:
+    - vite
+    - vue3
+    - markdown
+    - tailwindcss
+    - first
+    - blog
+    - post
+contentSettings:
+  toc: true
+  comments: true
+  shareButtons: true
+  contentWarning: null
 status: published
 readingTime: 5 minutes
 canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
