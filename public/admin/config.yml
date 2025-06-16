@@ -217,7 +217,7 @@ collections:
         }
 
       # Content Description
-      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
       - {
           label: 'Reading Time',
           name: 'readingTime',
