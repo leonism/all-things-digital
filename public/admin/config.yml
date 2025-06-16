@@ -5,6 +5,10 @@ backend:
   base_url: https://all-things-digital.pages.dev
   auth_endpoint: /api/auth
 
+# Frontmatter formatting configuration
+format_frontmatter: yaml
+yaml_quote_type: '"'
+
 media_folder: 'src/assets/img'
 public_folder: '/assets/img'
 
@@ -146,6 +150,8 @@ collections:
     create: true
     slug: '{{slug}}'
     preview_path: 'blog/{{slug}}'
+    format: 'frontmatter'
+    frontmatter_delimiter: '---'
     fields:
       # Core Content Fields (matching future-web-development-2025.md sequence)
       - { label: 'Title', name: 'title', widget: 'string' }
