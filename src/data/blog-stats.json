@@ -1,29 +1,19 @@
 {
   "totalPosts": 11,
-  "publishedPosts": 11,
-  "draftPosts": 0,
+  "publishedPosts": 8,
+  "draftPosts": 3,
   "categories": [],
   "tags": [
-    "- artificial-intelligence   - creative-industries   - design   - art   - future-of-work",
-    "cybersecurity",
-    "online-safety",
-    "passwords",
-    "phishing",
-    "data-privacy",
     "diy",
     "home-decor",
+    "budget",
     "crafts",
-    "budget-friendly",
-    "upcycling",
+    "interior-design",
     "financial-planning",
     "millennials",
     "investing",
-    "retirement",
     "budgeting",
-    "vite",
-    "vue3",
-    "markdown",
-    "tailwindcss",
+    "retirement",
     "web-development",
     "frontend",
     "backend",
@@ -47,35 +37,22 @@
     "mindfulness",
     "meditation",
     "stress-relief",
-    "sustainable-living",
-    "eco-friendly",
-    "green-home",
-    "environment",
-    "conservation"
+    "artificial-intelligence",
+    "creative-industries",
+    "technology",
+    "innovation",
+    "future-of-work"
   ],
   "authors": [
-    "Chloe Davis",
     {
-      "name": "Ken Adams",
-      "role": "Security Expert",
-      "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "link": "/about"
+      "name": "Sarah Johnson",
+      "role": "Interior Design Enthusiast",
+      "image": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
-      "name": "Jessica Miller",
-      "role": "DIY Blogger",
-      "image": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    {
-      "name": "Ethan Clark",
+      "name": "Michael Rodriguez",
       "role": "Financial Advisor",
-      "image": "https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    },
-    {
-      "name": "Mike Smith",
-      "role": "Developer",
-      "image": "all-things-digital/avatar",
-      "link": "/about"
+      "image": "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
       "name": "Alex Johnson",
@@ -103,12 +80,12 @@
       "image": "https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     },
     {
-      "name": "Sophia Green",
-      "role": "Environmental Consultant",
-      "image": "all-things-digital/sophia-green"
+      "name": "Alex Chen",
+      "role": "Tech Journalist",
+      "image": "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     }
   ],
-  "totalReadingTime": 102,
-  "lastUpdated": "2025-06-16T10:02:12.264Z",
-  "averageReadingTime": 9
+  "totalReadingTime": 85,
+  "lastUpdated": "2025-06-16T14:06:20.366Z",
+  "averageReadingTime": 8
 }

@@ -3,7 +3,7 @@ title: 'Financial Planning for Millennials: Securing Your Future'
 seoTitle: Financial Planning for Millennials | Secure Your Future
 slug: financial-planning-millennials-secure-future
 date: '2025-05-22'
-lastModified: '2025-06-16T12:54:05.047Z'
+lastModified: '2025-06-16T14:06:20.134Z'
 author:
   name: Michael Rodriguez
   role: Financial Advisor
@@ -19,7 +19,10 @@ featuredImage:
   src: https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Young professional reviewing financial documents
   caption: Start your financial journey with smart planning strategies.
-excerpt: Learn essential financial planning strategies tailored for millennials. From budgeting basics to investment tips, discover how to build wealth and secure your financial future in today's economy.
+excerpt:
+  Learn essential financial planning strategies tailored for millennials. From
+  budgeting basics to investment tips, discover how to build wealth and secure
+  your financial future in today's economy.
 readingTime: 8 minutes
 status: published
 featured: false
@@ -27,7 +30,9 @@ priority: medium
 schema:
   '@type': Article
   headline: 'Financial Planning for Millennials: Securing Your Future'
-  description: Learn essential financial planning strategies tailored for millennials. From budgeting basics to investment tips.
+  description:
+    Learn essential financial planning strategies tailored for millennials. From
+    budgeting basics to investment tips.
   author:
     '@type': Person
     name: Michael Rodriguez
@@ -43,10 +48,13 @@ schema:
       url: /images/logo-placeholder.png
 relatedPosts: []
 toc: true
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future'
+canonicalUrl: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
 seo:
-  description: Learn essential financial planning strategies tailored for millennials. From budgeting basics to investment tips, discover how to build wealth and secure your financial future in today's economy.
-  canonical: 'https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future'
+  description:
+    Learn essential financial planning strategies tailored for millennials. From
+    budgeting basics to investment tips, discover how to build wealth and secure
+    your financial future in today's economy.
+  canonical: https://all-things-digital.pages.dev/blog/financial-planning-millennials-secure-future
   keywords:
     - financial planning
     - millennials

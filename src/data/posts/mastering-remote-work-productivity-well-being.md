@@ -3,7 +3,7 @@ title: 'Mastering Remote Work: Productivity and Well-being'
 seoTitle: Remote Work Guide 2025 | Productivity & Well-being Tips
 slug: mastering-remote-work-productivity-well-being
 date: '2025-05-24'
-lastModified: '2025-06-16T12:54:05.063Z'
+lastModified: '2025-06-16T14:06:20.167Z'
 author:
   name: David Lee
   role: Productivity Coach
@@ -50,10 +50,13 @@ relatedPosts:
   - avoiding-burnout-wfh
   - creating-home-office-space
 toc: true
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being'
+canonicalUrl: https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
 seo:
-  description: Learn essential strategies for maximizing productivity and maintaining well-being while working remotely. From setting boundaries to leveraging technology, this guide covers key aspects of successful remote work.
-  canonical: 'https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being'
+  description:
+    Learn essential strategies for maximizing productivity and maintaining
+    well-being while working remotely. From setting boundaries to leveraging
+    technology, this guide covers key aspects of successful remote work.
+  canonical: https://all-things-digital.pages.dev/blog/mastering-remote-work-productivity-well-being
   keywords:
     - remote-work
     - productivity

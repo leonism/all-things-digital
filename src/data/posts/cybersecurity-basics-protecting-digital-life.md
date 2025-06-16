@@ -72,7 +72,6 @@ contentSettings:
   comments: true
   shareButtons: true
   contentWarning: null
-published: true
 status: published
 readingTime: 10 minutes
 canonicalUrl: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life

@@ -3,7 +3,7 @@ title: 'Hidden Gems: Exploring Off-the-Beaten-Path Travel Destinations'
 seoTitle: Unique Travel Destinations | Off-the-Beaten-Path Guide
 slug: hidden-gems-off-the-beaten-path-travel
 date: '2025-05-20'
-lastModified: '2025-06-16T12:54:05.059Z'
+lastModified: '2025-06-16T14:06:20.161Z'
 author:
   name: Maya Rodriguez
   role: Travel Blogger
@@ -48,10 +48,13 @@ relatedPosts:
   - solo-travel-guide
   - cultural-immersion-experiences
 toc: true
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel'
+canonicalUrl: https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
 seo:
-  description: Escape the tourist traps and discover breathtaking, lesser-known travel destinations around the world. This guide highlights hidden gems perfect for adventurous travelers seeking authentic experiences.
-  canonical: 'https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel'
+  description:
+    Escape the tourist traps and discover breathtaking, lesser-known travel
+    destinations around the world. This guide highlights hidden gems perfect for
+    adventurous travelers seeking authentic experiences.
+  canonical: https://all-things-digital.pages.dev/blog/hidden-gems-off-the-beaten-path-travel
   keywords:
     - travel
     - adventure

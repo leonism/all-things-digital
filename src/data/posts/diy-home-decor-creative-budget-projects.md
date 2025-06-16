@@ -3,7 +3,7 @@ title: 'DIY Home Decor: Creative Budget Projects'
 seoTitle: DIY Home Decor | Creative Budget Projects for Your Home
 slug: diy-home-decor-creative-budget-projects
 date: '2025-05-20'
-lastModified: '2025-06-16T12:54:05.047Z'
+lastModified: '2025-06-16T14:06:20.111Z'
 author:
   name: Sarah Johnson
   role: Interior Design Enthusiast
@@ -19,7 +19,9 @@ featuredImage:
   src: https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: DIY home decor projects on a wooden table
   caption: Transform your space with these creative and budget-friendly DIY projects.
-excerpt: Discover creative and budget-friendly DIY home decor projects that will transform your living space without breaking the bank. From upcycling furniture to creating wall art, these projects are perfect for beginners.
+excerpt: Discover creative and budget-friendly DIY home decor projects that will
+  transform your living space without breaking the bank. From upcycling
+  furniture to creating wall art, these projects are perfect for beginners.
 readingTime: 6 minutes
 status: published
 featured: false
@@ -27,7 +29,9 @@ priority: medium
 schema:
   '@type': Article
   headline: 'DIY Home Decor: Creative Budget Projects'
-  description: Discover creative and budget-friendly DIY home decor projects that will transform your living space without breaking the bank.
+  description:
+    Discover creative and budget-friendly DIY home decor projects that will
+    transform your living space without breaking the bank.
   author:
     '@type': Person
     name: Sarah Johnson
@@ -43,10 +47,12 @@ schema:
       url: /images/logo-placeholder.png
 relatedPosts: []
 toc: true
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects'
+canonicalUrl: https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects
 seo:
-  description: Discover creative and budget-friendly DIY home decor projects that will transform your living space without breaking the bank.
-  canonical: 'https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects'
+  description:
+    Discover creative and budget-friendly DIY home decor projects that will
+    transform your living space without breaking the bank.
+  canonical: https://all-things-digital.pages.dev/blog/diy-home-decor-creative-budget-projects
   keywords:
     - diy home decor
     - budget decorating
