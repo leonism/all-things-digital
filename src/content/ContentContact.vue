@@ -17,8 +17,8 @@ import { defineAsyncComponent } from 'vue';
 import HeaderContact from '../components/heading/HeaderContact.vue';
 import LoadingStates from '../components/common/LoadingStates.vue';
 
-const LazyContactForm = defineAsyncComponent(() =>
-  import('../components/forms/ContactForm.vue')
+const LazyContactForm = defineAsyncComponent( () =>
+  import( '../components/forms/ContactForm.vue' )
 );
 </script>
 
