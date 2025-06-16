@@ -1,0 +1,145 @@
+[
+  {
+    "slug": "aisha-khan",
+    "name": "Aisha Khan",
+    "role": "Mindfulness Coach",
+    "email": "aisha.khan@example.com",
+    "bio": "Aisha is a certified mindfulness coach who helps people find inner peace and calm through meditation and mindful living practices.",
+    "social": {
+      "twitter": "aishaminds",
+      "linkedin": "aisha-khan-mindfulness",
+      "github": ""
+    },
+    "featured": false
+  },
+  {
+    "slug": "alex-johnson",
+    "name": "Alex Johnson",
+    "role": "Lead Developer",
+    "email": "alex.johnson@example.com",
+    "bio": "Alex is a seasoned lead developer with expertise in modern web technologies, JavaScript frameworks, and emerging tech trends.",
+    "social": {
+      "twitter": "alexjohnsondev",
+      "linkedin": "alex-johnson-dev",
+      "github": "alexjohnson"
+    },
+    "featured": false
+  },
+  {
+    "slug": "chloe-davis",
+    "name": "Chloe Davis",
+    "role": "Technology Analyst",
+    "email": "chloe.davis@example.com",
+    "bio": "Chloe is a technology analyst specializing in AI, creative industries, and the intersection of technology and human creativity.",
+    "social": {
+      "twitter": "chloedavistech",
+      "linkedin": "chloe-davis-analyst",
+      "github": "chloedavis"
+    },
+    "featured": false
+  },
+  {
+    "slug": "david-lee",
+    "name": "David Lee",
+    "role": "Productivity Coach",
+    "email": "david.lee@example.com",
+    "bio": "David is a productivity coach specializing in remote work strategies, work-life balance, and helping professionals thrive in distributed teams.",
+    "social": {
+      "twitter": "davidleecoach",
+      "linkedin": "david-lee-productivity",
+      "github": "davidlee"
+    },
+    "featured": false
+  },
+  {
+    "slug": "dr-olivia-martinez",
+    "name": "Dr. Olivia Martinez",
+    "role": "Wellness Expert",
+    "email": "dr.olivia@example.com",
+    "bio": "Dr. Olivia Martinez is a wellness expert and nutritionist with over 10 years of experience in promoting healthy eating habits and holistic well-being.",
+    "social": {
+      "twitter": "droliviahealth",
+      "linkedin": "dr-olivia-martinez",
+      "github": ""
+    },
+    "featured": false
+  },
+  {
+    "slug": "ethan-clark",
+    "name": "Ethan Clark",
+    "role": "Financial Advisor",
+    "email": "ethan.clark@example.com",
+    "bio": "Ethan is a certified financial advisor specializing in millennial financial planning, investment strategies, and retirement planning.",
+    "social": {
+      "twitter": "ethanclarkfin",
+      "linkedin": "ethan-clark-advisor",
+      "github": ""
+    },
+    "featured": false
+  },
+  {
+    "slug": "jessica-miller",
+    "name": "Jessica Miller",
+    "role": "DIY Blogger",
+    "email": "jessica.miller@example.com",
+    "bio": "Jessica is a creative DIY blogger who loves transforming spaces on a budget and sharing innovative home decor ideas with her community.",
+    "social": {
+      "twitter": "jessicadiy",
+      "linkedin": "jessica-miller-diy",
+      "github": ""
+    },
+    "featured": false
+  },
+  {
+    "slug": "ken-adams",
+    "name": "Ken Adams",
+    "role": "Cybersecurity Expert",
+    "email": "ken.adams@example.com",
+    "bio": "Ken is a cybersecurity expert with extensive experience in digital security, privacy protection, and helping individuals secure their digital lives.",
+    "social": {
+      "twitter": "kenadamssec",
+      "linkedin": "ken-adams-security",
+      "github": "kenadams"
+    },
+    "featured": false
+  },
+  {
+    "slug": "maya-rodriguez",
+    "name": "Maya Rodriguez",
+    "role": "Travel Writer",
+    "email": "maya.rodriguez@example.com",
+    "bio": "Maya is a passionate travel writer who specializes in discovering hidden gems and off-the-beaten-path destinations around the world.",
+    "social": {
+      "twitter": "mayatravels",
+      "linkedin": "maya-rodriguez-travel",
+      "github": ""
+    },
+    "featured": false
+  },
+  {
+    "slug": "mike-smith",
+    "name": "Mike Smith",
+    "role": "Tech Writer",
+    "email": "mike.smith@example.com",
+    "bio": "Mike is a tech writer with a passion for making complex technology topics accessible to everyone through clear and engaging content.",
+    "social": {
+      "twitter": "mikesmithtech",
+      "linkedin": "mike-smith-writer",
+      "github": "mikesmith"
+    },
+    "featured": false
+  },
+  {
+    "slug": "sophia-green",
+    "name": "Sophia Green",
+    "role": "Sustainability Expert",
+    "email": "sophia.green@example.com",
+    "bio": "Sophia is a sustainability expert passionate about eco-friendly living, green home solutions, and helping people reduce their environmental impact.",
+    "social": {
+      "twitter": "sophiagreenliving",
+      "linkedin": "sophia-green-sustainability",
+      "github": ""
+    },
+    "featured": false
+  }
+]

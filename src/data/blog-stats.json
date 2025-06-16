@@ -1,0 +1,114 @@
+{
+  "totalPosts": 11,
+  "publishedPosts": 11,
+  "draftPosts": 0,
+  "categories": [],
+  "tags": [
+    "- artificial-intelligence   - creative-industries   - design   - art   - future-of-work",
+    "cybersecurity",
+    "online-safety",
+    "passwords",
+    "phishing",
+    "data-privacy",
+    "diy",
+    "home-decor",
+    "crafts",
+    "budget-friendly",
+    "upcycling",
+    "financial-planning",
+    "millennials",
+    "investing",
+    "retirement",
+    "budgeting",
+    "vite",
+    "vue3",
+    "markdown",
+    "tailwindcss",
+    "web-development",
+    "frontend",
+    "backend",
+    "javascript",
+    "future-tech",
+    "healthy-eating",
+    "nutrition",
+    "wellness",
+    "diet",
+    "mental-health",
+    "travel",
+    "adventure",
+    "hidden-gems",
+    "off-the-beaten-path",
+    "explore",
+    "remote-work",
+    "productivity",
+    "work-from-home",
+    "well-being",
+    "career-advice",
+    "mindfulness",
+    "meditation",
+    "stress-relief",
+    "sustainable-living",
+    "eco-friendly",
+    "green-home",
+    "environment",
+    "conservation"
+  ],
+  "authors": [
+    "Chloe Davis",
+    {
+      "name": "Ken Adams",
+      "role": "Security Expert",
+      "image": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "link": "/about"
+    },
+    {
+      "name": "Jessica Miller",
+      "role": "DIY Blogger",
+      "image": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Ethan Clark",
+      "role": "Financial Advisor",
+      "image": "https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Mike Smith",
+      "role": "Developer",
+      "image": "all-things-digital/avatar",
+      "link": "/about"
+    },
+    {
+      "name": "Alex Johnson",
+      "role": "Lead Developer",
+      "image": "all-things-digital/avatar"
+    },
+    {
+      "name": "Dr. Olivia Martinez",
+      "role": "Nutritionist",
+      "image": "https://images.pexels.com/photos/762080/pexels-photo-762080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Maya Rodriguez",
+      "role": "Travel Blogger",
+      "image": "https://images.pexels.com/photos/724547/pexels-photo-724547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "David Lee",
+      "role": "Productivity Coach",
+      "image": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Aisha Khan",
+      "role": "Wellness Coach",
+      "image": "https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "name": "Sophia Green",
+      "role": "Environmental Consultant",
+      "image": "all-things-digital/sophia-green"
+    }
+  ],
+  "totalReadingTime": 102,
+  "lastUpdated": "2025-06-16T10:02:12.264Z",
+  "averageReadingTime": 9
+}

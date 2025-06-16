@@ -28,7 +28,7 @@ import matter from 'gray-matter';
 
 // --- Configuration (User should update these) ---
 const POSTS_DIRECTORY = path.join(process.cwd(), 'src/data/posts'); // <<<--- Directory containing Markdown files
-const OUTPUT_FILE = path.join(process.cwd(), 'src/blog-data.json'); // <<<--- Output JSON file path
+const OUTPUT_FILE = path.join(process.cwd(), 'src/data/blog-data.json'); // <<<--- Output JSON file path
 const DEFAULT_AUTHOR = {
   name: 'DGPond',
   image: '/assets/img/avatar.png',

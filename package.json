@@ -47,6 +47,9 @@
     "validate-frontmatter": "node scripts/process-frontmatter.js validate",
     "build-hooks": "node scripts/build-hooks.js all",
     "generate-data": "node scripts/build-hooks.js generate-data",
+    "webhook": "node scripts/webhook-handler.js",
+    "webhook:dev": "WEBHOOK_SECRET=dev-secret node scripts/webhook-handler.js",
+    "test-blog-data": "node scripts/test-blog-data.js",
     "prepare": "npx lightningcss || echo 'lightningcss not required locally'"
   },
   "dependencies": {

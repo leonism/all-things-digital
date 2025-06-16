@@ -5,14 +5,21 @@
  * frontmatter and integrate with the site generation process.
  */
 
-const fs = require('fs');
-const path = require('path');
-const { 
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import matter from 'gray-matter';
+import { 
   processMarkdownDirectory, 
   validateFrontmatter,
   generateSlug,
   calculateReadingTime 
-} = require('./process-frontmatter');
+} from './process-frontmatter.js';
+
+// ES Module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /**
  * Pre-build hook to process all markdown files
@@ -57,7 +64,7 @@ function generateAuthorsData() {
   authorFiles.forEach(file => {
     try {
       const filePath = path.join(authorsDir, file);
-      const matter = require('gray-matter');
+
       const { data: frontmatter } = matter(fs.readFileSync(filePath, 'utf8'));
       
       authors.push({
@@ -99,7 +106,7 @@ function generateCategoriesData() {
   categoryFiles.forEach(file => {
     try {
       const filePath = path.join(categoriesDir, file);
-      const matter = require('gray-matter');
+
       const { data: frontmatter, content } = matter(fs.readFileSync(filePath, 'utf8'));
       
       categories.push({
@@ -144,7 +151,7 @@ function generateNavigationData() {
   navFiles.forEach(file => {
     try {
       const filePath = path.join(navDir, file);
-      const matter = require('gray-matter');
+
       const { data: frontmatter } = matter(fs.readFileSync(filePath, 'utf8'));
       
       if (frontmatter.type === 'main') {
@@ -191,7 +198,7 @@ function generateBlogStats() {
   postFiles.forEach(file => {
     try {
       const filePath = path.join(postsDir, file);
-      const matter = require('gray-matter');
+
       const { data: frontmatter, content } = matter(fs.readFileSync(filePath, 'utf8'));
       
       stats.totalPosts++;
@@ -278,7 +285,7 @@ function generateSitemapData() {
     postFiles.forEach(file => {
       try {
         const filePath = path.join(postsDir, file);
-        const matter = require('gray-matter');
+  
         const { data: frontmatter } = matter(fs.readFileSync(filePath, 'utf8'));
         
         if (frontmatter.status === 'published' && frontmatter.slug) {
@@ -307,7 +314,7 @@ function generateSitemapData() {
     pageFiles.forEach(file => {
       try {
         const filePath = path.join(pagesDir, file);
-        const matter = require('gray-matter');
+  
         const { data: frontmatter } = matter(fs.readFileSync(filePath, 'utf8'));
         
         if (frontmatter.status === 'published' && frontmatter.slug) {
@@ -356,7 +363,7 @@ function runBuildHooks() {
 }
 
 // CLI interface
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
   const command = args[0];
   
@@ -380,7 +387,7 @@ if (require.main === module) {
   }
 }
 
-module.exports = {
+export {
   preBuildHook,
   generateAuthorsData,
   generateCategoriesData,

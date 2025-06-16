@@ -5,9 +5,9 @@
  * missing values like slugs, reading time, and SEO fields.
  */
 
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 /**
  * Generate a URL-friendly slug from a title
@@ -317,7 +317,7 @@ function validateFrontmatter(frontmatter) {
 }
 
 // CLI interface
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
   const command = args[0];
   
@@ -352,7 +352,7 @@ Examples:
   }
 }
 
-module.exports = {
+export {
   generateSlug,
   calculateReadingTime,
   generateSEOTitle,

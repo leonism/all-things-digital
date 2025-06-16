@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "finance",
+    "name": "Finance",
+    "description": "Articles about financial planning, investing, budgeting, and personal finance.",
+    "color": "#8B5CF6",
+    "featured": false,
+    "parent": null
+  },
+  {
+    "slug": "health",
+    "name": "Health",
+    "description": "Articles about health, wellness, nutrition, and mindfulness.",
+    "color": "#EF4444",
+    "featured": false,
+    "parent": null
+  },
+  {
+    "slug": "lifestyle",
+    "name": "Lifestyle",
+    "description": "Articles about lifestyle, home decor, remote work, and personal development.",
+    "color": "#10B981",
+    "featured": false,
+    "parent": null
+  },
+  {
+    "slug": "technology",
+    "name": "Technology",
+    "description": "Articles about technology, web development, AI, cybersecurity, and digital innovation.",
+    "color": "#3B82F6",
+    "featured": false,
+    "parent": null
+  },
+  {
+    "slug": "travel",
+    "name": "Travel",
+    "description": "Articles about travel destinations, hidden gems, and travel tips.",
+    "color": "#F59E0B",
+    "featured": false,
+    "parent": null
+  }
+]
