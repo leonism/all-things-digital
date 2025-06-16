@@ -109,7 +109,7 @@ To thrive in this evolving environment, professionals must adapt. Here are some 
 - [Ethics of AI Art](#): Explore discussions around morality and responsibility in AI-generated content.
 - [Future Skills for Creatives](#): Prepare for the next wave of industry demands.
 
-In conclusion, the integration of AI into creative industries presents both immense opportunities and notable challenges. By embracing innovation while addressing ethical concerns, we can harness AI’s potential to redefine what it means to create.
-
 ![AI and creativity](https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 _Caption: The fusion of AI and human creativity promises a brighter future._
+
+In conclusion, the integration of AI into creative industries presents both immense opportunities and notable challenges. By embracing innovation while addressing ethical concerns, we can harness AI’s potential to redefine what it means to create.
