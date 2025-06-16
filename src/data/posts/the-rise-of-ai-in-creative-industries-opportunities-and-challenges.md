@@ -3,7 +3,7 @@ title: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
 seoTitle: AI in Creative Industries | Opportunities and Challenges
 slug: the-rise-of-ai-in-creative-industries-opportunities-and-challenges
 date: '2025-06-16'
-lastModified: '2025-06-16T14:06:20.194Z'
+lastModified: '2025-06-16T14:28:38.400Z'
 author:
   name: Alex Chen
   role: Tech Journalist

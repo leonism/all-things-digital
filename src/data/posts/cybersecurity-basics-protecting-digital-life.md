@@ -72,7 +72,6 @@ contentSettings:
   comments: true
   shareButtons: true
   contentWarning: null
-status: published
 readingTime: 10 minutes
 canonicalUrl: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
 seoTitle: Cybersecurity Guide | Protect Your Digital Life Online
@@ -95,7 +94,7 @@ seo:
     - passwords
     - phishing
     - data-privacy
-    - 'basics:'
+    - basics
     - protecting
     - your
     - digital

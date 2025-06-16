@@ -3,7 +3,7 @@ title: 'Mastering Remote Work: Productivity and Well-being'
 seoTitle: Remote Work Guide 2025 | Productivity & Well-being Tips
 slug: mastering-remote-work-productivity-well-being
 date: '2025-05-24'
-lastModified: '2025-06-16T14:06:20.167Z'
+lastModified: '2025-06-16T14:28:38.379Z'
 author:
   name: David Lee
   role: Productivity Coach

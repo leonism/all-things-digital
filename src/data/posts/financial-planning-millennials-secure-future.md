@@ -3,7 +3,7 @@ title: 'Financial Planning for Millennials: Securing Your Future'
 seoTitle: Financial Planning for Millennials | Secure Your Future
 slug: financial-planning-millennials-secure-future
 date: '2025-05-22'
-lastModified: '2025-06-16T14:06:20.134Z'
+lastModified: '2025-06-16T14:28:38.338Z'
 author:
   name: Michael Rodriguez
   role: Financial Advisor

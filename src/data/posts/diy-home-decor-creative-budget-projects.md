@@ -3,7 +3,7 @@ title: 'DIY Home Decor: Creative Budget Projects'
 seoTitle: DIY Home Decor | Creative Budget Projects for Your Home
 slug: diy-home-decor-creative-budget-projects
 date: '2025-05-20'
-lastModified: '2025-06-16T14:06:20.111Z'
+lastModified: '2025-06-16T14:28:38.323Z'
 author:
   name: Sarah Johnson
   role: Interior Design Enthusiast

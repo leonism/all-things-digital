@@ -3,7 +3,7 @@ title: 'Mindfulness and Meditation: Finding Calm in a Busy World'
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
 date: '2025-05-17'
-lastModified: '2025-06-16T14:06:20.171Z'
+lastModified: '2025-06-16T14:28:38.388Z'
 author:
   name: Aisha Khan
   role: Wellness Coach

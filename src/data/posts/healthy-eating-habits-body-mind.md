@@ -3,7 +3,7 @@ title: 'Healthy Eating Habits: Fueling Your Body and Mind'
 seoTitle: Healthy Eating Guide | Nutrition Tips for Body & Mind
 slug: healthy-eating-habits-body-mind
 date: '2025-05-21'
-lastModified: '2025-06-16T14:06:20.158Z'
+lastModified: '2025-06-16T14:28:38.362Z'
 author:
   name: Dr. Olivia Martinez
   role: Nutritionist
