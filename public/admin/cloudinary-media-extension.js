@@ -1,38 +1,29 @@
-/**
- * Cloudinary Media Library Extension for Decap CMS
- * 
- * This extension integrates the cloudinary-mapping.json file with Decap CMS
- * to make uploaded images available in the web admin media gallery.
- */
-
-// Custom media library that reads from cloudinary-mapping.json
+// Cloudinary Media Library Extension for Decap CMS
 class CloudinaryMappingMediaLibrary {
   constructor() {
     this.name = 'cloudinary-mapping';
-    this.cloudinaryMapping = null;
+    this.cloudinaryMapping = {};
     this.loadCloudinaryMapping();
   }
 
   async loadCloudinaryMapping() {
     const endpoints = [
       'http://localhost:3002/api/cloudinary-mapping',
-      'http://localhost:3002/cloudinary-mapping',
-      '/src/data/cloudinary-mapping.json',
-      '/data/cloudinary-mapping.json'
+      '/cloudinary-mapping.json',
+      './cloudinary-mapping.json'
     ];
     
     for (const endpoint of endpoints) {
       try {
-        console.log(`Trying to fetch cloudinary mapping from: ${endpoint}`);
+        console.log(`Attempting to fetch cloudinary mapping from ${endpoint}`);
         const response = await fetch(endpoint);
         
         if (!response.ok) {
-          console.warn(`Failed to fetch from ${endpoint}: ${response.status}`);
-          continue;
+          throw new Error(`HTTP ${response.status}`);
         }
         
         this.cloudinaryMapping = await response.json();
-        console.log(`Successfully loaded cloudinary mapping from ${endpoint}`);
+        console.log(`✅ Successfully loaded cloudinary mapping from ${endpoint}`);
         console.log(`Found ${Object.keys(this.cloudinaryMapping).length} images`);
         return;
         
@@ -48,47 +39,28 @@ class CloudinaryMappingMediaLibrary {
   }
 
   // Convert cloudinary mapping to media library format
-  getMediaItems() {
-    if (!this.cloudinaryMapping) {
-      return [];
+  formatCloudinaryData() {
+    const images = [];
+    
+    for (const [filename, data] of Object.entries(this.cloudinaryMapping)) {
+      if (data && data.secure_url) {
+        images.push({
+          id: data.public_id || filename,
+          name: filename,
+          displayURL: data.secure_url,
+          path: data.secure_url,
+          size: data.bytes || 0,
+          url: data.secure_url,
+          urlType: 'upload'
+        });
+      }
     }
-
-    return Object.entries(this.cloudinaryMapping).map(([filename, data]) => {
-      // Extract just the filename from the path
-      const displayName = filename.split('/').pop();
-      
-      return {
-        id: data.publicId,
-        name: displayName,
-        displayURL: data.secureUrl,
-        path: filename,
-        size: data.bytes,
-        url: data.secureUrl,
-        // Additional metadata
-        width: data.width,
-        height: data.height,
-        format: data.format,
-        // Cloudinary-specific data
-        cloudinary: {
-          publicId: data.originalPublicId,
-          webpUrl: data.webpUrl,
-          avifUrl: data.avifUrl,
-          responsiveUrls: data.responsiveUrls,
-          lastSync: data.lastSync
-        }
-      };
-    });
+    
+    return images;
   }
 
-  // Media library interface methods
-  show(options = {}) {
-    return new Promise((resolve, reject) => {
-      // Create a simple modal to display available images
-      this.createMediaModal(resolve, reject, options);
-    });
-  }
-
-  createMediaModal(resolve, reject, options) {
+  // Create and show modal with images
+  showImageModal(images, callback) {
     // Create modal overlay
     const overlay = document.createElement('div');
     overlay.style.cssText = `
@@ -109,161 +81,150 @@ class CloudinaryMappingMediaLibrary {
     modal.style.cssText = `
       background: white;
       border-radius: 8px;
-      width: 90%;
-      max-width: 1000px;
-      height: 80%;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      padding: 20px;
+      max-width: 90vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
     `;
 
     // Create header
     const header = document.createElement('div');
     header.style.cssText = `
-      padding: 20px;
-      border-bottom: 1px solid #eee;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    `;
-    header.innerHTML = `
-      <h2 style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">Cloudinary Media Library</h2>
-      <button id="close-modal" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
     `;
 
-    // Create content area
-    const content = document.createElement('div');
-    content.style.cssText = `
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
+    const title = document.createElement('h2');
+    title.textContent = `Cloudinary Images (${images.length})`;
+    title.style.margin = '0';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '×';
+    closeBtn.style.cssText = `
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      width: 30px;
+      height: 30px;
     `;
+    closeBtn.onclick = () => document.body.removeChild(overlay);
+
+    header.appendChild(title);
+    header.appendChild(closeBtn);
 
     // Create image grid
     const grid = document.createElement('div');
     grid.style.cssText = `
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      max-height: 60vh;
+      overflow-y: auto;
     `;
 
-    const mediaItems = this.getMediaItems();
-    
-    if (mediaItems.length === 0) {
-      content.innerHTML = `
-        <div style="text-align: center; padding: 40px; color: #666;">
-          <p>No images found in cloudinary-mapping.json</p>
-          <p>Upload images using: <code>node scripts/upload-to-cloudinary.js</code></p>
-        </div>
+    images.forEach(image => {
+      const imageContainer = document.createElement('div');
+      imageContainer.style.cssText = `
+        border: 2px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+        text-align: center;
+        padding: 10px;
       `;
-    } else {
-      mediaItems.forEach(item => {
-        const imageCard = document.createElement('div');
-        imageCard.style.cssText = `
-          border: 2px solid transparent;
-          border-radius: 8px;
-          overflow: hidden;
-          cursor: pointer;
-          transition: border-color 0.2s;
-          background: #f9f9f9;
-        `;
-        
-        imageCard.innerHTML = `
-          <img src="${item.displayURL}" alt="${item.name}" style="
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            display: block;
-          ">
-          <div style="padding: 12px;">
-            <div style="font-weight: 500; margin-bottom: 4px; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">${item.name}</div>
-            <div style="font-size: 12px; color: #666;">${item.width} × ${item.height}</div>
-            <div style="font-size: 12px; color: #666;">${(item.size / 1024).toFixed(1)} KB</div>
-          </div>
-        `;
+      imageContainer.onmouseover = () => imageContainer.style.borderColor = '#007cba';
+      imageContainer.onmouseout = () => imageContainer.style.borderColor = 'transparent';
+      imageContainer.onclick = () => {
+        callback({ url: image.url });
+        document.body.removeChild(overlay);
+      };
 
-        imageCard.addEventListener('click', () => {
-          // Highlight selected image
-          grid.querySelectorAll('div').forEach(card => {
-            card.style.borderColor = 'transparent';
-          });
-          imageCard.style.borderColor = '#007acc';
-          
-          // Return the selected image
-          resolve({
-            url: item.url,
-            path: item.path,
-            name: item.name,
-            size: item.size,
-            // Include Cloudinary-specific data
-            cloudinary: item.cloudinary
-          });
-          
-          document.body.removeChild(overlay);
-        });
+      const img = document.createElement('img');
+      img.src = image.displayURL;
+      img.alt = image.name;
+      img.style.cssText = `
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 5px;
+      `;
 
-        imageCard.addEventListener('mouseenter', () => {
-          if (imageCard.style.borderColor !== 'rgb(0, 122, 204)') {
-            imageCard.style.borderColor = '#ddd';
-          }
-        });
+      const name = document.createElement('div');
+      name.textContent = image.name;
+      name.style.cssText = `
+        font-size: 12px;
+        color: #666;
+        word-break: break-word;
+      `;
 
-        imageCard.addEventListener('mouseleave', () => {
-          if (imageCard.style.borderColor !== 'rgb(0, 122, 204)') {
-            imageCard.style.borderColor = 'transparent';
-          }
-        });
-
-        grid.appendChild(imageCard);
-      });
-      
-      content.appendChild(grid);
-    }
-
-    // Assemble modal
-    modal.appendChild(header);
-    modal.appendChild(content);
-    overlay.appendChild(modal);
-
-    // Close modal handlers
-    const closeModal = () => {
-      document.body.removeChild(overlay);
-      reject(new Error('User cancelled'));
-    };
-
-    header.querySelector('#close-modal').addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        closeModal();
-      }
+      imageContainer.appendChild(img);
+      imageContainer.appendChild(name);
+      grid.appendChild(imageContainer);
     });
 
-    // Add to DOM
+    modal.appendChild(header);
+    modal.appendChild(grid);
+    overlay.appendChild(modal);
     document.body.appendChild(overlay);
+
+    // Close on overlay click
+    overlay.onclick = (e) => {
+      if (e.target === overlay) {
+        document.body.removeChild(overlay);
+      }
+    };
+  }
+
+  // Media library interface methods
+  show({ callback }) {
+    console.log('Cloudinary mapping media library show() called');
+    
+    if (Object.keys(this.cloudinaryMapping).length === 0) {
+      console.warn('No cloudinary mapping data available');
+      alert('No Cloudinary images available. Make sure the mapping server is running.');
+      return;
+    }
+
+    const images = this.formatCloudinaryData();
+    console.log(`Showing ${images.length} images from cloudinary mapping`);
+    
+    this.showImageModal(images, callback);
+  }
+
+  enableStandalone() {
+    return false;
   }
 }
 
-// Register the custom media library when CMS is ready
-if (window.CMS) {
-  // Register immediately if CMS is already loaded
-  registerCloudinaryMapping();
-} else {
-  // Wait for CMS to load
-  window.addEventListener('load', () => {
-    if (window.CMS) {
-      registerCloudinaryMapping();
-    }
-  });
-}
-
-function registerCloudinaryMapping() {
+// Initialize and register the media library
+function initCloudinaryMappingLibrary() {
   try {
+    console.log('Initializing Cloudinary mapping media library...');
+    
     const cloudinaryMappingLib = new CloudinaryMappingMediaLibrary();
     
-    // Register as an additional media library option
-    if (window.CMS && window.CMS.registerMediaLibrary) {
+    // Wait for CMS to be available
+    if (typeof window.CMS !== 'undefined') {
       window.CMS.registerMediaLibrary(cloudinaryMappingLib);
       console.log('✅ Cloudinary mapping media library registered');
+    } else {
+      console.log('CMS not yet available, waiting...');
+      // Wait for CMS to load
+      const checkCMS = setInterval(() => {
+        if (typeof window.CMS !== 'undefined') {
+          clearInterval(checkCMS);
+          window.CMS.registerMediaLibrary(cloudinaryMappingLib);
+          console.log('✅ Cloudinary mapping media library registered (delayed)');
+        }
+      }, 100);
     }
     
     // Also make it available globally for debugging
@@ -272,6 +233,13 @@ function registerCloudinaryMapping() {
   } catch (error) {
     console.error('❌ Failed to register Cloudinary mapping media library:', error);
   }
+}
+
+// Auto-initialize when script loads
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCloudinaryMappingLibrary);
+} else {
+  initCloudinaryMappingLibrary();
 }
 
 // Export for module usage
