@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import yaml from 'js-yaml';
 
 /**
  * Generate a URL-friendly slug from a title
@@ -223,7 +224,22 @@ function processMarkdownFile(filePath, options = {}) {
     
     // Write back to file if modified
     if (modified && !options.dryRun) {
-      const updatedContent = matter.stringify(content, frontmatter);
+      const updatedContent = matter.stringify(content, frontmatter, {
+        engines: {
+          yaml: {
+            stringify: (obj) => {
+              // Use imported yaml module
+              return yaml.dump(obj, {
+                lineWidth: -1,
+                noRefs: true,
+                quotingType: '"',
+                forceQuotes: false,
+                flowLevel: -1
+              });
+            }
+          }
+        }
+      });
       fs.writeFileSync(filePath, updatedContent, 'utf8');
       console.log(`✅ Updated: ${path.basename(filePath)}`);
     } else if (modified && options.dryRun) {

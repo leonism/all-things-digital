@@ -2,12 +2,12 @@
 title: My First Blog Post
 seoTitle: My First Blog Post | Example Article
 slug: first-post
-date: '2025-05-26'
-lastModified: '2025-06-16T15:55:32.815Z'
+date: "2025-05-26T15:55:32.815Z"
+lastModified: "2025-06-16T16:30:22.129Z"
 author:
   name: Mike Smith
   role: Developer
-  image: all-things-digital/avatar
+  image: all-things-digital/avatar/avatar
 category: Technology
 tags:
   - vite
@@ -15,26 +15,19 @@ tags:
   - markdown
   - tailwindcss
 featuredImage:
-  src: all-things-digital/thumbnail-03-comp
+  src: all-things-digital/blog/thumbnail-03-comp
   alt: Code example screenshot
   caption: An example image for the first post.
-excerpt: >-
-  This is the first example blog post generated for testing the Markdown
-  processing and frontmatter structure. Welcome to the first blog post on this
-  newly integrated Vue 3 blog! This post serves as an example to test the
-  Markdown rendering and frontmatter extraction.
+excerpt: This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
 readingTime: 5 minutes
 status: published
 featured: false
 priority: low
-metaRobots: 'index, follow'
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/first-post'
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/first-post
 seo:
-  description: >-
-    This is the first example blog post generated for testing the Markdown
-    processing and frontmatter structure. Welcome to the first blog post on this
-    newly int...
-  canonical: 'https://all-things-digital.pages.dev/blog/first-post'
+  description: This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly int
+  canonical: https://all-things-digital.pages.dev/blog/first-post
   keywords:
     - vite
     - vue3
@@ -44,7 +37,7 @@ seo:
     - blog
     - post
 contentSettings:
-  toc: true
+  toc: false
   comments: true
   shareButtons: true
   contentWarning: null

@@ -1,14 +1,13 @@
 ---
-title: 'Cybersecurity Basics: Protecting Your Digital Life'
+title: "Cybersecurity Basics: Protecting Your Digital Life"
 seoTitle: Cybersecurity Guide | Protect Your Digital Life Online
 slug: cybersecurity-basics-protecting-digital-life
-date: '2025-05-18'
-lastModified: '2025-06-16T15:55:32.759Z'
+date: "2025-05-18"
+lastModified: "2025-06-16T16:30:22.068Z"
 author:
   name: Ken Adams
   role: Security Expert
-  image: >-
-    https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Technology
 tags:
   - cybersecurity
@@ -17,60 +16,48 @@ tags:
   - phishing
   - data-privacy
 featuredImage:
-  src: >-
-    https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Abstract image of digital code and security locks
   caption: Essential steps to safeguard your information in the digital age.
-excerpt: >-
-  Learn fundamental cybersecurity practices to protect yourself from online
-  threats. This guide covers strong passwords, recognizing phishing scams,
-  securing your devices, and protecting your personal data.
+excerpt: Learn fundamental cybersecurity practices to protect yourself from online threats. This guide covers strong passwords, recognizing phishing scams, securing your devices, and protecting your personal data.
 readingTime: 10 minutes
 status: published
 featured: true
 priority: high
 schema:
-  '@type': Article
-  headline: 'Cybersecurity Basics: Protecting Your Digital Life'
-  description: >-
-    An essential guide to basic cybersecurity practices for everyday online
-    safety.
+  "@type": Article
+  headline: "Cybersecurity Basics: Protecting Your Digital Life"
+  description: An essential guide to basic cybersecurity practices for everyday online safety.
   author:
-    '@type': Person
+    "@type": Person
     name: Ken Adams
     jobTitle: Security Expert
-  datePublished: '2025-05-18'
-  dateModified: '2025-05-18'
-  image: >-
-    https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  datePublished: "2025-05-18"
+  dateModified: "2025-05-18"
+  image: https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
-    '@type': Organization
+    "@type": Organization
     name: Secure Digital World
     logo:
-      '@type': ImageObject
+      "@type": ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - how-to-create-strong-passwords
   - spotting-phishing-emails
   - securing-your-home-wifi
 toc: true
-metaRobots: 'index, follow'
-canonicalUrl: >-
-  https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
 seo:
-  description: >-
-    Learn fundamental cybersecurity practices to protect yourself from online
-    threats. This guide covers strong passwords, recognizing phishing scams,
-    securing y...
-  canonical: >-
-    https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
+  description: Learn fundamental cybersecurity practices to protect yourself from online threats. This guide covers strong passwords, recognizing phishing scams, securing y...
+  canonical: https://all-things-digital.pages.dev/blog/cybersecurity-basics-protecting-digital-life
   keywords:
     - cybersecurity
     - online-safety
     - passwords
     - phishing
     - data-privacy
-    - 'basics:'
+    - "basics:"
     - protecting
     - your
     - digital

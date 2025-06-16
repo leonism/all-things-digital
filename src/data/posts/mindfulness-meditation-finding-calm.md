@@ -1,14 +1,13 @@
 ---
-title: 'Mindfulness and Meditation: Finding Calm in a Busy World'
+title: "Mindfulness and Meditation: Finding Calm in a Busy World"
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
-date: '2025-05-17'
-lastModified: '2025-06-16T15:55:32.870Z'
+date: "2025-05-17"
+lastModified: "2025-06-16T16:30:22.204Z"
 author:
   name: Aisha Khan
   role: Wellness Coach
-  image: >-
-    https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Health
 tags:
   - mindfulness
@@ -17,59 +16,48 @@ tags:
   - mental-health
   - well-being
 featuredImage:
-  src: >-
-    https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Person meditating peacefully outdoors near water
   caption: Cultivating inner peace through mindfulness and meditation practices.
-excerpt: >-
-  Discover the benefits of mindfulness and meditation for reducing stress and
-  enhancing mental clarity. Learn simple techniques to incorporate these
-  practices into your daily life.
+excerpt: Discover the benefits of mindfulness and meditation for reducing stress and enhancing mental clarity. Learn simple techniques to incorporate these practices into your daily life.
 readingTime: 6 minutes
 status: published
 featured: false
 priority: medium
 schema:
-  '@type': Article
-  headline: 'Mindfulness and Meditation: Finding Calm in a Busy World'
-  description: >-
-    An introduction to mindfulness and meditation techniques for stress
-    reduction and improved well-being.
+  "@type": Article
+  headline: "Mindfulness and Meditation: Finding Calm in a Busy World"
+  description: An introduction to mindfulness and meditation techniques for stress reduction and improved well-being.
   author:
-    '@type': Person
+    "@type": Person
     name: Aisha Khan
     jobTitle: Wellness Coach
-  datePublished: '2025-05-17'
-  dateModified: '2025-05-17'
-  image: >-
-    https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  datePublished: "2025-05-17"
+  dateModified: "2025-05-17"
+  image: https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
-    '@type': Organization
+    "@type": Organization
     name: Calm Mind Collective
     logo:
-      '@type': ImageObject
+      "@type": ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - benefits-of-daily-meditation
   - mindfulness-exercises-for-beginners
   - managing-anxiety-naturally
 toc: false
-metaRobots: 'index, follow'
-canonicalUrl: 'https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm'
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
 seo:
-  description: >-
-    Discover the benefits of mindfulness and meditation for reducing stress and
-    enhancing mental clarity. Learn simple techniques to incorporate these
-    practices ...
-  canonical: >-
-    https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
+  description: Discover the benefits of mindfulness and meditation for reducing stress and enhancing mental clarity. Learn simple techniques to incorporate these practices ...
+  canonical: https://all-things-digital.pages.dev/blog/mindfulness-meditation-finding-calm
   keywords:
     - mindfulness
     - meditation
     - stress-relief
     - mental-health
     - well-being
-    - 'meditation:'
+    - "meditation:"
     - finding
     - calm
     - busy

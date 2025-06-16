@@ -3,7 +3,7 @@
     "slug": "first-post",
     "title": "My First Blog Post",
     "subtitle": "",
-    "date": "2025-05-26",
+    "date": "2025-05-26T15:55:32.815Z",
     "featuredImage": {
       "src": "all-things-digital/thumbnail-03-comp",
       "alt": "Code example screenshot",
@@ -19,7 +19,7 @@
     "author": {
       "name": "Mike Smith",
       "role": "Developer",
-      "image": "all-things-digital/avatar"
+      "image": "all-things-digital/avatar/avatar"
     },
     "excerpt": "This is the first example blog post generated for testing the Markdown processing and frontmatter structure. Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.",
     "description": "",
@@ -47,7 +47,7 @@
     "author": {
       "name": "Alex Johnson",
       "role": "Lead Developer",
-      "image": "all-things-digital/avatar"
+      "image": "all-things-digital/avatar/avatar"
     },
     "excerpt": "Dive into the key trends shaping web development in 2025, from advancements in JavaScript frameworks to the rise of AI-powered coding assistants and serverless architectures.",
     "description": "",

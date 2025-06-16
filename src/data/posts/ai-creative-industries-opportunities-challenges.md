@@ -1,74 +1,61 @@
 ---
-title: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
+title: "The Rise of AI in Creative Industries: Opportunities and Challenges"
 seoTitle: AI in Creative Industries | Opportunities & Challenges 2025
 slug: ai-creative-industries-opportunities-challenges
-date: '2025-05-23'
-lastModified: '2025-06-16T15:55:32.737Z'
+date: "2025-05-23"
+lastModified: "2025-06-16T16:30:21.898Z"
 author:
   name: Chloe Davis
   role: Technology Analyst
-  image: >-
-    https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
 category: Technology
 tags:
   - artificial-intelligence
   - creative-industries
   - design
 featuredImage:
-  src: >-
-    https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   alt: Abstract image representing artificial intelligence and creativity
   caption: AI is transforming how creative work is done.
-excerpt: >-
-  Explore how Artificial Intelligence is impacting creative fields like design,
-  music, and writing. Understand the potential benefits, ethical considerations,
-  and challenges as AI tools become more prevalent.
+excerpt: Explore how Artificial Intelligence is impacting creative fields like design, music, and writing. Understand the potential benefits, ethical considerations, and challenges as AI tools become more prevalent.
 readingTime: 15 minutes
 status: published
 featured: true
 priority: high
 schema:
-  '@type': Article
-  headline: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
-  description: >-
-    An analysis of the impact of AI on creative professions, covering both
-    opportunities and potential hurdles.
+  "@type": Article
+  headline: "The Rise of AI in Creative Industries: Opportunities and Challenges"
+  description: An analysis of the impact of AI on creative professions, covering both opportunities and potential hurdles.
   author:
-    '@type': Person
+    "@type": Person
     name: Chloe Davis
     jobTitle: Technology Analyst
-  datePublished: '2025-05-23'
-  dateModified: '2025-05-23'
-  image: >-
-    https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  datePublished: "2025-05-23"
+  dateModified: "2025-05-23"
+  image: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
-    '@type': Organization
+    "@type": Organization
     name: Future Tech Today
     logo:
-      '@type': ImageObject
+      "@type": ImageObject
       url: /images/logo-placeholder.png
 relatedPosts:
   - generative-ai-tools
   - ethics-of-ai-art
   - future-skills-for-creatives
 toc: true
-metaRobots: 'index, follow'
-canonicalUrl: >-
-  https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges
+metaRobots: index, follow
+canonicalUrl: https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges
 seo:
-  description: >-
-    Explore how Artificial Intelligence is impacting creative fields like
-    design, music, and writing. Understand the potential benefits, ethical
-    considerations, ...
-  canonical: >-
-    https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges
+  description: Explore how Artificial Intelligence is impacting creative fields like design, music, and writing. Understand the potential benefits, ethical considerations, ...
+  canonical: https://all-things-digital.pages.dev/blog/ai-creative-industries-opportunities-challenges
   keywords:
     - artificial-intelligence
     - creative-industries
     - design
     - rise
     - creative
-    - 'industries:'
+    - "industries:"
     - opportunities
     - challenges
 contentSettings:

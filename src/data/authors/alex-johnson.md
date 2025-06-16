@@ -2,7 +2,7 @@
 name: 'Alex Johnson'
 slug: 'alex-johnson'
 role: 'Lead Developer'
-image: 'all-things-digital/avatar'
+image: 'all-things-digital/avatar/avatar'
 bio: 'Alex is a seasoned lead developer with expertise in modern web technologies, JavaScript frameworks, and emerging tech trends.'
 email: 'alex.johnson@example.com'
 social:
