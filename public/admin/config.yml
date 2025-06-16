@@ -3,7 +3,7 @@ backend:
   repo: leonism/all-things-digital
   branch: main
   base_url: https://all-things-digital.pages.dev
-  auth_endpoint: api/auth # This should match the path to your Cloudflare Function
+  auth_endpoint: /api/auth # This should match the path to your Cloudflare Function
   # auth_endpoint: api/callback # This should match the path to your Cloudflare Function
   # site_domain: all-things-digital.pages.dev # May be needed by some OAuth handlers
   # base_url: https://api.netlify.com
