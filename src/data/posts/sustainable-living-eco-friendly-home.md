@@ -2,6 +2,7 @@
 title: "Sustainable Living: Tips for an Eco-Friendly Home"
 seoTitle: Eco-Friendly Home Guide | Sustainable Living Tips & Ideas
 slug: sustainable-living-eco-friendly-home
+lang: en
 datePublished: "2025-05-25T00:00:00.000Z"
 dateModified: "2025-06-16T17:24:51.089Z"
 author:
@@ -60,7 +61,6 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T00:47:25.971Z"
 ---
 
 Adopting the mantra of "reduce, reuse, recycle" is one of the simplest ways to create a more eco-friendly home. These practices help minimize waste and conserve natural resources. Creating a sustainable home is easier than you think. Here are some actionable tips:

@@ -88,7 +88,7 @@
     "subtitle": "",
     "date": "2025-05-24T00:00:00.000Z",
     "featuredImage": {
-      "src": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "src": "all-things-digital/blog/mastering-remote-work-productivity",
       "alt": "Team collaborating remotely via video call",
       "caption": "Effective strategies for thriving in a remote work environment."
     },
@@ -103,7 +103,7 @@
     "author": {
       "name": "David Lee",
       "role": "Productivity Coach",
-      "image": "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      "image": "all-things-digital/avatar/david-lee"
     },
     "excerpt": "Learn essential strategies for maximizing productivity and maintaining well-being while working remotely. From setting boundaries to leveraging technology, this guide covers key aspects of successful remote work.",
     "description": "",

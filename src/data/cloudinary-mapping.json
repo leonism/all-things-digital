@@ -1,4 +1,104 @@
 {
+  "blog/mastering-remote-work-productivity.jpeg": {
+    "publicId": "all-things-digital/blog/mastering-remote-work-productivity/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/mastering-remote-work-productivity",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750121932/all-things-digital/blog/mastering-remote-work-productivity.jpg",
+    "width": 6000,
+    "height": 4000,
+    "format": "jpg",
+    "bytes": 1016308,
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0",
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/mastering-remote-work-productivity.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/mastering-remote-work-productivity.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/mastering-remote-work-productivity?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/mastering-remote-work-productivity/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/mastering-remote-work-productivity/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/mastering-remote-work-productivity/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "cd67a0d42aff41123413139633b6ceaf",
+    "lastSync": "2025-06-17T00:59:08.862Z"
+  },
+  "avatar/avatar.avif": {
+    "publicId": "all-things-digital/avatar/avatar/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/avatar/avatar",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089767/all-things-digital/avatar/avatar.png",
+    "width": 64,
+    "height": 64,
+    "format": "png",
+    "bytes": 3936,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/avatar/avatar/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/avatar/avatar/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/avatar/avatar/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "c46996d4ab2ccf3d8700823f71168db9",
+    "lastSync": "2025-06-17T00:59:09.547Z"
+  },
   "avatar/avatar.png": {
     "publicId": "all-things-digital/avatar/avatar/c_fill,f_auto,q_auto:good",
     "originalPublicId": "all-things-digital/avatar/avatar",
@@ -7,8 +107,8 @@
     "height": 64,
     "format": "png",
     "bytes": 3936,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
@@ -47,7 +147,157 @@
       "auto": "all-things-digital/avatar/avatar/c_fill,f_auto,q_auto:good"
     },
     "checksum": "dcb7b5733f146a0af6b1ee1db52d8077",
-    "lastSync": "2025-06-16T16:02:48.976Z"
+    "lastSync": "2025-06-17T00:59:09.555Z"
+  },
+  "avatar/avatar.webp": {
+    "publicId": "all-things-digital/avatar/avatar/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/avatar/avatar",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089767/all-things-digital/avatar/avatar.png",
+    "width": 64,
+    "height": 64,
+    "format": "png",
+    "bytes": 3936,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/avatar.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/avatar?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/avatar/avatar/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/avatar/avatar/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/avatar/avatar/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "9cf0822298590ba5195d472991d9d8d7",
+    "lastSync": "2025-06-17T00:59:09.571Z"
+  },
+  "avatar/david-lee.jpeg": {
+    "publicId": "all-things-digital/avatar/david-lee/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/avatar/david-lee",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750121649/all-things-digital/avatar/david-lee.jpg",
+    "width": 3800,
+    "height": 2533,
+    "format": "jpg",
+    "bytes": 376981,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/david-lee.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/david-lee.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/david-lee?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/avatar/david-lee/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/avatar/david-lee/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/avatar/david-lee/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "f2a045397474707d83babc7997e82b75",
+    "lastSync": "2025-06-17T00:59:09.593Z"
+  },
+  "avatar/sophia-green.avif": {
+    "publicId": "all-things-digital/avatar/sophia-green/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/avatar/sophia-green",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089769/all-things-digital/avatar/sophia-green.jpg",
+    "width": 800,
+    "height": 705,
+    "format": "jpg",
+    "bytes": 12528,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/avatar/sophia-green/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/avatar/sophia-green/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/avatar/sophia-green/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "6baa9627f130ea585d8d4568c91b3665",
+    "lastSync": "2025-06-17T00:59:09.604Z"
   },
   "avatar/sophia-green.jpg": {
     "publicId": "all-things-digital/avatar/sophia-green/c_fill,f_auto,q_auto:good",
@@ -57,8 +307,8 @@
     "height": 705,
     "format": "jpg",
     "bytes": 12528,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
@@ -97,7 +347,107 @@
       "auto": "all-things-digital/avatar/sophia-green/c_fill,f_auto,q_auto:good"
     },
     "checksum": "3889642d9545cc1458cc6164891eef87",
-    "lastSync": "2025-06-16T16:02:51.095Z"
+    "lastSync": "2025-06-17T00:59:09.609Z"
+  },
+  "avatar/sophia-green.webp": {
+    "publicId": "all-things-digital/avatar/sophia-green/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/avatar/sophia-green",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089769/all-things-digital/avatar/sophia-green.jpg",
+    "width": 800,
+    "height": 705,
+    "format": "jpg",
+    "bytes": 12528,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/avatar/sophia-green.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/avatar/sophia-green?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/avatar/sophia-green/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/avatar/sophia-green/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/avatar/sophia-green/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "c5bd07a43556060dfa3c7d901e8dba4c",
+    "lastSync": "2025-06-17T00:59:09.613Z"
+  },
+  "blog/featured-blog-comp.avif": {
+    "publicId": "all-things-digital/blog/featured-blog-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/featured-blog-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089772/all-things-digital/blog/featured-blog-comp.jpg",
+    "width": 1472,
+    "height": 832,
+    "format": "jpg",
+    "bytes": 82722,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/featured-blog-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/featured-blog-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/featured-blog-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "0aa4ef62cdc0fe784143b51bcbc723fb",
+    "lastSync": "2025-06-17T00:59:09.619Z"
   },
   "blog/featured-blog-comp.jpg": {
     "publicId": "all-things-digital/blog/featured-blog-comp/c_fill,f_auto,q_auto:good",
@@ -107,8 +457,8 @@
     "height": 832,
     "format": "jpg",
     "bytes": 82722,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
@@ -147,7 +497,107 @@
       "auto": "all-things-digital/blog/featured-blog-comp/c_fill,f_auto,q_auto:good"
     },
     "checksum": "92fed013753a76b18ec61d5fe2995404",
-    "lastSync": "2025-06-16T16:02:57.787Z"
+    "lastSync": "2025-06-17T00:59:09.627Z"
+  },
+  "blog/featured-blog-comp.webp": {
+    "publicId": "all-things-digital/blog/featured-blog-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/featured-blog-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089772/all-things-digital/blog/featured-blog-comp.jpg",
+    "width": 1472,
+    "height": 832,
+    "format": "jpg",
+    "bytes": 82722,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/featured-blog-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/featured-blog-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/featured-blog-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/featured-blog-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/featured-blog-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "e94b2344b3b06980b1e1baebc901929b",
+    "lastSync": "2025-06-17T00:59:09.653Z"
+  },
+  "blog/greenery-view.avif": {
+    "publicId": "all-things-digital/blog/greenery-view/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/greenery-view",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089778/all-things-digital/blog/greenery-view.jpg",
+    "width": 1440,
+    "height": 970,
+    "format": "jpg",
+    "bytes": 77809,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/greenery-view/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/greenery-view/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/greenery-view/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "7037b2bc06c4e6b9aea037a486143d15",
+    "lastSync": "2025-06-17T00:59:09.660Z"
   },
   "blog/greenery-view.jpg": {
     "publicId": "all-things-digital/blog/greenery-view/c_fill,f_auto,q_auto:good",
@@ -157,8 +607,8 @@
     "height": 970,
     "format": "jpg",
     "bytes": 77809,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
@@ -197,7 +647,107 @@
       "auto": "all-things-digital/blog/greenery-view/c_fill,f_auto,q_auto:good"
     },
     "checksum": "c676aa95a9bcb3f30bfcbe0150145d56",
-    "lastSync": "2025-06-16T16:03:03.000Z"
+    "lastSync": "2025-06-17T00:59:09.712Z"
+  },
+  "blog/greenery-view.webp": {
+    "publicId": "all-things-digital/blog/greenery-view/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/greenery-view",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089778/all-things-digital/blog/greenery-view.jpg",
+    "width": 1440,
+    "height": 970,
+    "format": "jpg",
+    "bytes": 77809,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/greenery-view.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/greenery-view?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/greenery-view/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/greenery-view/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/greenery-view/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "9eff4b9b568f70dcb44656dc2475e91a",
+    "lastSync": "2025-06-17T00:59:09.737Z"
+  },
+  "blog/thumbnail-01-comp.avif": {
+    "publicId": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/thumbnail-01-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089783/all-things-digital/blog/thumbnail-01-comp.jpg",
+    "width": 1472,
+    "height": 832,
+    "format": "jpg",
+    "bytes": 91051,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "b4da91172052b422893e5d93e41a1129",
+    "lastSync": "2025-06-17T00:59:09.739Z"
   },
   "blog/thumbnail-01-comp.jpg": {
     "publicId": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_auto,q_auto:good",
@@ -207,8 +757,8 @@
     "height": 832,
     "format": "jpg",
     "bytes": 91051,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
@@ -247,7 +797,107 @@
       "auto": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_auto,q_auto:good"
     },
     "checksum": "c6dd66d9ab1f32d489a1651600317a4c",
-    "lastSync": "2025-06-16T16:03:12.213Z"
+    "lastSync": "2025-06-17T00:59:09.745Z"
+  },
+  "blog/thumbnail-01-comp.webp": {
+    "publicId": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/thumbnail-01-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089783/all-things-digital/blog/thumbnail-01-comp.jpg",
+    "width": 1472,
+    "height": 832,
+    "format": "jpg",
+    "bytes": 91051,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-01-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/thumbnail-01-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "620663395491679a23f31f443e086bd8",
+    "lastSync": "2025-06-17T00:59:09.749Z"
+  },
+  "blog/thumbnail-02-comp.avif": {
+    "publicId": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/thumbnail-02-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089793/all-things-digital/blog/thumbnail-02-comp.jpg",
+    "width": 1280,
+    "height": 720,
+    "format": "jpg",
+    "bytes": 51750,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "638b7ad6769576c3f701b0d21149cf5a",
+    "lastSync": "2025-06-17T00:59:09.752Z"
   },
   "blog/thumbnail-02-comp.jpg": {
     "publicId": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_auto,q_auto:good",
@@ -257,8 +907,8 @@
     "height": 720,
     "format": "jpg",
     "bytes": 51750,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
@@ -297,7 +947,107 @@
       "auto": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_auto,q_auto:good"
     },
     "checksum": "1c7a75692dc5d3d03480fd441718b1d4",
-    "lastSync": "2025-06-16T16:03:18.250Z"
+    "lastSync": "2025-06-17T00:59:09.757Z"
+  },
+  "blog/thumbnail-02-comp.webp": {
+    "publicId": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/thumbnail-02-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089793/all-things-digital/blog/thumbnail-02-comp.jpg",
+    "width": 1280,
+    "height": 720,
+    "format": "jpg",
+    "bytes": 51750,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-02-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/thumbnail-02-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "741c82ccd2ae7769298064993e2822da",
+    "lastSync": "2025-06-17T00:59:09.761Z"
+  },
+  "blog/thumbnail-03-comp.avif": {
+    "publicId": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/thumbnail-03-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089799/all-things-digital/blog/thumbnail-03-comp.jpg",
+    "width": 1368,
+    "height": 768,
+    "format": "jpg",
+    "bytes": 38606,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "42c5f965cfef00e464673e408260dfa4",
+    "lastSync": "2025-06-17T00:59:09.769Z"
   },
   "blog/thumbnail-03-comp.jpg": {
     "publicId": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_auto,q_auto:good",
@@ -307,8 +1057,8 @@
     "height": 768,
     "format": "jpg",
     "bytes": 38606,
-    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
     "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
     "responsiveUrls": {
       "w_400": {
         "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
@@ -347,7 +1097,57 @@
       "auto": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_auto,q_auto:good"
     },
     "checksum": "054b2971edd3d0b018a8b152d2b89483",
-    "lastSync": "2025-06-16T16:03:24.244Z"
+    "lastSync": "2025-06-17T00:59:09.772Z"
+  },
+  "blog/thumbnail-03-comp.webp": {
+    "publicId": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_auto,q_auto:good",
+    "originalPublicId": "all-things-digital/blog/thumbnail-03-comp",
+    "secureUrl": "https://res.cloudinary.com/du61t1sey/image/upload/v1750089799/all-things-digital/blog/thumbnail-03-comp.jpg",
+    "width": 1368,
+    "height": 768,
+    "format": "jpg",
+    "bytes": 38606,
+    "avifUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+    "webpUrl": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+    "responsiveUrls": {
+      "w_400": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_800": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_1200": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_1600": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      },
+      "w_2000": {
+        "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0",
+        "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0",
+        "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0"
+      }
+    },
+    "srcsets": {
+      "avif": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_400/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_800/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:best,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.avif?_a=BAMClqXy0 2000w",
+      "webp": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp.webp?_a=BAMClqXy0 2000w",
+      "auto": "https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_400/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 400w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_800/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 800w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1200/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 1200w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_1600/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 1600w, https://res.cloudinary.com/du61t1sey/image/upload/c_fill,f_auto,g_auto,q_auto:good,w_2000/v1/all-things-digital/blog/thumbnail-03-comp?_a=BAMClqXy0 2000w"
+    },
+    "optimizedPublicIds": {
+      "avif": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_avif,q_auto:best",
+      "webp": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_webp,q_auto:good",
+      "auto": "all-things-digital/blog/thumbnail-03-comp/c_fill,f_auto,q_auto:good"
+    },
+    "checksum": "e913c12214f0171a093f1962ffe5b554",
+    "lastSync": "2025-06-17T00:59:09.777Z"
   },
   "icons/favicon.avif": {
     "publicId": "all-things-digital/icons/favicon/c_fill,f_auto,q_auto:good",
@@ -397,7 +1197,7 @@
       "auto": "all-things-digital/icons/favicon/c_fill,f_auto,q_auto:good"
     },
     "checksum": "2e3d9c09bce13ebdde0a4c6bb550a4e7",
-    "lastSync": "2025-06-16T16:03:31.566Z"
+    "lastSync": "2025-06-17T00:59:09.806Z"
   },
   "icons/favicon.png": {
     "publicId": "all-things-digital/icons/favicon/c_fill,f_auto,q_auto:good",
@@ -447,7 +1247,7 @@
       "auto": "all-things-digital/icons/favicon/c_fill,f_auto,q_auto:good"
     },
     "checksum": "4f2214b206ffb4c865c029b5c619843d",
-    "lastSync": "2025-06-16T16:03:31.580Z"
+    "lastSync": "2025-06-17T00:59:09.809Z"
   },
   "icons/favicon.webp": {
     "publicId": "all-things-digital/icons/favicon/c_fill,f_auto,q_auto:good",
@@ -497,7 +1297,7 @@
       "auto": "all-things-digital/icons/favicon/c_fill,f_auto,q_auto:good"
     },
     "checksum": "45566fbdbe9969331fa05b7c4c2b653d",
-    "lastSync": "2025-06-16T16:03:31.591Z"
+    "lastSync": "2025-06-17T00:59:09.814Z"
   },
   "icons/icon-brightmode.svg": {
     "publicId": "all-things-digital/icons/icon-brightmode/c_fill,f_auto,q_auto:good",
@@ -547,7 +1347,7 @@
       "auto": "all-things-digital/icons/icon-brightmode/c_fill,f_auto,q_auto:good"
     },
     "checksum": "f48a33cde3c428db6c98932e90538a45",
-    "lastSync": "2025-06-16T16:03:31.609Z"
+    "lastSync": "2025-06-17T00:59:09.818Z"
   },
   "icons/icon-darkmode.svg": {
     "publicId": "all-things-digital/icons/icon-darkmode/c_fill,f_auto,q_auto:good",
@@ -597,7 +1397,7 @@
       "auto": "all-things-digital/icons/icon-darkmode/c_fill,f_auto,q_auto:good"
     },
     "checksum": "4a96734af9f4a5821d3e9c3360d129ac",
-    "lastSync": "2025-06-16T16:03:31.619Z"
+    "lastSync": "2025-06-17T00:59:09.820Z"
   },
   "icons/icon-dgpondcom.avif": {
     "publicId": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good",
@@ -647,7 +1447,7 @@
       "auto": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good"
     },
     "checksum": "7c37038d9fb3b34ae853fbac828b85d6",
-    "lastSync": "2025-06-16T16:03:32.160Z"
+    "lastSync": "2025-06-17T00:59:09.824Z"
   },
   "icons/icon-dgpondcom.png": {
     "publicId": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good",
@@ -697,7 +1497,7 @@
       "auto": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good"
     },
     "checksum": "f11bbf7ac2be01f50ccb2dd508a91269",
-    "lastSync": "2025-06-16T16:03:32.336Z"
+    "lastSync": "2025-06-17T00:59:09.827Z"
   },
   "icons/icon-dgpondcom.svg": {
     "publicId": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good",
@@ -747,7 +1547,7 @@
       "auto": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good"
     },
     "checksum": "ec71d943855a33fb35cd1f151d760508",
-    "lastSync": "2025-06-16T16:03:32.342Z"
+    "lastSync": "2025-06-17T00:59:09.830Z"
   },
   "icons/icon-dgpondcom.webp": {
     "publicId": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good",
@@ -797,7 +1597,7 @@
       "auto": "all-things-digital/icons/icon-dgpondcom/c_fill,f_auto,q_auto:good"
     },
     "checksum": "35b0ed7a23cd74eaf26651719e19ac7a",
-    "lastSync": "2025-06-16T16:03:32.351Z"
+    "lastSync": "2025-06-17T00:59:09.834Z"
   },
   "icons/logo-dgpondcom.svg": {
     "publicId": "all-things-digital/icons/logo-dgpondcom/c_fill,f_auto,q_auto:good",
@@ -847,7 +1647,7 @@
       "auto": "all-things-digital/icons/logo-dgpondcom/c_fill,f_auto,q_auto:good"
     },
     "checksum": "bd39aaa546672da4f403d594909d14e0",
-    "lastSync": "2025-06-16T16:03:32.354Z"
+    "lastSync": "2025-06-17T00:59:09.837Z"
   },
   "icons/logo-footer.avif": {
     "publicId": "all-things-digital/icons/logo-footer/c_fill,f_auto,q_auto:good",
@@ -897,7 +1697,7 @@
       "auto": "all-things-digital/icons/logo-footer/c_fill,f_auto,q_auto:good"
     },
     "checksum": "040fca9937d31759d00e5f4000b739c4",
-    "lastSync": "2025-06-16T16:03:32.849Z"
+    "lastSync": "2025-06-17T00:59:09.841Z"
   },
   "icons/logo-footer.png": {
     "publicId": "all-things-digital/icons/logo-footer/c_fill,f_auto,q_auto:good",
@@ -947,7 +1747,7 @@
       "auto": "all-things-digital/icons/logo-footer/c_fill,f_auto,q_auto:good"
     },
     "checksum": "6db22b5b6e9476f13eb1cf7ad074faec",
-    "lastSync": "2025-06-16T16:03:32.853Z"
+    "lastSync": "2025-06-17T00:59:09.843Z"
   },
   "icons/logo-footer.webp": {
     "publicId": "all-things-digital/icons/logo-footer/c_fill,f_auto,q_auto:good",
@@ -997,7 +1797,7 @@
       "auto": "all-things-digital/icons/logo-footer/c_fill,f_auto,q_auto:good"
     },
     "checksum": "0a18a8f4bc530047c5cb30d9eb6ca0c2",
-    "lastSync": "2025-06-16T16:03:33.314Z"
+    "lastSync": "2025-06-17T00:59:09.848Z"
   },
   "icons/logo.avif": {
     "publicId": "all-things-digital/icons/logo/c_fill,f_auto,q_auto:good",
@@ -1047,7 +1847,7 @@
       "auto": "all-things-digital/icons/logo/c_fill,f_auto,q_auto:good"
     },
     "checksum": "1f5d0835563e877c29b5dc129b729f3b",
-    "lastSync": "2025-06-16T16:03:33.334Z"
+    "lastSync": "2025-06-17T00:59:09.851Z"
   },
   "icons/logo.png": {
     "publicId": "all-things-digital/icons/logo/c_fill,f_auto,q_auto:good",
@@ -1097,7 +1897,7 @@
       "auto": "all-things-digital/icons/logo/c_fill,f_auto,q_auto:good"
     },
     "checksum": "c73592175903daf0430b409f9d560a38",
-    "lastSync": "2025-06-16T16:03:33.338Z"
+    "lastSync": "2025-06-17T00:59:09.854Z"
   },
   "icons/logo.webp": {
     "publicId": "all-things-digital/icons/logo/c_fill,f_auto,q_auto:good",
@@ -1147,7 +1947,7 @@
       "auto": "all-things-digital/icons/logo/c_fill,f_auto,q_auto:good"
     },
     "checksum": "c59e8ceb9bf502d86d02d0d4c1cfd618",
-    "lastSync": "2025-06-16T16:03:33.354Z"
+    "lastSync": "2025-06-17T00:59:09.857Z"
   },
   "icons/night-icon.svg": {
     "publicId": "all-things-digital/icons/night-icon/c_fill,f_auto,q_auto:good",
@@ -1197,6 +1997,6 @@
       "auto": "all-things-digital/icons/night-icon/c_fill,f_auto,q_auto:good"
     },
     "checksum": "cc6b4ca030bfdd04a3f0a11d3797ad57",
-    "lastSync": "2025-06-16T16:03:33.380Z"
+    "lastSync": "2025-06-17T00:59:09.860Z"
   }
 }

@@ -2,6 +2,7 @@
 title: "Mindfulness and Meditation: Finding Calm in a Busy World"
 seoTitle: Mindfulness & Meditation Guide | Finding Calm Techniques
 slug: mindfulness-meditation-finding-calm
+lang: en
 datePublished: "2025-05-17T00:00:00.000Z"
 dateModified: "2025-06-16T17:24:50.956Z"
 author:
@@ -66,7 +67,6 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T00:47:25.962Z"
 ---
 
 In today’s fast-paced world, mindfulness has emerged as a powerful tool for reclaiming our mental space. At its core, **mindfulness** is about being fully present in the moment, without judgment. It encourages us to step away from the constant chatter of our minds and focus on what’s happening right now.

@@ -2,12 +2,13 @@
 title: "Mastering Remote Work: Productivity and Well-being"
 seoTitle: Remote Work Guide 2025 | Productivity & Well-being Tips
 slug: mastering-remote-work-productivity-well-being
+lang: en
 datePublished: "2025-05-24T00:00:00.000Z"
 dateModified: "2025-06-16T17:24:50.950Z"
 author:
   name: David Lee
   role: Productivity Coach
-  image: https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  image: all-things-digital/avatar/david-lee
 category: Lifestyle
 tags:
   - remote-work
@@ -16,7 +17,7 @@ tags:
   - well-being
   - career-advice
 featuredImage:
-  src: https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+  src: all-things-digital/blog/mastering-remote-work-productivity
   alt: Team collaborating remotely via video call
   caption: Effective strategies for thriving in a remote work environment.
 excerpt: Learn essential strategies for maximizing productivity and maintaining well-being while working remotely. From setting boundaries to leveraging technology, this guide covers key aspects of successful remote work.
@@ -64,7 +65,6 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T00:47:25.956Z"
 ---
 
 Remote work offers flexibility but requires discipline. Here’s how to succeed: Creating a structured routine is the foundation of effective remote work. Without the physical separation of an office, it’s easy to blur the lines between personal and professional life.

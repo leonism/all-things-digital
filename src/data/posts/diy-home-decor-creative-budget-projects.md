@@ -2,6 +2,7 @@
 title: "DIY Home Decor: Creative Projects on a Budget"
 seoTitle: Budget DIY Home Decor Ideas | Creative & Affordable Projects
 slug: diy-home-decor-creative-budget-projects
+lang: en
 datePublished: "2025-05-19T00:00:00.000Z"
 dateModified: "2025-06-16T17:24:50.871Z"
 author:
@@ -66,7 +67,6 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T00:47:25.898Z"
 ---
 
 Decorating your home doesn’t have to come with a hefty price tag. With a little creativity and some basic materials, you can craft unique pieces that reflect your personality. DIY home decor allows you to: Add personal touches to your home affordably.

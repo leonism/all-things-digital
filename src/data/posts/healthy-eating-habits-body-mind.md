@@ -2,6 +2,7 @@
 title: "Healthy Eating Habits: Fueling Your Body and Mind"
 seoTitle: Healthy Eating Guide | Nutrition Tips for Body & Mind
 slug: healthy-eating-habits-body-mind
+lang: en
 datePublished: "2025-05-21T00:00:00.000Z"
 dateModified: "2025-06-16T17:24:50.929Z"
 author:
@@ -66,7 +67,6 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T00:47:25.938Z"
 ---
 
 A balanced diet is not just about eating less or avoiding certain foods; it's about nourishing your body with the right nutrients. Here are some essential components: Good nutrition is the foundation of a healthy life.

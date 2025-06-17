@@ -16,6 +16,7 @@ const STANDARD_ORDER = [
   'title',
   'seoTitle',
   'slug',
+  'lang',
   'datePublished',
   'dateModified',
   'author',
@@ -56,6 +57,9 @@ function processFrontmatter(frontmatter, filename) {
     processed.dateModified = processed.lastModified;
     delete processed.lastModified;
   }
+
+  // Add lang field
+  processed.lang = 'en';
 
   // Explicitly delete original date/lastModified fields if they still exist after potential renaming
   // This ensures they are not carried over if they were not in STANDARD_ORDER or if renaming failed

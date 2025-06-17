@@ -2,6 +2,7 @@
 title: "Cybersecurity Basics: Protecting Your Digital Life"
 seoTitle: Cybersecurity Guide | Protect Your Digital Life Online
 slug: cybersecurity-basics-protecting-digital-life
+lang: en
 datePublished: "2025-05-18T00:00:00.000Z"
 dateModified: "2025-06-16T17:24:50.853Z"
 author:
@@ -65,7 +66,6 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T00:47:25.891Z"
 ---
 
 Protecting your digital identity is crucial. In today's interconnected world, cybercriminals are constantly finding new ways to exploit vulnerabilities. By understanding and implementing basic cybersecurity practices, you can significantly reduce your risk of falling victim to online threats.
