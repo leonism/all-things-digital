@@ -66,7 +66,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T02:22:06.598Z"
+lastModified: "2025-06-17T13:50:59.713Z"
 ---
 
 Seek experiences beyond the typical tourist trail. Nestled between Iceland and Norway, the Faroe Islands boast dramatic landscapes, including cascading waterfalls, rugged cliffs, and quaint villages. Hike to the iconic Múlafossur Waterfall or explore the bird cliffs of Mykines for unforgettable encounters with puffins and other wildlife.
