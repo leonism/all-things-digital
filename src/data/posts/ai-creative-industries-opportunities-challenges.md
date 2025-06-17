@@ -1,10 +1,10 @@
 ---
-title: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
+title: "The Rise of AI in Creative Industries: Opportunities and Challenges"
 seoTitle: AI in Creative Industries | Opportunities & Challenges 2025
 slug: ai-creative-industries-opportunities-challenges
 lang: en
-datePublished: '2025-05-23'
-dateModified: '2025-06-16T16:41:08.991Z'
+datePublished: "2025-05-23"
+dateModified: "2025-06-16T16:41:08.991Z"
 author:
   name: Chloe Davis
   role: Technology Analyst
@@ -43,23 +43,23 @@ relatedPosts:
   - ethics-of-ai-art
   - future-skills-for-creatives
 schema:
-  '@type': Article
-  headline: 'The Rise of AI in Creative Industries: Opportunities and Challenges'
+  "@type": Article
+  headline: "The Rise of AI in Creative Industries: Opportunities and Challenges"
   description: An analysis of the impact of AI on creative professions, covering both opportunities and potential hurdles.
   author:
-    '@type': Person
+    "@type": Person
     name: Chloe Davis
     jobTitle: Technology Analyst
-  datePublished: '2025-05-23'
-  dateModified: '2025-05-23'
+  datePublished: "2025-05-23"
+  dateModified: "2025-05-23"
   image: https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
   publisher:
-    '@type': Organization
+    "@type": Organization
     name: Future Tech Today
     logo:
-      '@type': ImageObject
+      "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: '2025-06-17T00:59:54.366Z'
+lastModified: "2025-06-17T01:58:18.233Z"
 ---
 
 AI is emerging as a powerful collaborator for creatives. By analyzing vast datasets, AI tools can generate ideas, suggest variations, and even propose entirely new concepts. For instance, platforms like DALL·E and MidJourney allow artists to experiment with visual styles they might not have considered otherwise. This collaboration between human intuition and machine precision opens doors to unprecedented levels of innovation.

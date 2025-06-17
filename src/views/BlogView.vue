@@ -46,12 +46,12 @@
  * The component uses Vue 3 Composition API with `<script setup>`.
  */
 import { ref, onMounted, computed, type Ref } from 'vue';
-import { useHead } from '@unhead/vue';
 import HeaderBlog from '../components/heading/HeaderBlog.vue';
 import BlogArticleCard from '../components/home/BlogArticleCard.vue';
 import Pagination from '../components/common/Pagination.vue';
 import { usePagination } from '../composables/usePagination';
 import postsData from '../blog-data.json';
+import { useWebsiteSEO } from '../composables/useSEO';
 
 interface BlogPost
 {
@@ -108,41 +108,13 @@ const handlePageChange = ( page: number ) =>
   window.scrollTo( { top: 0, behavior: 'smooth' } );
 };
 
-// Set meta tags for the main blog list page using useHead.
-// This updates the document head with SEO-related information.
-useHead( {
-  title: 'Blog | DGPond.COM',
-  meta: [
-    {
-      name: 'description',
-      content: 'Read the latest articles and insights on our blog.',
-    }, // Customize description
-    { property: 'og:title', content: 'Blog | DGPond.COM' },
-    {
-      property: 'og:description',
-      content: 'Read the latest articles and insights on our blog.',
-    },
-    { property: 'og:type', content: 'website' },
-    {
-      property: 'og:url',
-      content: 'https://all-things-digital.pages.dev/blog',
-    }, // <<<--- IMPORTANT: Replace with yourown domain
-    {
-      property: 'og:image',
-      content: '/images/default-og-image.png',
-    }, // <<<--- IMPORTANT: Replace with your default OG image path
-    { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: 'Blog | DGPond.COM' },
-    {
-      name: 'twitter:description',
-      content: 'Read the latest articles and insights on our blog.',
-    },
-    { name: 'twitter:image', content: '/images/default-og-image.png' }, // <<<--- IMPORTANT: Replace with your default Twitter image path
-  ],
-  link: [
-    { rel: 'canonical', href: 'https://all-things-digital.pages.dev/blog' }, // <<<--- IMPORTANT: Replace with your actual domain
-  ],
-} );
+// SEO Meta Tags using composable
+useWebsiteSEO({
+  title: 'Blog',
+  description: 'Explore our latest blog posts covering technology, digital trends, programming tutorials, and industry insights. Stay updated with the latest in tech.',
+  keywords: ['blog', 'technology', 'programming', 'tutorials', 'digital trends', 'tech news', 'web development', 'software'],
+  canonicalPath: '/blog'
+});
 
 // Lifecycle hook that runs after the component is mounted.
 // It fetches and filters the blog posts.

@@ -73,12 +73,14 @@
  */
 import { ref, watch, computed, type Ref, markRaw } from 'vue';
 import { useRoute } from 'vue-router';
-import { useHead } from '@unhead/vue'; // useScript is no longer needed here
+import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
 import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
 import { useCloudinary } from '@/composables/useCloudinary';
-import CusdisComments from '../common/CusdisComments.vue'; // Adjust path if you placed it elsewhere
+import CusdisComments from '../common/CusdisComments.vue';
+import { useArticleSEO } from '@/composables/useSEO';
+import { useBlogPostStructuredData, useBlogPostImageStructuredData } from '@/composables/useStructuredData.js'
 
 // Define a type for the dynamically imported Markdown component
 interface MarkdownModule
@@ -163,53 +165,43 @@ const loadMarkdownComponent = async ( slug: string ) =>
   }
 };
 
-// Computed properties for meta tags
-const pageTitle = computed(
-  () => post.value?.seoTitle || post.value?.title || 'Blog Post',
-);
-const pageDescription = computed(
-  () => post.value?.excerpt || 'Read this blog post.',
-);
-const ogImage = computed(
-  () => post.value?.featuredImage?.src || '/images/default-og-image.png',
-); // Add a default OG image path
-const canonicalUrl = computed( () =>
-{
-  // Construct canonical URL - replace with your actual domain
-  const base = 'https://all-things-digital.pages.dev'; // <<<--- IMPORTANT: Replace with your actual domain
-  return post.value ? `${base}/blog/${post.value.slug}` : base;
-} );
-
-// Add this useHead call to actually set the meta tags
-useHead({
-  title: pageTitle,
-  meta: [
-    { name: 'description', content: pageDescription },
-    { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: pageDescription },
-    { property: 'og:type', content: 'article' },
-    { property: 'og:url', content: canonicalUrl },
-    { property: 'og:image', content: ogImage },
-    { property: 'og:site_name', content: 'DGPond.COM' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: pageTitle },
-    { name: 'twitter:description', content: pageDescription },
-    { name: 'twitter:image', content: ogImage },
-    // Add article-specific meta tags
-    { property: 'article:author', content: () => post.value?.author?.name || '' },
-    { property: 'article:published_time', content: () => post.value?.date || '' },
-    { property: 'article:modified_time', content: () => post.value?.lastModified || post.value?.date || '' },
-    { property: 'article:section', content: () => post.value?.category || '' },
-    // Add article tags
-    ...(post.value?.tags?.map(tag => ({ property: 'article:tag', content: tag })) || [])
-  ],
-  link: [
-    { rel: 'canonical', href: canonicalUrl }
-  ],
-  htmlAttrs: {
-    lang: 'en'
-  }
+// SEO Meta Tags using composable
+useArticleSEO({
+  title: computed(() => post.value?.seoTitle || post.value?.title || 'Blog Post'),
+  description: computed(() => post.value?.excerpt || 'Read this blog post.'),
+  canonicalPath: computed(() => post.value ? `/blog/${post.value.slug}` : '/blog'),
+  image: computed(() => post.value?.featuredImage?.src || '/images/default-og-image.png'),
+  author: computed(() => post.value?.author || {}),
+  publishedTime: computed(() => post.value?.date),
+  modifiedTime: computed(() => post.value?.lastModified || post.value?.date),
+  category: computed(() => post.value?.category),
+  tags: computed(() => post.value?.tags || []),
+  keywords: computed(() => post.value?.tags || [])
 });
+
+// JSON-LD Structured Data for blog posts
+useBlogPostStructuredData(
+  computed(() => post.value),
+  {
+    baseUrl: 'https://www.dgpond.com',
+    defaultPublisher: {
+      name: 'DGPond.COM',
+      logo: 'https://www.dgpond.com/logo.png',
+      url: 'https://www.dgpond.com'
+    }
+  }
+);
+
+// Generate and inject ImageObject structured data for the featured image
+const { injectStructuredData: injectImageStructuredData } = useBlogPostImageStructuredData(post, {
+  defaultLicense: 'https://all-things-digital.pages.dev/license',
+  defaultAcquireLicensePage: 'https://all-things-digital.pages.dev/how-to-use-images',
+  defaultCreditText: 'All Things Digital',
+  defaultCopyrightNotice: 'All Things Digital'
+});
+
+// Inject the image structured data
+injectImageStructuredData();
 
 // Watcher to update meta tags whenever the 'post' ref changes.
 // This ensures that meta tags are updated when a post is loaded.

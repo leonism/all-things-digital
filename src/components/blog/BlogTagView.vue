@@ -30,9 +30,9 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import type { Post } from '../../types/Post';
 import { useRoute, useRouter } from 'vue-router';
-import { useHead } from '@unhead/vue';
 import postsData from '../../blog-data.json';
 import BlogArticleCard from '../home/BlogArticleCard.vue';
+import { useListingSEO } from '@/composables/useSEO';
 const posts = postsData as unknown as Post[];
 
 const getTagSlug = (name: string): string => {
@@ -47,48 +47,28 @@ const tagName = ref(
 
 const allPosts = ref<Post[]>([]);
 
-// Computed properties for meta tags
-const pageTitle = computed(
-  () => `Tag: #${tagName.value || 'Archive'} - All Things Digital`,
-);
-const pageDescription = computed(
-  () => `Posts tagged with #${tagName.value || 'archive'}.`,
-);
-const canonicalUrl = computed(() => {
-  const base = 'https://allthingsdigital.netlify.app';
-  return tagName.value
-    ? `${base}/blog/tag/${getTagSlug(tagName.value)}`
-    : `${base}/blog`;
-});
-
-// Watcher to update meta tags whenever the 'tagName' ref changes.
-watch(
-  tagName,
-  (newTagName) => {
-    if (newTagName) {
-      useHead({
-        title: pageTitle.value,
-        meta: [
-          { name: 'description', content: pageDescription.value },
-          { property: 'og:title', content: pageTitle.value },
-          { property: 'og:description', content: pageDescription.value },
-          { property: 'og:type', content: 'website' },
-          { property: 'og:url', content: canonicalUrl.value },
-          { property: 'og:image', content: '/images/default-og-image.png' },
-          { name: 'twitter:card', content: 'summary' },
-          { name: 'twitter:title', content: pageTitle.value },
-          { name: 'twitter:description', content: pageDescription.value },
-          { name: 'twitter:image', content: '/images/default-og-image.png' },
-          { name: 'robots', content: 'index, follow' },
-        ],
-        link: [{ rel: 'canonical', href: canonicalUrl.value }],
-      });
-    } else {
-      useHead({ title: 'Tag Archive' });
+// SEO Meta Tags using composable
+useListingSEO({
+  title: computed(() => {
+    return tagName.value ? `#${tagName.value} Posts` : 'Tag Archive';
+  }),
+  description: computed(() => {
+    if (tagName.value) {
+      const count = allPosts.value.length;
+      return `Discover ${count} posts tagged with #${tagName.value}. Explore related content and insights on ${tagName.value}.`;
     }
-  },
-  { immediate: true },
-);
+    return 'Browse posts by tags to find content that interests you.';
+  }),
+  canonicalPath: computed(() => {
+    return tagName.value ? `/blog/tag/${getTagSlug(tagName.value)}` : '/blog';
+  }),
+  keywords: computed(() => {
+    if (tagName.value) {
+      return [tagName.value, 'posts', 'articles', 'blog', 'technology'];
+    }
+    return ['tags', 'archive', 'blog', 'articles'];
+  })
+});
 
 onMounted(() => {
   const tag = route.params.tag;

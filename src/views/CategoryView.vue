@@ -151,10 +151,10 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useRouter } from 'vue-router';
-import { useHead } from '@unhead/vue'; // Import useHead
 import HeaderCategory from '../components/heading/HeaderCategory.vue';
 import BlogPostCard from '../components/home/BlogArticleCard.vue';
 import postsData from '../blog-data.json';
+import { useListingSEO } from '@/composables/useSEO';
 
 interface BlogPost {
   slug: string;
@@ -237,75 +237,34 @@ const sortedCategories = computed(() => {
   return [...allCategories.value].sort((a, b) => a.localeCompare(b));
 });
 
-// SEO Meta Data
-watch(
-  () => route.params.category,
-  (newCategory) => {
-    const categorySlug = newCategory as string | undefined;
-    if (categorySlug) {
-      // Individual Category Page SEO
-      const currentCategoryName = displayCategoryName.value;
-      const pageTitle = `Category: ${currentCategoryName} | ${siteName}`;
-      const pageDescription = `Explore all articles and posts in the ${currentCategoryName} category on ${siteName}.`;
-      const canonicalUrlPath = `/category/${categorySlug}`;
-
-      useHead({
-        title: pageTitle,
-        meta: [
-          { name: 'description', content: pageDescription },
-          { name: 'keywords', content: `${currentCategoryName}, blog, articles, ${siteName}` },
-          { property: 'og:title', content: pageTitle },
-          { property: 'og:description', content: pageDescription },
-          { property: 'og:type', content: 'website' },
-          { property: 'og:url', content: `${baseUrl}${canonicalUrlPath}` },
-          { property: 'og:site_name', content: siteName },
-          // Add a relevant OG image if available, otherwise a default one
-          { property: 'og:image', content: `${baseUrl}/all-things-digital.png` },
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:title', content: pageTitle },
-          { name: 'twitter:description', content: pageDescription },
-          { name: 'twitter:image', content: `${baseUrl}/all-things-digital.png` },
-        ],
-        link: [
-          {
-            rel: 'canonical',
-            href: `${baseUrl}${canonicalUrlPath}`,
-          },
-        ],
-      });
-    } else {
-      // Main Category Listing Page SEO
-      const pageTitle = `Browse Articles by Category | ${siteName}`;
-      const pageDescription = `Explore a wide range of topics and articles, neatly organized by category on ${siteName}. Find content relevant to your interests.`;
-      const canonicalUrlPath = '/category';
-
-      useHead({
-        title: pageTitle,
-        meta: [
-          { name: 'description', content: pageDescription },
-          { name: 'keywords', content: `categories, blog, articles, topics, ${siteName}` },
-          { property: 'og:title', content: pageTitle },
-          { property: 'og:description', content: pageDescription },
-          { property: 'og:type', content: 'website' },
-          { property: 'og:url', content: `${baseUrl}${canonicalUrlPath}` },
-          { property: 'og:site_name', content: siteName },
-          { property: 'og:image', content: `${baseUrl}/all-things-digital.png` },
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:title', content: pageTitle },
-          { name: 'twitter:description', content: pageDescription },
-          { name: 'twitter:image', content: `${baseUrl}/all-things-digital.png` },
-        ],
-        link: [
-          {
-            rel: 'canonical',
-            href: `${baseUrl}${canonicalUrlPath}`,
-          },
-        ],
-      });
+// SEO Meta Tags using composable
+useListingSEO({
+  title: computed(() => {
+    if (categoryParam.value) {
+      return `${displayCategoryName.value} Articles`;
     }
-  },
-  { immediate: true }, // Run on component mount as well
-);
+    return 'Browse Articles by Category';
+  }),
+  description: computed(() => {
+    if (categoryParam.value) {
+      const count = categoryPosts.value.length;
+      return `Explore ${count} articles about ${displayCategoryName.value}. Discover insights, tutorials, and expert analysis on ${displayCategoryName.value} topics.`;
+    }
+    return `Explore a wide range of topics and articles, neatly organized by category on ${siteName}. Find content relevant to your interests.`;
+  }),
+  canonicalPath: computed(() => {
+    if (categoryParam.value) {
+      return `/category/${categoryParam.value}`;
+    }
+    return '/category';
+  }),
+  keywords: computed(() => {
+    if (categoryParam.value) {
+      return [displayCategoryName.value, 'articles', 'tutorials', 'blog posts', 'technology'];
+    }
+    return ['categories', 'blog', 'articles', 'topics', siteName];
+  })
+});
 
 // Helper functions
 const getPostsByCategory = (category: string): BlogPost[] => {

@@ -61,6 +61,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
+lastModified: "2025-06-17T01:58:18.784Z"
 ---
 
 Adopting the mantra of "reduce, reuse, recycle" is one of the simplest ways to create a more eco-friendly home. These practices help minimize waste and conserve natural resources. Creating a sustainable home is easier than you think. Here are some actionable tips:
