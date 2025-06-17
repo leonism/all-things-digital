@@ -165,35 +165,37 @@ const loadMarkdownComponent = async ( slug: string ) =>
   }
 };
 
-// SEO Meta Tags using composable
-useArticleSEO({
-  title: computed(() => post.value?.seoTitle || post.value?.title || 'Blog Post'),
-  description: computed(() => {
-    // Use SEO description first, then excerpt, then fallback
-    return post.value?.seo?.description || post.value?.excerpt || 'Read this blog post.';
-  }),
-  canonicalPath: computed(() => post.value ? `/blog/${post.value.slug}` : '/blog'),
-  image: computed(() => {
-    const imageSrc = post.value?.featuredImage?.src;
-    if (!imageSrc) return '/images/default-og-image.png';
-    // Handle Cloudinary images
-    if (imageSrc.includes('/')) {
-      return `https://res.cloudinary.com/dgpond/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/${imageSrc}`;
-    }
-    return imageSrc;
-  }),
-  author: computed(() => post.value?.author || {}),
-  publishedTime: computed(() => post.value?.date),
-  modifiedTime: computed(() => post.value?.lastModified || post.value?.date),
-  category: computed(() => post.value?.category),
-  tags: computed(() => post.value?.tags || []),
-  keywords: computed(() => {
-    // Combine SEO keywords with tags
-    const seoKeywords = post.value?.seo?.keywords || [];
-    const tags = post.value?.tags || [];
-    return [...new Set([...seoKeywords, ...tags])];
-  }),
-  robots: computed(() => post.value?.metaRobots || 'index, follow')
+// SEO Meta Tags using composable - applied when post data is available
+watchEffect(() => {
+  if (post.value) {
+    console.log('Applying SEO for post:', post.value.title);
+    useArticleSEO({
+      title: post.value.seoTitle || post.value.title || 'Blog Post',
+      description: post.value.seo?.description || post.value.excerpt || 'Read this blog post.',
+      canonicalPath: `/blog/${post.value.slug}`,
+      image: (() => {
+        const imageSrc = post.value.featuredImage?.src;
+        if (!imageSrc) return '/images/default-og-image.png';
+        // Handle Cloudinary images
+        if (imageSrc.includes('/')) {
+          return `https://res.cloudinary.com/dgpond/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/${imageSrc}`;
+        }
+        return imageSrc;
+      })(),
+      author: post.value.author || {},
+      publishedTime: post.value.date,
+      modifiedTime: post.value.lastModified || post.value.date,
+      category: post.value.category,
+      tags: post.value.tags || [],
+      keywords: (() => {
+        // Combine SEO keywords with tags
+        const seoKeywords = post.value.seo?.keywords || [];
+        const tags = post.value.tags || [];
+        return [...new Set([...seoKeywords, ...tags])];
+      })(),
+      robots: post.value.metaRobots || 'index, follow'
+    });
+  }
 });
 
 // JSON-LD Structured Data for blog posts
