@@ -71,7 +71,7 @@
  *    tag values from the `post` data.
  * 6. The template conditionally renders the post content or a "not found" message.
  */
-import { ref, watch, computed, type Ref, markRaw } from 'vue';
+import { ref, watch, computed, watchEffect, type Ref, markRaw } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
@@ -165,38 +165,76 @@ const loadMarkdownComponent = async ( slug: string ) =>
   }
 };
 
-// SEO Meta Tags using composable - applied when post data is available
-watchEffect(() => {
-  if (post.value) {
-    console.log('Applying SEO for post:', post.value.title);
-    useArticleSEO({
-      title: post.value.seoTitle || post.value.title || 'Blog Post',
-      description: post.value.seo?.description || post.value.excerpt || 'Read this blog post.',
-      canonicalPath: `/blog/${post.value.slug}`,
-      image: (() => {
-        const imageSrc = post.value.featuredImage?.src;
-        if (!imageSrc) return '/images/default-og-image.png';
-        // Handle Cloudinary images
-        if (imageSrc.includes('/')) {
-          return `https://res.cloudinary.com/dgpond/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/${imageSrc}`;
-        }
-        return imageSrc;
-      })(),
-      author: post.value.author || {},
-      publishedTime: post.value.date,
-      modifiedTime: post.value.lastModified || post.value.date,
-      category: post.value.category,
-      tags: post.value.tags || [],
-      keywords: (() => {
-        // Combine SEO keywords with tags
-        const seoKeywords = post.value.seo?.keywords || [];
-        const tags = post.value.tags || [];
-        return [...new Set([...seoKeywords, ...tags])];
-      })(),
-      robots: post.value.metaRobots || 'index, follow'
-    });
+// SEO Meta Tags - setup reactive head configuration
+const seoConfig = computed(() => {
+  if (!post.value) {
+    return {
+      title: 'Blog Post | DGPond.COM',
+      meta: [
+        { name: 'description', content: 'Read this blog post.' },
+        { property: 'og:title', content: 'Blog Post | DGPond.COM' },
+        { property: 'og:description', content: 'Read this blog post.' },
+        { property: 'og:type', content: 'article' }
+      ]
+    };
   }
+
+  const title = post.value.seoTitle || post.value.title || 'Blog Post';
+  const fullTitle = title.includes('DGPond.COM') ? title : `${title} | DGPond.COM`;
+  const description = post.value.seo?.description || post.value.excerpt || 'Read this blog post.';
+  const canonicalUrl = `https://all-things-digital.pages.dev/blog/${post.value.slug}`;
+  
+  const imageSrc = post.value.featuredImage?.src;
+  let imageUrl = '/images/default-og-image.png';
+  if (imageSrc) {
+    // Handle Cloudinary images
+    if (imageSrc.includes('/')) {
+      imageUrl = `https://res.cloudinary.com/dgpond/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/${imageSrc}`;
+    } else {
+      imageUrl = imageSrc;
+    }
+  }
+
+  const publishedTime = new Date(post.value.date).toISOString();
+  const modifiedTime = post.value.lastModified ? new Date(post.value.lastModified).toISOString() : publishedTime;
+  const tags = post.value.tags || [];
+  const seoKeywords = post.value.seo?.keywords || [];
+  const allKeywords = [...new Set([...seoKeywords, ...tags])];
+
+  return {
+    title: fullTitle,
+    meta: [
+      { name: 'description', content: description },
+      { name: 'keywords', content: allKeywords.join(', ') },
+      { name: 'robots', content: post.value.metaRobots || 'index, follow' },
+      { name: 'author', content: post.value.author?.name || 'DGPond.COM' },
+      { property: 'og:title', content: fullTitle },
+      { property: 'og:description', content: description },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: canonicalUrl },
+      { property: 'og:image', content: imageUrl },
+      { property: 'og:site_name', content: 'DGPond.COM' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: fullTitle },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: imageUrl },
+      { property: 'article:published_time', content: publishedTime },
+      { property: 'article:modified_time', content: modifiedTime },
+      { property: 'article:author', content: post.value.author?.name || 'DGPond.COM' },
+      { property: 'article:section', content: post.value.category || '' },
+      ...tags.map(tag => ({ property: 'article:tag', content: tag }))
+    ],
+    link: [
+      { rel: 'canonical', href: canonicalUrl }
+    ],
+    htmlAttrs: {
+      lang: 'en'
+    }
+  };
 });
+
+// Apply SEO configuration using useHead
+useHead(seoConfig);
 
 // JSON-LD Structured Data for blog posts
 useBlogPostStructuredData(
