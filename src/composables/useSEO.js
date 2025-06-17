@@ -91,7 +91,8 @@ export function useSEO(config = {}) {
       modifiedTime: modifiedTimeRef,
       category: categoryRef,
       tags: tagsRef = [],
-      keywords: keywordsRef = []
+      keywords: keywordsRef = [],
+      robots: robotsRef = 'index, follow'
     } = articleConfig;
 
     // Resolve reactive values
@@ -105,6 +106,7 @@ export function useSEO(config = {}) {
     const category = unref(categoryRef);
     const tags = unref(tagsRef);
     const keywords = unref(keywordsRef);
+    const robots = unref(robotsRef);
 
     const fullTitle = title.includes(siteConfig.siteName) ? title : `${title} | ${siteConfig.siteName}`;
     const canonicalUrl = `${siteConfig.baseUrl}${canonicalPath}`;
@@ -118,6 +120,7 @@ export function useSEO(config = {}) {
       meta: [
         { name: 'description', content: description },
         { name: 'keywords', content: allKeywords.join(', ') },
+        { name: 'robots', content: robots },
         { name: 'author', content: author.name || siteConfig.siteName },
         { property: 'og:title', content: fullTitle },
         { property: 'og:description', content: description },

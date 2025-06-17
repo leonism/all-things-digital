@@ -96,12 +96,21 @@ const processMarkdownFile = (filename, postsDir) => {
       title: data.title || 'Untitled Post', // Provide default title
       subtitle: data.subtitle || '',
       date: data.datePublished || data.date || new Date().toISOString().split('T')[0], // Default to today's date, fallback for old 'date' field
+      lastModified: data.lastModified || data.dateModified,
       featuredImage: data.featuredImage || null,
       category: data.category || 'Uncategorized', // Provide default category
+      categories: data.categories || [],
       tags: data.tags || [],
       author: data.author || DEFAULT_AUTHOR, // Use default author if not specified
       excerpt: data.excerpt || '',
       description: data.description || '',
+      seoTitle: data.seoTitle,
+      metaRobots: data.metaRobots || 'index, follow',
+      canonicalUrl: data.canonicalUrl,
+      seo: data.seo || {},
+      readingTime: data.readingTime,
+      featured: data.featured || false,
+      priority: data.priority || 'normal',
       content: content,
       status: data.status || (data.published !== false ? 'published' : 'draft') // Use status field consistently
     };
