@@ -30,9 +30,9 @@
     "slug": "future-web-development-2025",
     "title": "Exploring the Future of Web Development in 2025",
     "subtitle": "",
-    "date": "2025-05-26",
+    "date": "2025-05-26T00:00:00.000Z",
     "featuredImage": {
-      "src": "all-things-digital/featured-blog-comp",
+      "src": "all-things-digital/blog/featured-blog-comp",
       "alt": "Developer coding on a laptop with multiple monitors",
       "caption": "The landscape of web development is constantly evolving."
     },
@@ -58,9 +58,9 @@
     "slug": "sustainable-living-eco-friendly-home",
     "title": "Sustainable Living: Tips for an Eco-Friendly Home",
     "subtitle": "",
-    "date": "2025-05-25",
+    "date": "2025-05-25T00:00:00.000Z",
     "featuredImage": {
-      "src": "all-things-digital/greenery-view",
+      "src": "all-things-digital/blog/greenery-view",
       "alt": "Lush green landscape with mountains and a lake",
       "caption": "Embracing sustainability starts at home."
     },
@@ -75,7 +75,7 @@
     "author": {
       "name": "Sophia Green",
       "role": "Environmental Consultant",
-      "image": "all-things-digital/sophia-green"
+      "image": "all-things-digital/avatar/sophia-green"
     },
     "excerpt": "Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small changes can make a big impact. Creating a sustainable home is easier than you think. Here are some actionable tips",
     "description": "",
@@ -86,7 +86,7 @@
     "slug": "mastering-remote-work-productivity-well-being",
     "title": "Mastering Remote Work: Productivity and Well-being",
     "subtitle": "",
-    "date": "2025-05-24",
+    "date": "2025-05-24T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Team collaborating remotely via video call",
@@ -140,7 +140,7 @@
     "slug": "financial-planning-millennials-secure-future",
     "title": "Financial Planning for Millennials: Building a Secure Future",
     "subtitle": "",
-    "date": "2025-05-22",
+    "date": "2025-05-22T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Person reviewing financial charts and graphs on a tablet",
@@ -168,7 +168,7 @@
     "slug": "healthy-eating-habits-body-mind",
     "title": "Healthy Eating Habits: Fueling Your Body and Mind",
     "subtitle": "",
-    "date": "2025-05-21",
+    "date": "2025-05-21T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Colorful salad bowl with fresh vegetables and fruits",
@@ -196,7 +196,7 @@
     "slug": "hidden-gems-off-the-beaten-path-travel",
     "title": "Hidden Gems: Exploring Off-the-Beaten-Path Travel Destinations",
     "subtitle": "",
-    "date": "2025-05-20",
+    "date": "2025-05-20T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Scenic view of a remote village nestled in mountains",
@@ -224,7 +224,7 @@
     "slug": "diy-home-decor-creative-budget-projects",
     "title": "DIY Home Decor: Creative Projects on a Budget",
     "subtitle": "",
-    "date": "2025-05-19",
+    "date": "2025-05-19T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Cozy living room with DIY decorative elements",
@@ -252,7 +252,7 @@
     "slug": "cybersecurity-basics-protecting-digital-life",
     "title": "Cybersecurity Basics: Protecting Your Digital Life",
     "subtitle": "",
-    "date": "2025-05-18",
+    "date": "2025-05-18T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Abstract image of digital code and security locks",
@@ -280,7 +280,7 @@
     "slug": "mindfulness-meditation-finding-calm",
     "title": "Mindfulness and Meditation: Finding Calm in a Busy World",
     "subtitle": "",
-    "date": "2025-05-17",
+    "date": "2025-05-17T00:00:00.000Z",
     "featuredImage": {
       "src": "https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "alt": "Person meditating peacefully outdoors near water",

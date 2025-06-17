@@ -7,7 +7,7 @@ dateModified: "2025-06-16T17:24:51.089Z"
 author:
   name: Sophia Green
   role: Environmental Consultant
-  image: all-things-digital/sophia-green
+  image: all-things-digital/avatar/sophia-green
 category: Lifestyle
 tags:
   - sustainable-living
@@ -16,7 +16,7 @@ tags:
   - environment
   - conservation
 featuredImage:
-  src: all-things-digital/greenery-view
+  src: all-things-digital/blog/greenery-view
   alt: Lush green landscape with mountains and a lake
   caption: Embracing sustainability starts at home.
 excerpt: Discover practical tips and ideas for creating a more sustainable and eco-friendly home environment. From reducing waste to conserving energy, learn how small changes can make a big impact. Creating a sustainable home is easier than you think. Here are some actionable tips
@@ -60,7 +60,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-16T17:47:37.931Z"
+lastModified: "2025-06-17T00:47:25.971Z"
 ---
 
 Adopting the mantra of "reduce, reuse, recycle" is one of the simplest ways to create a more eco-friendly home. These practices help minimize waste and conserve natural resources. Creating a sustainable home is easier than you think. Here are some actionable tips:

@@ -16,7 +16,7 @@ tags:
   - javascript
   - future-tech
 featuredImage:
-  src: all-things-digital/featured-blog-comp
+  src: all-things-digital/blog/featured-blog-comp
   alt: Developer coding on a laptop with multiple monitors
   caption: The landscape of web development is constantly evolving.
 excerpt: Dive into the key trends shaping web development in 2025, from advancements in JavaScript frameworks to the rise of AI-powered coding assistants and serverless architectures.
@@ -65,7 +65,7 @@ schema:
     logo:
       "@type": ImageObject
       url: ..assets/img/icons/logo-footer.png
-lastModified: "2025-06-16T17:47:37.781Z"
+lastModified: "2025-06-17T00:47:25.917Z"
 ---
 
 The world of web development moves at lightning speed. Staying ahead requires understanding the trends that will define the next year. As we approach 2025, developers must adapt to new paradigms, tools, and methodologies that will reshape how we build the web.
