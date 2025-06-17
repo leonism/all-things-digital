@@ -223,7 +223,25 @@ export function useSEO(config = {}) {
         break;
     }
 
+    // Apply the SEO configuration
     useHead(seoConfig);
+    
+    // Also update document title and meta description for immediate client-side updates
+    if (typeof document !== 'undefined') {
+      if (seoConfig.title) {
+        document.title = typeof seoConfig.title === 'function' ? seoConfig.title() : seoConfig.title;
+      }
+      
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription && seoConfig.meta) {
+        const descriptionMeta = seoConfig.meta.find(meta => meta.name === 'description');
+        if (descriptionMeta) {
+          metaDescription.setAttribute('content', descriptionMeta.content);
+        }
+      }
+    }
+    
     return seoConfig;
   }
 

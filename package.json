@@ -28,7 +28,7 @@
   },
   "scripts": {
     "dev": "npm run process-frontmatter && vite",
-    "build": "npm run build-hooks && vite build && npm run generate-modern-formats && npm run generate-rss && npm run generate-sitemap && npm run generate-blog-data",
+    "build": "npm run build-hooks && vite build && npm run prerender-seo && npm run generate-modern-formats && npm run generate-rss && npm run generate-sitemap && npm run generate-blog-data",
     "preview": "vite preview",
     "watch": "tailwindcss -i ./src/main.css -o ./dist/style.css --watch",
     "compress": "npx tailwindcss -i ./src/main.css -o ./dist/style.css --minify",
@@ -48,6 +48,7 @@
     "standardize-frontmatter": "node scripts/standardize-frontmatter.js",
     "build-hooks": "node scripts/build-hooks.js all",
     "generate-data": "node scripts/build-hooks.js generate-data",
+    "prerender-seo": "node scripts/prerender-seo.js",
     "webhook": "node scripts/webhook-handler.js",
     "webhook:dev": "WEBHOOK_SECRET=dev-secret node scripts/webhook-handler.js",
     "test-blog-data": "node scripts/test-blog-data.js",

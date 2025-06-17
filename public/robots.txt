@@ -1,6 +1,13 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
 
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /.netlify/
+Disallow: /functions/
+
+# Allow all search engines to access sitemap
 Sitemap: https://all-things-digital.pages.dev/sitemap.xml
-Host: https://all-things-digital.pages.dev/
+
+# Crawl delay (optional - be respectful to server resources)
+Crawl-delay: 1
