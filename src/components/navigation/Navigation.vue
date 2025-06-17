@@ -11,6 +11,7 @@
       <NavDesktop />
       <!-- Pass the emit up from NavSearchButton -->
       <NavSearchButton @open-search="$emit('open-search')" />
+      <NavDarkMode />
       <NavContactButton />
       <NavMobile />
     </section>
@@ -22,6 +23,7 @@ import { defineAsyncComponent } from 'vue';
 import NavLogo from './NavLogo.vue';
 import NavDesktop from './NavDesktop.vue';
 import NavSearchButton from './NavSearchButton.vue';
+import NavDarkMode from './NavDarkMode.vue';
 import NavContactButton from './NavContactButton.vue';
 // Lazy load mobile navigation (only needed on mobile)
 const NavMobile = defineAsyncComponent(() => import('./NavMobile.vue'));

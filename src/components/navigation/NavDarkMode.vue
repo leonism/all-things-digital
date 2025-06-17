@@ -2,7 +2,7 @@
   <!-- start the darkmode button -->
   <section
     id="darkModeButton"
-    class="flex z-60 transition transform hover:-rotate-12 ml-auto mr-2 drop-shadow-2xl dark:drop-shadow-2xl"
+    class="flex z-10 transition transform hover:-rotate-12 ml-auto mr-2 drop-shadow-2xl dark:drop-shadow-2xl"
   >
     <button
       aria-label="Toggle Dark Mode"

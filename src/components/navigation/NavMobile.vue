@@ -42,10 +42,10 @@
       <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Menu</h2>
       <button
         @click="closeMobileMenu"
-        class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        class="p-2 rounded-lg hover:bg-pink-heading/10 hover:text-pink-heading dark:hover:bg-pink-heading/20 dark:hover:text-pink-heading transition-all duration-200 hover:scale-110"
         aria-label="Close menu"
       >
-        <svg class="w-5 h-5 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 text-slate-600 dark:text-slate-400 hover:text-pink-heading transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
@@ -114,19 +114,13 @@
       </router-link>
     </div>
 
-    <!-- Dark Mode Toggle -->
-    <div class="absolute bottom-6 left-6 right-6">
-      <div class="border-t border-slate-200 dark:border-slate-700 pt-6">
-        <NavDarkMode />
-      </div>
-    </div>
+
   </nav>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
-import NavDarkMode from './NavDarkMode.vue';
 
 const isMobileMenuOpen = ref(false);
 const route = useRoute();
