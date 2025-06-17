@@ -66,7 +66,7 @@ schema:
     logo:
       "@type": ImageObject
       url: ..assets/img/icons/logo-footer.png
-lastModified: "2025-06-17T15:25:53.892Z"
+lastModified: "2025-06-17T15:30:58.170Z"
 ---
 
 The world of web development moves at lightning speed. Staying ahead requires understanding the trends that will define the next year. As we approach 2025, developers must adapt to new paradigms, tools, and methodologies that will reshape how we build the web.
