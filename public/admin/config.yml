@@ -136,6 +136,12 @@ collections:
       - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
+          label: 'Subtitle',
+          name: 'subtitle',
+          widget: 'string',
+          required: false,
+        }
+      - {
           label: 'Slug',
           name: 'slug',
           widget: 'string',
@@ -145,6 +151,7 @@ collections:
               'A slug can have no spaces or special characters',
             ],
           hint: 'URL-friendly version of the title. Leave empty to auto-generate from title.',
+          default: '{{slug}}',
         }
       - {
           label: 'SEO Title',
@@ -154,17 +161,17 @@ collections:
           hint: 'Optimized title for search engines. Leave empty to use main title.',
         }
       - {
-          label: 'Subtitle',
-          name: 'subtitle',
-          widget: 'string',
-          required: false,
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          default: '{{now}}',
         }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - {
           label: 'Last Modified',
           name: 'lastModified',
           widget: 'datetime',
           required: false,
+          default: '{{now}}',
         }
       - {
           label: 'Status',
@@ -289,7 +296,8 @@ collections:
           label: 'SEO',
           name: 'seo',
           widget: 'object',
-          collapsed: true,
+          collapsed: false,
+          required: false,
           fields:
             [
               {
@@ -297,24 +305,28 @@ collections:
                 name: 'title',
                 widget: 'string',
                 required: false,
+                default: '{{title}}',
               },
               {
                 label: 'Meta Description',
                 name: 'description',
                 widget: 'text',
                 required: false,
+                default: '{{excerpt}}',
               },
               {
                 label: 'Keywords',
                 name: 'keywords',
                 widget: 'list',
                 required: false,
+                default: [],
               },
               {
                 label: 'Canonical URL',
                 name: 'canonical',
                 widget: 'string',
                 required: false,
+                default: '',
               },
               {
                 label: 'No Index',
@@ -328,7 +340,7 @@ collections:
           label: 'Social Media',
           name: 'social',
           widget: 'object',
-          collapsed: true,
+          collapsed: false,
           required: false,
           fields:
             [
@@ -337,36 +349,42 @@ collections:
                 name: 'twitterTitle',
                 widget: 'string',
                 required: false,
+                default: '{{title}}',
               },
               {
                 label: 'Twitter Description',
                 name: 'twitterDescription',
                 widget: 'text',
                 required: false,
+                default: '{{excerpt}}',
               },
               {
                 label: 'Twitter Image',
                 name: 'twitterImage',
                 widget: 'image',
                 required: false,
+                default: '',
               },
               {
                 label: 'Facebook Title',
                 name: 'facebookTitle',
                 widget: 'string',
                 required: false,
+                default: '{{title}}',
               },
               {
                 label: 'Facebook Description',
                 name: 'facebookDescription',
                 widget: 'text',
                 required: false,
+                default: '{{excerpt}}',
               },
               {
                 label: 'Facebook Image',
                 name: 'facebookImage',
                 widget: 'image',
                 required: false,
+                default: '',
               },
             ],
         }
@@ -374,7 +392,7 @@ collections:
           label: 'Advanced',
           name: 'advanced',
           widget: 'object',
-          collapsed: true,
+          collapsed: false,
           required: false,
           fields:
             [
@@ -384,6 +402,7 @@ collections:
                 widget: 'code',
                 default_language: 'css',
                 required: false,
+                default: '',
               },
               {
                 label: 'Custom JavaScript',
@@ -391,6 +410,7 @@ collections:
                 widget: 'code',
                 default_language: 'javascript',
                 required: false,
+                default: '',
               },
               {
                 label: 'Schema Markup',
@@ -398,11 +418,10 @@ collections:
                 widget: 'code',
                 default_language: 'json',
                 required: false,
+                default: '',
               },
             ],
         }
-
-
 
   # Enhanced Site Settings
   - name: 'settings'
