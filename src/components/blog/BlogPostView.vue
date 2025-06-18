@@ -1,6 +1,6 @@
 <template>
   <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto mt-10 mb-20" role="main">
-    <article v-if="post"
+    <article v-if=" post "
       class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500">
       <HeaderBlogPost :title="post.title" :subtitle="post.subtitle" :authorName="post.author?.name ?? ''"
         :authorAvatar="post.author?.image ?? ''" :date="post.date" :category="post.category ?? ''"
@@ -32,7 +32,7 @@
           </div>
         </div>
         <!-- Use the new CusdisComments component -->
-        <CusdisComments v-if="post?.slug && post?.title" :page-id="post.slug" :page-title="post.title" />
+        <CusdisComments v-if=" post?.slug && post?.title " :page-id="post.slug" :page-title="post.title" />
       </div>
     </article>
     <div v-else class="text-center py-16">
@@ -171,8 +171,10 @@ const loadMarkdownComponent = async ( slug: string ) =>
 };
 
 // SEO Meta Tags - setup reactive head configuration
-const seoConfig = computed(() => {
-  if (!post.value) {
+const seoConfig = computed( () =>
+{
+  if ( !post.value )
+  {
     return {
       title: 'Blog Post | DGPond.COM',
       meta: [
@@ -185,32 +187,35 @@ const seoConfig = computed(() => {
   }
 
   const title = post.value.seoTitle || post.value.title || 'Blog Post';
-  const fullTitle = title.includes('DGPond.COM') ? title : `${title} | DGPond.COM`;
+  const fullTitle = title.includes( 'DGPond.COM' ) ? title : `${title} | DGPond.COM`;
   const description = post.value.seo?.description || post.value.excerpt || 'Read this blog post.';
   const canonicalUrl = `https://all-things-digital.pages.dev/blog/${post.value.slug}`;
-  
+
   const imageSrc = post.value.featuredImage?.src;
   let imageUrl = '/images/default-og-image.png';
-  if (imageSrc) {
+  if ( imageSrc )
+  {
     // Handle Cloudinary images
-    if (imageSrc.includes('/')) {
+    if ( imageSrc.includes( '/' ) )
+    {
       imageUrl = `https://res.cloudinary.com/dgpond/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/${imageSrc}`;
-    } else {
+    } else
+    {
       imageUrl = imageSrc;
     }
   }
 
-  const publishedTime = new Date(post.value.date).toISOString();
-  const modifiedTime = post.value.lastModified ? new Date(post.value.lastModified).toISOString() : publishedTime;
+  const publishedTime = new Date( post.value.date ).toISOString();
+  const modifiedTime = post.value.lastModified ? new Date( post.value.lastModified ).toISOString() : publishedTime;
   const tags = post.value.tags || [];
   const seoKeywords = post.value.seo?.keywords || [];
-  const allKeywords = [...new Set([...seoKeywords, ...tags])];
+  const allKeywords = [ ...new Set( [ ...seoKeywords, ...tags ] ) ];
 
   return {
     title: fullTitle,
     meta: [
       { name: 'description', content: description },
-      { name: 'keywords', content: allKeywords.join(', ') },
+      { name: 'keywords', content: allKeywords.join( ', ' ) },
       { name: 'robots', content: post.value.metaRobots || 'index, follow' },
       { name: 'author', content: post.value.author?.name || 'DGPond.COM' },
       { property: 'og:title', content: fullTitle },
@@ -227,7 +232,7 @@ const seoConfig = computed(() => {
       { property: 'article:modified_time', content: modifiedTime },
       { property: 'article:author', content: post.value.author?.name || 'DGPond.COM' },
       { property: 'article:section', content: post.value.category || '' },
-      ...tags.map(tag => ({ property: 'article:tag', content: tag }))
+      ...tags.map( tag => ( { property: 'article:tag', content: tag } ) )
     ],
     link: [
       { rel: 'canonical', href: canonicalUrl }
@@ -236,31 +241,31 @@ const seoConfig = computed(() => {
       lang: 'en'
     }
   };
-});
+} );
 
 // Apply SEO configuration using useHead
-useHead(seoConfig);
+useHead( seoConfig );
 
 // JSON-LD Structured Data for blog posts
 useBlogPostStructuredData(
-  computed(() => post.value),
+  computed( () => post.value ),
   {
-    baseUrl: 'https://www.dgpond.com',
+    baseUrl: 'https://all-things-digital.pages.dev/',
     defaultPublisher: {
       name: 'DGPond.COM',
-      logo: 'https://www.dgpond.com/logo.png',
-      url: 'https://www.dgpond.com'
+      logo: 'all-things-digital/icons/logo-dgpondcom',
+      url: 'https://all-things-digital.pages.dev/'
     }
   }
 );
 
 // Generate and inject ImageObject structured data for the featured image
-const { injectStructuredData: injectImageStructuredData } = useBlogPostImageStructuredData(post, {
+const { injectStructuredData: injectImageStructuredData } = useBlogPostImageStructuredData( post, {
   defaultLicense: 'https://all-things-digital.pages.dev/license',
   defaultAcquireLicensePage: 'https://all-things-digital.pages.dev/how-to-use-images',
   defaultCreditText: 'All Things Digital',
   defaultCopyrightNotice: 'All Things Digital'
-});
+} );
 
 // Inject the image structured data
 injectImageStructuredData();
@@ -499,35 +504,67 @@ const pageUrl = computed( () =>
 
 /* ===== CODE ===== */
 .prose pre {
-  background-color: rgb(243, 244, 246);
-  padding: 1.25rem;
+  background-color: #f8f9fa; /* Light mode: very light grey */
+  color: #212529; /* Light mode: dark text */
+  padding: 1.5em;
   border-radius: 0.5rem;
   overflow-x: auto;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  margin: 2rem 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em; /* Slightly smaller for better fit */
+  line-height: 1.7;
+  margin: 2.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef; /* Light mode: subtle border */
+  -webkit-font-smoothing: subpixel-antialiased; /* Smoother text on some screens */
 }
 
 .dark .prose pre {
-  background-color: rgb(17, 24, 39);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: #282c34; /* Dark mode: common dark editor bg */
+  color: #abb2bf; /* Dark mode: light grey text, common for Dracula/One Dark */
+  border-color: #3e4451; /* Dark mode: subtle border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.prose code {
+/* Custom scrollbar for pre blocks */
+.prose pre::-webkit-scrollbar {
+  height: 8px;
+  background-color: transparent;
+}
+
+.prose pre::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.dark .prose pre::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.prose pre code {
+  background-color: transparent !important; /* Code inside pre should not have its own bg */
+  color: inherit !important; /* Inherit color from pre */
+  padding: 0 !important;
+  font-size: inherit !important; /* Inherit font size from pre */
+  border-radius: 0;
+  border: none;
+}
+
+/* Inline code */
+.prose code:not(pre code) {
   font-family:
     'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-  background-color: rgb(229, 231, 235);
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  color: rgb(220, 38, 38);
-  font-size: 0.9375em;
+  background-color: rgba(27, 31, 35, 0.07); /* Light mode: subtle GitHub-like bg */
+  padding: 0.25em 0.5em;
+  border-radius: 6px;
+  color: #24292e; /* Light mode: dark text */
+  font-size: 0.875em;
+  border: 1px solid rgba(27, 31, 35, 0.1);
 }
 
-.dark .prose code {
-  background-color: rgb(55, 65, 81);
-  color: rgb(248, 113, 113);
+.dark .prose code:not(pre code) {
+  background-color: rgba(171, 178, 191, 0.15); /* Dark mode: subtle bg */
+  color: #abb2bf; /* Dark mode: light grey text */
+  border-color: rgba(171, 178, 191, 0.2);
 }
 
 /* ===== TABLES ===== */
