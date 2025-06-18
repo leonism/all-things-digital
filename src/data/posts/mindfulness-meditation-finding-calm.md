@@ -67,7 +67,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T16:28:17.329Z"
+lastModified: "2025-06-18T06:17:55.926Z"
 ---
 
 In today’s fast-paced world, mindfulness has emerged as a powerful tool for reclaiming our mental space. At its core, **mindfulness** is about being fully present in the moment, without judgment. It encourages us to step away from the constant chatter of our minds and focus on what’s happening right now.

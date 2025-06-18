@@ -66,7 +66,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-17T16:28:17.284Z"
+lastModified: "2025-06-18T06:17:55.848Z"
 ---
 
 Protecting your digital identity is crucial. In today's interconnected world, cybercriminals are constantly finding new ways to exploit vulnerabilities. By understanding and implementing basic cybersecurity practices, you can significantly reduce your risk of falling victim to online threats.

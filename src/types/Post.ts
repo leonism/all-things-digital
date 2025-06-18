@@ -23,4 +23,9 @@ export interface Post {
   status?: string;
   contentHtml: string;
   toc?: any;
+  seo?: {
+    description?: string;
+    keywords?: string[];
+    ogImage?: string;
+  };
 }

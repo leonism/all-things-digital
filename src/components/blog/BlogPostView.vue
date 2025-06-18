@@ -119,6 +119,11 @@ interface BlogPost
     src: string;
     alt?: string;
   };
+  seo?: {
+    description?: string;
+    keywords?: string[];
+    ogImage?: string;
+  };
   seoTitle?: string;
   excerpt?: string;
   metaRobots?: string;
