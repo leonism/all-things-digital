@@ -1,41 +1,17 @@
 <template>
-  <section
-    id="mainWrapper"
-    class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto"
-    role="main"
-  >
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto" role="main">
     <HeaderHome />
-    <BlogFeaturedPost
-      v-if="featuredPost"
-      :imageSrc="featuredImageSrc"
-      :imageAlt="featuredImageAlt"
-      :title="featuredPost.title"
-      :postLink="`/blog/${featuredPost.slug}`"
-      :date="featuredPost.date"
-      :category="postCategory"
-      :categoryLink="categoryLink"
-      :tags="featuredPost.tags"
-      :authorImageSrc="authorImageSrc"
-      :authorImageAlt="authorImageAlt"
-      :authorLink="authorLink"
-    />
+    <BlogFeaturedPost v-if=" featuredPost " :imageSrc="featuredImageSrc" :imageAlt="featuredImageAlt"
+      :title="featuredPost.title" :postLink="`/blog/${featuredPost.slug}`" :date="featuredPost.date"
+      :category="postCategory" :categoryLink="categoryLink" :tags="featuredPost.tags" :authorImageSrc="authorImageSrc"
+      :authorImageAlt="authorImageAlt" :authorLink="authorLink" />
     <BlogLatestPost />
-    <BlogArticleCard
-      v-for="post in latestPosts"
-      :key="post.slug"
-      :imageSrc="post.featuredImage?.src || thumbnail01Comp"
-      :imageAlt="post.featuredImage?.alt || post.title"
-      :title="post.title"
-      :category="post.category"
-      :postLink="`/blog/${post.slug}`"
-      :date="post.date"
-      :excerpt="post.excerpt || post.description"
-      :tags="post.tags"
-      :authorImageSrc="post.author?.image || avatar"
-      :authorImageAlt="post.author?.name || 'Author profile picture'"
-      :authorLink="post.author?.link || '/about'"
-      :authorName="post.author?.name || 'Unknown Author'"
-    />
+    <BlogArticleCard v-for=" post in latestPosts " :key="post.slug"
+      :imageSrc="post.featuredImage?.src || thumbnail01Comp" :imageAlt="post.featuredImage?.alt || post.title"
+      :title="post.title" :category="post.category" :postLink="`/blog/${post.slug}`" :date="post.date"
+      :excerpt="post.excerpt || post.description" :tags="post.tags" :authorImageSrc="post.author?.image || avatar"
+      :authorImageAlt="post.author?.name || 'Author profile picture'" :authorLink="post.author?.link || '/about'"
+      :authorName="post.author?.name || 'Unknown Author'" />
   </section>
 </template>
 
@@ -57,24 +33,24 @@ const avatar = '/assets/img/avatar.png';
 const siteName = 'DGPond.COM';
 const pageTitle = 'DGPond.COM - Web Development Insights & Experiments';
 const pageDescription = 'Explore articles on web development, emerging technologies, and hands-on experiments with cutting-edge tools and frameworks by a passionate developer.';
-const homeUrl = 'https://www.dgpond.com/'; // Replace with your actual domain
-const ogImage = 'https://www.dgpond.com/all-things-digital.png'; // Replace with your actual OG image URL
+const homeUrl = 'https://all-things-digital.pages.dev/'; // Replace with your actual domain
+const ogImage = 'all-things-digital/icons/logo-footer'; // Replace with your actual OG image URL
 
 // SEO Meta Tags using composable
-useWebsiteSEO({
+useWebsiteSEO( {
   title: pageTitle,
   description: pageDescription,
-  keywords: ['web development', 'javascript', 'vue', 'tailwindcss', 'Jamstack', 'frontend', 'backend', 'fullstack', 'tutorials', 'coding', 'programming', 'tech blog'],
+  keywords: [ 'web development', 'javascript', 'vue', 'tailwindcss', 'Jamstack', 'frontend', 'backend', 'fullstack', 'tutorials', 'coding', 'programming', 'tech blog' ],
   canonicalPath: '',
-  image: '/all-things-digital.png'
-});
+  image: 'all-things-digital/icons/logo-dgpondcom'
+} );
 
 const featuredPost = useFeaturedPost();
 const latestPosts = useLatestPosts();
 const featuredImageSrc = computed(
   () =>
     featuredPost.value?.featuredImage?.src ||
-    '/assets/img/featured-blog-comp.jpg',
+    'all-things-digital/blog/featured-blog-comp',
 );
 const featuredImageAlt = computed(
   () => featuredPost.value?.featuredImage?.alt || featuredPost.value?.title,
@@ -82,7 +58,7 @@ const featuredImageAlt = computed(
 const postCategory = computed(
   () =>
     featuredPost.value?.category ||
-    featuredPost.value?.categories?.[0] ||
+    featuredPost.value?.categories?.[ 0 ] ||
     'Uncategorized',
 );
 const categoryLink = computed(
@@ -94,7 +70,7 @@ const authorImageSrc = computed(
 const authorImageAlt = computed(
   () => featuredPost.value?.author?.name || 'Author profile photo',
 );
-const authorLink = computed(() => featuredPost.value?.author?.link || '/about');
+const authorLink = computed( () => featuredPost.value?.author?.link || '/about' );
 </script>
 
 <style scoped>

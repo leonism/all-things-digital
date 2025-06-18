@@ -65,7 +65,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-18T06:17:55.922Z"
+lastModified: "2025-06-18T06:44:10.198Z"
 ---
 
 Remote work offers flexibility but requires discipline. Here’s how to succeed: Creating a structured routine is the foundation of effective remote work. Without the physical separation of an office, it’s easy to blur the lines between personal and professional life.
