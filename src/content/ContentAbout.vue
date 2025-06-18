@@ -1,5 +1,5 @@
 <template>
-  <section id="mainWrapper" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+  <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto">
     <AboutHeader />
 
     <article class="mt-5 md:mt-5">

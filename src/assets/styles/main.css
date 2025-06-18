@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import 'highlight.js/styles/github.css'; /* Import highlight.js theme */
+@import 'highlight.js/styles/stackoverflow-dark.css';
 
 /* start the tailwind dark-mode targeting */
 @custom-variant dark (&:is(.dark *));
@@ -103,7 +103,8 @@
 
   @font-face {
     font-family: 'Poppins';
-    src: url('/assets/fonts/poppins/poppins-v23-latin-900.woff2') format('woff2');
+    src: url('/assets/fonts/poppins/poppins-v23-latin-900.woff2')
+      format('woff2');
     font-weight: var(--font-weight-black);
     font-weight: 900;
     font-style: normal;
@@ -225,14 +226,8 @@ Custom Styles
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
 
-/* Optional: Add some basic styling for code blocks */
-pre {
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 5px;
-  overflow-x: auto;
-}
-
-code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+.prose pre code {
+  all: unset;
+  font-family: inherit; /* Or a specific monospace font if preferred */
+  /* Ensure hljs styles can apply by removing prose overrides */
 }

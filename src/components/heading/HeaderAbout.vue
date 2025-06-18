@@ -1,6 +1,6 @@
 <template>
 
-  <header class="mx-3 text-center py-8 md:py-12">
+  <header id="mainHeading" class="text-center">
     <h1 id="mainHeading"
       class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-pink-500 to-purple-600 dark:from-indigo-400 dark:via-pink-400 dark:to-purple-500 animate-gradient-shift">
       Let Me Introduce Myself

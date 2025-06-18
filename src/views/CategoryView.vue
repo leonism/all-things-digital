@@ -2,11 +2,7 @@
   <!-- Main wrapper with blog page styling -->
   <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto" role="main">
     <!-- Blog-style Header Section -->
-
-    <header class="py-12">
-      <HeaderCategory :categoryName="displayCategoryName" />
-    </header>
-
+    <HeaderCategory :categoryName="displayCategoryName" />
     <!-- Blog-style Content Section -->
     <section class="pb-8">
       <!-- Category Posts Display -->
@@ -17,7 +13,6 @@
           :authorImageSrc="post.author.image" :authorImageAlt="post.author.name" :authorLink="post.author.link"
           :authorName="post.author.name" :category="post.category" />
       </div>
-
       <!-- All Categories Display -->
       <div v-else-if=" !categoryParam " class="space-y-8">
         <article v-for=" ( category, index ) in sortedCategories " :key="category"
@@ -153,7 +148,7 @@ const route = useRoute();
 const router = useRouter();
 
 // Reactive variables
-const blogDataRef = ref<BlogPost[]>( postsData as BlogPost[] );
+const blogDataRef = ref<BlogPost[]>( postsData as unknown as BlogPost[] );
 const allPosts = ref<BlogPost[]>( [] );
 const categoryParam = computed( () => route.params.category as string );
 const siteName = 'DGPond.COM'; // Replace with your site name
