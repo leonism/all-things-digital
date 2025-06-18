@@ -145,277 +145,207 @@ collections:
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       # Publishing Settings
-      - {
-          label: 'Publishing',
-          name: 'publishing',
-          widget: 'object',
-          collapsed: true,
-          fields:
-            [
-              {
-                label: 'Slug',
-                name: 'slug',
-                widget: 'string',
-                pattern:
-                  [
-                    '^[a-z0-9]+(?:-[a-z0-9]+)*$',
-                    'A slug can have no spaces or special characters',
-                  ],
-                hint: 'URL-friendly version of the title. Leave empty to auto-generate from title.',
-                default: '{{slug}}',
-              },
-              {
-                label: 'Publish Date',
-                name: 'date',
-                widget: 'datetime',
-                default: '{{now}}',
-              },
-              {
-                label: 'Last Modified',
-                name: 'lastModified',
-                widget: 'datetime',
-                required: false,
-                default: '{{now}}',
-              },
-              {
-                label: 'Status',
-                name: 'status',
-                widget: 'select',
-                options: ['draft', 'review', 'published', 'archived'],
-                default: 'draft',
-              },
-              {
-                label: 'Featured Post',
-                name: 'featured',
-                widget: 'boolean',
-                default: false,
-              },
-            ],
-        }
+      - label: 'Publishing'
+        name: 'publishing'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - label: 'Slug'
+            name: 'slug'
+            widget: 'string'
+            pattern:
+              - '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+              - 'A slug can have no spaces or special characters'
+            hint: 'URL-friendly version of the title. Leave empty to auto-generate from title.'
+            default: '{{slug}}'
+          - label: 'Publish Date'
+            name: 'date'
+            widget: 'datetime'
+            default: '{{now}}'
+          - label: 'Last Modified'
+            name: 'lastModified'
+            widget: 'datetime'
+            required: false
+            default: '{{now}}'
+          - label: 'Status'
+            name: 'status'
+            widget: 'select'
+            options: ['draft', 'review', 'published', 'archived']
+            default: 'draft'
+          - label: 'Featured Post'
+            name: 'featured'
+            widget: 'boolean'
+            default: false
       # Content Organization
-      - {
-          label: 'Organization',
-          name: 'organization',
-          widget: 'object',
-          collapsed: true,
-          fields:
-            [
-              {
-                label: 'Category',
-                name: 'category',
-                widget: 'relation',
-                collection: 'categories',
-                search_fields: ['name'],
-                value_field: 'name',
-                display_fields: ['name'],
-              },
-              { label: 'Tags', name: 'tags', widget: 'list', default: [] },
-              {
-                label: 'Author',
-                name: 'author',
-                widget: 'relation',
-                collection: 'authors',
-                search_fields: ['name'],
-                value_field: 'name',
-                display_fields: ['name'],
-              },
-              {
-                label: 'Co-Authors',
-                name: 'coAuthors',
-                widget: 'list',
-                required: false,
-                field:
-                  {
-                    label: 'Author',
-                    name: 'author',
-                    widget: 'relation',
-                    collection: 'authors',
-                    search_fields: ['name'],
-                    value_field: 'name',
-                    display_fields: ['name'],
-                  },
-              },
-              { label: 'Series', name: 'series', widget: 'string', required: false },
-              {
-                label: 'Part Number',
-                name: 'partNumber',
-                widget: 'number',
-                required: false,
-              },
-              {
-                label: 'Reading Time',
-                name: 'readingTime',
-                widget: 'string',
-                required: false,
-                hint: 'e.g., "5 minutes"',
-              },
-            ],
-        }
+      - label: 'Organization'
+        name: 'organization'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - label: 'Category'
+            name: 'category'
+            widget: 'relation'
+            collection: 'categories'
+            search_fields: ['name']
+            value_field: 'name'
+            display_fields: ['name']
+          - label: 'Tags'
+            name: 'tags'
+            widget: 'list'
+            default: []
+          - label: 'Author'
+            name: 'author'
+            widget: 'relation'
+            collection: 'authors'
+            search_fields: ['name']
+            value_field: 'name'
+            display_fields: ['name']
+          - label: 'Co-Authors'
+            name: 'coAuthors'
+            widget: 'list'
+            required: false
+            field:
+              label: 'Author'
+              name: 'author'
+              widget: 'relation'
+              collection: 'authors'
+              search_fields: ['name']
+              value_field: 'name'
+              display_fields: ['name']
+          - label: 'Series'
+            name: 'series'
+            widget: 'string'
+            required: false
+          - label: 'Part Number'
+            name: 'partNumber'
+            widget: 'number'
+            required: false
+          - label: 'Reading Time'
+            name: 'readingTime'
+            widget: 'string'
+            required: false
+            hint: 'e.g., "5 minutes"'
       # Media Content
-      - {
-          label: 'Media',
-          name: 'media',
-          widget: 'object',
-          collapsed: true,
-          required: false,
-          fields:
-            [
-              {
-                label: 'Featured Image',
-                name: 'featuredImage',
-                widget: 'object',
-                required: false,
-                fields:
-                  [
-                    { label: 'Source', name: 'src', widget: 'string' },
-                    { label: 'Alt Text', name: 'alt', widget: 'string' },
-                    {
-                      label: 'Caption',
-                      name: 'caption',
-                      widget: 'string',
-                      required: false,
-                    },
-                    {
-                      label: 'Credit',
-                      name: 'credit',
-                      widget: 'string',
-                      required: false,
-                    },
-                  ],
-              },
-              {
-                label: 'Gallery',
-                name: 'gallery',
-                widget: 'list',
-                required: false,
-                fields:
-                  [
-                    { label: 'Image', name: 'image', widget: 'image' },
-                    { label: 'Alt Text', name: 'alt', widget: 'string' },
-                    {
-                      label: 'Caption',
-                      name: 'caption',
-                      widget: 'string',
-                      required: false,
-                    },
-                  ],
-              },
-            ],
-        }
+      - label: 'Media'
+        name: 'media'
+        widget: 'object'
+        collapsed: true
+        required: false
+        fields:
+          - label: 'Featured Image'
+            name: 'featuredImage'
+            widget: 'object'
+            required: false
+            fields:
+              - label: 'Source'
+                name: 'src'
+                widget: 'string'
+              - label: 'Alt Text'
+                name: 'alt'
+                widget: 'string'
+              - label: 'Caption'
+                name: 'caption'
+                widget: 'string'
+                required: false
+              - label: 'Credit'
+                name: 'credit'
+                widget: 'string'
+                required: false
+          - label: 'Gallery'
+            name: 'gallery'
+            widget: 'list'
+            required: false
+            fields:
+              - label: 'Image'
+                name: 'image'
+                widget: 'image'
+              - label: 'Alt Text'
+                name: 'alt'
+                widget: 'string'
+              - label: 'Caption'
+                name: 'caption'
+                widget: 'string'
+                required: false
       # Related Content
-      - {
-          label: 'Related Content',
-          name: 'related',
-          widget: 'object',
-          collapsed: true,
-          required: false,
-          fields:
-            [
-              {
-                label: 'Related Posts',
-                name: 'relatedPosts',
-                widget: 'list',
-                required: false,
-                field:
-                  {
-                    label: 'Post',
-                    name: 'post',
-                    widget: 'relation',
-                    collection: 'blog',
-                    search_fields: ['title'],
-                    value_field: 'slug',
-                    display_fields: ['title'],
-                  },
-              },
-            ],
-        }
+      - label: 'Related Content'
+        name: 'related'
+        widget: 'object'
+        collapsed: true
+        required: false
+        fields:
+          - label: 'Related Posts'
+            name: 'relatedPosts'
+            widget: 'list'
+            required: false
+            field:
+              label: 'Post'
+              name: 'post'
+              widget: 'relation'
+              collection: 'blog'
+              search_fields: ['title']
+              value_field: 'slug'
+              display_fields: ['title']
       # SEO & Social Media
-      - {
-          label: 'SEO & Social',
-          name: 'seoSocial',
-          widget: 'object',
-          collapsed: true,
-          required: false,
-          fields:
-            [
-              {
-                label: 'SEO Title',
-                name: 'seoTitle',
-                widget: 'string',
-                required: false,
-                hint: 'Optimized title for search engines. Leave empty to use main title.',
-              },
-              {
-                label: 'Meta Description',
-                name: 'metaDescription',
-                widget: 'text',
-                required: false,
-                default: '{{excerpt}}',
-              },
-              {
-                label: 'Keywords',
-                name: 'keywords',
-                widget: 'list',
-                required: false,
-                default: [],
-              },
-              {
-                label: 'Canonical URL',
-                name: 'canonical',
-                widget: 'string',
-                required: false,
-                default: '',
-              },
-              {
-                label: 'No Index',
-                name: 'noindex',
-                widget: 'boolean',
-                default: false,
-              },
-              {
-                label: 'Social Media Image',
-                name: 'socialImage',
-                widget: 'image',
-                required: false,
-                hint: 'Image for Twitter and Facebook sharing. Uses featured image if not set.',
-              },
-            ],
-        }
+      - label: 'SEO & Social'
+        name: 'seoSocial'
+        widget: 'object'
+        collapsed: true
+        required: false
+        fields:
+          - label: 'SEO Title'
+            name: 'seoTitle'
+            widget: 'string'
+            required: false
+            hint: 'Optimized title for search engines. Leave empty to use main title.'
+          - label: 'Meta Description'
+            name: 'metaDescription'
+            widget: 'text'
+            required: false
+            default: '{{excerpt}}'
+          - label: 'Keywords'
+            name: 'keywords'
+            widget: 'list'
+            required: false
+            default: []
+          - label: 'Canonical URL'
+            name: 'canonical'
+            widget: 'string'
+            required: false
+            default: ''
+          - label: 'No Index'
+            name: 'noindex'
+            widget: 'boolean'
+            default: false
+          - label: 'Social Media Image'
+            name: 'socialImage'
+            widget: 'image'
+            required: false
+            hint: 'Image for Twitter and Facebook sharing. Uses featured image if not set.'
       # Advanced Settings
-      - {
-          label: 'Advanced',
-          name: 'advanced',
-          widget: 'object',
-          collapsed: true,
-          required: false,
-          fields:
-            [
-              {
-                label: 'Custom CSS',
-                name: 'customCSS',
-                widget: 'code',
-                default_language: 'css',
-                required: false,
-                default: '',
-              },
-              {
-                label: 'Custom JavaScript',
-                name: 'customJS',
-                widget: 'code',
-                default_language: 'javascript',
-                required: false,
-                default: '',
-              },
-              {
-                label: 'Schema Markup',
-                name: 'schema',
-                widget: 'code',
-                default_language: 'json',
-                required: false,
-                default: '',
-              },
-            ],
-        }
+      - label: 'Advanced'
+        name: 'advanced'
+        widget: 'object'
+        collapsed: true
+        required: false
+        fields:
+          - label: 'Custom CSS'
+            name: 'customCSS'
+            widget: 'code'
+            default_language: 'css'
+            required: false
+            default: ''
+          - label: 'Custom JavaScript'
+            name: 'customJS'
+            widget: 'code'
+            default_language: 'javascript'
+            required: false
+            default: ''
+          - label: 'Schema Markup'
+            name: 'schema'
+            widget: 'code'
+            default_language: 'json'
+            required: false
+            default: ''
 
   # Enhanced Site Settings
   - name: 'settings'
