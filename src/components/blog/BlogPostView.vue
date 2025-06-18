@@ -1,38 +1,38 @@
 <template>
   <section id="mainWrapper" class="max-w-4xl mx-5 sm:mx-5 md:mx-10 lg:mx-auto mt-10 mb-20" role="main">
-    <article v-if=" post "
+    <article v-if="post"
       class="overflow-hidden md:flex-row md:my-6rounded-2xl shadow-2xl border border-transparent bg-broken-white dark:bg-postcard transform transition-all duration-500">
       <HeaderBlogPost :title="post.title" :subtitle="post.subtitle" :authorName="post.author?.name ?? ''"
         :authorAvatar="post.author?.image ?? ''" :date="post.date" :category="post.category ?? ''"
         :featuredImage="post.featuredImage?.src" />
       <div class="p-6 md:p-8">
         <div class="prose prose-lg dark:prose-invert max-w-none prose-blue dark:prose-blue">
-          <component :is="postContentComponent" v-if=" postContentComponent " />
+          <component :is="postContentComponent" v-if="postContentComponent" />
         </div>
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <div v-if=" post.categories && post.categories.length " class="mb-4">
+          <div v-if="post.categories && post.categories.length" class="mb-4">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">
               Categories:
             </span>
-            <router-link v-for=" category in post.categories " :key="category" :to="{
+            <router-link v-for="category in post.categories" :key="category" :to="{
               name: 'category-archive',
-              params: { category: getTagSlug( category ) },
+              params: { category: getTagSlug(category) },
             }"
               class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
               {{ category }}
             </router-link>
           </div>
-          <div v-if=" post.tags && post.tags.length ">
+          <div v-if="post.tags && post.tags.length">
             <span class="font-semibold mr-2 text-gray-700 dark:text-gray-300">Tags:</span>
-            <router-link v-for=" tag in post.tags " :key="tag"
-              :to="{ name: 'tag-archive', params: { tag: getTagSlug( tag ) } }"
+            <router-link v-for="tag in post.tags" :key="tag"
+              :to="{ name: 'tag-archive', params: { tag: getTagSlug(tag) } }"
               class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
               #{{ tag }}
             </router-link>
           </div>
         </div>
         <!-- Use the new CusdisComments component -->
-        <CusdisComments v-if=" post?.slug && post?.title " :page-id="post.slug" :page-title="post.title" />
+        <CusdisComments v-if="post?.slug && post?.title" :page-id="post.slug" :page-title="post.title" />
       </div>
     </article>
     <div v-else class="text-center py-16">
@@ -54,677 +54,405 @@
  *
  * This component is responsible for fetching and displaying a single blog post
  * based on the 'slug' parameter from the route. It retrieves post data from
- * the `blog-data.json` file and dynamically updates the page's meta tags
- * (title, description, Open Graph, Twitter Card, etc.) using the `@unhead/vue`
- * library.
+ * the blog-data.json file and dynamically imports the corresponding markdown
+ * component for rendering.
  *
- * The component uses Vue 3 Composition API with `<script setup>` for a
- * cleaner and more concise syntax.
- *
- * Data Flow:
- * 1. The component watches changes to the route's 'slug' parameter.
- * 2. When the slug changes, the `findPost` function is called to locate the
- *    corresponding post data in `blog-data.json`.
- * 3. The found post data is assigned to the `post` ref.
- * 4. A watcher on the `post` ref triggers the update of meta tags using `useHead`.
- * 5. Computed properties (`pageTitle`, `pageDescription`, etc.) derive meta
- *    tag values from the `post` data.
- * 6. The template conditionally renders the post content or a "not found" message.
+ * Features:
+ * - Dynamic post loading based on route slug
+ * - Markdown content rendering with highlight.js syntax highlighting
+ * - Post navigation (previous/next)
+ * - Tag slug generation for routing
+ * - Error handling for missing posts
  */
-import { ref, watch, computed, watchEffect, type Ref, markRaw } from 'vue';
+
+import { ref, computed, onMounted, watch, defineAsyncComponent, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
-import { useHead } from '@unhead/vue';
 import HeaderBlogPost from '../heading/HeaderBlogPost.vue';
-import postsData from '../../blog-data.json';
 import BlogPostNavigation from './BlogPostNavigation.vue';
-import { useCloudinary } from '@/composables/useCloudinary';
 import CusdisComments from '../common/CusdisComments.vue';
+import postsData from '../../blog-data.json';
 import { useArticleSEO } from '@/composables/useSEO';
-import { useBlogPostStructuredData, useBlogPostImageStructuredData } from '@/composables/useStructuredData.js'
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github-dark.css';
 
-// Define a type for the dynamically imported Markdown component
-interface MarkdownModule
-{
-  default: any;
-  frontmatter: Record<string, any>;
-}
-
-/**
- * Generates a hyphenated slug from a tag name.
- * Replaces spaces with hyphens and converts to lowercase.
- * @param name The tag name.
- * @returns The hyphenated tag slug.
- */
-const getTagSlug = ( name: string ): string =>
-{
-  return name.toLowerCase().replace( /\s+/g, '-' );
-};
-
-interface BlogPost
-{
+interface BlogPost {
   slug: string;
   title: string;
   subtitle?: string;
+  seoTitle: string;
   date: string;
-  lastModified?: string;
-  author?: {
+  lastModified: string;
+  author: {
     name: string;
-    role?: string;
-    image?: string;
+    role: string;
+    image: string;
+    link?: string;
   };
-  category?: string;
-  categories?: string[];
-  tags?: string[];
-  featuredImage?: {
+  category: string;
+  tags: string[];
+  featuredImage: {
     src: string;
-    alt?: string;
+    alt: string;
+    caption: string;
   };
-  seo?: {
-    description?: string;
-    keywords?: string[];
-    ogImage?: string;
-  };
-  seoTitle?: string;
+  content: string;
   excerpt?: string;
-  metaRobots?: string;
-  canonicalUrl?: string;
-  schema?: any; // Use a more specific type if schema structure is known
-  status?: 'published' | 'draft' | string; // Allow string type based on data structure
+  description: string;
+  categories?: string[];
 }
 
 const route = useRoute();
-const post: Ref<BlogPost | null> = ref( null );
-const postContentComponent: Ref<any | null> = ref( null );
+const post = ref<BlogPost | null>(null);
+const postContentComponent = ref<any>(null);
 
-/**
- * Finds a blog post by its slug in the imported posts data.
- * Only returns published posts (or posts without a status field).
- * @param slug The slug of the post to find.
- * @returns The found blog post object or null if not found or not published.
- */
-const findPost = ( slug: string ): BlogPost | null =>
-{
-  const foundPost = postsData.find( ( p ) => p.slug === slug );
-  return foundPost && ( !foundPost.status || foundPost.status === 'published' )
-    ? ( foundPost as BlogPost )
-    : null;
+// Computed properties for navigation
+const allPosts = computed(() => postsData as BlogPost[]);
+
+const currentPostIndex = computed(() => {
+  return allPosts.value.findIndex(p => p.slug === post.value?.slug);
+});
+
+const previousPost = computed(() => {
+  const index = currentPostIndex.value;
+  return index > 0 ? allPosts.value[index - 1] : null;
+});
+
+const nextPost = computed(() => {
+  const index = currentPostIndex.value;
+  return index >= 0 && index < allPosts.value.length - 1 ? allPosts.value[index + 1] : null;
+});
+
+// Function to convert tag to slug format
+const getTagSlug = (tag: string): string => {
+  return tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 };
 
-// Function to dynamically import the Markdown file
-const loadMarkdownComponent = async ( slug: string ) =>
-{
-  try
-  {
-    // Dynamically import the Markdown file based on the slug
-    const module = ( await import(
-      `../../data/posts/${slug}.md`
-    ) ) as MarkdownModule;
-    postContentComponent.value = markRaw( module.default );
+// Function to highlight code blocks
+const highlightCodeBlocks = () => {
+  nextTick(() => {
+    const codeBlocks = document.querySelectorAll('pre code');
+    codeBlocks.forEach((block) => {
+      if (!block.classList.contains('hljs')) {
+        hljs.highlightElement(block as HTMLElement);
+      }
+    });
+  });
+};
 
-    // Update head with SEO data from the current post
-    // The 'post' ref should be populated by the watchEffect below before this runs
-  } catch ( error )
-  {
-    console.error( `Failed to load Markdown for slug: ${slug}`, error );
+// Function to load post data and component
+const loadPost = async (slug: string) => {
+  try {
+    // Find post in data
+    const foundPost = allPosts.value.find(p => p.slug === slug);
+    if (!foundPost) {
+      post.value = null;
+      postContentComponent.value = null;
+      return;
+    }
+
+    post.value = foundPost;
+
+    // Dynamically import the markdown component
+    try {
+      const module = await import(`../../data/posts/${slug}.md`);
+      postContentComponent.value = defineAsyncComponent(() => import(`../../data/posts/${slug}.md`));
+      
+      // Highlight code blocks after component loads
+      nextTick(() => {
+        highlightCodeBlocks();
+      });
+    } catch (importError) {
+      console.warn(`Could not load markdown component for ${slug}:`, importError);
+      postContentComponent.value = null;
+    }
+  } catch (error) {
+    console.error('Error loading post:', error);
+    post.value = null;
     postContentComponent.value = null;
   }
 };
 
-// SEO Meta Tags - setup reactive head configuration
-const seoConfig = computed( () =>
-{
-  if ( !post.value )
-  {
-    return {
-      title: 'Blog Post | DGPond.COM',
-      meta: [
-        { name: 'description', content: 'Read this blog post.' },
-        { property: 'og:title', content: 'Blog Post | DGPond.COM' },
-        { property: 'og:description', content: 'Read this blog post.' },
-        { property: 'og:type', content: 'article' }
-      ]
-    };
-  }
-
-  const title = post.value.seoTitle || post.value.title || 'Blog Post';
-  const fullTitle = title.includes( 'DGPond.COM' ) ? title : `${title} | DGPond.COM`;
-  const description = post.value.seo?.description || post.value.excerpt || 'Read this blog post.';
-  const canonicalUrl = `https://all-things-digital.pages.dev/blog/${post.value.slug}`;
-
-  const imageSrc = post.value.featuredImage?.src;
-  let imageUrl = '/images/default-og-image.png';
-  if ( imageSrc )
-  {
-    // Handle Cloudinary images
-    if ( imageSrc.includes( '/' ) )
-    {
-      imageUrl = `https://res.cloudinary.com/dgpond/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/${imageSrc}`;
-    } else
-    {
-      imageUrl = imageSrc;
-    }
-  }
-
-  const publishedTime = new Date( post.value.date ).toISOString();
-  const modifiedTime = post.value.lastModified ? new Date( post.value.lastModified ).toISOString() : publishedTime;
-  const tags = post.value.tags || [];
-  const seoKeywords = post.value.seo?.keywords || [];
-  const allKeywords = [ ...new Set( [ ...seoKeywords, ...tags ] ) ];
-
-  return {
-    title: fullTitle,
-    meta: [
-      { name: 'description', content: description },
-      { name: 'keywords', content: allKeywords.join( ', ' ) },
-      { name: 'robots', content: post.value.metaRobots || 'index, follow' },
-      { name: 'author', content: post.value.author?.name || 'DGPond.COM' },
-      { property: 'og:title', content: fullTitle },
-      { property: 'og:description', content: description },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:url', content: canonicalUrl },
-      { property: 'og:image', content: imageUrl },
-      { property: 'og:site_name', content: 'DGPond.COM' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: fullTitle },
-      { name: 'twitter:description', content: description },
-      { name: 'twitter:image', content: imageUrl },
-      { property: 'article:published_time', content: publishedTime },
-      { property: 'article:modified_time', content: modifiedTime },
-      { property: 'article:author', content: post.value.author?.name || 'DGPond.COM' },
-      { property: 'article:section', content: post.value.category || '' },
-      ...tags.map( tag => ( { property: 'article:tag', content: tag } ) )
-    ],
-    link: [
-      { rel: 'canonical', href: canonicalUrl }
-    ],
-    htmlAttrs: {
-      lang: 'en'
-    }
-  };
-} );
-
-// Apply SEO configuration using useHead
-useHead( seoConfig );
-
-// JSON-LD Structured Data for blog posts
-useBlogPostStructuredData(
-  computed( () => post.value ),
-  {
-    baseUrl: 'https://all-things-digital.pages.dev/',
-    defaultPublisher: {
-      name: 'DGPond.COM',
-      logo: 'all-things-digital/icons/logo-dgpondcom',
-      url: 'https://all-things-digital.pages.dev/'
-    }
-  }
-);
-
-// Generate and inject ImageObject structured data for the featured image
-const { injectStructuredData: injectImageStructuredData } = useBlogPostImageStructuredData( post, {
-  defaultLicense: 'https://all-things-digital.pages.dev/license',
-  defaultAcquireLicensePage: 'https://all-things-digital.pages.dev/how-to-use-images',
-  defaultCreditText: 'All Things Digital',
-  defaultCopyrightNotice: 'All Things Digital'
-} );
-
-// Inject the image structured data
-injectImageStructuredData();
-
-// Watcher to update meta tags whenever the 'post' ref changes.
-// This ensures that meta tags are updated when a post is loaded.
-// Watcher to react to changes in the route's slug parameter.
-// This is triggered when navigating between blog posts.
+// Watch for route changes
 watch(
   () => route.params.slug,
-  ( newSlug ) =>
-  {
-    if ( newSlug )
-    {
-      const slug = Array.isArray( newSlug ) ? newSlug[ 0 ] : newSlug;
-      post.value = findPost( slug );
-      if ( post.value )
-      {
-        loadMarkdownComponent( slug );
-      } else
-      {
-        postContentComponent.value = null;
-      }
+  (newSlug) => {
+    if (typeof newSlug === 'string') {
+      loadPost(newSlug);
     }
   },
-  { immediate: true },
+  { immediate: true }
 );
 
-const allPosts = postsData.filter(
-  ( post ) => !post.status || post.status === 'published',
+// Watch for component changes to re-highlight
+watch(
+  postContentComponent,
+  () => {
+    highlightCodeBlocks();
+  }
 );
 
-const currentPostIndex = computed( () =>
-{
-  return allPosts.findIndex( ( p ) => p.slug === route.params.slug );
-} );
+// SEO setup
+watch(
+  post,
+  (newPost) => {
+    if (newPost) {
+      useArticleSEO({
+         title: newPost.seoTitle || newPost.title,
+         description: newPost.description,
+         image: newPost.featuredImage?.src,
+         canonicalPath: `/blog/${newPost.slug}`,
+         publishedTime: newPost.date,
+         modifiedTime: newPost.lastModified,
+         author: newPost.author?.name,
+         keywords: newPost.tags,
+         category: newPost.category
+       });
+    }
+  },
+  { immediate: true }
+);
 
-const previousPost = computed( () =>
-{
-  if ( currentPostIndex.value === -1 || currentPostIndex.value === 0 )
-  {
-    return null;
-  }
-  return allPosts[ currentPostIndex.value - 1 ];
-} );
-
-const nextPost = computed( () =>
-{
-  if (
-    currentPostIndex.value === -1 ||
-    currentPostIndex.value === allPosts.length - 1
-  )
-  {
-    return null;
-  }
-  return allPosts[ currentPostIndex.value + 1 ];
-} );
-
-const pageUrl = computed( () =>
-{
-  if ( typeof window !== 'undefined' )
-  {
-    return window.location.href;
-  }
-  return '';
-} );
-
+// Initialize highlight.js on mount
+onMounted(() => {
+  highlightCodeBlocks();
+});
 </script>
 
-<style>
-/* ===== BASE TYPOGRAPHY SETTINGS ===== */
-.prose {
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial, sans-serif;
-  line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* ===== HEADINGS ===== */
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6 {
-  font-weight: 700;
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  color: rgb(17, 24, 39);
-  letter-spacing: -0.025em;
-}
-
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4,
-.dark .prose h5,
-.dark .prose h6 {
-  color: rgb(255, 255, 255);
-}
-
-.prose h1 {
-  font-size: 2.25rem;
-  line-height: 1.2;
-  font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-.prose h2 {
-  font-size: 1.75rem;
-  line-height: 1.25;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.prose h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 3rem;
-  height: 0.25rem;
-  background: linear-gradient(90deg, rgba(59, 130, 246, 0.5), transparent);
-  border-radius: 0.125rem;
-}
-
-.prose h3 {
-  font-size: 1.375rem;
-  line-height: 1.3;
-}
-
-/* ===== PARAGRAPHS ===== */
-.prose p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  color: rgb(55, 65, 81);
-  font-weight: 400;
-}
-
-.dark .prose p {
-  color: rgb(237, 228, 228);
-}
-
-/* ===== LINKS ===== */
-.prose a {
-  color: rgb(37, 99, 235);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.15s ease;
-  border-bottom: 1px solid transparent;
-}
-
-.dark .prose a {
-  color: rgb(96, 165, 250);
-}
-
-.prose a:hover {
-  text-decoration: none;
-  border-bottom-color: currentColor;
-}
-
-/* ===== LISTS ===== */
-.prose ul,
-.prose ol {
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-}
-
-.prose li {
-  margin-bottom: 0.75rem;
-  padding-left: 0.5rem;
-  color: rgb(55, 65, 81);
-}
-
-.dark .prose li {
-  color: rgb(209, 213, 219);
-}
-
-.prose ul li {
-  position: relative;
-  list-style-type: none;
-}
-
-.prose ul li::before {
-  content: '•';
-  position: absolute;
-  left: -1.25rem;
-  color: rgb(59, 130, 246);
-}
-
-.dark .prose ul li::before {
-  color: rgb(96, 165, 250);
-}
-
-.prose ol {
-  counter-reset: item;
-}
-
-.prose ol li {
-  counter-increment: item;
-  list-style-type: none;
-}
-
-.prose ol li::before {
-  content: counter(item) '.';
-  position: absolute;
-  left: -1.25rem;
-  color: rgb(59, 130, 246);
-  font-weight: 600;
-}
-
-.dark .prose ol li::before {
-  color: rgb(96, 165, 250);
-}
-
-/* ===== BLOCKQUOTES ===== */
-.prose blockquote {
-  border-left: 4px solid rgb(59, 130, 246);
-  padding: 1rem 1.5rem;
-  margin: 2rem 0;
-  font-style: italic;
-  color: rgb(75, 85, 99);
-  background-color: rgba(59, 130, 246, 0.05);
-  border-radius: 0 0.5rem 0.5rem 0;
-}
-
-.dark .prose blockquote {
-  color: rgb(209, 213, 219);
-  background-color: rgba(59, 130, 246, 0.1);
-}
-
-/* ===== CODE ===== */
+<style scoped>
+/* ===== HIGHLIGHT.JS THEME OVERRIDES ===== */
+/* Custom styling for highlight.js code blocks */
 .prose pre {
-  background: linear-gradient(135deg, #f6f8fa 60%, #eaeef2 100%);
-  color: #24292f;
-  border-radius: 0.5rem;
-  padding: 1.25em 1.5em;
-  font-size: 1.05em;
-  line-height: 1.6;
+  background: #0d1117 !important;
+  border: 1px solid #30363d;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
   overflow-x: auto;
-  border: 1px solid #d0d7de;
-  box-shadow: 0 2px 8px 0 rgba(27,31,35,0.06);
-  margin: 1.5em 0;
-  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-  transition: background 0.3s, color 0.3s;
+  font-family: 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
-.prose code {
-  background: #f6f8fa;
-  color: #d73a49;
-  border-radius: 0.3em;
-  padding: 0.15em 0.4em;
-  font-size: 0.97em;
-  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
-  transition: background 0.3s, color 0.3s;
+
+.dark .prose pre {
+  background: #0d1117 !important;
+  border-color: #21262d;
 }
-.prose pre code {
-  background: none;
-  color: inherit;
-  padding: 0;
-  font-size: inherit;
-}
-@media (prefers-color-scheme: dark) {
-  .prose pre {
-    background: linear-gradient(135deg, #161b22 60%, #22272e 100%);
-    color: #c9d1d9;
-    border: 1px solid #30363d;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.18);
-  }
-  .prose code {
-    background: #22272e;
-    color: #79b8ff;
-  }
-}
-/* Syntax highlighting for code blocks (GitHub-inspired) */
-.prose code[class*="language-"] {
+
+/* Light mode override */
+.prose pre {
+  background: #f6f8fa !important;
+  border-color: #d0d7de;
   color: #24292f;
 }
-.prose .token.comment,
-.prose .token.prolog,
-.prose .token.doctype,
-.prose .token.cdata {
-  color: #6a737d;
+
+.prose pre code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+}
+
+/* Inline code styling */
+.prose code {
+  font-family: 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  color: #be185d;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875em;
+  font-weight: 600;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .prose code {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+  color: #f472b6;
+  border: 1px solid #6b7280;
+}
+
+/* Custom scrollbar for code blocks */
+.prose pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.prose pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #64748b, #475569);
+  border-radius: 4px;
+}
+
+.dark .prose pre::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .prose pre::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #94a3b8, #cbd5e1);
+}
+
+.prose pre::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #475569, #334155);
+}
+
+.dark .prose pre::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #cbd5e1, #e2e8f0);
+}
+
+/* Ensure highlight.js styles take precedence */
+.prose pre .hljs {
+  background: inherit !important;
+  padding: 0 !important;
+}
+
+/* Additional highlight.js theme adjustments */
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d !important;
   font-style: italic;
 }
-.prose .token.punctuation {
-  color: #24292f;
-}
-.prose .token.property,
-.prose .token.tag,
-.prose .token.boolean,
-.prose .token.number,
-.prose .token.constant,
-.prose .token.symbol {
-  color: #005cc5;
-}
-.prose .token.selector,
-.prose .token.attr-name,
-.prose .token.string,
-.prose .token.char,
-.prose .token.builtin,
-.prose .token.inserted {
-  color: #22863a;
-}
-.prose .token.operator,
-.prose .token.entity,
-.prose .token.url,
-.prose .token.variable {
-  color: #d73a49;
-}
-.prose .token.atrule,
-.prose .token.attr-value,
-.prose .token.keyword {
-  color: #6f42c1;
-}
-.prose .token.deleted {
-  color: #b31d28;
-}
-@media (prefers-color-scheme: dark) {
-  .prose code[class*="language-"] {
-    color: #c9d1d9;
-  }
-  .prose .token.comment,
-  .prose .token.prolog,
-  .prose .token.doctype,
-  .prose .token.cdata {
-    color: #8b949e;
-  }
-  .prose .token.punctuation {
-    color: #c9d1d9;
-  }
-  .prose .token.property,
-  .prose .token.tag,
-  .prose .token.boolean,
-  .prose .token.number,
-  .prose .token.constant,
-  .prose .token.symbol {
-    color: #79b8ff;
-  }
-  .prose .token.selector,
-  .prose .token.attr-name,
-  .prose .token.string,
-  .prose .token.char,
-  .prose .token.builtin,
-  .prose .token.inserted {
-    color: #56d364;
-  }
-  .prose .token.operator,
-  .prose .token.entity,
-  .prose .token.url,
-  .prose .token.variable {
-    color: #ff7b72;
-  }
-  .prose .token.atrule,
-  .prose .token.attr-value,
-  .prose .token.keyword {
-    color: #d2a8ff;
-  }
-  .prose .token.deleted {
-    color: #ff7b72;
-  }
-}
-/* ===== TABLES ===== */
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  font-size: 0.9375rem;
-}
 
-.prose th,
-.prose td {
-  padding: 0.75rem 1rem;
-  border: 1px solid rgb(209, 213, 219);
-  text-align: left;
-  color: rgb(31, 41, 55);
-}
-
-.dark .prose th,
-.dark .prose td {
-  border-color: rgb(75, 85, 99);
-  color: rgb(229, 231, 235);
-}
-
-.prose th {
-  background-color: rgb(229, 231, 235);
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #d73a49 !important;
   font-weight: 600;
 }
 
-.dark .prose th {
-  background-color: rgb(55, 65, 81);
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #005cc5 !important;
 }
 
-.prose tr:nth-child(even) {
-  background-color: rgba(243, 244, 246, 0.5);
+.hljs-string,
+.hljs-doctag {
+  color: #032f62 !important;
 }
 
-.dark .prose tr:nth-child(even) {
-  background-color: rgba(17, 24, 39, 0.5);
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #6f42c1 !important;
+  font-weight: 600;
 }
 
-/* ===== IMAGES ===== */
-.prose img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
-  margin: 2rem 0;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #d73a49 !important;
 }
 
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-@media (min-width: 640px) {
-  .prose {
-    font-size: 1.0625rem;
-  }
-
-  .prose h1 {
-    font-size: 2.5rem;
-  }
-
-  .prose h2 {
-    font-size: 2rem;
-  }
-
-  .prose h3 {
-    font-size: 1.5rem;
-  }
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #22863a !important;
 }
 
-@media (min-width: 1024px) {
-  .prose h1 {
-    font-size: 3rem;
-  }
-
-  .prose h2 {
-    font-size: 2.25rem;
-  }
-
-  .prose h3 {
-    font-size: 1.75rem;
-  }
-
-  .prose p {
-    font-size: 1.125rem;
-  }
+.hljs-regexp,
+.hljs-link {
+  color: #032f62 !important;
 }
 
-/* ===== DARK MODE TRANSITIONS ===== */
-.prose,
-.prose * {
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+.hljs-symbol,
+.hljs-bullet {
+  color: #e36209 !important;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #005cc5 !important;
+}
+
+.hljs-meta {
+  color: #6a737d !important;
+}
+
+.hljs-deletion {
+  background: #ffeef0 !important;
+}
+
+.hljs-addition {
+  background: #f0fff4 !important;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Dark mode adjustments for highlight.js */
+.dark .hljs-comment,
+.dark .hljs-quote {
+  color: #8b949e !important;
+}
+
+.dark .hljs-keyword,
+.dark .hljs-selector-tag,
+.dark .hljs-subst {
+  color: #ff7b72 !important;
+}
+
+.dark .hljs-number,
+.dark .hljs-literal,
+.dark .hljs-variable,
+.dark .hljs-template-variable,
+.dark .hljs-tag .hljs-attr {
+  color: #79c0ff !important;
+}
+
+.dark .hljs-string,
+.dark .hljs-doctag {
+  color: #a5d6ff !important;
+}
+
+.dark .hljs-title,
+.dark .hljs-section,
+.dark .hljs-selector-id {
+  color: #d2a8ff !important;
+}
+
+.dark .hljs-type,
+.dark .hljs-class .hljs-title {
+  color: #ff7b72 !important;
+}
+
+.dark .hljs-tag,
+.dark .hljs-name,
+.dark .hljs-attribute {
+  color: #7ee787 !important;
+}
+
+.dark .hljs-regexp,
+.dark .hljs-link {
+  color: #a5d6ff !important;
+}
+
+.dark .hljs-symbol,
+.dark .hljs-bullet {
+  color: #ffa657 !important;
+}
+
+.dark .hljs-built_in,
+.dark .hljs-builtin-name {
+  color: #79c0ff !important;
+}
+
+.dark .hljs-meta {
+  color: #8b949e !important;
 }
 </style>
