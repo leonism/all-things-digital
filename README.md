@@ -5,11 +5,8 @@
 - [Build Status](#-build-status)
 - [Video](#-video)
 - [Descriptions](#-descriptions)
-- [Mock-up & Visualization](#-mock-up--visualization)
+- [Mock-up & Visualization](#-mock-up-visualization)
 - [Features](#-features)
-- [Advanced Search System](#-advanced-search-system)
-- [Cloudinary Integration](#-cloudinary-integration)
-- [Todos](#-todos)
 - [How To](#-how-to)
 - [Credits](#-credits)
 - [Versions](#-versions)
@@ -51,16 +48,15 @@ Leveraging the power of **Tailwind CSS (4.1.6)**, **All Things Digital** provide
 
 ## 🚀 Features
 
-- ✅ **Responsive mobile-friendly design**
-- ✅ **Using the latest Tailwind 3.2.4**
-- ✅ **Tested on various devices with different viewports**
-- ✅ **Dark Mode**
-- ✅ **Contact Form**
-- ✅ **Utilize Tailwind Plugins (Typography & Form)**
+- ✅ **Using the latest Vue.js, Vite.js and Tailwind CSS**
+- ✅ **Utilize Tailwind Plugins (Typography, Form & Dark Mode)**
 - ✅ **Cloudinary Integration for Optimized Image Delivery**
-- ✅ **Automatic Image Optimization (WebP/AVIF, Quality, Compression)**
+- ✅ **Decap CMS Integration for Optimized Content Management**
+- ✅ **Automatic Image Optimization (WebP/AVIF Quality, Compression)**
 - ✅ **Responsive Image Generation with CDN Delivery**
 - ✅ **Vue Composables for Seamless Image Management**
+- ✅ **Responsive, tested on various devices with different viewports**
+- ✅ **Contact Form**
 
 ## 🤓 How To
 
@@ -82,7 +78,7 @@ npm run dev
 
 This will serve your project locally and watch for changes in your source files.
 
-### 3. Watch and build Tailwind CSS
+### 3. Watch and build the Project
 
 To continuously compile your Tailwind CSS as you work, open a separate terminal and run:
 
