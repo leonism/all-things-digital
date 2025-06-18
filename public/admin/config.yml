@@ -17,16 +17,12 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
-      - {
-          label: 'Slug',
-          name: 'slug',
-          widget: 'string',
-          pattern:
-            [
-              '^[a-z0-9]+(?:-[a-z0-9]+)*$',
-              'A slug can have no spaces or special characters',
-            ],
-        }
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+        pattern:
+          - '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          - 'A slug can have no spaces or special characters'
       - { label: 'Email', name: 'email', widget: 'string', required: false }
       - { label: 'Bio', name: 'bio', widget: 'text' }
       - { label: 'Avatar', name: 'avatar', widget: 'image', required: false }
@@ -36,39 +32,27 @@ collections:
           widget: 'string',
           default: 'Author',
         }
-      - {
-          label: 'Social Links',
-          name: 'social',
-          widget: 'object',
-          required: false,
-          fields:
-            [
-              {
-                label: 'Website',
-                name: 'website',
-                widget: 'string',
-                required: false,
-              },
-              {
-                label: 'Twitter',
-                name: 'twitter',
-                widget: 'string',
-                required: false,
-              },
-              {
-                label: 'LinkedIn',
-                name: 'linkedin',
-                widget: 'string',
-                required: false,
-              },
-              {
-                label: 'GitHub',
-                name: 'github',
-                widget: 'string',
-                required: false,
-              },
-            ],
-        }
+      - label: 'Social Links'
+        name: 'social'
+        widget: 'object'
+        required: false
+        fields:
+          - label: 'Website'
+            name: 'website'
+            widget: 'string'
+            required: false
+          - label: 'Twitter'
+            name: 'twitter'
+            widget: 'string'
+            required: false
+          - label: 'LinkedIn'
+            name: 'linkedin'
+            widget: 'string'
+            required: false
+          - label: 'GitHub'
+            name: 'github'
+            widget: 'string'
+            required: false
       - { label: 'Active', name: 'active', widget: 'boolean', default: true }
 
   # Categories Collection
