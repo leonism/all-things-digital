@@ -67,7 +67,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-06-18T06:44:09.855Z"
+lastModified: "2025-06-18T07:38:43.490Z"
 ---
 
 Decorating your home doesn’t have to come with a hefty price tag. With a little creativity and some basic materials, you can craft unique pieces that reflect your personality. DIY home decor allows you to: Add personal touches to your home affordably.

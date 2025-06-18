@@ -3,8 +3,8 @@ title: My First Blog Post
 seoTitle: My First Blog Post | Example Article
 slug: first-post
 lang: en
-datePublished: '2025-05-26T15:55:32.815Z'
-dateModified: '2025-06-16T17:24:50.919Z'
+datePublished: "2025-05-26T15:55:32.815Z"
+dateModified: "2025-06-16T17:24:50.919Z"
 author:
   name: Mike Smith
   role: Developer
@@ -41,7 +41,7 @@ contentSettings:
   comments: true
   shareButtons: true
   contentWarning: null
-lastModified: '2025-06-18T06:44:09.998Z'
+lastModified: "2025-06-18T07:38:43.627Z"
 ---
 
 Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
@@ -123,11 +123,11 @@ const thumbnail01Comp = '/assets/img/thumbnail-01-comp.jpg';
 const avatar = '/assets/img/avatar.png';
 
 // SEO Meta Data
-const siteName = 'DGPond.COM';
-const pageTitle = 'DGPond.COM - Web Development Insights & Experiments';
+const siteName = 'All Things Digital';
+const pageTitle = 'All Things Digital - Web Development Insights & Experiments';
 const pageDescription = 'Explore articles on web development, emerging technologies, and hands-on experiments with cutting-edge tools and frameworks by a passionate developer.';
-const homeUrl = 'https://all-things-digital.pages.dev//'; // Replace with your actual domain
-const ogImage = 'https://all-things-digital.pages.dev//all-things-digital.png'; // Replace with your actual OG image URL
+const homeUrl = 'https://all-things-digital.pages.dev/'; // Replace with your actual domain
+const ogImage = 'https://all-things-digital.pages.dev/all-things-digital.png'; // Replace with your actual OG image URL
 
 // SEO Meta Tags using composable
 useWebsiteSEO({

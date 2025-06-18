@@ -30,8 +30,8 @@ const thumbnail01Comp = '/assets/img/thumbnail-01-comp.jpg';
 const avatar = '/assets/img/avatar.png';
 
 // SEO Meta Data
-const siteName = 'DGPond.COM';
-const pageTitle = 'DGPond.COM - Web Development Insights & Experiments';
+const siteName = 'All Things Digital';
+const pageTitle = 'All Things Digital - Web Development Insights & Experiments';
 const pageDescription = 'Explore articles on web development, emerging technologies, and hands-on experiments with cutting-edge tools and frameworks by a passionate developer.';
 const homeUrl = 'https://all-things-digital.pages.dev/'; // Replace with your actual domain
 const ogImage = 'all-things-digital/icons/logo-footer'; // Replace with your actual OG image URL
