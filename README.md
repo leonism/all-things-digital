@@ -1,3 +1,23 @@
+<div align="center">
+  <h1>All Things Digital - A Tailwind, Vue.js & Vite.js Based Theme</h1>
+  <p>
+    <strong>
+      A modern, sleek and responsive, TailwindCSS, Vue.js & Vite.js Based Theme
+    </strong>
+  </p>
+
+  [![Astro](https://img.shields.io/badge/Astro-5.10.1-FF5D01?style=flat&logo=astro&logoColor=white)](https://astro.build)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+  [![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+
+  <!-- Additional new badges below -->
+  [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare_Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+  [![Vercel](https://img.shields.io/badge/Preview-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
+  [![Multilingual](https://img.shields.io/badge/Multilingual-Yes-0A7E07?style=flat)](#)
+  [![Dark Mode](https://img.shields.io/badge/Dark_Mode-Enabled-000000?style=flat)](#)
+</div>
+
 # 👋 All Things Digital - A Tailwind Theme
 
 ## Table of Contents
@@ -27,7 +47,7 @@ https://user-images.githubusercontent.com/8904/207529944-a7fdb698-551c-4a3b-8561
 
 ### Elevate Your Digital Presence with All Things Digital
 
-Introducing **All Things Digital**, our cutting-edge, minimalistic, and responsive multi-page layout theme, engineered for the modern web. Built atop the blazing-fast **Vue.js** framework, and powered by **Vite.js** for an unparalleled development experience, this theme is more than just a fresh coat of paint. It's a complete ecosystem designed for peak performance and effortless content management. We've embraced a **mobile-first** philosophy and integrated a stunning **Dark Mode** to ensure a comfortable and visually appealing experience for all your users, day or night.
+Introducing **All Things Digital**, a cutting-edge, minimalistic, and responsive multi-page layout theme, engineered for the modern web. Built atop the blazing-fast **Vue.js** framework, and powered by **Vite.js** for an unparalleled development experience, this theme is more than just a fresh coat of paint. It's a complete ecosystem designed for peak performance and effortless content management. We've embraced a **mobile-first** philosophy and integrated a stunning **Dark Mode** to ensure a comfortable and visually appealing experience for all your users, day or night.
 
 ### Streamlined Content and Powerful Search
 
