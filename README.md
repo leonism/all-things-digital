@@ -164,10 +164,6 @@ Summary of scripts:
 - [all-things-digital @ cloudflare](https://all-things-digital.pages.dev)
 - [all-things-digital @ render](https://all-things-digital.onrender.com)
 
-## 💻 Splash Screen
-
-![Alt text](/docs/all-things-digital-splash.png?raw=true)
-
 ## 🖊️ License
 
 Distributed under the MIT License - December 2022
