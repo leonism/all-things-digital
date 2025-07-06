@@ -108,10 +108,10 @@ export default defineConfig({
         ],
       },
       webp: {
-        quality: 55,
+        quality: 45,
       },
       avif: {
-        quality: 50,
+        quality: 45,
       },
     }),
     tailwindcss(),
