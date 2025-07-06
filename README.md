@@ -1,11 +1,8 @@
 <div align="center">
   <h1>All Things Digital</h1>
-  <h2>A Tailwind, Vue.js & Vite.js Based Theme</h2>
-  <p>
-    <strong>
-      A modern, sleek and responsive, TailwindCSS, Vue.js & Vite.js Based Theme
-    </strong>
-  </p>
+  <h2>
+    A modern, sleek and responsive, TailwindCSS, Vue.js & Vite.js Based Theme
+  </h2>
 
   ![Node.js](https://img.shields.io/badge/Node.js-20.5.7-339933?logo=node.js&logoColor=white)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.7-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
@@ -17,9 +14,8 @@
   [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare_Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
   [![Vercel](https://img.shields.io/badge/Preview-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
   [![Dark Mode](https://img.shields.io/badge/Dark_Mode-Enabled-000000?style=flat)](#)
+  ![A modern, sleek and responsive, TailwindCSS, Vue.js & Vite.js Based Theme](/docs/all-things-digital-splash.png?raw=true)
 </div>
-
-# 👋 All Things Digital - A Tailwind Theme
 
 ## Table of Contents
 
@@ -31,7 +27,6 @@
 - [How To](#-how-to)
 - [Credits](#-credits)
 - [Versions](#-versions)
-- [Splash Screen](#-splash-screen)
 - [License](#-license)
 
 ## ✅ Build Status
@@ -39,6 +34,11 @@
 [![Deploy to GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?logo=github)](https://docs.github.com/en/pages/getting-started-with-github-pages)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/747bd292-bddb-48a9-a63e-08c1ff154ffc/deploy-status)](https://app.netlify.com/sites/all-things-digital/deploys)
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-orange?logo=cloudflare)](https://developers.cloudflare.com/pages/get-started/)
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/leonism/All-things-digital)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leonism/All-things-digital)
 
 ## 🎥 Video
 
@@ -57,11 +57,6 @@ Introducing **All Things Digital**, a cutting-edge, minimalistic, and responsive
 ### Unmatched Flexibility and Customization
 
 Leveraging the power of **Tailwind CSS (4.1.6)**, **All Things Digital** provides unparalleled flexibility for customization without ever writing complex CSS. This utility-first framework, combined with specialized plugins for typography and forms, empowers you to effortlessly craft a unique look and feel that perfectly aligns with your brand. Whether you're a seasoned developer or just starting, this theme provides a professional, modern, and highly customizable solution for building an exceptional digital presence. Explore **All Things Digital** today and transform your website!
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/leonism/All-things-digital)
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/leonism/All-things-digital)
 
 ## 📷 Mock-up & Visualization
 
