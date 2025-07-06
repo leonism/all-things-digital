@@ -1,20 +1,21 @@
 <div align="center">
-  <h1>All Things Digital - A Tailwind, Vue.js & Vite.js Based Theme</h1>
+  <h1>All Things Digital</h1>
+  <h2>A Tailwind, Vue.js & Vite.js Based Theme</h2>
   <p>
     <strong>
       A modern, sleek and responsive, TailwindCSS, Vue.js & Vite.js Based Theme
     </strong>
   </p>
 
-  [![Astro](https://img.shields.io/badge/Astro-5.10.1-FF5D01?style=flat&logo=astro&logoColor=white)](https://astro.build)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-  [![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+  ![Node.js](https://img.shields.io/badge/Node.js-20.5.7-339933?logo=node.js&logoColor=white)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.7-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+  [![Vue+Vite](https://img.shields.io/badge/Modern_Stack-Vue.js_3_+_Vite-42B883?logo=vue.js&logoColor=white)](https://vitejs.dev/)
+  ![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?logo=typescript&logoColor=white)
+  ![ts-node](https://img.shields.io/badge/ts--node-10.9.1-3178C6?logo=typescript&logoColor=white)
 
   <!-- Additional new badges below -->
   [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare_Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
   [![Vercel](https://img.shields.io/badge/Preview-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
-  [![Multilingual](https://img.shields.io/badge/Multilingual-Yes-0A7E07?style=flat)](#)
   [![Dark Mode](https://img.shields.io/badge/Dark_Mode-Enabled-000000?style=flat)](#)
 </div>
 
