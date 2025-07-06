@@ -5,7 +5,7 @@
   </h2>
 
   ![Node.js](https://img.shields.io/badge/Node.js-20.5.7-339933?logo=node.js&logoColor=white)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.7-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.11-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
   [![Vue+Vite](https://img.shields.io/badge/Modern_Stack-Vue.js_3_+_Vite-42B883?logo=vue.js&logoColor=white)](https://vitejs.dev/)
   ![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-3178C6?logo=typescript&logoColor=white)
   ![ts-node](https://img.shields.io/badge/ts--node-10.9.1-3178C6?logo=typescript&logoColor=white)
