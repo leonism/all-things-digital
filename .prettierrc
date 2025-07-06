@@ -45,20 +45,11 @@
     },
     {
       // TypeScript and JavaScript files
-      "files": ["*.ts", "*.js"],
+      "files": ["*.ts","*.vue", "*.js"],
       "options": {
         "semi": false, // Do not use semicolons in TypeScript and JavaScript files
         "singleQuote": true, // Use single quotes in TypeScript and JavaScript files
         "trailingComma": "es5" // Add trailing commas in TypeScript and JavaScript files
-      }
-    },
-    {
-      // SCSS and SASS files
-      "files": ["*.scss", "*.sass"],
-      "options": {
-        "singleQuote": false, // Use double quotes in SCSS and SASS files
-        "scssBracketSpacing": false, // Do not add spaces inside brackets in SCSS
-        "scssSortProperties": "alphabetical" // Sort SCSS properties alphabetically
       }
     },
     {

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-3 mb-4">
+  <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 pb-0 mb-0">
     <!-- Results Count -->
     <div class="flex items-center space-x-2">
       <span v-if="totalResults > 0">
@@ -22,7 +22,9 @@
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
-      <span>{{ searchTime }}ms</span>
+      <span>
+        {{ searchTime }}ms
+      </span>
     </div>
   </div>
 
@@ -31,18 +33,18 @@
     <div class="flex items-center space-x-2 text-xs">
       <span class="text-gray-500 dark:text-gray-400">Filter by:</span>
       <div class="flex flex-wrap gap-2">
-        <button
-          v-for="category in categories"
-          :key="category.name"
-          @click="$emit('filter-category', category.name)"
-          :class="[
-            'inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition-colors',
-            category.active
-              ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300'
-              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-          ]"
-        >
-          {{ category.name }}
+          <button
+            v-for="category in categories"
+            :key="category.name"
+            @click="$emit('filter-category', category.name)"
+            :class="[
+              'inline-flex items-center px-2 py-1 rounded-full text-xs font-medium transition-colors',
+              category.active
+                ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+            ]"
+          >
+            {{ category.name }}
           <span class="ml-1 text-xs opacity-75">({{ category.count }})</span>
         </button>
       </div>
