@@ -19,7 +19,7 @@
 
 ## Table of Contents
 
-- [Build Status](#-build-status)
+- [Quick Deploy](#-quick-deploy)
 - [Video](#-video)
 - [Descriptions](#-descriptions)
 - [Mock-up & Visualization](#-mock-up-visualization)
@@ -29,11 +29,7 @@
 - [Versions](#-versions)
 - [License](#-license)
 
-## ✅ Build Status
-
-[![Deploy to GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?logo=github)](https://docs.github.com/en/pages/getting-started-with-github-pages)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/747bd292-bddb-48a9-a63e-08c1ff154ffc/deploy-status)](https://app.netlify.com/sites/all-things-digital/deploys)
-[![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-orange?logo=cloudflare)](https://developers.cloudflare.com/pages/get-started/)
+## ✅ Quick Deploy
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/leonism/all-things-digital?file=README.md)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github.com/leonism/all-things-digital/)
