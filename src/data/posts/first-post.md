@@ -41,7 +41,7 @@ contentSettings:
   comments: true
   shareButtons: true
   contentWarning: null
-lastModified: "2025-07-07T01:10:11.373Z"
+lastModified: "2025-07-07T01:39:47.074Z"
 ---
 
 Welcome to the first blog post on this newly integrated Vue 3 blog! This post serves as an example to test the Markdown rendering and frontmatter extraction.
