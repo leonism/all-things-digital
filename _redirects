@@ -1,0 +1,6 @@
+# Blog post redirects - serve prerendered HTML for SEO
+/blog/:slug/  /blog/:slug/index.html  200
+/blog/:slug   /blog/:slug/index.html  200
+
+# SPA fallback - all other routes go to index.html
+/*  /index.html  200
