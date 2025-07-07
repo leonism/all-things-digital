@@ -67,7 +67,7 @@ schema:
     logo:
       "@type": ImageObject
       url: /images/logo-placeholder.png
-lastModified: "2025-07-07T01:08:57.906Z"
+lastModified: "2025-07-07T01:10:11.403Z"
 ---
 
 A balanced diet is not just about eating less or avoiding certain foods; it's about nourishing your body with the right nutrients. Here are some essential components: Good nutrition is the foundation of a healthy life.
